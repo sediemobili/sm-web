@@ -1,0 +1,32 @@
+[
+  {
+    "id": 89,
+    "slug": "italiano",
+    "name": "Italiano",
+    "parentSlug": null,
+    "path": "/procedencia/italiano/",
+    "description": null,
+    "image": null,
+    "count": 9,
+    "seo": {
+      "title": "Italiano archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 88,
+    "slug": "nacional",
+    "name": "Nacional",
+    "parentSlug": null,
+    "path": "/procedencia/nacional/",
+    "description": null,
+    "image": null,
+    "count": 144,
+    "seo": {
+      "title": "Nacional archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  }
+]

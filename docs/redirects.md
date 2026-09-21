@@ -11,3 +11,4 @@ Pendientes de pasar a next.config.
 | /product-tag/escolar/ | /product-category/sillas-de-oficina/sillas-escolares/ |
 | /product-tag/silla/ | /product-category/sillas-de-oficina/ |
 | /product-tag/sillas/ | /product-category/sillas-de-oficina/ |
+| /m/ | / |

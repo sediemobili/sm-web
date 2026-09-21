@@ -1,0 +1,137 @@
+[
+  {
+    "id": 52,
+    "slug": "air-duo",
+    "name": "Air Duo",
+    "parentSlug": null,
+    "path": "/coleccion/air-duo/",
+    "description": "<p>Air Duo es un conjunto impresionante que fusiona elementos de excepcional belleza. Inspirado en la armonía de un entorno sereno, este diseño cautiva con cautelosas combinaciones de colores y materiales. Cada elemento conserva su propia identidad, enriqueciendo el conjunto en su totalidad. La cubierta de los escritorios, crean la ilusión de flotar en contraste con la base metálica. La pata de acero actúa como punto de conexión y separación, logrando un efecto de levitación impactante.</p>",
+    "image": null,
+    "count": 3,
+    "seo": {
+      "title": "Air Duo archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 53,
+    "slug": "basic",
+    "name": "Basic",
+    "parentSlug": null,
+    "path": "/coleccion/basic/",
+    "description": null,
+    "image": null,
+    "count": 2,
+    "seo": {
+      "title": "Basic archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 56,
+    "slug": "dinamo",
+    "name": "Dinamo",
+    "parentSlug": null,
+    "path": "/coleccion/dinamo/",
+    "description": null,
+    "image": null,
+    "count": 1,
+    "seo": {
+      "title": "Dinamo archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 49,
+    "slug": "larus",
+    "name": "Larus",
+    "parentSlug": null,
+    "path": "/coleccion/larus/",
+    "description": null,
+    "image": null,
+    "count": 4,
+    "seo": {
+      "title": "Larus archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 50,
+    "slug": "lithos",
+    "name": "Lithos",
+    "parentSlug": null,
+    "path": "/coleccion/lithos/",
+    "description": null,
+    "image": null,
+    "count": 4,
+    "seo": {
+      "title": "Lithos archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 54,
+    "slug": "quadri",
+    "name": "Quadri",
+    "parentSlug": null,
+    "path": "/coleccion/quadri/",
+    "description": null,
+    "image": null,
+    "count": 9,
+    "seo": {
+      "title": "Quadri archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 51,
+    "slug": "temx",
+    "name": "TEMX",
+    "parentSlug": null,
+    "path": "/coleccion/temx/",
+    "description": "<p>Línea de mobiliario con un enfoque destacado en las credenzas con diseño único de dos tonos de color. Estos elegantes muebles fusionan la funcionalidad con la estética, creando un impacto visual sorprendente en cualquier espacio. La combinación de dos tonalidades contrastantes agrega profundidad y estilo a cada escritorio, ofreciendo una apariencia moderna y sofisticada. Con acabados de alta calidad y detalles cuidadosamente seleccionados, estas escritorios no solo son visualmente atractivos, sino también prácticas, con amplio espacio de almacenamiento y opciones de organización inteligentes.</p>",
+    "image": null,
+    "count": 2,
+    "seo": {
+      "title": "TEMX archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 48,
+    "slug": "uno-zero",
+    "name": "Uno-Zero",
+    "parentSlug": null,
+    "path": "/coleccion/uno-zero/",
+    "description": null,
+    "image": null,
+    "count": 2,
+    "seo": {
+      "title": "Uno-Zero archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 55,
+    "slug": "versatil",
+    "name": "Versátil",
+    "parentSlug": null,
+    "path": "/coleccion/versatil/",
+    "description": null,
+    "image": null,
+    "count": 6,
+    "seo": {
+      "title": "Versátil archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  }
+]
