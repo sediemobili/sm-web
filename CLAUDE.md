@@ -115,13 +115,17 @@
 - /product-category/[...slug]/   categoría y subcategoría (sillas-de-oficina/silla-directiva/)
 - /product/[slug]/               ficha de producto
 - /coleccion/[slug]/             colección
+- /procedencia/[slug]/           procedencia (italiano, nacional)
 - /blog/                         listado del blog
 - /[slug]/                       los posts viven en la raíz y no deben chocar con las páginas
 - /venta-empresarial/  /nosotros/  /legal/ (los términos están en #tc)
+- /gracias/                      página de conversión del formulario
 - Toda URL de WordPress que no se replique lleva una 301 en next.config, listada en
   docs/redirects.md. La lista maestra es el sitemap de WP (/sitemap_index.xml).
-- Categorías: Escritorios, Recepciones, Sillas (con Silla Directiva, Silla Ejecutiva…),
-  Sofás, Soft Seating, Mesas, Taburetes, Bancas y Sillas Escolares.
+- Categorías de primer nivel: bancas, escritorios, mesas, recepciones, sillas-de-oficina,
+  sofas, soft-seating y taburetes. Dentro de sillas-de-oficina: silla-directiva,
+  silla-ejecutiva, silla-industrial, silla-operativa, silla-secretarial, sillas-visita
+  y sillas-escolares.
 - Colecciones: Quadri, Versátil, Larus, Lithos, Uno-Zero, TEMX, Air Duo, Basic y Dinamo.
 
 ## Componentes globales
