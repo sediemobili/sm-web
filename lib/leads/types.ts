@@ -1,14 +1,15 @@
 // Contrato de guardado de leads. Hoy solo hay console; el día que exista la base,
 // se implementa db y se cambia LEADS_SINK.
 
+// El newsletter solo pide email, así que todo lo que no sea email ni origen es opcional.
 export type Lead = {
-  nombre: string;
+  nombre: string | null;
   email: string;
-  telefono: string;
+  telefono: string | null;
   empresa: string | null;
-  interes: string;
+  interes: string | null;
   mensaje: string | null;
-  origen: string;
+  origen: "modal-contacto" | "newsletter";
   creadoEn: string;
 };
 

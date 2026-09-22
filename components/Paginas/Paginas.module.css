@@ -1,0 +1,114 @@
+/* Páginas estáticas: nosotros, venta empresarial, legal y gracias. */
+
+.encabezado {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  margin-block-end: var(--espacio-6);
+}
+
+.seccion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-3);
+  margin-block-end: var(--espacio-8);
+}
+
+.imagen {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radio-m);
+}
+
+/* Venta empresarial: galería y ventajas ------------------------------------ */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--espacio-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ventajas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-5);
+  margin: var(--espacio-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ventaja {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.ventajaTitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-regular);
+  color: var(--color-tinta);
+}
+
+/* Legal --------------------------------------------------------------------- */
+
+.bloqueLegal {
+  margin-block-end: var(--espacio-6);
+}
+
+.pendiente {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  font-style: italic;
+  color: var(--color-texto-suave);
+}
+
+/* Gracias ------------------------------------------------------------------- */
+
+.gracias {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-4);
+  padding: var(--espacio-7);
+  border-radius: var(--radio-m);
+  background-color: var(--color-tinta);
+  color: var(--color-fondo);
+}
+
+.graciasLogo {
+  width: var(--ancho-logo);
+  height: auto;
+}
+
+.graciasTitulo {
+  color: var(--color-fondo);
+}
+
+.graciasTexto {
+  color: var(--color-fondo-suave);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+}
+
+@media (max-width: 767px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ventajas {
+    grid-template-columns: 1fr;
+  }
+
+  .gracias {
+    padding: var(--espacio-5);
+  }
+}

@@ -37,7 +37,7 @@ export default async function CategoriaPage({ params }: PageProps<"/product-cate
       <header className={estilos.encabezado}>
         <h1 className="sm-titulo-pagina">{categoria.name}</h1>
         {categoria.description ? (
-          <div className={estilos.descripcion} dangerouslySetInnerHTML={{ __html: categoria.description }} />
+          <div className="sm-prosa" dangerouslySetInnerHTML={{ __html: categoria.description }} />
         ) : null}
       </header>
 
@@ -80,7 +80,7 @@ export default async function CategoriaPage({ params }: PageProps<"/product-cate
           </ul>
         </section>
       ) : (
-        <div className={estilos.vacio}>
+        <div className="sm-vacio">
           <p>Todavía no hay productos en esta categoría.</p>
           <Link href="/catalogo/" className="sm-boton">
             Ver todo el catálogo

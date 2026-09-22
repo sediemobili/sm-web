@@ -1,0 +1,80 @@
+/* Post del blog: solo lo propio; lo compartido vive en patrones.css. */
+
+.articulo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.encabezado {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  max-width: 70ch;
+}
+
+.meta {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-texto-suave);
+}
+
+.destacada {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radio-m);
+}
+
+/* Sobre .sm-prosa: el artículo respira más que un bloque de texto corto. */
+.cuerpo {
+  line-height: var(--interlineado-amplio);
+}
+
+.cuerpo h2 {
+  margin-block: var(--espacio-5) var(--espacio-2);
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-regular);
+  line-height: var(--interlineado-titulo);
+  color: var(--color-tinta);
+}
+
+.cuerpo h3 {
+  margin-block: var(--espacio-4) var(--espacio-2);
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-regular);
+  color: var(--color-tinta);
+}
+
+.cuerpo ul,
+.cuerpo ol,
+.cuerpo blockquote {
+  margin-block-start: var(--espacio-3);
+}
+
+.cuerpo ul,
+.cuerpo ol {
+  padding-inline-start: var(--espacio-4);
+}
+
+.cuerpo blockquote {
+  padding-inline-start: var(--espacio-4);
+  border-inline-start: 2px solid var(--color-fondo-suave);
+  color: var(--color-tinta);
+}
+
+.cuerpo a {
+  color: var(--color-acento);
+}
+
+.sigue {
+  margin-block-start: var(--espacio-8);
+}
+
+.fecha {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-xs);
+  color: var(--color-texto-suave);
+  text-transform: uppercase;
+}

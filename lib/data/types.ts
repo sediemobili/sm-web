@@ -144,8 +144,14 @@ export type ProductQuery = {
   offset?: number;
 };
 
+// getProducts pagina: items es la página pedida y total cuenta todo lo que pasa el filtro.
+export type ProductPage = {
+  items: Product[];
+  total: number;
+};
+
 export type DataRepository = {
-  getProducts(query?: ProductQuery): Promise<Product[]>;
+  getProducts(query?: ProductQuery): Promise<ProductPage>;
   getProductBySlug(slug: string): Promise<Product | null>;
   getProductsByCategory(slug: string): Promise<Product[]>;
   getProductsByCollection(slug: string): Promise<Product[]>;

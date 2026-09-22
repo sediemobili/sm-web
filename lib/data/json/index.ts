@@ -10,6 +10,7 @@ import type {
   Post,
   Procedencia,
   Product,
+  ProductPage,
   ProductQuery,
 } from "../types";
 import { loadCategories, loadCollections, loadPages, loadPosts, loadProcedencias, loadProducts } from "./load";
@@ -39,7 +40,7 @@ function breadcrumbsFor(categories: Category[], category: Category): Breadcrumb[
   return chain.map((c) => ({ name: c.name, path: c.path }));
 }
 
-export async function getProducts(query: ProductQuery = {}): Promise<Product[]> {
+export async function getProducts(query: ProductQuery = {}): Promise<ProductPage> {
   const { category, collection, procedencia, limit, offset = 0 } = query;
   const products = await loadProducts();
   const categorySlugs = category ? withDescendants(await loadCategories(), category) : null;
@@ -50,15 +51,21 @@ export async function getProducts(query: ProductQuery = {}): Promise<Product[]> 
       (!collection || product.collections.includes(collection)) &&
       (!procedencia || product.procedencia === procedencia),
   );
-  return filtered.slice(offset, limit === undefined ? undefined : offset + limit);
+  return {
+    items: filtered.slice(offset, limit === undefined ? undefined : offset + limit),
+    total: filtered.length,
+  };
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
   return (await loadProducts()).find((product) => product.slug === slug) ?? null;
 }
 
-export const getProductsByCategory = (slug: string) => getProducts({ category: slug });
-export const getProductsByCollection = (slug: string) => getProducts({ collection: slug });
+export const getProductsByCategory = async (slug: string): Promise<Product[]> =>
+  (await getProducts({ category: slug })).items;
+
+export const getProductsByCollection = async (slug: string): Promise<Product[]> =>
+  (await getProducts({ collection: slug })).items;
 
 // Categorías y colecciones salen en el orden curado, no en el de WordPress.
 const porOrden = <T extends { orden: number }>(terms: T[]) => [...terms].sort((a, b) => a.orden - b.orden);

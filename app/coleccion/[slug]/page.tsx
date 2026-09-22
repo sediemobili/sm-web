@@ -35,7 +35,7 @@ export default async function ColeccionPage({ params }: PageProps<"/coleccion/[s
       <header className={estilos.encabezado}>
         <h1 className="sm-titulo-pagina">{coleccion.name}</h1>
         {coleccion.description ? (
-          <div className={estilos.descripcion} dangerouslySetInnerHTML={{ __html: coleccion.description }} />
+          <div className="sm-prosa" dangerouslySetInnerHTML={{ __html: coleccion.description }} />
         ) : null}
       </header>
 
@@ -64,7 +64,7 @@ export default async function ColeccionPage({ params }: PageProps<"/coleccion/[s
           </ul>
         </section>
       ) : (
-        <div className={estilos.vacio}>
+        <div className="sm-vacio">
           <p>Todavía no hay productos en esta colección.</p>
           <Link href="/catalogo/" className="sm-boton">
             Ver todo el catálogo

@@ -100,6 +100,20 @@
     outline-offset: 2px;
   }
 
+  /* Prosa: bloques de texto con ancho de lectura cómodo --------------------- */
+  .sm-prosa {
+    max-width: 70ch;
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-m);
+    font-weight: var(--peso-ligero);
+    line-height: var(--interlineado-base);
+    color: var(--color-texto);
+  }
+
+  .sm-prosa p + p {
+    margin-block-start: var(--espacio-2);
+  }
+
   /* Rejilla y tarjeta de producto ------------------------------------------ */
   .sm-rejilla {
     display: grid;
@@ -134,6 +148,17 @@
   .sm-tarjeta:focus-visible {
     outline: 2px solid var(--color-acento);
     outline-offset: 2px;
+  }
+
+  /* Estado vacío ----------------------------------------------------------- */
+  .sm-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--espacio-4);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-m);
+    color: var(--color-texto);
   }
 
   /* Botones ---------------------------------------------------------------- */

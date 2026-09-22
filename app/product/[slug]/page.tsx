@@ -17,7 +17,7 @@ import {
 const RELACIONADOS = 6;
 
 export async function generateStaticParams() {
-  return (await getProducts()).map((producto) => ({ slug: producto.slug }));
+  return (await getProducts()).items.map((producto) => ({ slug: producto.slug }));
 }
 
 // La categoría principal es la más profunda de las que trae el producto:

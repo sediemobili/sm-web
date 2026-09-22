@@ -1,0 +1,76 @@
+/* Bloque de newsletter de la home. */
+
+.newsletter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-5);
+  padding: var(--espacio-7);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo-suave);
+}
+
+.texto {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-m);
+  color: var(--color-texto);
+}
+
+.titulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-regular);
+  line-height: var(--interlineado-titulo);
+  letter-spacing: var(--tracking-titulo);
+  color: var(--color-tinta);
+}
+
+.destacado {
+  font-weight: var(--peso-semibold);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+}
+
+.etiqueta {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-xs);
+  color: var(--color-texto);
+}
+
+.campos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+}
+
+.campo {
+  padding: var(--espacio-2) var(--espacio-3);
+  border: 1px solid var(--color-texto-suave);
+  border-radius: var(--radio-campo);
+  background-color: var(--color-fondo);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-texto);
+}
+
+.campo:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+.error {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-xs);
+  color: var(--color-acento);
+}
+
+.exito {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-m);
+  color: var(--color-tinta);
+}
