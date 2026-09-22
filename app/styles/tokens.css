@@ -5,20 +5,19 @@
 
 :root {
   /* Color ------------------------------------------------------------------ */
-  --color-tinta: #0a0807; /* e-global-color-primary: textos y fondos oscuros */
+  --color-tinta: #0a0807; /* e-global-color-primary; unifica #000000 y #020101 */
   --color-fondo: #ffffff; /* e-global-color-border-dark, que en el sitio es el blanco */
   --color-fondo-suave: #edeae5; /* e-global-color-secondary: crema de secciones */
-  --color-texto: #5f5146; /* e-global-color-text */
+  --color-texto: #5f5146; /* e-global-color-text; unifica el alias 9491a6b */
   --color-texto-suave: #8c7d70; /* e-global-color-3375f71 */
   --color-acento: #5a3a21; /* e-global-color-accent */
   --color-acento-oscuro: #422a18; /* e-global-color-2e1100b, footer */
-  --color-borde: #dcd9d4; /* e-global-color-border-light, sin uso en las plantillas */
-  --color-carbon: #2d2a28; /* e-global-color-cc010a8, sin uso en las plantillas */
 
   /* Tipografía ------------------------------------------------------------- */
-  --fuente-titulo: "Raleway", sans-serif; /* 27 declaraciones, encabezados */
-  --fuente-texto: "Albert Sans", sans-serif; /* 19 declaraciones, cuerpo y botones */
-  --fuente-secundaria: "Archivo", sans-serif; /* 12 declaraciones, footer y algunos títulos */
+  /* Las familias las carga next/font en app/layout.tsx (latin, swap, pesos 200-600). */
+  --fuente-titulo: var(--font-raleway), sans-serif; /* Raleway: encabezados */
+  --fuente-texto: var(--font-albert-sans), sans-serif; /* Albert Sans: cuerpo y botones */
+  --fuente-secundaria: var(--font-archivo), sans-serif; /* Archivo: footer y algunos títulos */
 
   --peso-extraligero: 200;
   --peso-ligero: 300;
@@ -34,10 +33,14 @@
   --texto-2xl: 32px;
   --texto-3xl: 40px; /* títulos de sección; en móvil es el tamaño del hero */
   --texto-4xl: 48px;
+  /* Fuera de la escala, por uso aislado: 13, 15, 20, 26, 28, 30, 35, 55, 70, 90 y 100px. */
   --texto-hero: 80px; /* hero de la home en escritorio */
   --texto-hero-movil: 40px; /* mismo hero bajo 767px */
 
-  --interlineado-base: 1.5; /* Elementor solo usa valores en px, uno por bloque */
+  /* El sitio actual usa 10 interlineados sueltos en px; se aproximan con esta escala. */
+  --interlineado-titulo: 1.15;
+  --interlineado-base: 1.5;
+  --interlineado-amplio: 1.7;
   --tracking-titulo: -0.5px; /* el único valor repetido (6 usos) */
 
   /* Espaciado (5 · 10 · 12 · 20 · 30 · 40 · 50 · 60) ------------------------ */

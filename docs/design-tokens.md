@@ -1,222 +1,132 @@
-# Design tokens del sitio actual
+# Design tokens
 
-Extraído de sediemobili.com con `pnpm extract:tokens`. Fuentes: kit global de Elementor (post-29.css), el CSS de las plantillas que carga la home y sus fuentes de Google.
+El sistema de tokens del sitio nuevo. Los valores salen del sitio actual (kit global de
+Elementor `post-29.css` y el CSS de sus plantillas) y viven en `app/styles/tokens.css`, que es
+la única fuente de verdad. Aquí se explica de dónde sale cada uno y qué se dejó fuera.
 
-Los nombres de Elementor se traducen a nombres semánticos en `app/styles/tokens.css`.
+El inventario crudo se regenera con `pnpm extract:tokens`.
 
 ## Color
 
-### Globales del kit
-
-| Elementor | HEX | Usos | Dónde |
+| Token | HEX | Origen en Elementor | Uso |
 |---|---|---|---|
-| `primary` | #0A0807 | 44 | wp-page (27), header (31), header (33), footer (32), section (3757), popup (2438) |
-| `secondary` | #EDEAE5 | 31 | wp-page (27), header (31), header (33), footer (32), popup (2438) |
-| `text` | #5F5146 | 2 | footer (32) |
-| `accent` | #5A3A21 | 3 | popup (2438) |
-| `border-light` | #DCD9D4 | 0 | sin uso en estas plantillas |
-| `cc010a8` | #2D2A28 | 0 | sin uso en estas plantillas |
-| `border-dark` | #FFFFFF | 43 | wp-page (27), header (31), header (33), section (3757) |
-| `2e1100b` | #422A18 | 2 | footer (32) |
-| `9491a6b` | #5F5146 | 1 | footer (32) |
-| `3375f71` | #8C7D70 | 23 | wp-page (27), header (31), header (33), section (3757), popup (2438) |
+| `--color-tinta` | #0A0807 | `primary` | Texto principal y fondos oscuros |
+| `--color-fondo` | #FFFFFF | `border-dark` | Fondo del sitio |
+| `--color-fondo-suave` | #EDEAE5 | `secondary` | Crema de secciones |
+| `--color-texto` | #5F5146 | `text` | Texto de párrafo |
+| `--color-texto-suave` | #8C7D70 | `3375f71` | Texto secundario |
+| `--color-acento` | #5A3A21 | `accent` | Botones y enlaces destacados |
+| `--color-acento-oscuro` | #422A18 | `2e1100b` | Footer |
 
-### Colores escritos a mano en las plantillas
+**Consolidaciones:**
+- `--color-tinta` unifica los tres casi negros del sitio actual: #0A0807, #000000 y #020101.
+- `--color-texto` unifica `text` y su alias `9491a6b`, que tienen el mismo valor.
 
-| HEX | Usos |
-|---|---|
-| #FFFFFF | 35 |
-| #EDEAE5 | 8 |
-| #000000 | 5 |
-| #0A0807 | 3 |
-| #02010100 | 2 |
-| #F4F4F4 | 2 |
-| #00000057 | 1 |
-| #020101 | 1 |
-| #505050 | 1 |
-| #525252 | 1 |
-| #5F5146 | 1 |
-| #D0D0D0 | 1 |
-| #FFFFFF00 | 1 |
+**Fuera del sistema:**
+- `border-light` (#DCD9D4) y `cc010a8` (#2D2A28): están en el kit con 0 usos.
+- Grises de un solo uso: #505050, #525252, #D0D0D0 y #F4F4F4. Si una página los necesita,
+  se resuelven en su módulo CSS.
+- Transparencias sueltas: #FFFFFF00, #02010100 y #00000057. Mismo criterio.
 
 ## Tipografía
 
-Fuentes de Google que carga la home: `Roboto:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic`, `Roboto Slab:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic`, `Archivo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic`, `Raleway:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic`, `Albert Sans:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic`, `Inter:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic`.
+Las familias las carga `next/font/google` en `app/layout.tsx` con subset `latin`,
+`display: swap` y los pesos 200, 300, 400, 500 y 600, que son los que usa el sitio actual.
+Cada una expone su variable CSS y los tokens de fuente apuntan a ella.
 
-### Familias en uso
+| Token | Familia | Variable de next/font | Uso en el sitio actual |
+|---|---|---|---|
+| `--fuente-titulo` | Raleway | `--font-raleway` | Encabezados (27 declaraciones) |
+| `--fuente-texto` | Albert Sans | `--font-albert-sans` | Cuerpo y botones (19) |
+| `--fuente-secundaria` | Archivo | `--font-archivo` | Footer y algunos títulos (12) |
 
-| Familia | Declaraciones |
-|---|---|
-| Raleway | 27 |
-| Albert Sans | 19 |
-| Archivo | 12 |
-| Inter | 2 |
-
-### Tipografía global del kit
-
-| Elementor | Propiedad | Valor |
-|---|---|---|
-| `primary` | family | Roboto |
-| `primary` | weight | 600 |
-| `secondary` | family | Roboto Slab |
-| `secondary` | weight | 400 |
-| `text` | family | Roboto |
-| `text` | weight | 400 |
-| `accent` | family | Roboto |
-| `accent` | weight | 500 |
-
-### Tamaños
-
-| Escritorio | Usos |
-|---|---|
-| 16px | 18 |
-| 14px | 13 |
-| 12px | 9 |
-| 18px | 6 |
-| 40px | 4 |
-| 13px | 3 |
-| 15px | 2 |
-| 30px | 2 |
-| 32px | 2 |
-| 48px | 2 |
-| 80px | 2 |
-| 100px | 1 |
-| 20px | 1 |
-| 24px | 1 |
-| 55px | 1 |
-| 70px | 1 |
-| 90px | 1 |
-
-| Móvil (max-width:767px) | Usos |
-|---|---|
-| 40px | 6 |
-| 14px | 5 |
-| 24px | 3 |
-| 16px | 2 |
-| 28px | 2 |
-| 30px | 2 |
-| 12px | 1 |
-| 20px | 1 |
-| 26px | 1 |
-| 35px | 1 |
-| 60px | 1 |
-| 70px | 1 |
+**Fuera del sistema:** Inter (2 usos sueltos en una plantilla de sección), Roboto y Roboto Slab.
+Estas dos últimas se descargan en el sitio actual solo porque quedaron como valor por defecto
+de la tipografía global del kit, sin usarse en ninguna regla.
 
 ### Pesos
 
-| Valor | Usos |
+| Token | Valor |
 |---|---|
-| 400 | 29 |
-| 300 | 11 |
-| 200 | 3 |
-| 500 | 3 |
-| 600 | 3 |
+| `--peso-extraligero` | 200 |
+| `--peso-ligero` | 300 |
+| `--peso-regular` | 400 |
+| `--peso-medio` | 500 |
+| `--peso-semibold` | 600 |
 
-### Interlineado
+### Tamaños
 
-| Valor | Usos |
+| Token | Valor | Uso |
+|---|---|---|
+| `--texto-xs` | 12px | Pie del footer |
+| `--texto-s` | 14px | Botones y antetítulos |
+| `--texto-m` | 16px | Cuerpo; el tamaño más usado |
+| `--texto-l` | 18px | Entradillas |
+| `--texto-xl` | 24px | |
+| `--texto-2xl` | 32px | |
+| `--texto-3xl` | 40px | Títulos de sección; en móvil, el hero |
+| `--texto-4xl` | 48px | |
+| `--texto-hero` | 80px | Hero de la home en escritorio |
+| `--texto-hero-movil` | 40px | El mismo hero bajo 767px |
+
+**Fuera del sistema:** el sitio actual usa 21 tamaños distintos entre escritorio y móvil. Los
+que aparecen una o dos veces no suben a tokens: 13, 15, 20, 26, 28, 30, 35, 55, 70, 90 y 100px.
+Si una página necesita uno, se queda en su módulo.
+
+### Interlineado y tracking
+
+| Token | Valor | Para qué |
+|---|---|---|
+| `--interlineado-titulo` | 1.15 | Títulos |
+| `--interlineado-base` | 1.5 | Texto corrido |
+| `--interlineado-amplio` | 1.7 | Bloques aireados |
+
+El sitio actual no tiene escala: son 10 valores sueltos en px (12, 18, 20, 22, 30, 35, 36, 55,
+59 y 100px), uno por bloque y atados al tamaño de fuente de cada widget. Esta escala de 3
+valores relativos los aproxima; habrá diferencias de uno o dos píxeles contra el original.
+
+`--tracking-titulo` es `-0.5px`, el único valor de espaciado entre letras que se repite
+(6 usos). Los demás (-0.3px, -1px y -3px) son de un solo uso.
+
+## Espaciado
+
+Escala de 8 pasos, tomada de los `gap` del sitio actual:
+
+| Token | Valor |
 |---|---|
-| 36px | 4 |
-| 59px | 3 |
-| 30px | 2 |
-| 100px | 1 |
-| 12px | 1 |
-| 18px | 1 |
-| 20px | 1 |
-| 22px | 1 |
-| 35px | 1 |
-| 55px | 1 |
+| `--espacio-1` | 5px |
+| `--espacio-2` | 10px |
+| `--espacio-3` | 12px |
+| `--espacio-4` | 20px |
+| `--espacio-5` | 30px |
+| `--espacio-6` | 40px |
+| `--espacio-7` | 50px |
+| `--espacio-8` | 60px |
 
-### Espaciado entre letras
+## Radios y sombras
 
-| Valor | Usos |
+| Token | Valor | Uso |
+|---|---|---|
+| `--radio-s` | 12px | |
+| `--radio-m` | 20px | Tarjetas |
+| `--radio-l` | 30px | |
+| `--radio-pill` | 40px | El radio dominante: 41 usos |
+| `--sombra-tarjeta` | `2px 8px 23px 3px rgb(0 0 0 / 0.2)` | Tarjetas |
+| `--sombra-modal` | `0 0 10px 0 rgb(0 0 0 / 0.5)` | Modal |
+
+Son las únicas 2 sombras del sitio actual. Los radios asimétricos (`20px 0 0 20px`,
+`0 30px 30px 0`…) son de un solo uso y se resuelven en el módulo que los pida.
+
+## Disposición
+
+| Token | Valor | Origen |
+|---|---|---|
+| `--ancho-contenido` | 1170px | `--container-max-width` del kit |
+
+**Breakpoints** (van como comentario en `tokens.css`, porque una custom property no funciona
+dentro de `@media`):
+
+| Contexto | Ancho |
 |---|---|
-| -0.5px | 6 |
-| 0px | 2 |
-| -0.3px | 1 |
-| -1px | 1 |
-| -3px | 1 |
-
-## Espaciado, radios y sombras
-
-### Separaciones (gap)
-
-| Valor | Usos |
-|---|---|
-| `10px` | 24 |
-| `20px` | 18 |
-| `10px 10px` | 11 |
-| `0px` | 9 |
-| `20px 20px` | 8 |
-| `40px` | 7 |
-| `50px` | 4 |
-| `5px` | 4 |
-| `0px 0px` | 2 |
-| `12px` | 2 |
-| `40px 40px` | 2 |
-| `50px 50px` | 2 |
-| `5px 5px` | 2 |
-| `60px` | 2 |
-| `6px` | 2 |
-
-### Radios
-
-| Valor | Usos |
-|---|---|
-| `40px 40px 40px 40px` | 41 |
-| `20px 20px 20px 20px` | 12 |
-| `0px` | 6 |
-| `0px 0px 0px 0px` | 5 |
-| `30px 30px 30px 30px` | 3 |
-| `12px 12px 12px 12px` | 2 |
-| `15px 15px 15px 15px` | 2 |
-| `20px 20px 0px 0px` | 2 |
-| `0px 10px 10px 0px` | 1 |
-| `0px 30px 30px 0px` | 1 |
-| `10px 0 0 10px` | 1 |
-| `10px 0px 0px 10px` | 1 |
-| `10px 10px 10px 10px` | 1 |
-| `20px 0 0 20px` | 1 |
-| `20px 0px 0px 20px` | 1 |
-
-### Sombras
-
-| Valor | Usos |
-|---|---|
-| `0px 0px 10px 0px rgba(0,0,0,0.5)` | 1 |
-| `2px 8px 23px 3px rgba(0,0,0,0.2)` | 1 |
-
-### Rellenos (padding)
-
-| Valor | Usos |
-|---|---|
-| `0px 0px 0px 0px` | 9 |
-| `0% 0% 0% 0%` | 4 |
-| `2% 0% 0% 0%` | 3 |
-| `0% 0% 0% 12%` | 2 |
-| `0% 0% 0% 4%` | 2 |
-| `30px` | 2 |
-| `8px 32px 8px 32px` | 2 |
-| `0% 0% 0% 04%` | 1 |
-| `0% 0% 0% 6%` | 1 |
-| `0em` | 1 |
-| `11px 12px 11px 12px` | 1 |
-| `12px 12px 12px 12px` | 1 |
-| `12px 14px 12px 14px` | 1 |
-| `16px 17px 16px 17px` | 1 |
-| `9px 9px 9px 9px` | 1 |
-
-## Contenedor y breakpoints
-
-| Contexto | Ancho máximo |
-|---|---|
-| Escritorio | 1170px |
-| max-width:1189px | 1189px |
-| max-width:767px | 767px |
-
-| Breakpoint | Bloques |
-|---|---|
-| `max-width:767px` | 6 |
-| `min-width:768px` | 5 |
-| `max-width:1189px` | 2 |
-
+| Móvil | hasta 767px |
+| Tablet | hasta 1189px |
