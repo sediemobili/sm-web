@@ -1,8 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getPosts } from "@/lib/data";
+import { metadataDe } from "@/lib/seo";
 import { formatearFecha } from "@/lib/formato";
 import estilos from "./blog.module.css";
+
+export const metadata = metadataDe({
+  title: "Blog",
+  description:
+    "Artículos sobre mobiliario de oficina, ergonomía y diseño de espacios de trabajo de Sedie & Mobili.",
+  canonical: "/blog/",
+});
 
 export default async function BlogPage() {
   const posts = await getPosts();

@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/Seo/JsonLd";
 import { Descargables } from "@/components/Producto/Descargables";
 import { FichaProducto } from "@/components/Producto/FichaProducto";
 import estilos from "@/components/Producto/Producto.module.css";
+import { migas as migasLd, producto as productoLd } from "@/lib/jsonld";
+import { descripcionProducto, metadataDe } from "@/lib/seo";
 import {
   getCategories,
   getCategoryBySlug,
@@ -27,6 +30,20 @@ function categoriaPrincipal(slugs: string[], categorias: Category[]) {
   return suyas.find((categoria) => categoria.parentSlug !== null) ?? suyas[0] ?? null;
 }
 
+export async function generateMetadata({ params }: PageProps<"/product/[slug]">) {
+  const { slug } = await params;
+  const producto = await getProductBySlug(slug);
+  if (!producto) return {};
+  const categorias = await getCategories();
+  const categoria = categoriaPrincipal(producto.categories, categorias);
+  return metadataDe({
+    title: producto.seo.title ?? producto.name,
+    description: producto.seo.description ?? descripcionProducto(producto.name, categoria?.name ?? null),
+    canonical: producto.path,
+    ogImage: producto.seo.ogImage ?? producto.images[0]?.src ?? null,
+  });
+}
+
 export default async function ProductoPage({ params }: PageProps<"/product/[slug]">) {
   const { slug } = await params;
   const producto = await getProductBySlug(slug);
@@ -43,6 +60,8 @@ export default async function ProductoPage({ params }: PageProps<"/product/[slug
 
   return (
     <main className="sm-pagina">
+      <JsonLd datos={[productoLd(producto, detalle?.name ?? null), migasLd([...migas, { name: producto.name, path: producto.path }])]} />
+
       <nav aria-label="Migas de pan" className="sm-migas">
         <ol className="sm-migas-lista">
           {migas.map((miga) => (
@@ -55,7 +74,7 @@ export default async function ProductoPage({ params }: PageProps<"/product/[slug
       </nav>
 
       <div className={estilos.ficha}>
-        <FichaProducto producto={producto}>
+        <FichaProducto producto={producto} categoria={detalle?.name ?? null}>
           <h1 className="sm-titulo-pagina">{producto.name}</h1>
 
           <p className={estilos.taxonomias}>

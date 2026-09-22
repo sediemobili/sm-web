@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { ContactoModal } from "@/components/ContactoModal/ContactoModal";
+import { useCotizacion } from "@/lib/cotizacion";
 import estilos from "./Header.module.css";
 
 type Enlace = { name: string; path: string };
@@ -27,6 +28,7 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
   const botonContacto = useRef<HTMLButtonElement>(null);
   const botonHamburguesa = useRef<HTMLButtonElement>(null);
   const [contactoDesdeMovil, setContactoDesdeMovil] = useState(false);
+  const { total } = useCotizacion();
 
   const columnas: Columna[] = [
     { titulo: "Productos", enlaces: categorias, verTodo: { name: "↳ Ver Todo", path: "/catalogo/" } },
@@ -119,10 +121,19 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
           Buscar en el sitio
         </label>
         <input id="buscador-header" type="search" name="q" className={estilos.campo} placeholder="Buscar" />
+        {/* Cuando el buscador tenga lógica, aquí va enviarEvento("search", { search_term }). */}
         <button type="submit" className={estilos.botonBuscar} aria-label="Buscar">
           <LupaIcono />
         </button>
       </form>
+
+      {total > 0 ? (
+        <Link href="/cotizacion/" className={estilos.cotizacion} aria-label={`Lista de cotización: ${total}`}>
+          <ListaIcono />
+          <span className={estilos.cotizacionTexto}>Cotización</span>
+          <span className={estilos.contador}>{total}</span>
+        </Link>
+      ) : null}
 
       <button
         ref={botonContacto}
@@ -209,6 +220,14 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
         </button>
       </nav>
     </header>
+  );
+}
+
+function ListaIcono() {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <path d="M4 6h16M4 12h16M4 18h10" strokeLinecap="round" />
+    </svg>
   );
 }
 

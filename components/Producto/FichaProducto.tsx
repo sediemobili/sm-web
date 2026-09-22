@@ -1,21 +1,29 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
+import { VistaProducto } from "@/components/Analytics/VistaProducto";
+import { enviarEvento } from "@/lib/analytics";
 import { ContactoModal } from "@/components/ContactoModal/ContactoModal";
 import type { Product } from "@/lib/data";
+import { useCotizacion } from "@/lib/cotizacion";
 import estilos from "./Producto.module.css";
 
 type Props = {
   producto: Product;
+  // Nombre visible de la categoría principal, para los eventos de analítica.
+  categoria: string | null;
   // La columna de información se arma en el servidor y entra aquí.
   children: React.ReactNode;
 };
 
-export function FichaProducto({ producto, children }: Props) {
+export function FichaProducto({ producto, categoria, children }: Props) {
   const [imagenActiva, setImagenActiva] = useState(0);
   const [variacion, setVariacion] = useState<number | null>(null);
   const [contacto, setContacto] = useState(false);
+  const [aviso, setAviso] = useState<{ tipo: "exito" | "falta"; texto: string } | null>(null);
+  const { agregar } = useCotizacion();
   const botonContacto = useRef<HTMLButtonElement>(null);
 
   const imagenes = producto.images;
@@ -38,9 +46,30 @@ export function FichaProducto({ producto, children }: Props) {
   };
 
   const principal = imagenes[imagenActiva];
+  const necesitaVariacion = producto.variations.length > 0;
+
+  // Con NEXT_PUBLIC_COMMERCE_ENABLED=true estos textos pasarían a "Agregar al carrito"
+  // y el destino sería el carrito en vez de la lista de cotización. Hoy el flag está en false.
+  const cotizar = () => {
+    const elegida = producto.variations.find((variante) => variante.id === variacion);
+    if (necesitaVariacion && variacion === null) {
+      setAviso({ tipo: "falta", texto: `Elige una opción de ${atributo?.name ?? "variación"} antes de cotizar.` });
+      return;
+    }
+    agregar({ slug: producto.slug, variacionId: variacion, cantidad: 1 });
+    enviarEvento("add_to_quote", {
+      item_id: producto.slug,
+      item_name: producto.name,
+      item_category: categoria,
+      variacion: variacion === null ? null : (Object.values(elegida?.attributes ?? {})[0] ?? null),
+    });
+    setAviso({ tipo: "exito", texto: "Agregado a tu lista de cotización." });
+  };
 
   return (
     <>
+      <VistaProducto slug={producto.slug} nombre={producto.name} categoria={categoria} />
+
       <div className={estilos.galeria}>
         {principal ? (
           <Image
@@ -90,7 +119,10 @@ export function FichaProducto({ producto, children }: Props) {
                       name="variacion"
                       value={variante.id}
                       checked={variacion === variante.id}
-                      onChange={() => elegirVariacion(variante.id)}
+                      onChange={() => {
+                        elegirVariacion(variante.id);
+                        setAviso(null);
+                      }}
                       className={estilos.opcionRadio}
                     />
                     {valor}
@@ -106,8 +138,7 @@ export function FichaProducto({ producto, children }: Props) {
         </p>
 
         <div className={estilos.acciones}>
-          {/* T21: "Cotizar" agrega el producto a la lista de cotización. */}
-          <button type="button" className="sm-boton">
+          <button type="button" className="sm-boton" onClick={cotizar}>
             Cotizar
           </button>
           <button
@@ -119,6 +150,18 @@ export function FichaProducto({ producto, children }: Props) {
             Contáctanos
           </button>
         </div>
+
+        {aviso ? (
+          <p className={estilos.aviso} data-tipo={aviso.tipo} role="status">
+            {aviso.texto}
+            {aviso.tipo === "exito" ? (
+              <>
+                {" "}
+                <Link href="/cotizacion/">Ver la lista</Link>
+              </>
+            ) : null}
+          </p>
+        ) : null}
       </div>
 
       <ContactoModal

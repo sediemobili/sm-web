@@ -1,11 +1,16 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+import { enviarEvento } from "@/lib/analytics";
 import estilos from "./Newsletter.module.css";
 import { estadoInicialNewsletter, suscribir } from "./acciones";
 
 export function Newsletter() {
   const [estado, accion, enviando] = useActionState(suscribir, estadoInicialNewsletter);
+
+  useEffect(() => {
+    if (estado.estado === "exito") enviarEvento("sign_up_newsletter");
+  }, [estado.estado]);
 
   return (
     <section className={estilos.newsletter} aria-labelledby="newsletter">

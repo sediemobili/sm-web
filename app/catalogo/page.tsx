@@ -1,5 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { VistaListado } from "@/components/Analytics/VistaListado";
+import { JsonLd } from "@/components/Seo/JsonLd";
+import { listaItems, migas as migasLd } from "@/lib/jsonld";
+import { metadataDe } from "@/lib/seo";
 import { getCategories, getCollections, getProcedencias, getProducts, type Category } from "@/lib/data";
 import estilos from "./catalogo.module.css";
 import { PanelFiltros } from "./PanelFiltros";
@@ -27,6 +31,23 @@ function construirUrl(filtros: Filtros, cambios: Partial<Filtros>) {
   if (siguiente.pagina > 1) query.set("pagina", String(siguiente.pagina));
   const texto = query.toString();
   return texto ? `/catalogo/?${texto}` : "/catalogo/";
+}
+
+export async function generateMetadata({ searchParams }: PageProps<"/catalogo">) {
+  const parametros = await searchParams;
+  const filtrado = Boolean(
+    primero(parametros.categoria) || primero(parametros.coleccion) || primero(parametros.procedencia),
+  );
+  const pagina = Number(primero(parametros.pagina));
+  // Una URL con filtros o paginada no se indexa, pero sí se siguen sus enlaces,
+  // y su canonical apunta al catálogo limpio.
+  return metadataDe({
+    title: "Catálogo",
+    description:
+      "Todo el mobiliario de oficina de Sedie & Mobili: sillas, escritorios, recepciones, mesas y más, con filtro por categoría y colección.",
+    canonical: "/catalogo/",
+    noindex: filtrado || pagina > 1,
+  });
 }
 
 export default async function CatalogoPage({ searchParams }: PageProps<"/catalogo">) {
@@ -77,6 +98,17 @@ export default async function CatalogoPage({ searchParams }: PageProps<"/catalog
 
   return (
     <main className="sm-pagina">
+      <VistaListado nombre="Catálogo" total={total} />
+      <JsonLd
+        datos={[
+          migasLd([
+            { name: "Inicio", path: "/" },
+            { name: "Catálogo", path: "/catalogo/" },
+          ]),
+          listaItems("Catálogo", visibles),
+        ]}
+      />
+
       <nav aria-label="Migas de pan" className="sm-migas">
         <ol className="sm-migas-lista">
           <li>

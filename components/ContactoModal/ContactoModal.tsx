@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useId, useRef, useState } from "react";
+import { enviarEvento } from "@/lib/analytics";
 import { enviarContacto, estadoInicial } from "./acciones";
 import estilos from "./ContactoModal.module.css";
 import { INTERESES, validarContacto, type ErroresContacto } from "./esquema";
@@ -33,6 +34,12 @@ export function ContactoModal({ abierto, onCerrar }: Props) {
     document.documentElement.classList.toggle("is-scroll-locked", abierto);
     return () => document.documentElement.classList.remove("is-scroll-locked");
   }, [abierto]);
+
+  // El evento se dispara solo cuando el envío ya fue correcto, nunca antes.
+  useEffect(() => {
+    if (estado.estado !== "exito") return;
+    enviarEvento("generate_lead", { origen: "modal-contacto", interes: estado.interes });
+  }, [estado.estado, estado.interes]);
 
   const errores: ErroresContacto = { ...erroresCliente, ...estado.errores };
 

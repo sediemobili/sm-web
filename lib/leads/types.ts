@@ -9,7 +9,9 @@ export type Lead = {
   empresa: string | null;
   interes: string | null;
   mensaje: string | null;
-  origen: "modal-contacto" | "newsletter";
+  origen: "modal-contacto" | "newsletter" | "cotizacion";
+  // Renglones de la lista de cotización; null en los demás orígenes.
+  renglones: { slug: string; variacionId: number | null; cantidad: number }[] | null;
   creadoEn: string;
 };
 

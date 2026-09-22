@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BotonContacto } from "@/components/ContactoModal/BotonContacto";
 import estilos from "@/components/Paginas/Paginas.module.css";
-import { getPageBySlug, type Section } from "@/lib/data";
+import { getCategories, getPageBySlug, type Category, type Section } from "@/lib/data";
+import { metadataDe } from "@/lib/seo";
 
 // La sección "Atención Especializada" llega mezclada desde Elementor: un carrusel de 4 imágenes
 // y las 3 ventajas en un mismo bloque. Se separan por su estructura: cada ventaja es
@@ -66,12 +67,23 @@ function SeccionSimple({ seccion, titulo }: { seccion: Section; titulo: "h1" | "
   );
 }
 
+export async function generateMetadata() {
+  const pagina = await getPageBySlug("venta-empresarial");
+  return metadataDe({
+    title: pagina?.seo.title ?? "Venta empresarial",
+    description: pagina?.seo.description ?? "Proyectos de mobiliario a medida, precios por volumen y asesoría para empresas.",
+    canonical: "/venta-empresarial/",
+    ogImage: pagina?.seo.ogImage ?? null,
+  });
+}
+
 export default async function VentaEmpresarialPage() {
   const pagina = await getPageBySlug("venta-empresarial");
   if (!pagina) notFound();
 
   const secciones = pagina.sections ?? [];
   const [portada, atencion, ...resto] = secciones;
+  const categorias = (await getCategories()).filter((categoria) => categoria.parentSlug === null);
 
   return (
     <main className="sm-pagina">
@@ -96,12 +108,43 @@ export default async function VentaEmpresarialPage() {
       {atencion?.body ? <Atencion seccion={atencion} /> : null}
 
       {resto.map((seccion) =>
-        // Las secciones que en Elementor eran solo un listado dinámico quedaron sin contenido.
-        seccion.body || seccion.image || seccion.cta ? (
+        // "Explore nuestros productos" era un carrusel dinámico de categorías en Elementor:
+        // se reconstruye con lib/data, igual que la rejilla de la home.
+        seccion.heading === "Explore nuestros productos" ? (
+          <Categorias key={seccion.heading} titulo={seccion.heading} categorias={categorias} />
+        ) : seccion.body || seccion.image || seccion.cta ? (
           <SeccionSimple key={seccion.heading} seccion={seccion} titulo="h2" />
         ) : null,
       )}
     </main>
+  );
+}
+
+function Categorias({ titulo, categorias }: { titulo: string; categorias: Category[] }) {
+  return (
+    <section className={estilos.seccion} aria-labelledby="categorias">
+      <h2 id="categorias" className="sm-seccion-titulo">
+        {titulo}
+      </h2>
+      <ul className="sm-rejilla">
+        {categorias.map((categoria) => (
+          <li key={categoria.slug}>
+            <Link href={categoria.path} className="sm-tarjeta">
+              {categoria.image ? (
+                <Image
+                  src={categoria.image}
+                  alt={categoria.name}
+                  width={400}
+                  height={400}
+                  className="sm-tarjeta-imagen"
+                />
+              ) : null}
+              <span className="sm-tarjeta-nombre">{categoria.name}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 

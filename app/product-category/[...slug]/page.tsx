@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { VistaListado } from "@/components/Analytics/VistaListado";
+import { JsonLd } from "@/components/Seo/JsonLd";
+import { listaItems, migas as migasLd } from "@/lib/jsonld";
+import { descripcionListado, metadataDe } from "@/lib/seo";
 import { getCategories, getCategoryBySlug, getProductsByCategory } from "@/lib/data";
 import estilos from "./categoria.module.css";
 
@@ -10,6 +14,19 @@ export async function generateStaticParams() {
   return categorias.map((categoria) => ({
     slug: categoria.path.replace("/product-category/", "").replace(/\/$/, "").split("/"),
   }));
+}
+
+export async function generateMetadata({ params }: PageProps<"/product-category/[...slug]">) {
+  const { slug } = await params;
+  const categoria = await getCategoryBySlug(slug[slug.length - 1]);
+  if (!categoria || categoria.path !== `/product-category/${slug.join("/")}/`) return {};
+  const productos = await getProductsByCategory(categoria.slug);
+  return metadataDe({
+    title: categoria.seo.title ?? categoria.name,
+    description: categoria.seo.description ?? descripcionListado(categoria.name, productos.length),
+    canonical: categoria.path,
+    ogImage: categoria.seo.ogImage ?? categoria.image,
+  });
 }
 
 export default async function CategoriaPage({ params }: PageProps<"/product-category/[...slug]">) {
@@ -23,6 +40,14 @@ export default async function CategoriaPage({ params }: PageProps<"/product-cate
 
   return (
     <main className="sm-pagina">
+      <VistaListado nombre={categoria.name} total={productos.length} />
+      <JsonLd
+        datos={[
+          migasLd([...migas, { name: categoria.name, path: categoria.path }]),
+          listaItems(categoria.name, productos),
+        ]}
+      />
+
       <nav aria-label="Migas de pan" className="sm-migas">
         <ol className="sm-migas-lista">
           {migas.map((miga) => (

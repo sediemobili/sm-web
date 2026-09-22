@@ -1,11 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { VistaListado } from "@/components/Analytics/VistaListado";
+import { JsonLd } from "@/components/Seo/JsonLd";
+import { migas as migasLd } from "@/lib/jsonld";
+import { descripcionListado, metadataDe } from "@/lib/seo";
 import { getProcedenciaBySlug, getProcedencias, getProducts } from "@/lib/data";
 import estilos from "./procedencia.module.css";
 
 export async function generateStaticParams() {
   return (await getProcedencias()).map((procedencia) => ({ slug: procedencia.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps<"/procedencia/[slug]">) {
+  const { slug } = await params;
+  const procedencia = await getProcedenciaBySlug(slug);
+  if (!procedencia) return {};
+  const { total } = await getProducts({ procedencia: procedencia.slug });
+  return metadataDe({
+    title: procedencia.seo.title ?? `Mobiliario de procedencia ${procedencia.name}`,
+    description: procedencia.seo.description ?? descripcionListado(procedencia.name, total),
+    canonical: procedencia.path,
+    ogImage: procedencia.seo.ogImage,
+  });
 }
 
 export default async function ProcedenciaPage({ params }: PageProps<"/procedencia/[slug]">) {
@@ -18,6 +35,14 @@ export default async function ProcedenciaPage({ params }: PageProps<"/procedenci
 
   return (
     <main className="sm-pagina">
+      <VistaListado nombre={procedencia.name} total={productos.length} />
+      <JsonLd
+        datos={migasLd([
+          { name: "Inicio", path: "/" },
+          { name: procedencia.name, path: procedencia.path },
+        ])}
+      />
+
       <nav aria-label="Migas de pan" className="sm-migas">
         <ol className="sm-migas-lista">
           <li>

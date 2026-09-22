@@ -27,6 +27,7 @@ export async function suscribir(_previo: EstadoNewsletter, formData: FormData): 
       interes: null,
       mensaje: null,
       origen: "newsletter",
+      renglones: null,
       creadoEn: new Date().toISOString(),
     });
   } catch (error) {
@@ -34,6 +35,5 @@ export async function suscribir(_previo: EstadoNewsletter, formData: FormData): 
     return { estado: "error", mensaje: "No pudimos registrarte. Inténtalo de nuevo en un momento." };
   }
 
-  // T22: aquí se empuja el evento generate_lead al dataLayer.
   return { estado: "exito", mensaje: "¡Listo! Te avisaremos de las novedades." };
 }

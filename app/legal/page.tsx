@@ -1,7 +1,18 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import estilos from "@/components/Paginas/Paginas.module.css";
+import { metadataDe } from "@/lib/seo";
 import { getPageBySlug } from "@/lib/data";
+
+export async function generateMetadata() {
+  const pagina = await getPageBySlug("legal");
+  return metadataDe({
+    title: pagina?.seo.title ?? "Aviso de Privacidad y Términos y Condiciones",
+    description: pagina?.seo.description ?? "Aviso de privacidad y términos y condiciones de Sedie & Mobili.",
+    canonical: "/legal/",
+    ogImage: pagina?.seo.ogImage ?? null,
+  });
+}
 
 export default async function LegalPage() {
   const pagina = await getPageBySlug("legal");

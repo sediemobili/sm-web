@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/Seo/JsonLd";
+import { articulo, migas as migasLd } from "@/lib/jsonld";
+import { descripcionPost, metadataDe } from "@/lib/seo";
 import { getPostBySlug, getPosts } from "@/lib/data";
 import { formatearFecha } from "@/lib/formato";
 import estilos from "./post.module.css";
@@ -18,6 +21,20 @@ function jerarquiaCorregida(html: string) {
   return html.replace(/<(\/?)h1(\s|>)/gi, "<$1h2$2");
 }
 
+export async function generateMetadata({ params }: PageProps<"/[slug]">) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+  if (!post) return {};
+  const extracto = post.excerpt?.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  return metadataDe({
+    title: post.seo.title ?? post.title,
+    description: post.seo.description ?? extracto ?? descripcionPost(post.title),
+    canonical: post.path,
+    ogImage: post.seo.ogImage ?? post.featuredImage?.src ?? null,
+    tipo: "article",
+  });
+}
+
 export default async function PostPage({ params }: PageProps<"/[slug]">) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
@@ -27,6 +44,17 @@ export default async function PostPage({ params }: PageProps<"/[slug]">) {
 
   return (
     <main className="sm-pagina">
+      <JsonLd
+        datos={[
+          articulo(post),
+          migasLd([
+            { name: "Inicio", path: "/" },
+            { name: "Blog", path: "/blog/" },
+            { name: post.title, path: post.path },
+          ]),
+        ]}
+      />
+
       <nav aria-label="Migas de pan" className="sm-migas">
         <ol className="sm-migas-lista">
           <li>

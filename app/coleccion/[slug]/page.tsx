@@ -1,11 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { VistaListado } from "@/components/Analytics/VistaListado";
+import { JsonLd } from "@/components/Seo/JsonLd";
+import { listaItems, migas as migasLd } from "@/lib/jsonld";
+import { descripcionListado, metadataDe } from "@/lib/seo";
 import { getCollectionBySlug, getCollections, getProductsByCollection } from "@/lib/data";
 import estilos from "./coleccion.module.css";
 
 export async function generateStaticParams() {
   return (await getCollections()).map((coleccion) => ({ slug: coleccion.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps<"/coleccion/[slug]">) {
+  const { slug } = await params;
+  const coleccion = await getCollectionBySlug(slug);
+  if (!coleccion) return {};
+  const productos = await getProductsByCollection(coleccion.slug);
+  return metadataDe({
+    title: coleccion.seo.title ?? coleccion.name,
+    description: coleccion.seo.description ?? descripcionListado(coleccion.name, productos.length),
+    canonical: coleccion.path,
+    ogImage: coleccion.seo.ogImage ?? productos[0]?.images[0]?.src ?? null,
+  });
 }
 
 export default async function ColeccionPage({ params }: PageProps<"/coleccion/[slug]">) {
@@ -21,6 +38,17 @@ export default async function ColeccionPage({ params }: PageProps<"/coleccion/[s
 
   return (
     <main className="sm-pagina">
+      <VistaListado nombre={coleccion.name} total={productos.length} />
+      <JsonLd
+        datos={[
+          migasLd([
+            { name: "Inicio", path: "/" },
+            { name: coleccion.name, path: coleccion.path },
+          ]),
+          listaItems(coleccion.name, productos),
+        ]}
+      />
+
       <nav aria-label="Migas de pan" className="sm-migas">
         <ol className="sm-migas-lista">
           <li>

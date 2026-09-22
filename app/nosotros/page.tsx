@@ -1,7 +1,18 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import estilos from "@/components/Paginas/Paginas.module.css";
+import { metadataDe } from "@/lib/seo";
 import { getPageBySlug } from "@/lib/data";
+
+export async function generateMetadata() {
+  const pagina = await getPageBySlug("nosotros");
+  return metadataDe({
+    title: pagina?.seo.title ?? "Acerca de Sedie & Mobili",
+    description: pagina?.seo.description ?? "Más de 25 años fabricando mobiliario para oficina y sillería profesional en México.",
+    canonical: "/nosotros/",
+    ogImage: pagina?.seo.ogImage ?? null,
+  });
+}
 
 export default async function NosotrosPage() {
   const pagina = await getPageBySlug("nosotros");

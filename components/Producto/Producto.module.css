@@ -159,6 +159,15 @@
   gap: var(--espacio-2);
 }
 
+.aviso {
+  font-size: var(--texto-s);
+  color: var(--color-tinta);
+}
+
+.aviso[data-tipo="falta"] {
+  color: var(--color-acento);
+}
+
 /* Descargables ------------------------------------------------------------- */
 
 .descargables,
