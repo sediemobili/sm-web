@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint",
     "extract:sitemap": "node scripts/extract/sitemap.ts",
-    "extract:taxonomias": "node scripts/extract/taxonomias.ts"
+    "extract:taxonomias": "node scripts/extract/taxonomias.ts",
+    "extract:productos": "node scripts/extract/productos.ts"
   },
   "dependencies": {
     "next": "16.3.5",

@@ -3,12 +3,11 @@
 
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { DATA_DIR, SITE, decodeEntities, fetchText, run } from "./lib.ts";
 
-const INDEX_URL = "https://sediemobili.com/sitemap_index.xml";
-const OUT_FILE = path.join(process.cwd(), "data", "urls.json");
-const USER_AGENT =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36";
-const MIN_INTERVAL_MS = 1000;
+const INDEX_URL = `${SITE}/sitemap_index.xml`;
+const OUT_FILE = path.join(DATA_DIR, "urls.json");
+const XML = "application/xml,text/xml;q=0.9,*/*;q=0.8";
 
 type Tipo =
   | "product"
@@ -30,51 +29,12 @@ type UrlEntry = {
   lastmod: string | null;
 };
 
-class CaptchaError extends Error {}
-
-let lastRequestAt = 0;
-
-async function throttle() {
-  const wait = lastRequestAt + MIN_INTERVAL_MS - Date.now();
-  if (wait > 0) await new Promise((r) => setTimeout(r, wait));
-  lastRequestAt = Date.now();
-}
-
-function isCaptcha(res: Response, body: string) {
-  return (
-    res.headers.has("sg-captcha") ||
-    /<meta[^>]+http-equiv=["']?refresh[^>]+\/\.well-known\/sgcaptcha\//i.test(body)
-  );
-}
-
-async function fetchOnce(url: string) {
-  await throttle();
-  const res = await fetch(url, {
-    headers: { "User-Agent": USER_AGENT, Accept: "application/xml,text/xml;q=0.9,*/*;q=0.8" },
-  });
-  const body = await res.text();
-  return { res, body };
-}
-
 async function fetchXml(url: string) {
-  let { res, body } = await fetchOnce(url);
-  if (isCaptcha(res, body)) {
-    ({ res, body } = await fetchOnce(url));
-    if (isCaptcha(res, body)) throw new CaptchaError(`Captcha persistente en ${url}`);
-  }
-  if (!res.ok) throw new Error(`HTTP ${res.status} en ${url}`);
-  return body;
+  return (await fetchText(url, XML)).body;
 }
 
 function decode(text: string) {
-  return text
-    .replace(/^<!\[CDATA\[([\s\S]*)\]\]>$/, "$1")
-    .trim()
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'")
-    .replace(/&amp;/g, "&");
+  return decodeEntities(text.replace(/^<!\[CDATA\[([\s\S]*)\]\]>$/, "$1").trim());
 }
 
 // Sitemaps de Yoast: estructura plana y predecible, basta con leer los bloques por etiqueta.
@@ -130,7 +90,4 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(err instanceof CaptchaError ? `DETENIDO: ${err.message}` : err);
-  process.exit(1);
-});
+run(main);
