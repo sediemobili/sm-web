@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BotonContacto } from "@/components/ContactoModal/BotonContacto";
 import estilos from "./Home.module.css";
 
@@ -5,7 +6,14 @@ import estilos from "./Home.module.css";
 export function PersonalizaContacto() {
   return (
     <section className={estilos.personaliza} aria-labelledby="personaliza">
-      <h2 id="personaliza" className="sm-seccion-titulo">
+      <Image
+        src="/media/fondos/background-sillas2.webp"
+        alt=""
+        fill
+        sizes="100vw"
+        className={estilos.bannerImagen}
+      />
+      <h2 id="personaliza" className={estilos.bannerTitulo}>
         Personaliza tu Experiencia
       </h2>
       <p className={estilos.bannerTexto}>

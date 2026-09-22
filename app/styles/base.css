@@ -16,8 +16,25 @@
 
   body {
     min-height: 100vh;
-    line-height: 1.5;
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-m);
+    font-weight: var(--peso-ligero);
+    line-height: var(--interlineado-base);
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
     -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--fuente-titulo);
+    font-weight: var(--peso-regular);
+    line-height: var(--interlineado-titulo);
+    color: var(--color-tinta);
   }
 
   img,

@@ -10,14 +10,16 @@ export type Diapositiva = {
   titulo: string;
   texto: string;
   cta: { label: string; href: string };
-  imagen: { src: string; alt: string } | null;
+  // Imagen de fondo a sangre, como en el original: la diapositiva no es dos columnas.
+  fondo: { src: string; alt: string } | null;
+  // Cada diapositiva del original tiene su propia tipografía y su propio velo.
+  variante: "clara" | "zero" | "larus";
 };
 
 // Sin autoplay a propósito: evita mareos y que el contenido cambie mientras se lee.
 export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
   const [activa, setActiva] = useState(0);
-  const diapositiva = diapositivas[activa];
-  if (!diapositiva) return null;
+  if (diapositivas.length === 0) return null;
 
   const mover = (paso: number) => setActiva((indice) => (indice + paso + diapositivas.length) % diapositivas.length);
 
@@ -36,18 +38,19 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
           key={slide.titulo}
           className={estilos.diapositiva}
           data-activa={indice === activa}
+          data-variante={slide.variante}
           role="group"
           aria-roledescription="diapositiva"
           aria-label={`${indice + 1} de ${diapositivas.length}: ${slide.titulo}`}
         >
-          {slide.imagen ? (
+          {slide.fondo ? (
             <Image
-              src={slide.imagen.src}
-              alt={slide.imagen.alt}
-              width={1200}
-              height={800}
+              src={slide.fondo.src}
+              alt={slide.fondo.alt}
+              fill
+              sizes="100vw"
               priority={indice === 0}
-              className={estilos.heroImagen}
+              className={estilos.heroFondo}
             />
           ) : null}
 
@@ -59,7 +62,11 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
               <p className={estilos.heroTitulo}>{slide.titulo}</p>
             )}
             <p className={estilos.heroDescripcion}>{slide.texto}</p>
-            <Link href={slide.cta.href} className="sm-boton" tabIndex={indice === activa ? undefined : -1}>
+            <Link
+              href={slide.cta.href}
+              className={`sm-boton ${estilos.heroBoton}`}
+              tabIndex={indice === activa ? undefined : -1}
+            >
               {slide.cta.label}
             </Link>
           </div>

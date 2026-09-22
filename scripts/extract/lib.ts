@@ -55,6 +55,14 @@ export async function fetchHead(url: string) {
   return { status: res.status, length: length === null ? null : Number(length) };
 }
 
+// Descarga binaria (imágenes) con el mismo ritmo de una petición por segundo.
+export async function fetchBinario(url: string) {
+  await throttle();
+  const res = await fetch(url, { headers: { "User-Agent": USER_AGENT } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} en ${url}`);
+  return Buffer.from(await res.arrayBuffer());
+}
+
 export async function fetchJson<T>(url: string) {
   const { res, body } = await fetchText(url, "application/json");
   return { data: JSON.parse(body) as T, totalPages: Number(res.headers.get("x-wp-totalpages") ?? 1) };

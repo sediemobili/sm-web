@@ -13,13 +13,15 @@
     "extract:productos": "node scripts/extract/productos.ts",
     "extract:fichas": "node scripts/extract/fichas.ts",
     "extract:contenido": "node scripts/extract/contenido.ts",
-    "extract:tokens": "node scripts/extract/tokens.ts"
+    "extract:tokens": "node scripts/extract/tokens.ts",
+    "medios": "node scripts/extract/medios.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.5",
     "next": "16.3.5",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "sharp": "^0.35.4",
     "zod": "^4.6.5"
   },
   "devDependencies": {

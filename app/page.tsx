@@ -25,6 +25,7 @@ const HERO = [
       "Confort directivo y ergonomía superior para jornadas largas. Respaldo en malla, opción de cabecera, brazos ajustables y más.",
     cta: { label: "Ver Eugenia", href: "/product/eugenia/" },
     fuente: { tipo: "producto", slug: "eugenia" },
+    variante: "clara",
   },
   {
     antetitulo: "Colección Italiana",
@@ -32,7 +33,8 @@ const HERO = [
     texto:
       "Descubre nuestra línea de escritorios italiana, sofisticados y elegantes, se convierten en el statement de cualquier espacio de oficina.",
     cta: { label: "Ver Colección", href: "/coleccion/uno-zero/" },
-    fuente: { tipo: "coleccion", slug: "uno-zero" },
+    fondo: "/media/fondos/ZERO.webp",
+    variante: "zero",
   },
   {
     antetitulo: "LARUS escritorios italiano",
@@ -40,6 +42,7 @@ const HERO = [
     texto: "Fusionando estética, funcionalidad y tecnología; ideal para oficinas directivas y ejecutivas.",
     cta: { label: "Ver Colección", href: "/coleccion/larus/" },
     fuente: { tipo: "coleccion", slug: "larus" },
+    variante: "larus",
   },
 ] as const;
 
@@ -62,24 +65,33 @@ async function porSlug(slugs: string[]) {
 export default async function Home() {
   const [categorias, colecciones, posts] = await Promise.all([getCategories(), getCollections(), getPosts()]);
 
-  // Las colecciones no tienen imagen propia en WordPress: se usa la del primer producto.
+  // El fondo sale del archivo que usa Elementor cuando existe; si no, de la imagen del
+  // producto o del primer producto de la colección, que es lo único que hay en los datos.
   const diapositivas: Diapositiva[] = [];
   for (const slide of HERO) {
+    const fuente = "fuente" in slide ? slide.fuente : null;
     const producto =
-      slide.fuente.tipo === "producto"
-        ? await getProductBySlug(slide.fuente.slug)
-        : ((await getProductsByCollection(slide.fuente.slug))[0] ?? null);
+      fuente?.tipo === "producto"
+        ? await getProductBySlug(fuente.slug)
+        : fuente
+          ? ((await getProductsByCollection(fuente.slug))[0] ?? null)
+          : null;
     const existe =
-      slide.fuente.tipo === "producto"
+      !fuente ||
+      (fuente.tipo === "producto"
         ? producto !== null
-        : colecciones.some((coleccion) => coleccion.slug === slide.fuente.slug);
+        : colecciones.some((coleccion) => coleccion.slug === fuente.slug));
     if (!existe) continue;
+    const fondoFijo = "fondo" in slide ? slide.fondo : null;
     diapositivas.push({
       antetitulo: slide.antetitulo,
       titulo: slide.titulo,
       texto: slide.texto,
       cta: slide.cta,
-      imagen: producto?.images[0] ?? null,
+      fondo: fondoFijo
+        ? { src: fondoFijo, alt: slide.titulo }
+        : (producto?.images[0] ?? null),
+      variante: slide.variante,
     });
   }
 
@@ -99,21 +111,21 @@ export default async function Home() {
 
       <div className="sm-pagina">
         <section className={estilos.seccion} aria-label="Categorías">
-          <ul className="sm-rejilla">
+          <ul className={estilos.categorias}>
             {categoriasHome.map((categoria) => (
-              <li key={categoria.slug}>
-                <Link href={categoria.path} className="sm-tarjeta">
+              <li key={categoria.slug} className={estilos.categoriaItem}>
+                <Link href={categoria.path} className={estilos.categoria}>
                   {categoria.image ? (
                     <Image
                       src={categoria.image}
-                      alt={categoria.name}
-                      width={400}
-                      height={400}
-                      className="sm-tarjeta-imagen"
+                      alt=""
+                      fill
+                      sizes="(max-width: 767px) 90vw, 33vw"
+                      className={estilos.categoriaImagen}
                     />
                   ) : null}
-                  <span className="sm-tarjeta-nombre">{categoria.name}</span>
-                  <span className={estilos.tarjetaEnlace}>Ver Colección</span>
+                  <span className={estilos.categoriaNombre}>{categoria.name}</span>
+                  <span className={estilos.categoriaEnlace}>Ver Colección</span>
                 </Link>
               </li>
             ))}
@@ -121,7 +133,14 @@ export default async function Home() {
         </section>
 
         <section className={estilos.banner} aria-labelledby="corporativos">
-          <h2 id="corporativos" className="sm-seccion-titulo">
+          <Image
+            src="/media/fondos/background-sillas1.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className={estilos.bannerImagen}
+          />
+          <h2 id="corporativos" className={estilos.bannerTitulo}>
             Oficinas y Corporativos
           </h2>
           <p className={estilos.bannerTexto}>
@@ -135,7 +154,7 @@ export default async function Home() {
         <PersonalizaContacto />
 
         <section className={estilos.intro} aria-labelledby="explora">
-          <h2 id="explora" className="sm-seccion-titulo">
+          <h2 id="explora" className={estilos.introTitulo}>
             Explora Nuestro Mobiliario de Oficinas
           </h2>
           <p className={estilos.introTexto}>
@@ -173,7 +192,7 @@ export default async function Home() {
           <ul className="sm-rejilla">
             {posts.slice(0, 6).map((post) => (
               <li key={post.slug}>
-                <Link href={post.path} className="sm-tarjeta">
+                <Link href={post.path} className={`sm-tarjeta ${estilos.blogTarjeta}`}>
                   {post.featuredImage ? (
                     <Image
                       src={post.featuredImage.src}

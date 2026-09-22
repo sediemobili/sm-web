@@ -6,7 +6,7 @@
     "parentSlug": null,
     "path": "/product-category/escritorios/",
     "description": null,
-    "image": "https://sediemobili.com/wp-content/uploads/2026/07/escritorios-cat.webp",
+    "image": "/media/categorias/escritorios-cat.webp",
     "count": 33,
     "orden": 0,
     "seo": {
@@ -22,7 +22,7 @@
     "parentSlug": null,
     "path": "/product-category/recepciones/",
     "description": null,
-    "image": "https://sediemobili.com/wp-content/uploads/2026/07/recepciones-cat.webp",
+    "image": "/media/categorias/recepciones-cat.webp",
     "count": 5,
     "orden": 1,
     "seo": {
@@ -38,7 +38,7 @@
     "parentSlug": null,
     "path": "/product-category/sillas-de-oficina/",
     "description": "<p>En Sedie Mobili fabricamos sillas de oficina pensadas para cada tipo de operación y cada estilo de espacio. Desde la presencia de una silla directiva hasta la funcionalidad de una silla industrial o escolar, cada modelo está hecho para acompañar largas jornadas con comodidad y aguantar el uso diario. Explora las categorías y encuentra la silla ideal para tu equipo.</p>",
-    "image": "https://sediemobili.com/wp-content/uploads/2026/07/sillas-cat.webp",
+    "image": "/media/categorias/sillas-cat.webp",
     "count": 69,
     "orden": 2,
     "seo": {
@@ -54,7 +54,7 @@
     "parentSlug": null,
     "path": "/product-category/sofas/",
     "description": null,
-    "image": "https://sediemobili.com/wp-content/uploads/2026/07/sofas.jpg",
+    "image": "/media/categorias/sofas.webp",
     "count": 12,
     "orden": 3,
     "seo": {
@@ -86,7 +86,7 @@
     "parentSlug": null,
     "path": "/product-category/mesas/",
     "description": null,
-    "image": "https://sediemobili.com/wp-content/uploads/2026/07/mesas-cat.webp",
+    "image": "/media/categorias/mesas-cat.webp",
     "count": 2,
     "orden": 5,
     "seo": {
@@ -102,7 +102,7 @@
     "parentSlug": null,
     "path": "/product-category/taburetes/",
     "description": null,
-    "image": "https://sediemobili.com/wp-content/uploads/2026/07/taburetes-cat.webp",
+    "image": "/media/categorias/taburetes-cat.webp",
     "count": 10,
     "orden": 6,
     "seo": {
@@ -118,7 +118,7 @@
     "parentSlug": null,
     "path": "/product-category/bancas/",
     "description": null,
-    "image": "https://sediemobili.com/wp-content/uploads/2026/01/Banca-B15-2.jpg",
+    "image": "/media/categorias/Banca-B15-2.webp",
     "count": 8,
     "orden": 7,
     "seo": {
