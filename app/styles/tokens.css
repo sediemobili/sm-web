@@ -1,5 +1,68 @@
-/* Orden de capas: lo que no está en capa (tokens, interacciones) gana sobre ellas. */
+/* Tokens de diseño. Única fuente de verdad de los valores.
+   Salen del kit global de Elementor y del CSS del sitio actual; ver docs/design-tokens.md.
+   Orden de capas: lo que no está en capa (tokens, interacciones) gana sobre ellas. */
 @layer base, patrones;
 
 :root {
+  /* Color ------------------------------------------------------------------ */
+  --color-tinta: #0a0807; /* e-global-color-primary: textos y fondos oscuros */
+  --color-fondo: #ffffff; /* e-global-color-border-dark, que en el sitio es el blanco */
+  --color-fondo-suave: #edeae5; /* e-global-color-secondary: crema de secciones */
+  --color-texto: #5f5146; /* e-global-color-text */
+  --color-texto-suave: #8c7d70; /* e-global-color-3375f71 */
+  --color-acento: #5a3a21; /* e-global-color-accent */
+  --color-acento-oscuro: #422a18; /* e-global-color-2e1100b, footer */
+  --color-borde: #dcd9d4; /* e-global-color-border-light, sin uso en las plantillas */
+  --color-carbon: #2d2a28; /* e-global-color-cc010a8, sin uso en las plantillas */
+
+  /* Tipografía ------------------------------------------------------------- */
+  --fuente-titulo: "Raleway", sans-serif; /* 27 declaraciones, encabezados */
+  --fuente-texto: "Albert Sans", sans-serif; /* 19 declaraciones, cuerpo y botones */
+  --fuente-secundaria: "Archivo", sans-serif; /* 12 declaraciones, footer y algunos títulos */
+
+  --peso-extraligero: 200;
+  --peso-ligero: 300;
+  --peso-regular: 400;
+  --peso-medio: 500;
+  --peso-semibold: 600;
+
+  --texto-xs: 12px; /* pie de footer */
+  --texto-s: 14px; /* botones y antetítulos */
+  --texto-m: 16px; /* cuerpo, el tamaño más usado */
+  --texto-l: 18px; /* entradilla */
+  --texto-xl: 24px;
+  --texto-2xl: 32px;
+  --texto-3xl: 40px; /* títulos de sección; en móvil es el tamaño del hero */
+  --texto-4xl: 48px;
+  --texto-hero: 80px; /* hero de la home en escritorio */
+  --texto-hero-movil: 40px; /* mismo hero bajo 767px */
+
+  --interlineado-base: 1.5; /* Elementor solo usa valores en px, uno por bloque */
+  --tracking-titulo: -0.5px; /* el único valor repetido (6 usos) */
+
+  /* Espaciado (5 · 10 · 12 · 20 · 30 · 40 · 50 · 60) ------------------------ */
+  --espacio-1: 5px;
+  --espacio-2: 10px;
+  --espacio-3: 12px;
+  --espacio-4: 20px;
+  --espacio-5: 30px;
+  --espacio-6: 40px;
+  --espacio-7: 50px;
+  --espacio-8: 60px;
+
+  /* Radios y sombras ------------------------------------------------------- */
+  --radio-s: 12px;
+  --radio-m: 20px;
+  --radio-l: 30px;
+  --radio-pill: 40px; /* el radio dominante: 41 usos */
+  --sombra-tarjeta: 2px 8px 23px 3px rgb(0 0 0 / 0.2);
+  --sombra-modal: 0 0 10px 0 rgb(0 0 0 / 0.5);
+
+  /* Disposición ------------------------------------------------------------ */
+  --ancho-contenido: 1170px; /* --container-max-width del kit */
 }
+
+/* Breakpoints del sitio actual, para copiar en las media queries
+   (una custom property no puede usarse dentro de @media):
+   móvil  hasta 767px
+   tablet hasta 1189px */

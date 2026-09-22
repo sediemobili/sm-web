@@ -12,7 +12,8 @@
     "extract:taxonomias": "node scripts/extract/taxonomias.ts",
     "extract:productos": "node scripts/extract/productos.ts",
     "extract:fichas": "node scripts/extract/fichas.ts",
-    "extract:contenido": "node scripts/extract/contenido.ts"
+    "extract:contenido": "node scripts/extract/contenido.ts",
+    "extract:tokens": "node scripts/extract/tokens.ts"
   },
   "dependencies": {
     "next": "16.3.5",
