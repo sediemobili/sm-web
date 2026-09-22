@@ -1,11 +1,11 @@
 // Design tokens del sitio actual: kit global de Elementor, CSS de la home y fuentes de Google.
-// Uso: pnpm extract:tokens  →  docs/design-tokens.md
+// Uso: pnpm extract:tokens  →  docs/design-tokens-inventario.md
 
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { SITE, decodeEntities, fetchText, run } from "./lib.ts";
 
-const OUT_FILE = path.join(process.cwd(), "docs", "design-tokens.md");
+const OUT_FILE = path.join(process.cwd(), "docs", "design-tokens-inventario.md");
 const MOBILE = "max-width:767px";
 
 type Sheet = { id: string; role: string; css: string };
@@ -98,7 +98,9 @@ async function main() {
   const fontSizes = (css: string) => count(declarations(css, "font-size").filter((v) => /^\d/.test(v)));
 
   const lines: string[] = [];
-  lines.push("# Design tokens del sitio actual");
+  lines.push("# Inventario de tokens del sitio actual");
+  lines.push("");
+  lines.push("Inventario crudo y generado: no se edita a mano. El sistema final, curado, vive en `docs/design-tokens.md`.");
   lines.push("");
   lines.push(`Extraído de sediemobili.com con \`pnpm extract:tokens\`. Fuentes: kit global de Elementor (post-${kitId}.css), el CSS de las plantillas que carga la home y sus fuentes de Google.`);
   lines.push("");

@@ -4,7 +4,8 @@ El sistema de tokens del sitio nuevo. Los valores salen del sitio actual (kit gl
 Elementor `post-29.css` y el CSS de sus plantillas) y viven en `app/styles/tokens.css`, que es
 la única fuente de verdad. Aquí se explica de dónde sale cada uno y qué se dejó fuera.
 
-El inventario crudo se regenera con `pnpm extract:tokens`.
+El inventario crudo se regenera con `pnpm extract:tokens` en `docs/design-tokens-inventario.md`.
+Este documento se edita a mano.
 
 ## Color
 
