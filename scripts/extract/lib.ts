@@ -84,21 +84,27 @@ export function decodeEntities(text: string) {
     .replace(/&amp;/g, "&");
 }
 
-// HTML limpio: sin shortcodes, sin wrappers de Elementor (div/span/section), solo atributos
-// con significado y con párrafos cuando viene como texto plano (como wpautop).
+// HTML limpio: sin shortcodes, sin wrappers de Elementor (div/span/section/article/button),
+// solo atributos con significado y con párrafos cuando viene como texto plano (como wpautop).
 export function cleanHtml(raw: string) {
   let html = raw
     .replace(/<(script|style)[\s\S]*?<\/\1>/gi, "")
     .replace(/\[\/?[a-z0-9_-]+(?:\s[^\]]*)?\]/gi, "")
-    .replace(/<\/?(?:div|span|section)(?:\s[^>]*)?>/gi, "")
+    .replace(/<\/?(?:div|span|section|article|button)(?:\s[^>]*)?>/gi, "")
     .replace(/<([a-z][a-z0-9]*)(\s[^>]*)?>/gi, (_, tag: string, attrs = "") => {
       const kept = (attrs as string).match(/\s(?:href|src|alt|colspan|rowspan)="[^"]*"/gi) ?? [];
       return `<${tag}${kept.join("")}>`;
     })
-    .replace(/<p>\s*(?:&nbsp;)?\s*<\/p>/gi, "")
+    .replace(/<(p|figure|a)>\s*(?:&nbsp;)?\s*<\/\1>/gi, "")
     .trim();
   if (!html) return null;
-  if (!/<(?:p|ul|ol|h[1-6]|table|blockquote)[\s>]/i.test(html)) {
+  if (/<(?:p|ul|ol|h[1-6]|table|blockquote|figure)[\s>]/i.test(html)) {
+    html = html
+      .replace(/>\s+</g, "><")
+      .replace(/\s+/g, " ")
+      .replace(/<(h[1-6]|p|a|li)>\s+/gi, "<$1>")
+      .replace(/\s+<\/(h[1-6]|p|a|li)>/gi, "</$1>");
+  } else {
     html = html
       .split(/\n\s*\n/)
       .map((p) => `<p>${p.trim().replace(/\n/g, "<br>")}</p>`)

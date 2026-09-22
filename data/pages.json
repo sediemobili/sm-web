@@ -1,0 +1,141 @@
+[
+  {
+    "id": 48,
+    "slug": "nosotros",
+    "path": "/nosotros/",
+    "title": "Nosotros",
+    "excerpt": "<p>La Compañía En Sedie &#038; Mobili, no solo fabricamos mobiliario; diseñamos el escenario donde ocurre el éxito. Con más de 25 años de trayectoria en</p>",
+    "content": null,
+    "sections": [
+      {
+        "heading": "La Compañía",
+        "body": "<p>En Sedie &#038; Mobili, no solo fabricamos mobiliario; diseñamos el escenario donde ocurre el éxito. Con más de 25 años de trayectoria en el mercado mexicano, nos hemos consolidado como los arquitectos del confort, fusionando la precisión técnica con la elegancia estética para transformar oficinas en ecosistemas de productividad.</p>",
+        "image": null,
+        "cta": null
+      }
+    ],
+    "date": "2025-09-19T19:14:08",
+    "modified": "2026-03-12T13:57:55",
+    "featuredImage": null,
+    "tags": [],
+    "seo": {
+      "title": "Nosotros - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 306,
+    "slug": "venta-empresarial",
+    "path": "/venta-empresarial/",
+    "title": "Venta Empresarial",
+    "excerpt": "<p>Proyectos Empresariales Mobiliario que impulsa a tu equipo. Soluciones integrales, fabricación a medida y precios especiales para compras por volumen. Contáctanos Atención Especializada Un asesor</p>",
+    "content": null,
+    "sections": [
+      {
+        "heading": "Proyectos Empresariales",
+        "body": "<h2>Mobiliario que impulsa a tu equipo.</h2><p>Soluciones integrales, fabricación a medida y precios especiales para compras por volumen.</p>",
+        "image": null,
+        "cta": {
+          "label": "Contáctanos",
+          "href": "#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjI0MzgiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D"
+        }
+      },
+      {
+        "heading": "Atención Especializada",
+        "body": "<figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/02/Lithos-LIT-1-1.jpg\" alt=\"Lithos-LIT-1-1\"></figure><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/02/Lithos-LIT-2-2.jpg\" alt=\"Lithos-LIT-2-2\"></figure><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/02/Zero-800px.jpg\" alt=\"Zero 800px\"></figure><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/02/Uno-800px.jpg\" alt=\"Uno 800px\"></figure><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/03/atencion2.png\" alt=\"\"></figure><p>Un asesor dedicado a tu proyecto de principio a fin.</p><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/03/volumen.jpeg\" alt=\"\"></figure><h3>Precios por Volumen</h3><p>Cotizaciones escalonadas y altamente competitivas para grandes pedidos.</p><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/03/personalizacion.jpeg\" alt=\"\"></figure><h3>Personalización Total</h3><p>Adaptamos medidas, colores y acabados a la identidad de tu empresa.</p>",
+        "image": {
+          "src": "https://sediemobili.com/wp-content/uploads/2026/02/envato-labs-image-edit-4-2.png",
+          "alt": "envato-labs-image-edit (4) (2)"
+        },
+        "cta": null
+      },
+      {
+        "heading": "Tu visión, de la mano de nuestros expertos.",
+        "body": "<p>No solo vendemos mobiliario; damos vida a tus ideas. Nuestro equipo de diseñadores trabajará de la mano contigo para entender el ADN de tu empresa y desarrollar un proyecto integral que maximice cada espacio. Desde los primeros bocetos hasta la selección de acabados, te acompañamos para asegurar que el resultado sea exactamente lo que imaginaste.</p>",
+        "image": null,
+        "cta": null
+      },
+      {
+        "heading": "Explore nuestros productos",
+        "body": null,
+        "image": null,
+        "cta": null
+      },
+      {
+        "heading": "Nuestro Blog",
+        "body": null,
+        "image": null,
+        "cta": {
+          "label": "Ver Más",
+          "href": "https://sediemobili.com/blog"
+        }
+      }
+    ],
+    "date": "2025-09-22T11:48:16",
+    "modified": "2026-03-12T17:04:11",
+    "featuredImage": null,
+    "tags": [],
+    "seo": {
+      "title": "Venta Empresarial - Sedie & Mobili",
+      "description": null,
+      "ogImage": "https://sediemobili.com/wp-content/uploads/2026/02/envato-labs-image-edit-4-2.png"
+    }
+  },
+  {
+    "id": 303,
+    "slug": "legal",
+    "path": "/legal/",
+    "title": "Legal",
+    "excerpt": "<p>Legal Confidencialidad Privacidad Cookies</p>",
+    "content": null,
+    "sections": [
+      {
+        "heading": "Legal",
+        "body": "<p>Confidencialidad</p>\n<p>Privacidad</p>\n<p>Cookies</p>",
+        "image": null,
+        "cta": null
+      }
+    ],
+    "date": "2025-09-22T11:45:45",
+    "modified": "2025-09-22T12:27:54",
+    "featuredImage": null,
+    "tags": [],
+    "seo": {
+      "title": "Legal - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 2466,
+    "slug": "gracias",
+    "path": "/gracias/",
+    "title": "Gracias",
+    "excerpt": "<p>¡Tu Solicitud fue Enviada! En breve, un miembro de nuestro equipo se pondrá en contacto contigo. Volver al Inicio Mientras esperas, puedes ver las últimas</p>",
+    "content": null,
+    "sections": [
+      {
+        "heading": "¡Tu Solicitud fue Enviada !",
+        "body": "<p>En breve, un miembro de nuestro equipo se pondrá en contacto contigo.</p><h2>Mientras esperas, puedes ver las últimas noticias.</h2>",
+        "image": {
+          "src": "https://sediemobili.com/wp-content/uploads/2025/09/sediemobili_white.svg",
+          "alt": ""
+        },
+        "cta": {
+          "label": "Volver al Inicio",
+          "href": "https://sediemobili.com"
+        }
+      }
+    ],
+    "date": "2026-01-15T02:28:20",
+    "modified": "2026-02-26T00:33:15",
+    "featuredImage": null,
+    "tags": [],
+    "seo": {
+      "title": "Gracias - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  }
+]

@@ -11,7 +11,8 @@
     "extract:sitemap": "node scripts/extract/sitemap.ts",
     "extract:taxonomias": "node scripts/extract/taxonomias.ts",
     "extract:productos": "node scripts/extract/productos.ts",
-    "extract:fichas": "node scripts/extract/fichas.ts"
+    "extract:fichas": "node scripts/extract/fichas.ts",
+    "extract:contenido": "node scripts/extract/contenido.ts"
   },
   "dependencies": {
     "next": "16.3.5",
