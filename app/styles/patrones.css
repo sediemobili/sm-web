@@ -1,2 +1,181 @@
+/* Vocabulario compartido: lo que piden dos o más páginas. Solo valores de tokens.
+   Un módulo de página siempre puede ajustar un patrón, porque va fuera de toda capa. */
 @layer patrones {
+  /* Contenedor de página --------------------------------------------------- */
+  .sm-pagina {
+    max-width: var(--ancho-contenido);
+    margin-inline: auto;
+    padding: var(--espacio-5) var(--espacio-4) var(--espacio-8);
+  }
+
+  /* Migas ------------------------------------------------------------------ */
+  .sm-migas {
+    margin-block-end: var(--espacio-4);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-s);
+    font-weight: var(--peso-ligero);
+    color: var(--color-texto);
+  }
+
+  .sm-migas-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sm-migas-lista li + li::before {
+    margin-inline-end: var(--espacio-1);
+    content: "/";
+  }
+
+  .sm-migas-lista a {
+    color: var(--color-tinta);
+    text-decoration: none;
+  }
+
+  .sm-migas-lista a:focus-visible {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+  }
+
+  /* Encabezado de sección -------------------------------------------------- */
+  .sm-seccion-titulo {
+    margin-block-end: var(--espacio-4);
+    font-family: var(--fuente-titulo);
+    font-size: var(--texto-xl);
+    font-weight: var(--peso-regular);
+    line-height: var(--interlineado-titulo);
+    color: var(--color-tinta);
+  }
+
+  /* Título de página y conteo -------------------------------------------- */
+  .sm-titulo-pagina {
+    font-family: var(--fuente-titulo);
+    font-size: var(--texto-3xl);
+    font-weight: var(--peso-regular);
+    line-height: var(--interlineado-titulo);
+    letter-spacing: var(--tracking-titulo);
+    color: var(--color-tinta);
+  }
+
+  .sm-conteo {
+    margin-block-end: var(--espacio-4);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-s);
+    color: var(--color-texto-suave);
+  }
+
+  /* Chips: filas de enlaces a otras taxonomías ----------------------------- */
+  .sm-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sm-chip {
+    display: inline-block;
+    padding: var(--espacio-1) var(--espacio-4);
+    border: 1px solid var(--color-fondo-suave);
+    border-radius: var(--radio-pill);
+    background-color: var(--color-fondo-suave);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-s);
+    color: var(--color-tinta);
+    text-decoration: none;
+    transition: border-color var(--transicion);
+  }
+
+  .sm-chip:hover {
+    border-color: var(--color-tinta);
+  }
+
+  .sm-chip:focus-visible {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+  }
+
+  /* Rejilla y tarjeta de producto ------------------------------------------ */
+  .sm-rejilla {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sm-tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-2);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-s);
+    color: var(--color-tinta);
+    text-decoration: none;
+  }
+
+  .sm-tarjeta-imagen {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radio-m);
+  }
+
+  .sm-tarjeta-nombre {
+    font-family: var(--fuente-titulo);
+    font-size: var(--texto-m);
+  }
+
+  .sm-tarjeta:focus-visible {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+  }
+
+  /* Botones ---------------------------------------------------------------- */
+  .sm-boton {
+    display: inline-block;
+    padding: var(--espacio-2) var(--espacio-5);
+    border: 1px solid var(--color-tinta);
+    border-radius: var(--radio-m);
+    background-color: var(--color-tinta);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-s);
+    font-weight: var(--peso-regular);
+    color: var(--color-fondo);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color var(--transicion),
+      color var(--transicion);
+  }
+
+  .sm-boton:hover {
+    background-color: var(--color-fondo-suave);
+    color: var(--color-tinta);
+  }
+
+  .sm-boton--secundario {
+    background-color: transparent;
+    color: var(--color-tinta);
+  }
+
+  .sm-boton--secundario:hover {
+    background-color: var(--color-fondo-suave);
+  }
+
+  .sm-boton:focus-visible {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 767px) {
+    .sm-rejilla {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }

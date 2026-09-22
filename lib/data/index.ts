@@ -5,7 +5,8 @@ import { jsonRepository } from "./json";
 import type { DataRepository } from "./types";
 
 function selectRepository(): DataRepository {
-  const source = process.env.DATA_SOURCE ?? "json";
+  // Sin definir o vacío se toma json, el valor por defecto del proyecto.
+  const source = process.env.DATA_SOURCE?.trim() || "json";
   if (source === "json") return jsonRepository;
   if (source === "db") {
     throw new Error("DATA_SOURCE=db todavía no está implementado: usa DATA_SOURCE=json.");

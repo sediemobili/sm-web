@@ -107,13 +107,13 @@ export function FichaProducto({ producto, children }: Props) {
 
         <div className={estilos.acciones}>
           {/* T21: "Cotizar" agrega el producto a la lista de cotización. */}
-          <button type="button" className={estilos.cotizar}>
+          <button type="button" className="sm-boton">
             Cotizar
           </button>
           <button
             ref={botonContacto}
             type="button"
-            className={estilos.contactar}
+            className="sm-boton sm-boton--secundario"
             onClick={() => setContacto(true)}
           >
             Contáctanos

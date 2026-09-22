@@ -7,7 +7,7 @@ const ICONOS: Record<string, string> = { pdf: "PDF", dwg: "DWG" };
 export function Descargables({ descargables }: { descargables: Download[] }) {
   return (
     <section className={estilos.descargables} aria-labelledby="descargables">
-      <h2 id="descargables" className={estilos.subtitulo}>
+      <h2 id="descargables" className="sm-seccion-titulo">
         Descargables
       </h2>
       <ul className={estilos.listaDescargas}>

@@ -42,9 +42,9 @@ export default async function ProductoPage({ params }: PageProps<"/product/[slug
   const migas = [{ name: "Inicio", path: "/" }, ...(detalle?.breadcrumbs ?? [])];
 
   return (
-    <main className={estilos.pagina}>
-      <nav aria-label="Migas de pan" className={estilos.migas}>
-        <ol className={estilos.migasLista}>
+    <main className="sm-pagina">
+      <nav aria-label="Migas de pan" className="sm-migas">
+        <ol className="sm-migas-lista">
           {migas.map((miga) => (
             <li key={miga.path}>
               <Link href={miga.path}>{miga.name}</Link>
@@ -56,7 +56,7 @@ export default async function ProductoPage({ params }: PageProps<"/product/[slug
 
       <div className={estilos.ficha}>
         <FichaProducto producto={producto}>
-          <h1 className={estilos.titulo}>{producto.name}</h1>
+          <h1 className="sm-titulo-pagina">{producto.name}</h1>
 
           <p className={estilos.taxonomias}>
             {detalle ? (
@@ -92,23 +92,23 @@ export default async function ProductoPage({ params }: PageProps<"/product/[slug
 
       {relacionados.length > 0 ? (
         <section className={estilos.relacionados} aria-labelledby="relacionados">
-          <h2 id="relacionados" className={estilos.subtitulo}>
+          <h2 id="relacionados" className="sm-seccion-titulo">
             También te puede interesar
           </h2>
-          <ul className={estilos.rejilla}>
+          <ul className="sm-rejilla">
             {relacionados.map((otro) => (
               <li key={otro.slug}>
-                <Link href={otro.path} className={estilos.tarjeta}>
+                <Link href={otro.path} className="sm-tarjeta">
                   {otro.images[0] ? (
                     <Image
                       src={otro.images[0].src}
                       alt={otro.images[0].alt}
                       width={400}
                       height={400}
-                      className={estilos.tarjetaImagen}
+                      className="sm-tarjeta-imagen"
                     />
                   ) : null}
-                  <span className={estilos.tarjetaNombre}>{otro.name}</span>
+                  <span className="sm-tarjeta-nombre">{otro.name}</span>
                 </Link>
               </li>
             ))}

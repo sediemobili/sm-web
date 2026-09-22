@@ -1,39 +1,5 @@
-/* Ficha de producto. Página de referencia del sistema: paridad con /product/[slug]/ del sitio actual. */
-
-.pagina {
-  max-width: var(--ancho-contenido);
-  margin-inline: auto;
-  padding: var(--espacio-5) var(--espacio-4) var(--espacio-8);
-}
-
-/* Migas -------------------------------------------------------------------- */
-
-.migas {
-  margin-block-end: var(--espacio-4);
-  font-family: var(--fuente-texto);
-  font-size: var(--texto-s);
-  font-weight: var(--peso-ligero);
-  color: var(--color-texto);
-}
-
-.migasLista {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--espacio-1);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.migasLista li + li::before {
-  margin-inline-end: var(--espacio-1);
-  content: "/";
-}
-
-.migasLista a {
-  color: var(--color-tinta);
-  text-decoration: none;
-}
+/* Ficha de producto: solo lo propio de esta página; lo compartido está en patrones.css.
+   Es la página de referencia del sistema: paridad con /product/[slug]/ del sitio actual. */
 
 /* Ficha: galería e información --------------------------------------------- */
 
@@ -95,15 +61,6 @@
   font-weight: var(--peso-ligero);
   line-height: var(--interlineado-base);
   color: var(--color-texto);
-}
-
-.titulo {
-  font-family: var(--fuente-titulo);
-  font-size: var(--texto-3xl);
-  font-weight: var(--peso-regular);
-  line-height: var(--interlineado-titulo);
-  letter-spacing: var(--tracking-titulo);
-  color: var(--color-tinta);
 }
 
 .taxonomias {
@@ -202,47 +159,7 @@
   gap: var(--espacio-2);
 }
 
-.cotizar,
-.contactar {
-  padding: var(--espacio-2) var(--espacio-5);
-  border: 1px solid var(--color-tinta);
-  border-radius: var(--radio-m);
-  font: inherit;
-  font-size: var(--texto-s);
-  font-weight: var(--peso-regular);
-  cursor: pointer;
-  transition: background-color var(--transicion), color var(--transicion);
-}
-
-.cotizar {
-  background-color: var(--color-tinta);
-  color: var(--color-fondo);
-}
-
-.cotizar:hover {
-  background-color: var(--color-fondo-suave);
-  color: var(--color-tinta);
-}
-
-.contactar {
-  background-color: transparent;
-  color: var(--color-tinta);
-}
-
-.contactar:hover {
-  background-color: var(--color-fondo-suave);
-}
-
 /* Descargables ------------------------------------------------------------- */
-
-.subtitulo {
-  margin-block-end: var(--espacio-4);
-  font-family: var(--fuente-titulo);
-  font-size: var(--texto-xl);
-  font-weight: var(--peso-regular);
-  line-height: var(--interlineado-titulo);
-  color: var(--color-tinta);
-}
 
 .descargables,
 .relacionados {
@@ -288,47 +205,11 @@
   color: var(--color-texto-suave);
 }
 
-/* Relacionados ------------------------------------------------------------- */
-
-.rejilla {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--espacio-4);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.tarjeta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--espacio-2);
-  font-family: var(--fuente-texto);
-  font-size: var(--texto-s);
-  color: var(--color-tinta);
-  text-decoration: none;
-}
-
-.tarjetaImagen {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radio-m);
-}
-
-.tarjetaNombre {
-  font-family: var(--fuente-titulo);
-  font-size: var(--texto-m);
-}
-
 /* Foco --------------------------------------------------------------------- */
 
-.migasLista a:focus-visible,
 .taxonomia:focus-visible,
 .miniatura:focus-visible,
-.cotizar:focus-visible,
-.contactar:focus-visible,
-.descarga:focus-visible,
-.tarjeta:focus-visible {
+.descarga:focus-visible {
   outline: 2px solid var(--color-acento);
   outline-offset: 2px;
 }
@@ -343,8 +224,7 @@
     width: 100%;
   }
 
-  .listaDescargas,
-  .rejilla {
+  .listaDescargas {
     grid-template-columns: repeat(2, 1fr);
   }
 }

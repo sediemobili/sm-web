@@ -5,7 +5,8 @@ import { dbSink } from "./db";
 import type { Lead, LeadsSink } from "./types";
 
 function selectSink(): LeadsSink {
-  const sink = process.env.LEADS_SINK ?? "console";
+  // Sin definir o vacío se toma console, el valor por defecto del proyecto.
+  const sink = process.env.LEADS_SINK?.trim() || "console";
   if (sink === "console") return consoleSink;
   if (sink === "db") return dbSink;
   throw new Error(`LEADS_SINK no reconocido: "${sink}". Valores válidos: console, db.`);
