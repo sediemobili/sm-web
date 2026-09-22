@@ -1,20 +1,5 @@
 [
   {
-    "id": 57,
-    "slug": "bancas",
-    "name": "Bancas",
-    "parentSlug": null,
-    "path": "/product-category/bancas/",
-    "description": null,
-    "image": "https://sediemobili.com/wp-content/uploads/2026/01/Banca-B15-2.jpg",
-    "count": 8,
-    "seo": {
-      "title": "Bancas archivos - Sedie & Mobili",
-      "description": null,
-      "ogImage": null
-    }
-  },
-  {
     "id": 68,
     "slug": "escritorios",
     "name": "Escritorios",
@@ -23,23 +8,9 @@
     "description": null,
     "image": "https://sediemobili.com/wp-content/uploads/2026/07/escritorios-cat.webp",
     "count": 33,
+    "orden": 0,
     "seo": {
       "title": "Escritorios archivos - Sedie & Mobili",
-      "description": null,
-      "ogImage": null
-    }
-  },
-  {
-    "id": 91,
-    "slug": "mesas",
-    "name": "Mesas",
-    "parentSlug": null,
-    "path": "/product-category/mesas/",
-    "description": null,
-    "image": "https://sediemobili.com/wp-content/uploads/2026/07/mesas-cat.webp",
-    "count": 2,
-    "seo": {
-      "title": "Mesas archivos - Sedie & Mobili",
       "description": null,
       "ogImage": null
     }
@@ -53,83 +24,9 @@
     "description": null,
     "image": "https://sediemobili.com/wp-content/uploads/2026/07/recepciones-cat.webp",
     "count": 5,
+    "orden": 1,
     "seo": {
       "title": "Recepciones archivos - Sedie & Mobili",
-      "description": null,
-      "ogImage": null
-    }
-  },
-  {
-    "id": 28,
-    "slug": "silla-directiva",
-    "name": "Silla Directiva",
-    "parentSlug": "sillas-de-oficina",
-    "path": "/product-category/sillas-de-oficina/silla-directiva/",
-    "description": null,
-    "image": null,
-    "count": 17,
-    "seo": {
-      "title": "Silla Directiva archivos - Sedie & Mobili",
-      "description": null,
-      "ogImage": null
-    }
-  },
-  {
-    "id": 23,
-    "slug": "silla-ejecutiva",
-    "name": "Silla Ejecutiva",
-    "parentSlug": "sillas-de-oficina",
-    "path": "/product-category/sillas-de-oficina/silla-ejecutiva/",
-    "description": null,
-    "image": null,
-    "count": 12,
-    "seo": {
-      "title": "Silla Ejecutiva archivos - Sedie & Mobili",
-      "description": null,
-      "ogImage": null
-    }
-  },
-  {
-    "id": 26,
-    "slug": "silla-industrial",
-    "name": "Silla Industiral",
-    "parentSlug": "sillas-de-oficina",
-    "path": "/product-category/sillas-de-oficina/silla-industrial/",
-    "description": null,
-    "image": null,
-    "count": 3,
-    "seo": {
-      "title": "Silla Industiral archivos - Sedie & Mobili",
-      "description": null,
-      "ogImage": null
-    }
-  },
-  {
-    "id": 24,
-    "slug": "silla-operativa",
-    "name": "Silla Operativa",
-    "parentSlug": "sillas-de-oficina",
-    "path": "/product-category/sillas-de-oficina/silla-operativa/",
-    "description": null,
-    "image": null,
-    "count": 11,
-    "seo": {
-      "title": "Silla Operativa archivos - Sedie & Mobili",
-      "description": null,
-      "ogImage": null
-    }
-  },
-  {
-    "id": 25,
-    "slug": "silla-secretarial",
-    "name": "Silla Secretarial",
-    "parentSlug": "sillas-de-oficina",
-    "path": "/product-category/sillas-de-oficina/silla-secretarial/",
-    "description": null,
-    "image": null,
-    "count": 7,
-    "seo": {
-      "title": "Silla Secretarial archivos - Sedie & Mobili",
       "description": null,
       "ogImage": null
     }
@@ -143,39 +40,10 @@
     "description": "<p>En Sedie Mobili fabricamos sillas de oficina pensadas para cada tipo de operación y cada estilo de espacio. Desde la presencia de una silla directiva hasta la funcionalidad de una silla industrial o escolar, cada modelo está hecho para acompañar largas jornadas con comodidad y aguantar el uso diario. Explora las categorías y encuentra la silla ideal para tu equipo.</p>",
     "image": "https://sediemobili.com/wp-content/uploads/2026/07/sillas-cat.webp",
     "count": 69,
+    "orden": 2,
     "seo": {
       "title": "Sillas de Oficina Ejecutivas y Directivas | Sedie Mobili",
       "description": "Sillas de oficina directivas, ejecutivas, escolares e industriales fabricadas en México. Más de 25 años en mobiliario profesional. Cotiza con Sedie Mobili.",
-      "ogImage": null
-    }
-  },
-  {
-    "id": 27,
-    "slug": "sillas-visita",
-    "name": "Sillas de Visita",
-    "parentSlug": "sillas-de-oficina",
-    "path": "/product-category/sillas-de-oficina/sillas-visita/",
-    "description": null,
-    "image": null,
-    "count": 7,
-    "seo": {
-      "title": "Sillas de Visita archivos - Sedie & Mobili",
-      "description": null,
-      "ogImage": null
-    }
-  },
-  {
-    "id": 29,
-    "slug": "sillas-escolares",
-    "name": "Sillas Escolares",
-    "parentSlug": "sillas-de-oficina",
-    "path": "/product-category/sillas-de-oficina/sillas-escolares/",
-    "description": null,
-    "image": null,
-    "count": 10,
-    "seo": {
-      "title": "Sillas Escolares archivos - Sedie & Mobili",
-      "description": null,
       "ogImage": null
     }
   },
@@ -188,6 +56,7 @@
     "description": null,
     "image": "https://sediemobili.com/wp-content/uploads/2026/07/sofas.jpg",
     "count": 12,
+    "orden": 3,
     "seo": {
       "title": "Sofás archivos - Sedie & Mobili",
       "description": null,
@@ -203,8 +72,25 @@
     "description": null,
     "image": null,
     "count": 18,
+    "orden": 4,
     "seo": {
       "title": "Soft Seating archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 91,
+    "slug": "mesas",
+    "name": "Mesas",
+    "parentSlug": null,
+    "path": "/product-category/mesas/",
+    "description": null,
+    "image": "https://sediemobili.com/wp-content/uploads/2026/07/mesas-cat.webp",
+    "count": 2,
+    "orden": 5,
+    "seo": {
+      "title": "Mesas archivos - Sedie & Mobili",
       "description": null,
       "ogImage": null
     }
@@ -218,8 +104,137 @@
     "description": null,
     "image": "https://sediemobili.com/wp-content/uploads/2026/07/taburetes-cat.webp",
     "count": 10,
+    "orden": 6,
     "seo": {
       "title": "Taburetes archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 57,
+    "slug": "bancas",
+    "name": "Bancas",
+    "parentSlug": null,
+    "path": "/product-category/bancas/",
+    "description": null,
+    "image": "https://sediemobili.com/wp-content/uploads/2026/01/Banca-B15-2.jpg",
+    "count": 8,
+    "orden": 7,
+    "seo": {
+      "title": "Bancas archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 28,
+    "slug": "silla-directiva",
+    "name": "Silla Directiva",
+    "parentSlug": "sillas-de-oficina",
+    "path": "/product-category/sillas-de-oficina/silla-directiva/",
+    "description": null,
+    "image": null,
+    "count": 17,
+    "orden": 8,
+    "seo": {
+      "title": "Silla Directiva archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 23,
+    "slug": "silla-ejecutiva",
+    "name": "Silla Ejecutiva",
+    "parentSlug": "sillas-de-oficina",
+    "path": "/product-category/sillas-de-oficina/silla-ejecutiva/",
+    "description": null,
+    "image": null,
+    "count": 12,
+    "orden": 9,
+    "seo": {
+      "title": "Silla Ejecutiva archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 26,
+    "slug": "silla-industrial",
+    "name": "Silla Industiral",
+    "parentSlug": "sillas-de-oficina",
+    "path": "/product-category/sillas-de-oficina/silla-industrial/",
+    "description": null,
+    "image": null,
+    "count": 3,
+    "orden": 10,
+    "seo": {
+      "title": "Silla Industiral archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 24,
+    "slug": "silla-operativa",
+    "name": "Silla Operativa",
+    "parentSlug": "sillas-de-oficina",
+    "path": "/product-category/sillas-de-oficina/silla-operativa/",
+    "description": null,
+    "image": null,
+    "count": 11,
+    "orden": 11,
+    "seo": {
+      "title": "Silla Operativa archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 25,
+    "slug": "silla-secretarial",
+    "name": "Silla Secretarial",
+    "parentSlug": "sillas-de-oficina",
+    "path": "/product-category/sillas-de-oficina/silla-secretarial/",
+    "description": null,
+    "image": null,
+    "count": 7,
+    "orden": 12,
+    "seo": {
+      "title": "Silla Secretarial archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 27,
+    "slug": "sillas-visita",
+    "name": "Sillas de Visita",
+    "parentSlug": "sillas-de-oficina",
+    "path": "/product-category/sillas-de-oficina/sillas-visita/",
+    "description": null,
+    "image": null,
+    "count": 7,
+    "orden": 13,
+    "seo": {
+      "title": "Sillas de Visita archivos - Sedie & Mobili",
+      "description": null,
+      "ogImage": null
+    }
+  },
+  {
+    "id": 29,
+    "slug": "sillas-escolares",
+    "name": "Sillas Escolares",
+    "parentSlug": "sillas-de-oficina",
+    "path": "/product-category/sillas-de-oficina/sillas-escolares/",
+    "description": null,
+    "image": null,
+    "count": 10,
+    "orden": 14,
+    "seo": {
+      "title": "Sillas Escolares archivos - Sedie & Mobili",
       "description": null,
       "ogImage": null
     }

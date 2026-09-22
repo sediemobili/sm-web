@@ -25,6 +25,7 @@ type Term = {
   description: string | null;
   image: string | null;
   count: number;
+  orden: number;
   seo: Seo;
 };
 
@@ -41,6 +42,42 @@ type WpTerm = {
 type StoreCategory = WpTerm & { image: { src?: string } | null };
 
 type WpTaxonomy = { slug: string; rest_base: string };
+
+// Orden curado del mega-menú del sitio actual, que la API de WordPress no expone.
+// Bancas va al final: hoy falta en el mega-menú del sitio, pero es un olvido, no una decisión.
+const ORDEN_CATEGORIAS = [
+  "escritorios",
+  "recepciones",
+  "sillas-de-oficina",
+  "sofas",
+  "soft-seating",
+  "mesas",
+  "taburetes",
+  "bancas",
+];
+
+const ORDEN_COLECCIONES = [
+  "quadri",
+  "versatil",
+  "larus",
+  "lithos",
+  "uno-zero",
+  "temx",
+  "air-duo",
+  "basic",
+  "dinamo",
+];
+
+// Los términos de la lista curada van primero y en ese orden; el resto, alfabético al final.
+function ordenar(terms: Term[], curado: string[]): Term[] {
+  const posicion = (slug: string) => {
+    const index = curado.indexOf(slug);
+    return index === -1 ? curado.length : index;
+  };
+  return [...terms]
+    .sort((a, b) => posicion(a.slug) - posicion(b.slug) || a.name.localeCompare(b.name, "es"))
+    .map((term, index) => ({ ...term, orden: index }));
+}
 
 const fetchAllTerms = (restBase: string) => fetchAllPages<WpTerm>(`${SITE}/wp-json/wp/v2/${restBase}`);
 
@@ -63,6 +100,7 @@ function toTerms(
     description: cleanHtml(t.description),
     image: t.image ?? null,
     count: t.count,
+    orden: 0, // lo asigna ordenar()
     seo: seoFrom(seoById.get(t.id)),
   }));
 }
@@ -97,11 +135,11 @@ async function main() {
   // Categorías: datos y imagen de la Store API; el SEO de Yoast solo viene en wp/v2.
   const store = (await fetchJson<StoreCategory[]>(`${SITE}/wp-json/wc/store/v1/products/categories`)).data;
   const productCat = await fetchAllTerms("product_cat");
-  const categories = toTerms(
+  const categories = ordenar(toTerms(
     store.map((c) => ({ ...c, image: c.image?.src ?? null })),
     new Map(productCat.map((t) => [t.id, t.yoast_head_json])),
     "/product-category/",
-  );
+  ), ORDEN_CATEGORIAS);
 
   const taxonomies = (await fetchJson<Record<string, WpTaxonomy>>(`${SITE}/wp-json/wp/v2/taxonomies`)).data;
   const restBase = (slug: string) => {
@@ -111,11 +149,14 @@ async function main() {
   };
   const coleccion = await fetchAllTerms(restBase("coleccion"));
   const procedencia = await fetchAllTerms(restBase("procedencia"));
-  const collections = toTerms(coleccion, new Map(coleccion.map((t) => [t.id, t.yoast_head_json])), "/coleccion/");
-  const procedencias = toTerms(
-    procedencia,
-    new Map(procedencia.map((t) => [t.id, t.yoast_head_json])),
-    "/procedencia/",
+  const collections = ordenar(
+    toTerms(coleccion, new Map(coleccion.map((t) => [t.id, t.yoast_head_json])), "/coleccion/"),
+    ORDEN_COLECCIONES,
+  );
+  // Procedencias no tienen orden curado: alfabético, pero llevan el campo para no romper el tipo.
+  const procedencias = ordenar(
+    toTerms(procedencia, new Map(procedencia.map((t) => [t.id, t.yoast_head_json])), "/procedencia/"),
+    [],
   );
 
   await mkdir(DATA_DIR, { recursive: true });

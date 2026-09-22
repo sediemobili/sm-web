@@ -77,6 +77,8 @@ export type Term = {
   description: string | null;
   image: string | null;
   count: number;
+  // Orden curado del mega-menú, asignado por scripts/extract/taxonomias.ts.
+  orden: number;
   seo: Seo;
 };
 

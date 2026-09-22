@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Albert_Sans, Archivo, Raleway } from "next/font/google";
+import { Footer } from "@/components/Footer/Footer";
+import { Header } from "@/components/Header/Header";
 import "./styles/tokens.css";
 import "./styles/base.css";
 import "./styles/patrones.css";
@@ -35,7 +37,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es-MX" className={`${raleway.variable} ${albertSans.variable} ${archivo.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

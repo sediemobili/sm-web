@@ -27,6 +27,7 @@
 
   --texto-xs: 12px; /* pie de footer */
   --texto-s: 14px; /* botones y antetítulos */
+  --texto-nav: 15px; /* menú del header, el único sitio donde el original usa 15px */
   --texto-m: 16px; /* cuerpo, el tamaño más usado */
   --texto-l: 18px; /* entradilla */
   --texto-xl: 24px;
@@ -58,11 +59,22 @@
   --radio-m: 20px;
   --radio-l: 30px;
   --radio-pill: 40px; /* el radio dominante: 41 usos */
+  --radio-campo: 15px; /* radio de los campos del formulario del popup */
+  --color-velo: rgb(0 0 0 / 0.8); /* fondo del popup del sitio actual */
   --sombra-tarjeta: 2px 8px 23px 3px rgb(0 0 0 / 0.2);
   --sombra-modal: 0 0 10px 0 rgb(0 0 0 / 0.5);
 
   /* Disposición ------------------------------------------------------------ */
   --ancho-contenido: 1170px; /* --container-max-width del kit */
+  --ancho-logo: 180px; /* .elementor-element-6de2e2a img{width:180px} del header */
+  --espacio-nav: 26px; /* separación entre ítems del menú del header y entre las redes del footer */
+  --tamano-icono: 20px; /* --icon-size de las redes del footer */
+  /* El original usa 1% 2%, que al resolverse contra el ancho crece en pantallas anchas
+     (25px arriba a 2560px) y se aplasta en móvil. Se fija a la escala: ~1440px de referencia. */
+  --relleno-header: var(--espacio-3) var(--espacio-5); /* 12px 30px ≈ 1% 2% a 1440px */
+  --gradiente-header: linear-gradient(176deg, var(--color-fondo-suave) 0%, var(--color-fondo) 100%);
+  --z-header: 100; /* el header va sobre el contenido; no hay escala de z en el original */
+  --transicion: 200ms ease; /* no existe en el sitio actual: valor propio para hover y apertura */
 }
 
 /* Breakpoints del sitio actual, para copiar en las media queries

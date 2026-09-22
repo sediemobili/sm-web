@@ -60,7 +60,12 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 export const getProductsByCategory = (slug: string) => getProducts({ category: slug });
 export const getProductsByCollection = (slug: string) => getProducts({ collection: slug });
 
-export const getCategories = (): Promise<Category[]> => loadCategories();
+// Categorías y colecciones salen en el orden curado, no en el de WordPress.
+const porOrden = <T extends { orden: number }>(terms: T[]) => [...terms].sort((a, b) => a.orden - b.orden);
+
+export async function getCategories(): Promise<Category[]> {
+  return porOrden(await loadCategories());
+}
 
 export async function getCategoryBySlug(slug: string): Promise<CategoryWithHierarchy | null> {
   const categories = await loadCategories();
@@ -74,7 +79,9 @@ export async function getCategoryBySlug(slug: string): Promise<CategoryWithHiera
   };
 }
 
-export const getCollections = (): Promise<Collection[]> => loadCollections();
+export async function getCollections(): Promise<Collection[]> {
+  return porOrden(await loadCollections());
+}
 
 export async function getCollectionBySlug(slug: string): Promise<Collection | null> {
   return (await loadCollections()).find((collection) => collection.slug === slug) ?? null;

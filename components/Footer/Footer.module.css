@@ -1,0 +1,181 @@
+/* Footer del sitio: marca, redes, columnas de enlaces, sedes y pie. Paridad con sediemobili.com. */
+
+.footer {
+  padding: var(--espacio-6) var(--espacio-4);
+  font-family: var(--fuente-titulo);
+  color: var(--color-fondo);
+}
+
+.tarjeta {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--espacio-7);
+  max-width: var(--ancho-contenido);
+  margin-inline: auto;
+  padding: var(--espacio-7);
+  border-radius: var(--radio-m);
+  background-color: var(--color-tinta);
+}
+
+/* Marca y redes ----------------------------------------------------------- */
+
+.marca {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.logo {
+  width: 80%; /* el ancho del logo en el footer actual */
+  height: auto;
+}
+
+.institucional {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-ligero);
+  line-height: var(--interlineado-amplio);
+  color: var(--color-fondo-suave);
+}
+
+.redes {
+  display: flex;
+  gap: var(--espacio-nav);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.red {
+  display: flex;
+  color: var(--color-fondo);
+  transition: color var(--transicion);
+}
+
+.red svg {
+  width: var(--tamano-icono);
+  height: var(--tamano-icono);
+}
+
+/* Columnas de enlaces ------------------------------------------------------ */
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.columnaTitulo {
+  display: block;
+  padding-block-end: var(--espacio-1);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-regular);
+  line-height: var(--interlineado-titulo);
+}
+
+/* La línea bajo el título mide el 20% del ancho de la columna, como en el original. */
+.columna .columnaTitulo::after {
+  display: block;
+  width: 20%;
+  margin-block-start: var(--espacio-1);
+  border-block-end: 1px solid var(--color-fondo);
+  content: "";
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.enlace {
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-ligero);
+  color: var(--color-fondo);
+  text-decoration: none;
+  transition: color var(--transicion);
+}
+
+/* Sedes -------------------------------------------------------------------- */
+
+.sedes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.sedeCiudad {
+  display: block;
+  margin-block-end: var(--espacio-1);
+  font-size: var(--texto-m);
+  font-weight: var(--peso-semibold);
+}
+
+.direccion {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-ligero);
+  line-height: var(--interlineado-amplio);
+  color: var(--color-fondo-suave);
+}
+
+/* Pie ---------------------------------------------------------------------- */
+
+.pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-4);
+  max-width: var(--ancho-contenido);
+  margin-inline: auto;
+  padding-block-start: var(--espacio-6);
+  color: var(--color-tinta);
+}
+
+.webtag {
+  width: var(--ancho-logo);
+  height: auto;
+}
+
+.copyright {
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-regular);
+}
+
+.isotipo {
+  width: var(--espacio-8);
+  height: auto;
+}
+
+/* Interacción -------------------------------------------------------------- */
+
+.enlace:hover,
+.red:hover {
+  color: var(--color-texto-suave);
+}
+
+.enlace:focus-visible,
+.red:focus-visible {
+  outline: 2px solid var(--color-fondo);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: var(--espacio-5) var(--espacio-4);
+  }
+
+  .tarjeta {
+    grid-template-columns: 1fr;
+    gap: var(--espacio-5);
+    padding: var(--espacio-5);
+  }
+
+  .pie {
+    flex-direction: column;
+    text-align: center;
+  }
+}

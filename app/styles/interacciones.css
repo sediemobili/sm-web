@@ -1,1 +1,7 @@
 /* Clases globales de estado que consulta o activa el JavaScript. Fuera de capa: prevalece sobre base y patrones. */
+
+/* El menú móvil ocupa la pantalla: mientras está abierto no se desplaza el documento. */
+html.is-scroll-locked,
+html.is-scroll-locked body {
+  overflow: hidden;
+}

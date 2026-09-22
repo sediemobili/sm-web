@@ -1,0 +1,264 @@
+/* Header del sitio: logo, mega-menú, buscador y contacto. Paridad con sediemobili.com. */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-nav);
+  padding: var(--relleno-header);
+  background-image: var(--gradiente-header);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-nav);
+  color: var(--color-tinta);
+}
+
+.logo {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.logo img {
+  width: var(--ancho-logo);
+  height: auto;
+}
+
+.navegacion {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-nav);
+  margin-inline-start: auto;
+}
+
+.enlace {
+  padding: 0;
+  transition: color var(--transicion);
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Mega-menú -------------------------------------------------------------- */
+
+.productos {
+  position: static;
+}
+
+/* Estados del componente: el JS solo cambia data-open. */
+.mega[data-open="false"],
+.movil[data-open="false"],
+.acordeon[data-open="false"] .acordeonLista {
+  display: none;
+}
+
+.enlace:hover,
+.enlaceLista:hover,
+.verTodo:hover,
+.acordeonBoton:hover {
+  color: var(--color-acento);
+}
+
+.enlace:focus-visible,
+.enlaceLista:focus-visible,
+.verTodo:focus-visible,
+.acordeonBoton:focus-visible,
+.botonBuscar:focus-visible,
+.contacto:focus-visible,
+.hamburguesa:focus-visible,
+.campo:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+.mega {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  padding: var(--espacio-5) var(--espacio-6);
+  background-color: var(--color-fondo);
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.columna {
+  min-width: 0;
+}
+
+.megaColumnas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-6);
+  max-width: var(--ancho-contenido);
+  margin-inline: auto;
+}
+
+.columnaTitulo {
+  display: block;
+  margin-block-end: var(--espacio-4);
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-regular);
+  line-height: var(--interlineado-titulo);
+  letter-spacing: var(--tracking-titulo);
+  color: var(--color-tinta);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.enlaceLista {
+  color: var(--color-texto);
+  text-decoration: none;
+}
+
+.verTodo {
+  color: var(--color-texto-suave);
+  text-decoration: none;
+}
+
+/* Buscador y contacto ----------------------------------------------------- */
+
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-1);
+  padding-inline: var(--espacio-3);
+  border: 1px solid var(--color-texto-suave);
+  border-radius: var(--radio-pill);
+}
+
+.campo {
+  width: var(--espacio-8);
+  padding-block: var(--espacio-1);
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+.campo:focus {
+  outline: none;
+}
+
+.botonBuscar {
+  display: flex;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.etiquetaOculta {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.contacto {
+  padding: var(--espacio-1) var(--espacio-4);
+  border: 0;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-tinta);
+  font: inherit;
+  color: var(--color-fondo);
+  cursor: pointer;
+}
+
+/* Móvil ------------------------------------------------------------------- */
+
+.hamburguesa {
+  display: none;
+  flex-direction: column;
+  gap: var(--espacio-1);
+  padding: var(--espacio-2);
+  border: 1px solid var(--color-fondo-suave);
+  border-radius: var(--radio-s);
+  background: none;
+  cursor: pointer;
+}
+
+.hamburguesaLinea {
+  width: var(--espacio-4);
+  height: 2px;
+  background-color: var(--color-tinta);
+}
+
+.movil {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  max-height: calc(100dvh - 100%);
+  overflow-y: auto;
+  padding: var(--espacio-4);
+  background-color: var(--color-tinta);
+  font-family: var(--fuente-titulo);
+  color: var(--color-fondo-suave);
+}
+
+.acordeon {
+  border-block-end: 1px solid var(--color-texto);
+}
+
+.acordeonBoton {
+  display: block;
+  width: 100%;
+  padding: var(--espacio-2) 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.acordeonLista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: 0 0 var(--espacio-4) var(--espacio-4);
+  list-style: none;
+}
+
+.movil .enlaceLista,
+.movil .verTodo {
+  color: var(--color-fondo-suave);
+}
+
+.contactoMovil {
+  width: 100%;
+  margin-block-start: var(--espacio-4);
+}
+
+@media (max-width: 767px) {
+  .navegacion,
+  .buscador,
+  .header > .contacto {
+    display: none;
+  }
+
+  .hamburguesa {
+    display: flex;
+    margin-inline-start: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .movil,
+  .hamburguesa {
+    display: none;
+  }
+}
