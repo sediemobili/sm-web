@@ -26,10 +26,10 @@ function isCaptcha(res: Response, body: string) {
   );
 }
 
-async function fetchOnce(url: string, accept: string) {
+async function fetchOnce(url: string, accept: string, method = "GET") {
   await throttle();
-  const res = await fetch(url, { headers: { "User-Agent": USER_AGENT, Accept: accept } });
-  const body = await res.text();
+  const res = await fetch(url, { method, headers: { "User-Agent": USER_AGENT, Accept: accept } });
+  const body = method === "HEAD" ? "" : await res.text();
   return { res, body };
 }
 
@@ -42,6 +42,17 @@ export async function fetchText(url: string, accept = "*/*") {
   }
   if (!res.ok) throw new Error(`HTTP ${res.status} en ${url}`);
   return { res, body };
+}
+
+// HEAD con las mismas reglas; no lanza por status para poder reportar enlaces rotos.
+export async function fetchHead(url: string) {
+  let { res } = await fetchOnce(url, "*/*", "HEAD");
+  if (isCaptcha(res, "")) {
+    ({ res } = await fetchOnce(url, "*/*", "HEAD"));
+    if (isCaptcha(res, "")) throw new CaptchaError(`Captcha persistente en ${url}`);
+  }
+  const length = res.headers.get("content-length");
+  return { status: res.status, length: length === null ? null : Number(length) };
 }
 
 export async function fetchJson<T>(url: string) {
@@ -111,6 +122,10 @@ export function seoFrom(yoast: YoastHead | null | undefined): Seo {
     ogImage: yoast?.og_image?.[0]?.url ?? null,
   };
 }
+
+export type DownloadTipo = "modelo3d" | "dwg" | "instructivo" | "ficha_tecnica" | "video" | "otro";
+export type Download = { tipo: DownloadTipo; label: string; url: string; extension: string | null };
+export type Spec = { label: string; value: string };
 
 export function run(main: () => Promise<void>) {
   main().catch((err) => {

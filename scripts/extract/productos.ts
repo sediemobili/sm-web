@@ -12,7 +12,9 @@ import {
   fetchJson,
   run,
   seoFrom,
+  type Download,
   type Seo,
+  type Spec,
   type YoastHead,
 } from "./lib.ts";
 
@@ -84,8 +86,8 @@ type Product = {
   collections: string[];
   procedencia: string | null;
   tags: string[];
-  specs: null;
-  downloads: null;
+  specs: Spec[] | null;
+  downloads: Download[] | null;
   seo: Seo;
 };
 
@@ -107,6 +109,15 @@ async function readTermSlugs(file: string) {
   return new Map(terms.map((t) => [t.id, t.slug]));
 }
 
+async function readPrevious() {
+  try {
+    const products = JSON.parse(await readFile(path.join(DATA_DIR, "products.json"), "utf8")) as Product[];
+    return new Map(products.map((p) => [p.id, p]));
+  } catch {
+    return new Map<number, Product>();
+  }
+}
+
 function isEmptyCustomFields(p: WpProduct) {
   const acfEmpty = Array.isArray(p.acf) ? p.acf.length === 0 : !p.acf;
   const metaKeys = Object.keys(p.meta ?? {}).filter((k) => !k.startsWith("_"));
@@ -118,6 +129,8 @@ async function main() {
   const wp = new Map((await fetchAllPages<WpProduct>(`${SITE}/wp-json/wp/v2/product`)).map((p) => [p.id, p]));
   const collectionSlugs = await readTermSlugs("collections.json");
   const procedenciaSlugs = await readTermSlugs("procedencias.json");
+  // specs y downloads los llena fichas.ts desde el HTML; se conservan al regenerar.
+  const previous = await readPrevious();
 
   const products: Product[] = [];
   const warnings: string[] = [];
@@ -171,8 +184,8 @@ async function main() {
       collections: (extra?.coleccion ?? []).map((id) => collectionSlugs.get(id) ?? String(id)),
       procedencia: procedencias[0] ?? null,
       tags: p.tags.map((t) => t.slug),
-      specs: null,
-      downloads: null,
+      specs: previous.get(p.id)?.specs ?? null,
+      downloads: previous.get(p.id)?.downloads ?? null,
       seo: seoFrom(extra?.yoast_head_json),
     });
   }

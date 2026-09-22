@@ -31,7 +31,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/MESABANCO-Virgola-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Mesabanco-Virgola-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Mesabanco Virgola - Sedie & Mobili",
       "description": null,
@@ -82,7 +95,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Sofa-Barcelona-_-Con-Paleta-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Ficha-Silla-Barcelona-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Barcelona - Sedie & Mobili",
       "description": null,
@@ -141,7 +167,20 @@
       "sillas"
     ],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/MesaBanco-Iso-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Mesabanco-Iso-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Mesabanco Iso - Sedie & Mobili",
       "description": null,
@@ -196,7 +235,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/MesaBanco-Vita-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Mesa-Banco-Vita_Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Mesabanco Vita - Sedie & Mobili",
       "description": null,
@@ -239,7 +291,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Pupitre-Vita-A-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Pupitre-Vita-_-Paleta-plastica-con-portavasos2-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Pupitre Vita - Sedie & Mobili",
       "description": null,
@@ -294,7 +359,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Clementina.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-escolar-Clementina-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Clementina - Sedie & Mobili",
       "description": null,
@@ -345,7 +423,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Mesa-Banco-Roma-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Mesabanco-roma-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Mesabanco Roma - Sedie & Mobili",
       "description": null,
@@ -400,7 +491,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Berlin-CAD-1.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Berlin-Sedie-1.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Berlin - Sedie & Mobili",
       "description": null,
@@ -455,7 +559,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Cristal-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Cristal-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Cristal - Sedie & Mobili",
       "description": null,
@@ -510,7 +627,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/MesaBanco-Berlin-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Berlin-mesa-banco-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Mesabanco Berlin - Sedie & Mobili",
       "description": null,
@@ -612,7 +742,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Taburete-Ergonomico-Con-aro-de-plastico-A-_-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Taburete-Industrial-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Taburete Ergonómico - Sedie & Mobili",
       "description": null,
@@ -722,7 +865,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Copia-de-Silla-Suiza-3D.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Copia-de-Suiza-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Suiza - Sedie & Mobili",
       "description": null,
@@ -765,7 +921,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Pablo-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Pablo-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Pablo - Sedie & Mobili",
       "description": null,
@@ -844,7 +1013,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Copia-de-Tela-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Tela-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Tela - Sedie & Mobili",
       "description": null,
@@ -946,7 +1128,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/KONTOR-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Kontor-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Kontor - Sedie & Mobili",
       "description": null,
@@ -989,7 +1184,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Jack-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Black-Jack-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Black Jack - Sedie & Mobili",
       "description": null,
@@ -1044,7 +1252,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Torino-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Torino-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Torino - Sedie & Mobili",
       "description": null,
@@ -1095,7 +1316,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Red-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Red-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Red - Sedie & Mobili",
       "description": null,
@@ -1150,7 +1384,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Rene-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Rene-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Rene - Sedie & Mobili",
       "description": null,
@@ -1205,7 +1452,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Living_CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Living-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Living - Sedie & Mobili",
       "description": null,
@@ -1260,7 +1520,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-venus-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Venus-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Venus - Sedie & Mobili",
       "description": null,
@@ -1311,7 +1584,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Iso-Secretarial-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Iso-secretarial-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Iso Secretarial - Sedie & Mobili",
       "description": null,
@@ -1366,7 +1652,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-RZ1-Secretarial-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Rz1-Secretarial-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Rz1 - Sedie & Mobili",
       "description": null,
@@ -1417,7 +1716,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Nova-Iso-Secretarial-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Nova-Iso-Secretarial-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Nova Iso - Sedie & Mobili",
       "description": null,
@@ -1468,7 +1780,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Tauro-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Tauro-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Tauro - Sedie & Mobili",
       "description": null,
@@ -1523,7 +1848,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Ergo-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Ergo-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Ergo - Sedie & Mobili",
       "description": null,
@@ -1578,7 +1916,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Bini-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Bini-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Bini - Sedie & Mobili",
       "description": null,
@@ -1633,7 +1984,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Junior-23-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Junior-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Junior - Sedie & Mobili",
       "description": null,
@@ -1672,7 +2036,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Valle-Sport-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-Valle-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Valle Sport - Sedie & Mobili",
       "description": null,
@@ -1719,7 +2096,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/BE15-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/FICHA-TECNICA-BE15-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "03-BE15 - Sedie & Mobili",
       "description": null,
@@ -1806,7 +2196,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-New-3-Plazas.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Pata-new-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "New - Sedie & Mobili",
       "description": null,
@@ -1841,7 +2244,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-Ricci-Kiwi-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Kiwi - Sedie & Mobili",
       "description": null,
@@ -1884,7 +2294,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/FT-Banca-Airport-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Airport - Sedie & Mobili",
       "description": null,
@@ -1923,7 +2340,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/FT-Banca-Chaya-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Chaya - Sedie & Mobili",
       "description": null,
@@ -2017,7 +2441,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-Karla-3-Plazas-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Karla - Sedie & Mobili",
       "description": null,
@@ -2072,7 +2503,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Leo-taburete-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Leo - Sedie & Mobili",
       "description": null,
@@ -2111,7 +2549,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/VIS-19-Piero-Banco-sin-respaldo-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Piero-Taburete-respaldo-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Piero - Sedie & Mobili",
       "description": null,
@@ -2162,7 +2613,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/TAB-3-MIMI-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/MIMI-TABURETE-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Mimi - Sedie & Mobili",
       "description": null,
@@ -2205,7 +2669,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Taburete-Karl-Sin-Respaldo-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Banco-Karl-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Karl - Sedie & Mobili",
       "description": null,
@@ -2256,7 +2733,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/TAB-YEKA-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/TABURETE-YEKA-_-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Yeka - Sedie & Mobili",
       "description": null,
@@ -2307,7 +2797,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Paco-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/PACO-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Paco - Sedie & Mobili",
       "description": null,
@@ -2358,7 +2861,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Frill-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/FRILL-TABURETE-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Frill - Sedie & Mobili",
       "description": null,
@@ -2409,7 +2925,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-alta-pull-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/pull-taburete-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Pull - Sedie & Mobili",
       "description": null,
@@ -2460,7 +2989,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/NILO-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Nilo-Taburete-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Nilo - Sedie & Mobili",
       "description": null,
@@ -2535,7 +3077,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Banco-Tom-Trineo-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/TOM-TABURETE-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Tom - Sedie & Mobili",
       "description": null,
@@ -2606,7 +3161,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/K203KIND_Tapizada-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Kind-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Kind - Sedie & Mobili",
       "description": null,
@@ -2661,7 +3229,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Y10-ALTA-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Y10-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Y10 - Sedie & Mobili",
       "description": null,
@@ -2716,7 +3297,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Q3-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Q3-con-cabecera-Ficha-Simplificada-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Q3 - Sedie & Mobili",
       "description": null,
@@ -2850,7 +3444,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Habana-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Habana-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Habana - Sedie & Mobili",
       "description": null,
@@ -2905,7 +3512,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/EJE2-Com-sette-Silla-3D.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Ficha-Silla-Com-Sette-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Com Sette - Sedie & Mobili",
       "description": null,
@@ -2960,7 +3580,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Thank-you-3D.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Thank-You-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Thank You - Sedie & Mobili",
       "description": null,
@@ -3015,7 +3648,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Muzio-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Muzio-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Muzio - Sedie & Mobili",
       "description": null,
@@ -3070,7 +3716,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Rolls-DWG.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Rolls-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Rolls - Sedie & Mobili",
       "description": null,
@@ -3117,7 +3776,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Rodri-CAD-1.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Rodri-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Rodri - Sedie & Mobili",
       "description": null,
@@ -3172,7 +3844,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Andy-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Andy-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Andy - Sedie & Mobili",
       "description": null,
@@ -3219,7 +3904,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Ovidio-Pata-Swiss-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Ovidio-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Ovidio - Sedie & Mobili",
       "description": null,
@@ -3274,7 +3972,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Copia-de-Elisa-con-Cabecera-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Elisa-Sedie-2.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Elisa - Sedie & Mobili",
       "description": null,
@@ -3333,7 +4044,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Melania_Cabecera-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Melania-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Melania - Sedie & Mobili",
       "description": null,
@@ -3388,7 +4112,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Marilyn-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Marilyn-Sedie-1.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Marilyn - Sedie & Mobili",
       "description": null,
@@ -3431,7 +4168,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/DIR-Seneca-Trineo-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Seneca-trineo-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Seneca Visita - Sedie & Mobili",
       "description": null,
@@ -3486,7 +4236,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/DIR-17-Seneca-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Seneca-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Seneca - Sedie & Mobili",
       "description": null,
@@ -3541,7 +4304,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/DIR-2-10800-Block.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/10-800-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "14-10800 - Sedie & Mobili",
       "description": null,
@@ -3592,7 +4368,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Eureka-Trineo-Block.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Eureka Visita - Sedie & Mobili",
       "description": null,
@@ -3647,7 +4430,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Eureka-Block.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Eureka-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Eureka - Sedie & Mobili",
       "description": null,
@@ -3694,7 +4490,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-Trineo-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-trineo-Ficha-Simplificada-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Orlando Visita - Sedie & Mobili",
       "description": null,
@@ -3758,7 +4567,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-con-cabecera-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-con-cabecera-Ficha-Simplificada-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Orlando - Sedie & Mobili",
       "description": null,
@@ -3793,7 +4615,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Galaxy-Trineo-Modelo-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Galaxy-TRINEO-Ficha-Simplificada-Sedie-1.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Galaxy Visita - Sedie & Mobili",
       "description": null,
@@ -3848,7 +4683,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/00-Galaxy-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Galaxy-Ficha-Simplificada-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Galaxy - Sedie & Mobili",
       "description": null,
@@ -3899,7 +4747,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-Trineo-Block.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-Trineo-Ficha-Simplificada-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Blitz Visita - Sedie & Mobili",
       "description": null,
@@ -3954,7 +4815,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-Alto.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-Ficha-Simplificada-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Blitz - Sedie & Mobili",
       "description": null,
@@ -4009,7 +4883,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Sillon-Kuga-respaldo-bajo-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/KUGA-ficha-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Kuga - Sedie & Mobili",
       "description": null,
@@ -4064,7 +4951,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/00-Jupiter-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/JUPITER-ALTO-Sedie-1.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Jupiter - Sedie & Mobili",
       "description": null,
@@ -4119,7 +5019,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/DIR-13-Marbella-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Marbella-Ficha-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Marbella - Sedie & Mobili",
       "description": null,
@@ -4166,7 +5079,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Castell-Deslizadores-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Castell Visita - Sedie & Mobili",
       "description": null,
@@ -4221,7 +5141,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Castell-Block.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/CASTELL-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Castell - Sedie & Mobili",
       "description": null,
@@ -4276,7 +5209,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Jojo-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Jojo-sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Jojo - Sedie & Mobili",
       "description": null,
@@ -4315,7 +5261,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Visio-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Visio-con-Cabecera-Negra-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Visio - Sedie & Mobili",
       "description": null,
@@ -4391,7 +5350,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Copia-de-Solar-Negra-_-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Solar-Negra-_-SILA0939314-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Solar - Sedie & Mobili",
       "description": null,
@@ -4473,7 +5445,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/SILLA-_-Felicita-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Felicita - Sedie & Mobili",
       "description": null,
@@ -4577,7 +5556,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2026/03/Copia-de-Dir-22-Eugenia-SinCabecera-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Eugenia-sin-Cabecera-GRIS-_-SILA71100137-_-SEDIE.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Eugenia - Sedie & Mobili",
       "description": null,
@@ -4628,7 +5620,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Ficha-Tecnica-Mesa-Tapas-I-Sedie.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Tapas - Sedie & Mobili",
       "description": null,
@@ -4774,7 +5773,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Sofa-Suiza-2-plazas-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Suiza - Sedie & Mobili",
       "description": null,
@@ -4829,7 +5835,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Tenerife-3-Plazas-_-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Tenerife - Sedie & Mobili",
       "description": null,
@@ -4876,7 +5889,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/SOFA-SQUARE-2-PLAZAS-_-DWG.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Square - Sedie & Mobili",
       "description": null,
@@ -4923,7 +5943,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/MALAGA-2-PLAZAS-_-Sin-brazos-_DWG.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Malaga - Sedie & Mobili",
       "description": null,
@@ -4970,7 +5997,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/ELEGANCE-II-2-PLAZAS-_-cad.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Elegance II - Sedie & Mobili",
       "description": null,
@@ -5021,7 +6055,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Elegance-I-2-Plazas-_-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Elegance I - Sedie & Mobili",
       "description": null,
@@ -5064,7 +6105,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Dubai-II-2-Plazas-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Dubai II - Sedie & Mobili",
       "description": null,
@@ -5128,7 +6176,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Cannes_2Plazas.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Cannes - Sedie & Mobili",
       "description": null,
@@ -5175,7 +6230,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Sofa-Cairo-3Plazas-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Cairo - Sedie & Mobili",
       "description": null,
@@ -5262,7 +6324,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/BRAUN-3-Plazas-_-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Braun - Sedie & Mobili",
       "description": null,
@@ -5322,7 +6391,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/BIRMANIA-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Birmania - Sedie & Mobili",
       "description": null,
@@ -5401,7 +6477,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Atenas-3-Plazas.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Atenas - Sedie & Mobili",
       "description": null,
@@ -5440,7 +6523,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/ZIP-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Zip - Sedie & Mobili",
       "description": null,
@@ -5479,7 +6569,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Thai-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Thai - Sedie & Mobili",
       "description": null,
@@ -5518,7 +6615,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Sofia-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Sofia - Sedie & Mobili",
       "description": null,
@@ -5557,7 +6661,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Raffa-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Raffa - Sedie & Mobili",
       "description": null,
@@ -5596,7 +6707,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/POPPEA-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Poppea - Sedie & Mobili",
       "description": null,
@@ -5635,7 +6753,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/POLONIA-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Polonia - Sedie & Mobili",
       "description": null,
@@ -5674,7 +6799,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Niza-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Niza - Sedie & Mobili",
       "description": null,
@@ -5713,7 +6845,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Soft-Modular-2023-v2.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Modular - Sedie & Mobili",
       "description": null,
@@ -5752,7 +6891,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/KUBE-3-Modelos-1.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Leo - Sedie & Mobili",
       "description": null,
@@ -5791,7 +6937,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/KUBE-3-Modelos.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Kube - Sedie & Mobili",
       "description": null,
@@ -5830,7 +6983,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Jonas-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Jonas - Sedie & Mobili",
       "description": null,
@@ -5869,7 +7029,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Italia-Piel-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Italia - Sedie & Mobili",
       "description": null,
@@ -5947,7 +7114,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Dakota-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Dakota - Sedie & Mobili",
       "description": null,
@@ -5986,7 +7160,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Com-Sette-DWG.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Com Sette - Sedie & Mobili",
       "description": null,
@@ -6025,7 +7206,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Bubble-Individual-V2-DWG.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Bubble - Sedie & Mobili",
       "description": null,
@@ -6064,7 +7252,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/SOFT-2-Bali-CAD.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Bali - Sedie & Mobili",
       "description": null,
@@ -6103,7 +7298,14 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Alejandria-Cad.dwg",
+        "extension": "dwg"
+      }
+    ],
     "seo": {
       "title": "Alejandría - Sedie & Mobili",
       "description": null,
@@ -7183,7 +8385,20 @@
     "procedencia": "nacional",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "dwg",
+        "label": "Modelo DWG",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/Flight-Tela-CAD.dwg",
+        "extension": "dwg"
+      },
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/11/FLIGHT-MALLA-Ficha-Simplificada-Sedie-1.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Flight - Sedie & Mobili",
       "description": null,
@@ -7833,7 +9048,14 @@
     "procedencia": "italiano",
     "tags": [],
     "specs": null,
-    "downloads": null,
+    "downloads": [
+      {
+        "tipo": "ficha_tecnica",
+        "label": "Ficha Técnica",
+        "url": "https://sediemobili.com/wp-content/uploads/2025/10/Presentacion-Uno-Zero.compressed-2.pdf",
+        "extension": "pdf"
+      }
+    ],
     "seo": {
       "title": "Uno - Sedie & Mobili",
       "description": null,
