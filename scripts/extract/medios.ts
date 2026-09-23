@@ -27,6 +27,8 @@ const FONDOS = [
   "https://sediemobili.com/wp-content/uploads/2026/07/sillas-para-todos.webp",
   "https://sediemobili.com/wp-content/uploads/2026/07/sala-de-juntas.webp",
   "https://sediemobili.com/wp-content/uploads/2025/12/fv-scaled.png",
+  // Fondo de la columna izquierda de /nosotros/.
+  "https://sediemobili.com/wp-content/uploads/2026/02/modern-office-with-no-people-luxury-chair-generated-by-ai-scaled.jpg",
 ];
 
 // Los 12 productos de los dos carruseles y Eugenia, que da imagen a la primera diapositiva.
@@ -99,6 +101,10 @@ async function main() {
     slug: string;
     featuredImage: { src: string; alt: string } | null;
   }[];
+  const paginas = JSON.parse(await readFile(path.join(DATA_DIR, "pages.json"), "utf8")) as {
+    slug: string;
+    sections: { body: string | null; image: { src: string; alt: string } | null }[] | null;
+  }[];
 
   // Una ruta local ya reescrita se resuelve con el manifiesto, para poder volver a correr.
   const origen = (ruta: string) => (ruta.startsWith("/media/") ? (manifiesto[ruta] ?? null) : ruta);
@@ -127,6 +133,19 @@ async function main() {
   for (const post of posts) {
     const url = post.featuredImage ? origen(post.featuredImage.src) : null;
     if (url) pendientes.push({ url, carpeta: "blog" });
+  }
+
+  // Imágenes dentro de las secciones de las páginas estáticas: la del bloque y las del cuerpo.
+  const enPaginas = new Set<string>();
+  for (const pagina of paginas) {
+    for (const seccion of pagina.sections ?? []) {
+      if (seccion.image) enPaginas.add(seccion.image.src);
+      for (const [, src] of (seccion.body ?? "").matchAll(/<img src="([^"]+)"/g)) enPaginas.add(src);
+    }
+  }
+  for (const src of enPaginas) {
+    const url = origen(src);
+    if (url) pendientes.push({ url, carpeta: "paginas" });
   }
 
   const rutas = new Map<string, string>(); // URL original → ruta pública
@@ -163,10 +182,17 @@ async function main() {
   for (const post of posts) {
     if (post.featuredImage) post.featuredImage = { ...post.featuredImage, src: local(post.featuredImage.src) };
   }
+  for (const pagina of paginas) {
+    for (const seccion of pagina.sections ?? []) {
+      if (seccion.image) seccion.image = { ...seccion.image, src: local(seccion.image.src) };
+      if (seccion.body) seccion.body = seccion.body.replace(/<img src="([^"]+)"/g, (_, src) => `<img src="${local(src)}"`);
+    }
+  }
 
   await writeFile(path.join(DATA_DIR, "categories.json"), JSON.stringify(categorias, null, 2) + "\n");
   await writeFile(path.join(DATA_DIR, "products.json"), JSON.stringify(productos, null, 2) + "\n");
   await writeFile(path.join(DATA_DIR, "posts.json"), JSON.stringify(posts, null, 2) + "\n");
+  await writeFile(path.join(DATA_DIR, "pages.json"), JSON.stringify(paginas, null, 2) + "\n");
   await writeFile(MANIFIESTO, JSON.stringify(manifiesto, null, 2) + "\n");
 
   const mb = (n: number) => (n / 1024 / 1024).toFixed(1);

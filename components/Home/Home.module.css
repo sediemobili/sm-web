@@ -294,65 +294,6 @@
   padding-block: 58px 72px; /* el original deja 43px extra bajo las tarjetas */
 }
 
-.categoriaItem {
-  flex: 0 0 auto;
-  width: 407px;
-  scroll-snap-align: start;
-}
-
-.categoria {
-  position: relative;
-  display: flex;
-  height: 495px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: var(--espacio-2);
-  padding: var(--espacio-5);
-  overflow: hidden;
-  border-radius: var(--radio-m);
-  isolation: isolate;
-  text-decoration: none;
-}
-
-.categoriaImagen {
-  z-index: -2;
-  object-fit: cover;
-}
-
-.categoria::before {
-  position: absolute;
-  z-index: -1;
-  background-color: #020101;
-  content: "";
-  inset: 0;
-  opacity: 0.5;
-  transition: opacity var(--transicion);
-}
-
-.categoria:hover::before {
-  opacity: 0.35;
-}
-
-.categoriaNombre {
-  font-family: var(--fuente-titulo);
-  font-size: var(--texto-3xl);
-  font-weight: var(--peso-medio);
-  line-height: 38px;
-  color: var(--color-fondo);
-}
-
-.categoriaEnlace {
-  font-family: var(--fuente-texto);
-  font-size: var(--texto-s);
-  color: var(--color-borde-claro, #dcd9d4);
-}
-
-.categoria:focus-visible {
-  outline: 2px solid var(--color-fondo);
-  outline-offset: -4px;
-}
-
 /* 3. Banners --------------------------------------------------------------- */
 
 .seccionBanners {
@@ -726,18 +667,6 @@
 
   .seccionBlog {
     padding-block: 16px 8px;
-  }
-
-  .categoriaItem {
-    width: 294px;
-  }
-
-  .categoria {
-    height: 464px;
-  }
-
-  .categoriaNombre {
-    font-size: var(--texto-3xl);
   }
 
   .seccionBanners {

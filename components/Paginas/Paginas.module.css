@@ -1,43 +1,123 @@
-/* Páginas estáticas: nosotros, venta empresarial, legal y gracias. */
+/* Páginas estáticas. Medidas del original en docs/paginas-original.md. */
 
-.encabezado {
+/* Nosotros ------------------------------------------------------------------ */
+
+.nosotros {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-4);
+  min-height: 765px;
+  padding: 0 28px;
+}
+
+.nosotrosImagen {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo-suave);
+}
+
+.nosotrosImagen img {
+  object-fit: cover;
+}
+
+.nosotrosTexto {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: var(--espacio-4);
+  padding: var(--espacio-7);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo-suave);
+}
+
+.titulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-medio);
+  line-height: 1.2;
+  color: var(--color-tinta);
+}
+
+.prosa {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-m);
+  line-height: var(--interlineado-base);
+  color: var(--color-tinta);
+}
+
+.prosa p + p {
+  margin-block-start: var(--espacio-3);
+}
+
+/* Venta empresarial ---------------------------------------------------------- */
+
+.portada {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: var(--espacio-3);
-  margin-block-end: var(--espacio-6);
+  padding: 0 28px 14px;
+}
+
+.antetitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-m);
+  font-weight: var(--peso-medio);
+  color: var(--color-tinta);
+}
+
+.portadaTitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-3xl);
+  font-weight: var(--peso-medio);
+  line-height: 1.1;
+  color: var(--color-tinta);
 }
 
 .seccion {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--espacio-3);
-  margin-block-end: var(--espacio-8);
+  gap: var(--espacio-4);
+  padding: 28px 57px 57px;
 }
 
-.imagen {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radio-m);
+.seccionTitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-medio);
+  line-height: 1.2;
+  color: var(--color-tinta);
 }
-
-/* Venta empresarial: galería y ventajas ------------------------------------ */
 
 .galeria {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--espacio-4);
   margin: 0;
-  padding: 0;
+  padding: 14px 28px 28px;
   list-style: none;
+}
+
+.galeriaFigura {
+  margin: 0;
+}
+
+.galeriaImagen {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: var(--radio-m);
+  object-fit: cover;
 }
 
 .ventajas {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--espacio-5);
-  margin: var(--espacio-5) 0 0;
-  padding: 0;
+  margin: 0;
+  padding: 0 28px 28px;
   list-style: none;
 }
 
@@ -47,17 +127,71 @@
   gap: var(--espacio-2);
 }
 
+.ventajaImagen {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radio-m);
+  object-fit: cover;
+}
+
 .ventajaTitulo {
   font-family: var(--fuente-titulo);
   font-size: var(--texto-l);
-  font-weight: var(--peso-regular);
+  font-weight: var(--peso-medio);
   color: var(--color-tinta);
 }
 
-/* Legal --------------------------------------------------------------------- */
+.ventajaTexto {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  line-height: var(--interlineado-base);
+  color: var(--color-tinta);
+}
 
-.bloqueLegal {
-  margin-block-end: var(--espacio-6);
+.listado {
+  padding-block: 57px 28px;
+}
+
+.listadoEncabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  padding-inline: 57px;
+  margin-block-end: var(--espacio-4);
+}
+
+.blogTitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-4xl);
+  font-weight: var(--peso-ligero);
+  line-height: 1.1;
+  color: var(--color-tinta);
+}
+
+/* Legal ---------------------------------------------------------------------- */
+
+.legal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  padding: var(--espacio-6) 10px;
+}
+
+.legalBloque {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  max-width: var(--ancho-contenido);
+}
+
+.legalTitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-medio);
+  color: var(--color-tinta);
 }
 
 .pendiente {
@@ -67,48 +201,154 @@
   color: var(--color-texto-suave);
 }
 
-/* Gracias ------------------------------------------------------------------- */
+/* Gracias --------------------------------------------------------------------- */
 
 .gracias {
   display: flex;
+  min-height: 900px;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   gap: var(--espacio-4);
-  padding: var(--espacio-7);
-  border-radius: var(--radio-m);
+  padding: 57px;
   background-color: var(--color-tinta);
-  color: var(--color-fondo);
+  color: var(--color-fondo-suave);
 }
 
 .graciasLogo {
-  width: var(--ancho-logo);
+  width: 250px;
   height: auto;
 }
 
 .graciasTitulo {
-  color: var(--color-fondo);
-}
-
-.graciasTexto {
+  font-family: var(--fuente-titulo);
+  font-size: 50px;
+  font-weight: var(--peso-regular);
+  line-height: 1.1;
   color: var(--color-fondo-suave);
 }
 
-.acciones {
+.graciasTexto {
+  font-family: var(--fuente-secundaria);
+  font-size: var(--texto-l);
+  line-height: var(--interlineado-base);
+  color: var(--color-fondo-suave);
+}
+
+.graciasSubtitulo {
+  margin-block-start: var(--espacio-5);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-semibold);
+  color: var(--color-fondo-suave);
+}
+
+.noticias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.noticia {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--espacio-2);
+  align-items: center;
+  gap: var(--espacio-3);
+  color: var(--color-fondo);
+  text-decoration: none;
+}
+
+.noticiaImagen {
+  width: 103px;
+  height: 68px;
+  border-radius: var(--radio-s);
+  object-fit: cover;
+}
+
+.noticiaTitulo {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-nav);
+  font-weight: var(--peso-semibold);
+  line-height: 1.3;
+}
+
+.boton {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 0;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-fondo-suave);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-m);
+  font-weight: var(--peso-medio);
+  line-height: 1;
+  color: var(--color-tinta);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+.boton:hover {
+  background-color: var(--color-fondo);
+}
+
+.botonOscuro {
+  background-color: var(--color-tinta);
+  font-size: var(--texto-s);
+  font-weight: var(--peso-regular);
+  color: var(--color-fondo);
+}
+
+.botonOscuro:hover {
+  background-color: var(--color-texto-suave);
+}
+
+.boton:focus-visible,
+.noticia:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
 }
 
 @media (max-width: 767px) {
-  .galeria {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .ventajas {
+  .nosotros,
+  .galeria,
+  .ventajas,
+  .noticias {
     grid-template-columns: 1fr;
   }
 
+  .nosotros {
+    min-height: 0;
+    padding: var(--espacio-4);
+  }
+
+  .nosotrosImagen {
+    min-height: 240px;
+  }
+
+  .nosotrosTexto,
   .gracias {
     padding: var(--espacio-5);
+  }
+
+  .portada,
+  .seccion,
+  .listadoEncabezado {
+    padding-inline: var(--espacio-4);
+  }
+
+  .galeria,
+  .ventajas {
+    padding-inline: var(--espacio-4);
+  }
+
+  .gracias {
+    min-height: 0;
+  }
+
+  .graciasTitulo {
+    font-size: var(--texto-2xl);
   }
 }

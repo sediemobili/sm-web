@@ -43,9 +43,9 @@
       },
       {
         "heading": "Atención Especializada",
-        "body": "<figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/02/Lithos-LIT-1-1.jpg\" alt=\"Lithos-LIT-1-1\"></figure><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/02/Lithos-LIT-2-2.jpg\" alt=\"Lithos-LIT-2-2\"></figure><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/02/Zero-800px.jpg\" alt=\"Zero 800px\"></figure><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/02/Uno-800px.jpg\" alt=\"Uno 800px\"></figure><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/03/atencion2.png\" alt=\"\"></figure><p>Un asesor dedicado a tu proyecto de principio a fin.</p><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/03/volumen.jpeg\" alt=\"\"></figure><h3>Precios por Volumen</h3><p>Cotizaciones escalonadas y altamente competitivas para grandes pedidos.</p><figure><img src=\"https://sediemobili.com/wp-content/uploads/2026/03/personalizacion.jpeg\" alt=\"\"></figure><h3>Personalización Total</h3><p>Adaptamos medidas, colores y acabados a la identidad de tu empresa.</p>",
+        "body": "<figure><img src=\"/media/paginas/Lithos-LIT-1-1.webp\" alt=\"Lithos-LIT-1-1\"></figure><figure><img src=\"/media/paginas/Lithos-LIT-2-2.webp\" alt=\"Lithos-LIT-2-2\"></figure><figure><img src=\"/media/paginas/Zero-800px.webp\" alt=\"Zero 800px\"></figure><figure><img src=\"/media/paginas/Uno-800px.webp\" alt=\"Uno 800px\"></figure><figure><img src=\"/media/paginas/atencion2.webp\" alt=\"\"></figure><p>Un asesor dedicado a tu proyecto de principio a fin.</p><figure><img src=\"/media/paginas/volumen.webp\" alt=\"\"></figure><h3>Precios por Volumen</h3><p>Cotizaciones escalonadas y altamente competitivas para grandes pedidos.</p><figure><img src=\"/media/paginas/personalizacion.webp\" alt=\"\"></figure><h3>Personalización Total</h3><p>Adaptamos medidas, colores y acabados a la identidad de tu empresa.</p>",
         "image": {
-          "src": "https://sediemobili.com/wp-content/uploads/2026/02/envato-labs-image-edit-4-2.png",
+          "src": "/media/paginas/envato-labs-image-edit-4-2.webp",
           "alt": "envato-labs-image-edit (4) (2)"
         },
         "cta": null
@@ -119,7 +119,7 @@
         "heading": "¡Tu Solicitud fue Enviada !",
         "body": "<p>En breve, un miembro de nuestro equipo se pondrá en contacto contigo.</p><h2>Mientras esperas, puedes ver las últimas noticias.</h2>",
         "image": {
-          "src": "https://sediemobili.com/wp-content/uploads/2025/09/sediemobili_white.svg",
+          "src": "/media/paginas/sediemobili_white.svg",
           "alt": ""
         },
         "cta": {

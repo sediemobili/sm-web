@@ -1,8 +1,16 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import estilos from "@/components/Paginas/Paginas.module.css";
-import { metadataDe } from "@/lib/seo";
+import estilos from "@/components/paginas/paginas.module.css";
 import { getPageBySlug } from "@/lib/data";
+import { metadataDe } from "@/lib/seo";
+
+// Las tres pestañas del original están vacías en WordPress: se conserva la estructura
+// y se dice que falta el contenido. No se inventa texto legal.
+const BLOQUES = [
+  { id: "confidencialidad", titulo: "Confidencialidad" },
+  { id: "privacidad", titulo: "Privacidad" },
+  { id: "tc", titulo: "Términos y Condiciones" },
+  { id: "cookies", titulo: "Cookies" },
+];
 
 export async function generateMetadata() {
   const pagina = await getPageBySlug("legal");
@@ -18,34 +26,19 @@ export default async function LegalPage() {
   const pagina = await getPageBySlug("legal");
   if (!pagina) notFound();
 
-  const [seccion] = pagina.sections ?? [];
-
   return (
-    <main className="sm-pagina">
-      <nav aria-label="Migas de pan" className="sm-migas">
-        <ol className="sm-migas-lista">
-          <li>
-            <Link href="/">Inicio</Link>
-          </li>
-          <li aria-current="page">{pagina.title}</li>
-        </ol>
-      </nav>
+    <main className={estilos.legal}>
+      <h1 className={estilos.titulo}>Legal</h1>
 
-      <section className={estilos.bloqueLegal} aria-labelledby="privacidad">
-        <h1 id="privacidad" className="sm-titulo-pagina">
-          Aviso de Privacidad
-        </h1>
-        {seccion?.body ? <div className="sm-prosa" dangerouslySetInnerHTML={{ __html: seccion.body }} /> : null}
-        <p className={estilos.pendiente}>Contenido pendiente de publicar.</p>
-      </section>
-
-      {/* El ancla #tc la usa el footer; en WordPress las pestañas están vacías. */}
-      <section className={estilos.bloqueLegal} aria-labelledby="tc">
-        <h2 id="tc" className="sm-seccion-titulo">
-          Términos y Condiciones
-        </h2>
-        <p className={estilos.pendiente}>Contenido pendiente de publicar.</p>
-      </section>
+      {BLOQUES.map((bloque) => (
+        <section key={bloque.id} className={estilos.legalBloque} aria-labelledby={bloque.id}>
+          {/* El ancla #tc la enlaza el footer. */}
+          <h2 id={bloque.id} className={estilos.legalTitulo}>
+            {bloque.titulo}
+          </h2>
+          <p className={estilos.pendiente}>Contenido pendiente de publicar.</p>
+        </section>
+      ))}
     </main>
   );
 }

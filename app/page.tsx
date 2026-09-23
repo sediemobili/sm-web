@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BotonContacto } from "@/components/ContactoModal/BotonContacto";
+import { CarruselCategorias } from "@/components/categorias/CarruselCategorias";
 import { Carrusel } from "@/components/home/Carrusel";
 import { Hero, type Diapositiva } from "@/components/home/Hero";
 import estilos from "@/components/home/home.module.css";
@@ -103,25 +104,7 @@ export default async function HomePage() {
 
       {/* 2. Carrusel de categorías */}
       <section className={estilos.seccionCategorias} aria-label="Categorías">
-        <Carrusel etiqueta="categorías">
-          {categoriasHome.map((categoria) => (
-            <li key={categoria.slug} className={estilos.categoriaItem}>
-              <Link href={categoria.path} className={estilos.categoria}>
-                {categoria.image ? (
-                  <Image
-                    src={categoria.image}
-                    alt=""
-                    fill
-                    sizes="(max-width: 767px) 80vw, 410px"
-                    className={estilos.categoriaImagen}
-                  />
-                ) : null}
-                <h2 className={estilos.categoriaNombre}>{categoria.name}</h2>
-                <span className={estilos.categoriaEnlace}>Ver Colección</span>
-              </Link>
-            </li>
-          ))}
-        </Carrusel>
+        <CarruselCategorias categorias={categoriasHome} />
       </section>
 
       {/* 3. Dos banners */}
