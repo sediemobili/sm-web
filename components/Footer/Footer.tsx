@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Newsletter } from "@/components/Newsletter/Newsletter";
 import { getCategories } from "@/lib/data";
 import estilos from "./Footer.module.css";
 import { Facebook, Instagram, Linkedin, Tiktok, Youtube } from "./redes";
@@ -50,6 +51,9 @@ export async function Footer() {
   return (
     <footer className={estilos.footer}>
       <div className={estilos.tarjeta}>
+        {/* Como en el original, el newsletter vive en el footer y sale en todas las páginas. */}
+        <Newsletter />
+
         <div className={estilos.marca}>
           <Image
             src="/media/marca/sediemobili_white.svg"

@@ -132,12 +132,12 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
         </Link>
       </nav>
 
-      <form className={estilos.buscador} role="search" onSubmit={(evento) => evento.preventDefault()}>
+      {/* GET a /buscar/: funciona sin JavaScript. El evento search lo dispara esa página. */}
+      <form className={estilos.buscador} role="search" action="/buscar/" method="get">
         <label htmlFor="buscador-header" className={estilos.etiquetaOculta}>
           Buscar en el sitio
         </label>
         <input id="buscador-header" type="search" name="q" className={estilos.campo} placeholder="Buscar" />
-        {/* Cuando el buscador tenga lógica, aquí va enviarEvento("search", { search_term }). */}
         <button type="submit" className={estilos.botonBuscar} aria-label="Buscar">
           <LupaIcono />
         </button>

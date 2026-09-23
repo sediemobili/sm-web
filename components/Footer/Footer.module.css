@@ -11,11 +11,16 @@
   display: grid;
   grid-template-columns: 298px 257px 248px 298px;
   justify-content: space-between;
-  gap: var(--espacio-5);
+  gap: var(--espacio-5) var(--espacio-5);
   margin-inline: 29px;
   padding: 55px;
   border-radius: var(--radio-m);
   background-color: var(--color-tinta);
+}
+
+/* El newsletter ocupa la fila de arriba de la tarjeta. */
+.tarjeta > section:first-child {
+  grid-column: 1 / -1;
 }
 
 /* Marca y redes ----------------------------------------------------------- */

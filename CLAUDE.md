@@ -139,7 +139,8 @@
   y envía el evento generate_lead al dataLayer.
 - Home, en orden: hero slider (Eugenia, Zero, LARUS) → grid de categorías → "Oficinas
   y Corporativos" → "Personaliza tu experiencia" → "Explora nuestro mobiliario" →
-  carrusel de sillas → carrusel de escritorios → últimos 6 posts → newsletter.
+  carrusel de sillas → carrusel de escritorios → últimos 6 posts.
+- Newsletter: vive en el footer, como en el sitio actual, así que sale en todas las páginas.
 - Footer: logo blanco, texto institucional, redes (Facebook, Instagram, YouTube,
   TikTok, LinkedIn), columnas Categorías e Información, las dos sedes y el copyright.
 

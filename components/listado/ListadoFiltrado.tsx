@@ -12,17 +12,27 @@ import {
   getProductsByCategory,
   getProductsByCollection,
 } from "@/lib/data";
+import { buscarProductos, terminos } from "@/lib/buscar";
 import { aplicarFiltros, leerFiltros, opcionesDe, POR_PAGINA } from "@/lib/filtros";
 import { listaItems } from "@/lib/jsonld";
 import estilos from "./listado.module.css";
 
 export type Ambito =
   | { tipo: "catalogo" }
+  | { tipo: "busqueda"; q: string }
   | { tipo: "categoria"; slug: string }
   | { tipo: "coleccion"; slug: string }
   | { tipo: "procedencia"; slug: string };
 
 async function productosDe(ambito: Ambito) {
+  if (ambito.tipo === "busqueda") {
+    const [{ items }, categorias, colecciones] = await Promise.all([
+      getProducts(),
+      getCategories(),
+      getCollections(),
+    ]);
+    return buscarProductos(items, terminos(ambito.q), categorias, colecciones);
+  }
   if (ambito.tipo === "categoria") return getProductsByCategory(ambito.slug);
   if (ambito.tipo === "coleccion") return getProductsByCollection(ambito.slug);
   if (ambito.tipo === "procedencia") return (await getProducts({ procedencia: ambito.slug })).items;
@@ -36,10 +46,13 @@ export async function ListadoFiltrado({
   nombre,
   ambito,
   searchParams,
+  vacio,
 }: {
   base: string;
   nombre: string;
   ambito: Ambito;
+  // Mensaje del estado vacío cuando el listado no es un filtro, sino una búsqueda.
+  vacio?: React.ReactNode;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const filtros = leerFiltros(await searchParams);
@@ -105,12 +118,14 @@ export async function ListadoFiltrado({
             <Paginacion base={base} filtros={filtros} paginas={paginas} />
           </>
         ) : (
-          <div className="sm-vacio">
-            <p>Ningún producto coincide con estos filtros.</p>
-            <Link href={base} className="sm-boton">
-              Limpiar filtros
-            </Link>
-          </div>
+          (vacio ?? (
+            <div className="sm-vacio">
+              <p>Ningún producto coincide con estos filtros.</p>
+              <Link href={base} className="sm-boton">
+                Limpiar filtros
+              </Link>
+            </div>
+          ))
         )}
       </div>
     </div>

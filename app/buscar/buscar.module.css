@@ -1,0 +1,39 @@
+/* Página de resultados de búsqueda. Reutiliza el listado compartido. */
+
+.pagina {
+  padding: 28px;
+}
+
+.titulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-ligero);
+  color: var(--color-tinta);
+}
+
+.resumen {
+  margin-block: var(--espacio-2) var(--espacio-5);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-texto-suave);
+}
+
+.otros {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  margin-block-end: var(--espacio-5);
+}
+
+.otrosTitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-regular);
+  color: var(--color-tinta);
+}
+
+@media (max-width: 767px) {
+  .pagina {
+    padding: var(--espacio-4);
+  }
+}

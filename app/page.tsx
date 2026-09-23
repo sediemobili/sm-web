@@ -5,7 +5,6 @@ import { CarruselCategorias } from "@/components/categorias/CarruselCategorias";
 import { Carrusel } from "@/components/home/Carrusel";
 import { Hero, type Diapositiva } from "@/components/home/Hero";
 import estilos from "@/components/home/home.module.css";
-import { Newsletter } from "@/components/Newsletter/Newsletter";
 import { getCategories, getPosts, getProductBySlug, type Category, type Product } from "@/lib/data";
 
 // Lo que el original elige a mano y no está en los datos: el orden de las tarjetas,
@@ -248,8 +247,6 @@ export default async function HomePage() {
           ))}
         </Carrusel>
       </section>
-
-      <Newsletter />
     </main>
   );
 }
