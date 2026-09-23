@@ -1,17 +1,30 @@
 /* Header del sitio: logo, mega-menú, buscador y contacto. Paridad con sediemobili.com. */
 
+/* Cabecera normal del original: 67px con degradado de crema a blanco. */
 .header {
   position: sticky;
   top: 0;
   z-index: var(--z-header);
   display: flex;
+  min-height: 67px;
   align-items: center;
   gap: var(--espacio-nav);
-  padding: var(--relleno-header);
+  padding: 14px 28px;
   background-image: var(--gradiente-header);
+  transition:
+    min-height var(--transicion),
+    background-color var(--transicion);
   font-family: var(--fuente-texto);
   font-size: var(--texto-nav);
   color: var(--color-tinta);
+}
+
+/* Versión pegada: más alta, fondo blanco y logo mayor. */
+.header[data-pegado="true"] {
+  min-height: 93px;
+  background-color: var(--color-fondo);
+  background-image: none;
+  box-shadow: var(--sombra-tarjeta);
 }
 
 .logo {
@@ -19,9 +32,14 @@
   flex: 0 0 auto;
 }
 
-.logo img {
+.logoImagen {
   width: var(--ancho-logo);
   height: auto;
+  transition: width var(--transicion);
+}
+
+.header[data-pegado="true"] .logoImagen {
+  width: 200px;
 }
 
 .navegacion {

@@ -1,18 +1,19 @@
 /* Footer del sitio: marca, redes, columnas de enlaces, sedes y pie. Paridad con sediemobili.com. */
 
 .footer {
-  padding: var(--espacio-6) var(--espacio-4);
+  padding-block-start: var(--espacio-6);
   font-family: var(--fuente-titulo);
   color: var(--color-fondo);
 }
 
+/* Tarjeta oscura del original: 1382px de ancho, radio 20 y 55px de relleno. */
 .tarjeta {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: var(--espacio-7);
-  max-width: var(--ancho-contenido);
-  margin-inline: auto;
-  padding: var(--espacio-7);
+  grid-template-columns: 298px 257px 248px 298px;
+  justify-content: space-between;
+  gap: var(--espacio-5);
+  margin-inline: 29px;
+  padding: 55px;
   border-radius: var(--radio-m);
   background-color: var(--color-tinta);
 }
@@ -26,7 +27,7 @@
 }
 
 .logo {
-  width: 80%; /* el ancho del logo en el footer actual */
+  width: 238px; /* ancho del logo blanco en el footer original */
   height: auto;
 }
 
@@ -124,30 +125,30 @@
 
 /* Pie ---------------------------------------------------------------------- */
 
+/* Barra inferior: 55px, fondo marrón y esquinas superiores redondeadas. */
 .pie {
   display: flex;
+  min-height: 55px;
   align-items: center;
   justify-content: space-between;
   gap: var(--espacio-4);
-  max-width: var(--ancho-contenido);
-  margin-inline: auto;
-  padding-block-start: var(--espacio-6);
-  color: var(--color-tinta);
+  margin-block-start: var(--espacio-6);
+  padding: 14px 57px;
+  border-start-start-radius: var(--radio-m);
+  border-start-end-radius: var(--radio-m);
+  background-color: var(--color-texto);
+  color: var(--color-fondo-suave);
 }
 
 .webtag {
-  width: var(--ancho-logo);
+  width: 200px; /* la firma mide 200×24 en el original */
   height: auto;
 }
 
 .copyright {
-  font-size: var(--texto-xs);
+  font-size: 13px;
   font-weight: var(--peso-regular);
-}
-
-.isotipo {
-  width: var(--espacio-8);
-  height: auto;
+  color: var(--color-fondo-suave);
 }
 
 /* Interacción -------------------------------------------------------------- */
@@ -171,11 +172,13 @@
   .tarjeta {
     grid-template-columns: 1fr;
     gap: var(--espacio-5);
+    margin-inline: var(--espacio-4);
     padding: var(--espacio-5);
   }
 
   .pie {
     flex-direction: column;
+    padding: var(--espacio-4);
     text-align: center;
   }
 }

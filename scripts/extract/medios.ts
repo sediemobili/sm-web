@@ -27,7 +27,8 @@ const FONDOS = [
   "https://sediemobili.com/wp-content/uploads/2026/07/sillas-para-todos.webp",
   "https://sediemobili.com/wp-content/uploads/2026/07/sala-de-juntas.webp",
   "https://sediemobili.com/wp-content/uploads/2025/12/fv-scaled.png",
-  // Fondo de la columna izquierda de /nosotros/.
+  // Fondo de la columna izquierda de /nosotros/. Es la misma imagen que la destacada de un
+  // post: se baja una sola vez y las dos referencias apuntan al mismo archivo.
   "https://sediemobili.com/wp-content/uploads/2026/02/modern-office-with-no-people-luxury-chair-generated-by-ai-scaled.jpg",
 ];
 

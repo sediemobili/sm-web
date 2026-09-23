@@ -29,12 +29,21 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
   const botonHamburguesa = useRef<HTMLButtonElement>(null);
   const [contactoDesdeMovil, setContactoDesdeMovil] = useState(false);
   const { total } = useCotizacion();
+  const [pegado, setPegado] = useState(false);
 
   const columnas: Columna[] = [
     { titulo: "Productos", enlaces: categorias, verTodo: { name: "↳ Ver Todo", path: "/catalogo/" } },
     { titulo: "Colecciones", enlaces: colecciones },
     { titulo: "Catálogos descargables", enlaces: catalogos },
   ];
+
+  // El original releva la cabecera por otra más alta y fija tras unos 300px de scroll.
+  useEffect(() => {
+    const alDesplazar = () => setPegado(window.scrollY > 300);
+    alDesplazar();
+    window.addEventListener("scroll", alDesplazar, { passive: true });
+    return () => window.removeEventListener("scroll", alDesplazar);
+  }, []);
 
   // Escape cierra lo que esté abierto y devuelve el foco al disparador.
   useEffect(() => {
@@ -58,9 +67,16 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
   }, [menuMovil]);
 
   return (
-    <header className={estilos.header}>
+    <header className={estilos.header} data-pegado={pegado}>
       <Link href="/" className={estilos.logo} aria-label="Sedie &amp; Mobili, ir al inicio">
-        <Image src="/media/marca/sediemobili.svg" alt="Sedie &amp; Mobili" width={1750} height={323} priority />
+        <Image
+          src="/media/marca/sediemobili.svg"
+          alt="Sedie &amp; Mobili"
+          width={1750}
+          height={323}
+          priority
+          className={estilos.logoImagen}
+        />
       </Link>
 
       <nav className={estilos.navegacion} aria-label="Principal">

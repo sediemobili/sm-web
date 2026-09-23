@@ -117,23 +117,16 @@ export async function Footer() {
         </div>
       </div>
 
+      {/* Barra inferior del original: la firma de SCNDAL y el copyright. */}
       <div className={estilos.pie}>
         <Image
           src="/media/marca/White-webtag.svg"
-          alt="Sedie &amp; Mobili"
+          alt="Created by SCNDAL"
           width={1813}
           height={221}
           className={estilos.webtag}
         />
         <small className={estilos.copyright}>Copyright 2026 @Sedie&amp;Mobili</small>
-        <Image
-          src="/media/marca/isotipo-06.svg"
-          alt=""
-          width={1080}
-          height={1080}
-          aria-hidden="true"
-          className={estilos.isotipo}
-        />
       </div>
     </footer>
   );
