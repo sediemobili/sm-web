@@ -146,7 +146,7 @@ export function ListaCotizacion({ productos }: { productos: ProductoResumen[] })
         </tbody>
       </table>
 
-      <form action={accion} className={estilos.formulario} noValidate>
+      <form action={accion} className={estilos.formulario} noValidate aria-busy={enviando}>
         <input type="hidden" name="renglones" value={JSON.stringify(filas.map(({ renglon }) => renglon))} />
 
         <h2 className="sm-seccion-titulo">{COMERCIO ? "Tus datos" : "Solicita tu cotización"}</h2>

@@ -26,6 +26,7 @@
 .boton:focus-visible {
   outline: 2px solid var(--color-acento);
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-fondo);
 }
 
 /* 1. Hero ------------------------------------------------------------------ */
@@ -182,6 +183,7 @@
 .punto:focus-visible {
   outline: 2px solid var(--color-acento);
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-fondo);
 }
 
 /* Carrusel ----------------------------------------------------------------- */
@@ -238,6 +240,7 @@
 .flechaNext:focus-visible {
   outline: 2px solid var(--color-acento);
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-fondo);
 }
 
 .heroFlechaPrev,
@@ -270,6 +273,7 @@
 .heroFlechaNext:focus-visible {
   outline: 2px solid var(--color-acento);
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-fondo);
 }
 
 .heroFlechaPrev {

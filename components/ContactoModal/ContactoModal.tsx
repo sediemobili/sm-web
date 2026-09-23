@@ -94,7 +94,7 @@ export function ContactoModal({ abierto, onCerrar }: Props) {
           <>
             <p className={estilos.texto}>{TEXTO}</p>
 
-            <form ref={formulario} action={accion} className={estilos.formulario} noValidate>
+            <form ref={formulario} action={accion} className={estilos.formulario} noValidate aria-busy={enviando}>
               <div className={estilos.grupo}>
                 <label htmlFor="contacto-nombre">Nombre *</label>
                 <input type="text" required autoComplete="name" {...campo("nombre")} />

@@ -15,7 +15,7 @@
   margin-block: var(--espacio-2) var(--espacio-5);
   font-family: var(--fuente-texto);
   font-size: var(--texto-s);
-  color: var(--color-texto-suave);
+  color: var(--color-texto);  /* AA: el gris suave no llega a 4.5:1 en texto pequeño */
 }
 
 .otros {

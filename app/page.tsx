@@ -102,7 +102,10 @@ export default async function HomePage() {
       <Hero diapositivas={HERO} />
 
       {/* 2. Carrusel de categorías */}
-      <section className={estilos.seccionCategorias} aria-label="Categorías">
+      <section className={estilos.seccionCategorias} aria-labelledby="categorias-home">
+        <h2 id="categorias-home" className="sm-oculto">
+          Categorías
+        </h2>
         <CarruselCategorias categorias={categoriasHome} />
       </section>
 

@@ -72,8 +72,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         ) : null}
         <JsonLd datos={organizacion()} />
         <CotizacionProvider>
+          <a href="#contenido" className="sm-saltar">
+            Saltar al contenido
+          </a>
           <Header />
-          {children}
+          <div id="contenido">{children}</div>
           <Footer />
         </CotizacionProvider>
       </body>

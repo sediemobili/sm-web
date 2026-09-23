@@ -198,7 +198,7 @@
   font-family: var(--fuente-texto);
   font-size: var(--texto-s);
   font-style: italic;
-  color: var(--color-texto-suave);
+  color: var(--color-texto);  /* AA: el gris suave no llega a 4.5:1 en texto pequeño */
 }
 
 /* Gracias --------------------------------------------------------------------- */
@@ -305,9 +305,10 @@
   background-color: var(--color-texto-suave);
 }
 
+/* En /gracias/ el fondo es oscuro: el anillo va claro. */
 .boton:focus-visible,
 .noticia:focus-visible {
-  outline: 2px solid var(--color-acento);
+  outline: 2px solid var(--color-fondo);
   outline-offset: 2px;
 }
 

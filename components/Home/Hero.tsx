@@ -139,15 +139,14 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
         ›
       </button>
 
-      <div className={estilos.puntos} role="tablist" aria-label="Diapositivas">
+      <div className={estilos.puntos} role="group" aria-label="Elegir diapositiva">
         {diapositivas.map((slide, indice) => (
           <button
             key={slide.titulo}
             type="button"
-            role="tab"
             className={estilos.punto}
             data-activa={indice === activa}
-            aria-selected={indice === activa}
+            aria-current={indice === activa}
             aria-label={`Ver ${slide.titulo}`}
             onClick={() => setActiva(indice)}
           />

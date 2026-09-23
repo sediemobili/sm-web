@@ -58,6 +58,7 @@
   .sm-chip:focus-visible {
     outline: 2px solid var(--color-acento);
     outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-fondo);
   }
 
   /* Prosa: bloques de texto con ancho de lectura cómodo --------------------- */
@@ -137,6 +138,7 @@
   .sm-tarjeta:focus-visible {
     outline: 2px solid var(--color-acento);
     outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-fondo);
   }
 
   /* Estado vacío ----------------------------------------------------------- */
@@ -148,6 +150,29 @@
     font-family: var(--fuente-texto);
     font-size: var(--texto-m);
     color: var(--color-texto);
+  }
+
+  /* Saltar al contenido: invisible hasta que recibe el foco ----------------- */
+  .sm-saltar {
+    position: absolute;
+    z-index: calc(var(--z-header) + 1);
+    inset-block-start: var(--espacio-2);
+    inset-inline-start: var(--espacio-2);
+    padding: var(--espacio-2) var(--espacio-4);
+    border-radius: var(--radio-m);
+    background-color: var(--color-tinta);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-s);
+    color: var(--color-fondo);
+    text-decoration: none;
+    transform: translateY(-200%);
+  }
+
+  .sm-saltar:focus-visible {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-fondo);
+    transform: translateY(0);
   }
 
   /* Texto solo para lectores de pantalla ----------------------------------- */
@@ -195,6 +220,7 @@
   .sm-boton:focus-visible {
     outline: 2px solid var(--color-acento);
     outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-fondo);
   }
 
   @media (max-width: 767px) {

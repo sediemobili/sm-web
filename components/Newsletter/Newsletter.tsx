@@ -26,7 +26,7 @@ export function Newsletter() {
           {estado.mensaje}
         </p>
       ) : (
-        <form action={accion} className={estilos.formulario} noValidate>
+        <form action={accion} className={estilos.formulario} noValidate aria-busy={enviando}>
           <label htmlFor="newsletter-email" className={estilos.etiqueta}>
             Correo electrónico
           </label>
