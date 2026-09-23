@@ -1,30 +1,28 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { VistaProducto } from "@/components/Analytics/VistaProducto";
+import { Descargables } from "@/components/producto/Descargables";
+import { Galeria } from "@/components/producto/Galeria";
+import { PanelCompra } from "@/components/producto/PanelCompra";
+import estilos from "@/components/producto/producto.module.css";
 import { JsonLd } from "@/components/Seo/JsonLd";
-import { Descargables } from "@/components/Producto/Descargables";
-import { FichaProducto } from "@/components/Producto/FichaProducto";
-import estilos from "@/components/Producto/Producto.module.css";
-import { migas as migasLd, producto as productoLd } from "@/lib/jsonld";
-import { descripcionProducto, metadataDe } from "@/lib/seo";
+import Image from "next/image";
 import {
   getCategories,
   getCategoryBySlug,
-  getCollections,
   getProductBySlug,
   getProducts,
   getProductsByCategory,
   type Category,
 } from "@/lib/data";
-
-const RELACIONADOS = 6;
+import { migas as migasLd, producto as productoLd } from "@/lib/jsonld";
+import { descripcionProducto, metadataDe } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return (await getProducts()).items.map((producto) => ({ slug: producto.slug }));
 }
 
-// La categoría principal es la más profunda de las que trae el producto:
-// WooCommerce etiqueta con la hija y la madre, y las migas deben partir de la hija.
+// La categoría principal es la más profunda: WooCommerce etiqueta con la hija y la madre.
 function categoriaPrincipal(slugs: string[], categorias: Category[]) {
   const suyas = categorias.filter((categoria) => slugs.includes(categoria.slug));
   return suyas.find((categoria) => categoria.parentSlug !== null) ?? suyas[0] ?? null;
@@ -34,8 +32,7 @@ export async function generateMetadata({ params }: PageProps<"/product/[slug]">)
   const { slug } = await params;
   const producto = await getProductBySlug(slug);
   if (!producto) return {};
-  const categorias = await getCategories();
-  const categoria = categoriaPrincipal(producto.categories, categorias);
+  const categoria = categoriaPrincipal(producto.categories, await getCategories());
   return metadataDe({
     title: producto.seo.title ?? producto.name,
     description: producto.seo.description ?? descripcionProducto(producto.name, categoria?.name ?? null),
@@ -49,66 +46,56 @@ export default async function ProductoPage({ params }: PageProps<"/product/[slug
   const producto = await getProductBySlug(slug);
   if (!producto) notFound();
 
-  const [categorias, colecciones] = await Promise.all([getCategories(), getCollections()]);
+  const categorias = await getCategories();
   const principal = categoriaPrincipal(producto.categories, categorias);
   const detalle = principal ? await getCategoryBySlug(principal.slug) : null;
-  const relacionados = principal
-    ? (await getProductsByCategory(principal.slug)).filter((otro) => otro.slug !== producto.slug).slice(0, RELACIONADOS)
-    : [];
-  const suyasColecciones = colecciones.filter((coleccion) => producto.collections.includes(coleccion.slug));
   const migas = [{ name: "Inicio", path: "/" }, ...(detalle?.breadcrumbs ?? [])];
+  const relacionados = principal
+    ? (await getProductsByCategory(principal.slug)).filter((otro) => otro.slug !== producto.slug).slice(0, 6)
+    : [];
 
   return (
-    <main className="sm-pagina">
-      <JsonLd datos={[productoLd(producto, detalle?.name ?? null), migasLd([...migas, { name: producto.name, path: producto.path }])]} />
+    <main className={estilos.ficha}>
+      <VistaProducto slug={producto.slug} nombre={producto.name} categoria={detalle?.name ?? null} />
+      <JsonLd
+        datos={[
+          productoLd(producto, detalle?.name ?? null),
+          migasLd([...migas, { name: producto.name, path: producto.path }]),
+        ]}
+      />
 
-      <nav aria-label="Migas de pan" className="sm-migas">
-        <ol className="sm-migas-lista">
-          {migas.map((miga) => (
-            <li key={miga.path}>
-              <Link href={miga.path}>{miga.name}</Link>
-            </li>
-          ))}
-          <li aria-current="page">{producto.name}</li>
-        </ol>
-      </nav>
+      <Galeria imagenes={producto.images} nombre={producto.name} />
 
-      <div className={estilos.ficha}>
-        <FichaProducto producto={producto} categoria={detalle?.name ?? null}>
-          <h1 className="sm-titulo-pagina">{producto.name}</h1>
+      <div className={estilos.informacion}>
+        <h1 className={estilos.titulo}>{producto.name}</h1>
 
-          <p className={estilos.taxonomias}>
-            {detalle ? (
-              <Link href={detalle.path} className={estilos.taxonomia}>
-                {detalle.name}
-              </Link>
-            ) : null}
-            {suyasColecciones.map((coleccion) => (
-              <Link key={coleccion.slug} href={coleccion.path} className={estilos.taxonomia}>
-                {coleccion.name}
-              </Link>
+        <nav aria-label="Migas de pan" className={estilos.migas}>
+          <ol className={estilos.migasLista}>
+            {migas.map((miga) => (
+              <li key={miga.path}>
+                <Link href={miga.path}>{miga.name}</Link>
+              </li>
             ))}
-          </p>
+            <li aria-current="page">{producto.name}</li>
+          </ol>
+        </nav>
 
-          {producto.stockStatus === "outofstock" ? (
-            <p className={estilos.agotado}>Agotado</p>
-          ) : null}
+        <h2 className={estilos.especificaciones}>Especificaciones</h2>
 
-          {producto.shortDescription ? (
-            <div
-              className={estilos.descripcionCorta}
-              dangerouslySetInnerHTML={{ __html: producto.shortDescription }}
-            />
-          ) : null}
+        {producto.downloads?.length ? <Descargables descargables={producto.downloads} /> : null}
 
-          {producto.description ? (
-            <div className={estilos.descripcion} dangerouslySetInnerHTML={{ __html: producto.description }} />
-          ) : null}
-        </FichaProducto>
+        {producto.shortDescription ? (
+          <div className={estilos.descripcion} dangerouslySetInnerHTML={{ __html: producto.shortDescription }} />
+        ) : null}
+
+        {producto.description ? (
+          <div className={estilos.descripcion} dangerouslySetInnerHTML={{ __html: producto.description }} />
+        ) : null}
+
+        <PanelCompra producto={producto} categoria={detalle?.name ?? null} />
       </div>
 
-      {producto.downloads?.length ? <Descargables descargables={producto.downloads} /> : null}
-
+      {/* Añadido nuestro: la ficha del sitio actual no tiene productos relacionados. */}
       {relacionados.length > 0 ? (
         <section className={estilos.relacionados} aria-labelledby="relacionados">
           <h2 id="relacionados" className="sm-seccion-titulo">

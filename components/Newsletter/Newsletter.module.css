@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--espacio-5);
+  margin: 29px 4% 58px;
   padding: var(--espacio-7);
   border-radius: var(--radio-m);
   background-color: var(--color-fondo-suave);

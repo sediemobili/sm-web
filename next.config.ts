@@ -13,6 +13,9 @@ const REDIRECTS = [
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  // Partial Prerendering. En Next 16 no hay bandera por ruta: cacheComponents lo activa
+  // en toda la app. Cada página sirve su shell estático y transmite lo dinámico.
+  cacheComponents: true,
   // Con trailingSlash, el source va sin barra y el destino con ella: así no hay un segundo salto.
   async redirects() {
     return REDIRECTS.map((redirect) => ({ ...redirect, permanent: true }));

@@ -2,76 +2,125 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import estilos from "./Home.module.css";
+import { useEffect, useRef, useState } from "react";
+import estilos from "./home.module.css";
 
 export type Diapositiva = {
   antetitulo: string;
   titulo: string;
   texto: string;
   cta: { label: string; href: string };
-  // Imagen de fondo a sangre, como en el original: la diapositiva no es dos columnas.
-  fondo: { src: string; alt: string } | null;
-  // Cada diapositiva del original tiene su propia tipografía y su propio velo.
-  variante: "clara" | "zero" | "larus";
+  medio: { tipo: "video"; src: string } | { tipo: "imagen"; src: string };
+  variante: "eugenia" | "zero" | "larus";
 };
 
-// Sin autoplay a propósito: evita mareos y que el contenido cambie mientras se lee.
+// El hero del original son tres diapositivas a sangre de 75vh con vídeo o imagen de fondo,
+// que rotan solas cada 5 s (autoplay_speed del Swiper original).
+const INTERVALO = 5000;
+
 export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
   const [activa, setActiva] = useState(0);
-  if (diapositivas.length === 0) return null;
+  const [pausado, setPausado] = useState(false);
+  const seccion = useRef<HTMLElement>(null);
 
-  const mover = (paso: number) => setActiva((indice) => (indice + paso + diapositivas.length) % diapositivas.length);
+  const total = diapositivas.length;
+  const mover = (paso: number) => setActiva((i) => (i + paso + total) % total);
+
+  // Rotación automática. Se detiene con el cursor encima, con el foco dentro, al tocar
+  // en móvil y si el sistema pide reducir movimiento.
+  useEffect(() => {
+    if (total < 2 || pausado) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const temporizador = window.setInterval(() => setActiva((i) => (i + 1) % total), INTERVALO);
+    return () => window.clearInterval(temporizador);
+  }, [total, pausado]);
+
+  if (total === 0) return null;
 
   return (
     <section
+      ref={seccion}
       className={estilos.hero}
       aria-roledescription="carrusel"
       aria-label="Destacados"
+      onMouseEnter={() => setPausado(true)}
+      onMouseLeave={() => setPausado(false)}
+      onFocus={() => setPausado(true)}
+      onBlur={(evento) => {
+        if (!evento.currentTarget.contains(evento.relatedTarget)) setPausado(false);
+      }}
+      onTouchStart={() => setPausado(true)}
       onKeyDown={(evento) => {
         if (evento.key === "ArrowRight") mover(1);
         if (evento.key === "ArrowLeft") mover(-1);
       }}
     >
       {diapositivas.map((slide, indice) => (
-        <div
+        <article
           key={slide.titulo}
-          className={estilos.diapositiva}
+          className={estilos.slide}
           data-activa={indice === activa}
           data-variante={slide.variante}
-          role="group"
           aria-roledescription="diapositiva"
           aria-label={`${indice + 1} de ${diapositivas.length}: ${slide.titulo}`}
         >
-          {slide.fondo ? (
+          {slide.medio.tipo === "video" ? (
+            <video
+              className={estilos.slideMedio}
+              src={slide.medio.src}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload={indice === 0 ? "auto" : "none"}
+              aria-hidden="true"
+            />
+          ) : (
             <Image
-              src={slide.fondo.src}
-              alt={slide.fondo.alt}
+              className={estilos.slideMedio}
+              src={slide.medio.src}
+              alt=""
               fill
               sizes="100vw"
               priority={indice === 0}
-              className={estilos.heroFondo}
             />
-          ) : null}
+          )}
 
-          <div className={estilos.heroTexto}>
-            <p className={estilos.antetitulo}>{slide.antetitulo}</p>
+          <div className={estilos.slideTexto}>
+            <p className={estilos.slideAntetitulo}>{slide.antetitulo}</p>
             {indice === 0 ? (
-              <h1 className={estilos.heroTitulo}>{slide.titulo}</h1>
+              <h1 className={estilos.slideTitulo}>{slide.titulo}</h1>
             ) : (
-              <p className={estilos.heroTitulo}>{slide.titulo}</p>
+              <p className={estilos.slideTitulo}>{slide.titulo}</p>
             )}
-            <p className={estilos.heroDescripcion}>{slide.texto}</p>
+            <p className={estilos.slideParrafo}>{slide.texto}</p>
             <Link
               href={slide.cta.href}
-              className={`sm-boton ${estilos.heroBoton}`}
+              className={estilos.boton}
               tabIndex={indice === activa ? undefined : -1}
             >
               {slide.cta.label}
             </Link>
           </div>
-        </div>
+        </article>
       ))}
+
+      <button
+        type="button"
+        className={estilos.heroFlechaPrev}
+        aria-label="Diapositiva anterior"
+        onClick={() => mover(-1)}
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        className={estilos.heroFlechaNext}
+        aria-label="Diapositiva siguiente"
+        onClick={() => mover(1)}
+      >
+        ›
+      </button>
 
       <div className={estilos.puntos} role="tablist" aria-label="Diapositivas">
         {diapositivas.map((slide, indice) => (
@@ -82,7 +131,7 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
             className={estilos.punto}
             data-activa={indice === activa}
             aria-selected={indice === activa}
-            aria-label={`Ir a la diapositiva ${indice + 1}: ${slide.titulo}`}
+            aria-label={`Ver ${slide.titulo}`}
             onClick={() => setActiva(indice)}
           />
         ))}

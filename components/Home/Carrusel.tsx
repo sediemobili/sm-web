@@ -1,51 +1,30 @@
-import Image from "next/image";
-import Link from "next/link";
-import type { Product } from "@/lib/data";
-import estilos from "./Home.module.css";
+"use client";
 
-type Props = {
-  id: string;
-  titulo: string;
-  productos: Product[];
-  // Nombre visible de la categoría de cada producto, como lo muestra el sitio actual.
-  categoriaDe: (producto: Product) => string | null;
-  enlace: { label: string; href: string };
-};
+import { useRef } from "react";
+import estilos from "./home.module.css";
 
-// Fila desplazable con scroll-snap: no necesita JavaScript y se recorre con teclado.
-export function Carrusel({ id, titulo, productos, categoriaDe, enlace }: Props) {
-  if (productos.length === 0) return null;
+// Fila desplazable con flechas, como los carruseles del original. El scroll táctil,
+// la rueda y el teclado siguen funcionando: las flechas solo desplazan la lista.
+export function Carrusel({ etiqueta, children }: { etiqueta: string; children: React.ReactNode }) {
+  const lista = useRef<HTMLUListElement>(null);
+
+  const mover = (direccion: 1 | -1) => {
+    const nodo = lista.current;
+    if (!nodo) return;
+    nodo.scrollBy({ left: direccion * nodo.clientWidth * 0.8, behavior: "smooth" });
+  };
 
   return (
-    <section className={estilos.seccion} aria-labelledby={id}>
-      <div className={estilos.seccionEncabezado}>
-        <h2 id={id} className="sm-seccion-titulo">
-          {titulo}
-        </h2>
-        <Link href={enlace.href} className="sm-boton sm-boton--secundario">
-          {enlace.label}
-        </Link>
-      </div>
-
-      <ul className={estilos.fila}>
-        {productos.map((producto) => (
-          <li key={producto.slug} className={estilos.filaItem}>
-            <Link href={producto.path} className="sm-tarjeta">
-              {producto.images[0] ? (
-                <Image
-                  src={producto.images[0].src}
-                  alt={producto.images[0].alt}
-                  width={400}
-                  height={400}
-                  className="sm-tarjeta-imagen"
-                />
-              ) : null}
-              <span className={estilos.tarjetaCategoria}>{categoriaDe(producto)}</span>
-              <span className="sm-tarjeta-nombre">{producto.name}</span>
-            </Link>
-          </li>
-        ))}
+    <div className={estilos.carrusel}>
+      <ul ref={lista} className={estilos.carruselLista}>
+        {children}
       </ul>
-    </section>
+      <button type="button" className={estilos.flechaPrev} aria-label={`Anteriores de ${etiqueta}`} onClick={() => mover(-1)}>
+        ‹
+      </button>
+      <button type="button" className={estilos.flechaNext} aria-label={`Siguientes de ${etiqueta}`} onClick={() => mover(1)}>
+        ›
+      </button>
+    </div>
   );
 }

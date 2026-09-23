@@ -13,6 +13,12 @@ const MANIFIESTO = path.join(DATA_DIR, "medios.json");
 const MAX_LADO = 2000;
 const CALIDAD = 82;
 
+// Vídeos del hero: se guardan tal cual, sin convertir.
+const VIDEOS = [
+  "https://sediemobili.com/wp-content/uploads/2026/07/eugenia.mp4",
+  "https://sediemobili.com/wp-content/uploads/2026/07/larus.mp4",
+];
+
 // Fondos de la home, que en Elementor son background-image y no salen de los datos.
 const FONDOS = [
   "https://sediemobili.com/wp-content/uploads/2026/07/ZERO.webp",
@@ -59,14 +65,14 @@ async function leerManifiesto(): Promise<Manifiesto> {
 // Los SVG se copian tal cual; el resto se convierte a WebP con el lado mayor acotado.
 async function guardar(imagen: Imagen) {
   const nombre = nombreDe(imagen.url);
-  const esSvg = nombre.toLowerCase().endsWith(".svg");
-  const destino = path.join(MEDIA_DIR, imagen.carpeta, esSvg ? nombre : nombre.replace(/\.[^.]+$/, ".webp"));
+  const talCual = /\.(svg|mp4|webm)$/i.test(nombre);
+  const destino = path.join(MEDIA_DIR, imagen.carpeta, talCual ? nombre : nombre.replace(/\.[^.]+$/, ".webp"));
   const rutaPublica = `/media/${imagen.carpeta}/${path.basename(destino)}`;
 
   await mkdir(path.dirname(destino), { recursive: true });
   const original = await fetchBinario(imagen.url);
 
-  if (esSvg) await writeFile(destino, original);
+  if (talCual) await writeFile(destino, original);
   else {
     await sharp(original)
       .resize({ width: MAX_LADO, height: MAX_LADO, fit: "inside", withoutEnlargement: true })
@@ -97,7 +103,10 @@ async function main() {
   // Una ruta local ya reescrita se resuelve con el manifiesto, para poder volver a correr.
   const origen = (ruta: string) => (ruta.startsWith("/media/") ? (manifiesto[ruta] ?? null) : ruta);
 
-  const pendientes: Imagen[] = [...FONDOS.map((url) => ({ url, carpeta: "fondos" }))];
+  const pendientes: Imagen[] = [
+    ...FONDOS.map((url) => ({ url, carpeta: "fondos" })),
+    ...VIDEOS.map((url) => ({ url, carpeta: "video" })),
+  ];
   for (const categoria of categorias) {
     const url = categoria.image ? origen(categoria.image) : null;
     if (url) pendientes.push({ url, carpeta: "categorias" });
@@ -161,7 +170,7 @@ async function main() {
   await writeFile(MANIFIESTO, JSON.stringify(manifiesto, null, 2) + "\n");
 
   const mb = (n: number) => (n / 1024 / 1024).toFixed(1);
-  console.log(`Imágenes: ${rutas.size} de ${pendientes.length} pedidas`);
+  console.log(`Medios: ${rutas.size} de ${pendientes.length} pedidos`);
   console.log(`Peso: ${mb(bytes)} MB en public/media (originales: ${mb(bytesOriginales)} MB)`);
   console.log(`Rutas reescritas en data/: ${reescritas}`);
   if (fallos.length) console.log(`\nFallos (${fallos.length}):\n  ${fallos.join("\n  ")}`);

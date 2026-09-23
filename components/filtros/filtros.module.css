@@ -1,0 +1,166 @@
+/* Panel "Filtros Inteligentes" del original: caja crema de 314px con relleno 22px. */
+
+.lateral {
+  flex: 0 0 auto;
+  width: 314px;
+}
+
+.botonFiltros {
+  display: none;
+  width: 100%;
+  padding: var(--espacio-2) var(--espacio-4);
+  border: 1px solid var(--color-texto-suave);
+  border-radius: var(--radio-pill);
+  background: none;
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-tinta);
+  cursor: pointer;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  padding: 22px;
+  border-radius: var(--radio-s);
+  background-color: var(--color-fondo-suave);
+}
+
+.titulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-regular);
+  line-height: 1;
+  color: var(--color-tinta);
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.grupoTitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-nav);
+  font-weight: var(--peso-regular);
+  color: var(--color-tinta);
+}
+
+.opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Fichas de 11px, como las del original. */
+.opcion {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-fondo);
+  font-family: var(--fuente-texto);
+  font-size: 11px;
+  color: var(--color-tinta);
+  text-decoration: none;
+  transition:
+    background-color var(--transicion),
+    color var(--transicion);
+}
+
+.opcion:hover {
+  border-color: var(--color-tinta);
+}
+
+.opcion[data-activa="true"] {
+  background-color: var(--color-tinta);
+  color: var(--color-fondo);
+}
+
+.opcion:focus-visible,
+.pagina:focus-visible,
+.limpiar:focus-visible,
+.botonFiltros:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+.limpiar {
+  align-self: flex-start;
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-acento);
+}
+
+/* Esqueleto de la rejilla mientras llega la parte dinámica ------------------- */
+
+.esqueleto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: var(--espacio-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.esqueletoTarjeta {
+  height: 366px;
+  border: 1px solid rgb(207 207 207 / 0.51);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo-suave);
+}
+
+/* Paginación ---------------------------------------------------------------- */
+
+.paginacion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-2);
+  margin-block-start: var(--espacio-6);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+}
+
+.paginas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid var(--color-fondo-suave);
+  border-radius: var(--radio-pill);
+  color: var(--color-tinta);
+  text-decoration: none;
+}
+
+.pagina[data-activa="true"] {
+  background-color: var(--color-tinta);
+  color: var(--color-fondo);
+}
+
+@media (max-width: 767px) {
+  .lateral {
+    width: 100%;
+  }
+
+  .botonFiltros {
+    display: block;
+    margin-block-end: var(--espacio-3);
+  }
+
+  .contenedor[data-open="false"] {
+    display: none;
+  }
+}

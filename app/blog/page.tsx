@@ -1,9 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
+import estilos from "@/components/blog/blog.module.css";
+import { TarjetaPost } from "@/components/blog/TarjetaPost";
 import { getPosts } from "@/lib/data";
 import { metadataDe } from "@/lib/seo";
-import { formatearFecha } from "@/lib/formato";
-import estilos from "./blog.module.css";
+
+// Titular de plantilla del original, no sale de los datos.
+const TITULAR = "Terapia de Oficina";
 
 export const metadata = metadataDe({
   title: "Blog",
@@ -16,42 +17,15 @@ export default async function BlogPage() {
   const posts = await getPosts();
 
   return (
-    <main className="sm-pagina">
-      <nav aria-label="Migas de pan" className="sm-migas">
-        <ol className="sm-migas-lista">
-          <li>
-            <Link href="/">Inicio</Link>
-          </li>
-          <li aria-current="page">Blog</li>
-        </ol>
-      </nav>
+    <main>
+      <section className={estilos.portada}>
+        <p className={estilos.portadaTitular}>{TITULAR}</p>
+        <h1 className={estilos.portadaSubtitulo}>Nuestro Blog</h1>
+      </section>
 
-      <header className={estilos.encabezado}>
-        <h1 className="sm-titulo-pagina">Blog</h1>
-      </header>
-
-      <ul className="sm-rejilla">
+      <ul className={estilos.lista}>
         {posts.map((post) => (
-          <li key={post.slug}>
-            <Link href={post.path} className="sm-tarjeta">
-              {post.featuredImage ? (
-                <Image
-                  src={post.featuredImage.src}
-                  alt={post.featuredImage.alt}
-                  width={400}
-                  height={300}
-                  className="sm-tarjeta-imagen"
-                />
-              ) : null}
-              <time dateTime={post.date} className={estilos.fecha}>
-                {formatearFecha(post.date)}
-              </time>
-              <span className="sm-tarjeta-nombre">{post.title}</span>
-              {post.excerpt ? (
-                <span className={estilos.extracto} dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-              ) : null}
-            </Link>
-          </li>
+          <TarjetaPost key={post.slug} post={post} />
         ))}
       </ul>
 

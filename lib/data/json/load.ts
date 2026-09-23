@@ -2,13 +2,23 @@
 
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { unstable_cacheLife as cacheLife } from "next/cache";
 import type { Category, Collection, Page, Post, Procedencia, Product, ProductImage, Section } from "../types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
 const cache = new Map<string, Promise<unknown>>();
 
-function load<T>(file: string): Promise<T> {
+// "use cache" hace que la lectura de disco entre en el prerenderizado: sin esto, con
+// cacheComponents activo, cualquier página que lea datos sería dinámica entera.
+async function load<T>(file: string): Promise<T> {
+  "use cache";
+  // Los datos se regeneran en cada build: no tiene sentido revalidarlos por tiempo.
+  cacheLife("max");
+  return leer<T>(file);
+}
+
+function leer<T>(file: string): Promise<T> {
   const cached = cache.get(file);
   if (cached) return cached as Promise<T>;
   const pending = readFile(path.join(DATA_DIR, file), "utf8").then((raw) => JSON.parse(raw) as T);

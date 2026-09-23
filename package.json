@@ -14,7 +14,8 @@
     "extract:fichas": "node scripts/extract/fichas.ts",
     "extract:contenido": "node scripts/extract/contenido.ts",
     "extract:tokens": "node scripts/extract/tokens.ts",
-    "medios": "node scripts/extract/medios.ts"
+    "medios": "node scripts/extract/medios.ts",
+    "comparar": "node scripts/comparar.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.5",
@@ -30,6 +31,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "playwright": "^1.63.0",
     "typescript": "^5"
   },
   "packageManager": "pnpm@11.27.1"

@@ -1,130 +1,158 @@
-/* Home. Las medidas salen del CSS de Elementor de la home (post-27.css):
-   hero 75vh (70vh en móvil), banners con velo y radio 12px, tarjetas de categoría
-   con velo 0.5 y radio 20px, carruseles de 4 y 3 por vista con 40px de separación. */
+/* Home. Medidas tomadas del original y documentadas en docs/home-original.md.
+   Los valores sueltos (90px, 59px, 495px…) son propios de esta página y no suben a tokens. */
 
-.seccion {
-  margin-block-end: var(--espacio-8);
+/* Botón común de la home: píldora oscura, Albert Sans 14. */
+.boton {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 14px 32px;
+  border: 0;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-tinta);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  font-weight: var(--peso-regular);
+  line-height: 1;
+  color: var(--color-fondo);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transicion);
 }
 
-.seccionEncabezado {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--espacio-3);
+.boton:hover {
+  background-color: var(--color-texto-suave);
 }
 
-/* Hero --------------------------------------------------------------------- */
+.boton:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+/* 1. Hero ------------------------------------------------------------------ */
 
 .hero {
   position: relative;
-  margin-block-end: var(--espacio-8);
 }
 
-.diapositiva[data-activa="false"] {
+.slide[data-activa="false"] {
   display: none;
 }
 
-.diapositiva {
+.slide {
   position: relative;
-  isolation: isolate;
   display: flex;
-  min-height: 75vh; /* --min-height del contenedor del hero */
+  min-height: 75vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--espacio-7) var(--espacio-5);
   overflow: hidden;
+  isolation: isolate;
   text-align: center;
 }
 
-.heroFondo {
+.slideMedio {
+  position: absolute;
   z-index: -2;
+  width: 100%;
+  height: 100%;
+  inset: 0;
   object-fit: cover;
-  object-position: center center;
 }
 
-/* La tercera diapositiva lleva velo oscuro y texto blanco. */
-.diapositiva[data-variante="larus"]::before {
+/* LARUS va sobre vídeo oscuro: el velo del original mantiene legible el texto. */
+.slide[data-variante="larus"]::before {
   position: absolute;
   z-index: -1;
-  background-color: #00000057; /* overlay del contenedor 452b59c */
+  background-color: #00000057;
   content: "";
   inset: 0;
 }
 
-.heroTexto {
+.slideTexto {
   display: flex;
-  width: 40%; /* ancho de la columna de texto en el original */
+  width: 40%;
+  /* En el hero el botón va centrado, no alineado a la izquierda como en las secciones. */
+  text-align: center;
   flex-direction: column;
   align-items: center;
   gap: var(--espacio-3);
-  font-family: var(--fuente-texto);
-  color: var(--color-texto);
-}
-
-.antetitulo {
-  font-family: var(--fuente-secundaria);
-  font-size: 13px; /* 13px Archivo 300 en la primera diapositiva */
-  font-weight: var(--peso-ligero);
-}
-
-.heroTitulo {
-  font-family: var(--fuente-titulo);
-  font-size: 90px;
-  font-weight: var(--peso-medio);
-  line-height: 59px; /* interlineado fijo del original, más apretado que el tamaño */
   color: var(--color-tinta);
 }
 
-.heroDescripcion {
-  font-size: var(--texto-m);
-  line-height: var(--interlineado-base);
+.slideAntetitulo {
+  font-family: var(--fuente-secundaria);
+  font-size: 13px;
+  font-weight: var(--peso-ligero);
+  line-height: 13px;
 }
 
-.heroBoton {
-  border-radius: var(--radio-pill);
+.slideTexto .boton {
+  align-self: center;
 }
 
-.heroBoton:hover {
-  border-color: var(--color-texto-suave);
-  background-color: var(--color-texto-suave);
-  color: var(--color-fondo);
+.slideTitulo {
+  margin-block: var(--espacio-4) var(--espacio-5);
+  font-family: var(--fuente-titulo);
+  font-size: 90px;
+  font-weight: var(--peso-medio);
+  line-height: 59px;
+  color: inherit;
 }
 
-/* Diapositiva 2 (Zero): Raleway 80 en versalitas. */
-.diapositiva[data-variante="zero"] .antetitulo {
+.slideParrafo {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-extraligero);
+  line-height: 27px;
+}
+
+.slide[data-variante="zero"] .slideAntetitulo {
   font-family: var(--fuente-titulo);
   font-size: var(--texto-s);
   line-height: 20px;
 }
 
-.diapositiva[data-variante="zero"] .heroTitulo {
+.slide[data-variante="zero"] .slideTitulo {
   font-size: 80px;
   font-weight: var(--peso-regular);
   text-transform: uppercase;
 }
 
-/* Diapositiva 3 (LARUS): Archivo 80 en versalitas y todo el texto en blanco. */
-.diapositiva[data-variante="larus"] .heroTexto {
+.slide[data-variante="zero"] .slideParrafo {
+  font-size: var(--texto-m);
+  font-weight: var(--peso-ligero);
+  line-height: 24px;
+}
+
+.slide[data-variante="larus"] .slideTexto {
   width: 45%;
   color: var(--color-fondo);
 }
 
-.diapositiva[data-variante="larus"] .antetitulo {
+.slide[data-variante="larus"] .slideAntetitulo,
+.slide[data-variante="larus"] .slideTitulo,
+.slide[data-variante="larus"] .slideParrafo {
   font-family: var(--fuente-secundaria);
+}
+
+.slide[data-variante="larus"] .slideAntetitulo {
   font-size: var(--texto-s);
   font-weight: var(--peso-extraligero);
   line-height: 36px;
   text-transform: uppercase;
 }
 
-.diapositiva[data-variante="larus"] .heroTitulo {
-  font-family: var(--fuente-secundaria);
+.slide[data-variante="larus"] .slideTitulo {
   font-size: 80px;
   font-weight: var(--peso-regular);
-  color: var(--color-fondo);
   text-transform: uppercase;
+}
+
+.slide[data-variante="larus"] .slideParrafo {
+  font-size: var(--texto-m);
+  font-weight: var(--peso-extraligero);
+  line-height: 24px;
 }
 
 .puntos {
@@ -140,15 +168,15 @@
   width: var(--espacio-3);
   height: var(--espacio-3);
   padding: 0;
-  border: 1px solid var(--color-tinta);
+  border: 1px solid var(--color-fondo);
   border-radius: var(--radio-pill);
-  background: none;
+  background-color: #00000057;
   cursor: pointer;
   transition: background-color var(--transicion);
 }
 
 .punto[data-activa="true"] {
-  background-color: var(--color-tinta);
+  background-color: var(--color-fondo);
 }
 
 .punto:focus-visible {
@@ -156,36 +184,134 @@
   outline-offset: 2px;
 }
 
-/* Tarjetas de categoría ----------------------------------------------------- */
+/* Carrusel ----------------------------------------------------------------- */
 
-.categorias {
+.carrusel {
+  position: relative;
+}
+
+.carruselLista {
   display: flex;
-  gap: var(--espacio-6); /* 40px de separación, como el carrusel original */
+  gap: 40px;
   margin: 0;
-  padding: 0 0 var(--espacio-2);
+  padding: 0 4%;
   overflow-x: auto;
+  scrollbar-width: none;
   scroll-snap-type: x mandatory;
   list-style: none;
 }
 
+.carruselLista::-webkit-scrollbar {
+  display: none;
+}
+
+.flechaPrev,
+.flechaNext {
+  position: absolute;
+  inset-block-start: 45%;
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background-color: var(--color-fondo);
+  box-shadow: var(--sombra-modal);
+  font-size: var(--texto-xl);
+  line-height: 1;
+  color: var(--color-tinta);
+  cursor: pointer;
+  transition:
+    background-color var(--transicion),
+    color var(--transicion);
+}
+
+.flechaPrev:hover,
+.flechaNext:hover {
+  background-color: var(--color-texto);
+  color: var(--color-fondo);
+}
+
+.flechaPrev:focus-visible,
+.flechaNext:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+.heroFlechaPrev,
+.heroFlechaNext {
+  position: absolute;
+  inset-block-start: 50%;
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background-color: #d0d0d0;
+  font-size: var(--texto-xl);
+  line-height: 1;
+  color: var(--color-tinta);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color var(--transicion);
+}
+
+.heroFlechaPrev:hover,
+.heroFlechaNext:hover {
+  background-color: var(--color-fondo-suave);
+}
+
+.heroFlechaPrev:focus-visible,
+.heroFlechaNext:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+.heroFlechaPrev {
+  inset-inline-start: var(--espacio-5);
+}
+
+.heroFlechaNext {
+  inset-inline-end: var(--espacio-5);
+}
+
+.flechaPrev {
+  inset-inline-start: 1%;
+}
+
+.flechaNext {
+  inset-inline-end: 1%;
+}
+
+/* 2. Categorías ------------------------------------------------------------ */
+
+.seccionCategorias {
+  padding-block: 58px 72px; /* el original deja 43px extra bajo las tarjetas */
+}
+
 .categoriaItem {
   flex: 0 0 auto;
-  width: calc(33.333% - var(--espacio-6));
+  width: 407px;
   scroll-snap-align: start;
 }
 
 .categoria {
   position: relative;
-  isolation: isolate;
   display: flex;
-  min-height: 350px;
+  height: 495px;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-end;
   gap: var(--espacio-2);
-  padding: 30% var(--espacio-4) var(--espacio-4); /* el original abre con 30% arriba */
+  padding: var(--espacio-5);
   overflow: hidden;
   border-radius: var(--radio-m);
-  color: var(--color-fondo);
+  isolation: isolate;
   text-decoration: none;
 }
 
@@ -200,7 +326,7 @@
   background-color: #020101;
   content: "";
   inset: 0;
-  opacity: 0.5; /* --overlay-opacity del original */
+  opacity: 0.5;
   transition: opacity var(--transicion);
 }
 
@@ -210,13 +336,16 @@
 
 .categoriaNombre {
   font-family: var(--fuente-titulo);
-  font-size: var(--texto-xl);
-  line-height: var(--interlineado-titulo);
+  font-size: var(--texto-3xl);
+  font-weight: var(--peso-medio);
+  line-height: 38px;
+  color: var(--color-fondo);
 }
 
 .categoriaEnlace {
   font-family: var(--fuente-texto);
   font-size: var(--texto-s);
+  color: var(--color-borde-claro, #dcd9d4);
 }
 
 .categoria:focus-visible {
@@ -224,22 +353,28 @@
   outline-offset: -4px;
 }
 
-/* Banners ------------------------------------------------------------------ */
+/* 3. Banners --------------------------------------------------------------- */
 
-.banner,
-.personaliza {
+.seccionBanners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-4);
+  padding: 29px 4%;
+}
+
+.banner {
   position: relative;
-  isolation: isolate;
   display: flex;
+  min-height: 282px;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--espacio-1);
-  margin-block-end: var(--espacio-8);
+  justify-content: center;
+  gap: var(--espacio-2);
   padding: 4%;
   overflow: hidden;
-  border-radius: 12px; /* radio propio de los dos banners */
+  border-radius: 12px;
   background-color: #f4f4f4;
-  color: var(--color-tinta);
+  isolation: isolate;
 }
 
 .bannerImagen {
@@ -247,131 +382,371 @@
   object-fit: cover;
 }
 
-.banner::before,
-.personaliza::before {
+.banner::before {
   position: absolute;
   z-index: -1;
   background-color: var(--color-fondo);
   content: "";
   inset: 0;
-  opacity: 0.3; /* --overlay-opacity de los banners */
+  opacity: 0.3;
 }
 
 .bannerTitulo {
   font-family: var(--fuente-titulo);
   font-size: var(--texto-2xl);
   font-weight: var(--peso-regular);
-  letter-spacing: var(--tracking-titulo);
+  line-height: 32px;
   color: var(--color-tinta);
 }
 
 .bannerTexto {
-  max-width: 60ch;
+  max-width: 46ch;
   font-family: var(--fuente-texto);
   font-size: var(--texto-m);
-  font-weight: var(--peso-ligero);
-  line-height: var(--interlineado-base);
-  color: var(--color-texto);
+  font-weight: var(--peso-regular);
+  line-height: 24px;
+  color: var(--color-tinta);
 }
 
-/* Intro -------------------------------------------------------------------- */
+/* 4. Explora + Sillería Ejecutiva ------------------------------------------ */
 
-.intro {
+.seccionExplora {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--espacio-3);
-  margin-block-end: var(--espacio-8);
+  padding: 58px 4% 29px;
 }
 
-.introTitulo {
+.tituloSeccion {
   font-family: var(--fuente-titulo);
   font-size: var(--texto-3xl);
   font-weight: var(--peso-regular);
-  letter-spacing: var(--tracking-titulo);
+  line-height: 40px;
   color: var(--color-tinta);
 }
 
 .introTexto {
-  max-width: 60ch;
+  max-width: 90ch;
   font-family: var(--fuente-texto);
   font-size: var(--texto-m);
-  font-weight: var(--peso-ligero);
-  line-height: var(--interlineado-base);
-  color: var(--color-texto);
+  font-weight: var(--peso-regular);
+  line-height: 24px;
+  color: var(--color-tinta);
 }
 
-/* Carruseles de producto ---------------------------------------------------- */
-
-.fila {
+.silleria {
+  position: relative;
   display: flex;
-  gap: var(--espacio-6);
-  margin: var(--espacio-4) 0 0;
-  padding: 0 0 var(--espacio-2);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  list-style: none;
+  width: 100%;
+  min-height: 665px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--espacio-3);
+  margin-block-start: 56px;
+  padding: var(--espacio-7);
+  overflow: hidden;
+  border-radius: var(--radio-m);
+  isolation: isolate;
 }
 
-.filaItem {
+.silleriaImagen {
+  z-index: -2;
+  object-fit: cover;
+}
+
+.silleriaTitulo {
+  font-family: var(--fuente-titulo);
+  font-size: 70px;
+  font-weight: var(--peso-medio);
+  line-height: 55px;
+  color: var(--color-fondo);
+}
+
+.silleriaTexto {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-l);
+  line-height: 27px;
+  color: var(--color-fondo);
+}
+
+/* 5 y 8. Carruseles de producto -------------------------------------------- */
+
+.seccionProductos {
+  padding-block: 29px 58px;
+}
+
+.seccionProductos .tituloSeccion {
+  padding-inline: 4%;
+  margin-block-end: 60px; /* el original deja bastante aire entre el título y las tarjetas */
+}
+
+.productoItem {
   flex: 0 0 auto;
-  width: calc(25% - var(--espacio-6)); /* 4 por vista, como el original */
+  width: 295px;
   scroll-snap-align: start;
 }
 
-.tarjetaCategoria {
+.producto {
+  display: flex;
+  min-height: 419px; /* alto de la tarjeta en el original */
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-2);
+}
+
+.productoFigura {
+  width: 258px;
+  height: 258px;
+  overflow: hidden;
+  border-radius: var(--radio-s);
+}
+
+.productoImagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productoCategoria {
   font-family: var(--fuente-texto);
-  font-size: var(--texto-xs);
-  color: var(--color-texto-suave);
+  font-size: 10px;
+  font-weight: var(--peso-medio);
+  line-height: 10px;
+  color: var(--color-tinta);
   text-transform: uppercase;
 }
 
-/* Blog --------------------------------------------------------------------- */
-
-.blogTarjeta {
-  min-height: 350px; /* alto mínimo de las tarjetas de blog en el original */
+.productoNombre {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-ligero);
+  line-height: 23px;
+  color: var(--color-tinta);
 }
 
+.seccionEscritoriosProductos {
+  padding-block: 86px; /* el carrusel de escritorios respira más que el de sillas */
+}
+
+/* 6. Escritorios Innovadores ------------------------------------------------ */
+
+.seccionEscritorios {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 72px 6% 43px;
+  overflow: hidden;
+  background-color: var(--color-fondo-suave);
+  isolation: isolate;
+  text-align: right;
+}
+
+/* Ilustración de edificios a la izquierda, como en el original. */
+.escritoriosIlustracion {
+  position: absolute;
+  z-index: -1;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  width: 35%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left bottom;
+}
+
+.escritoriosTitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--fuente-titulo);
+  font-size: 55px;
+  font-weight: var(--peso-regular);
+  line-height: 30px;
+  color: var(--color-tinta);
+}
+
+.escritoriosDestacado {
+  font-size: 100px;
+  line-height: 100px;
+  font-weight: var(--peso-ligero);
+}
+
+/* 7. Descubre todas nuestras líneas ---------------------------------------- */
+
+.seccionLineas {
+  position: relative;
+  display: flex;
+  min-height: 523px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--espacio-4);
+  padding: 86px 6%;
+  overflow: hidden;
+  background-color: var(--color-fondo-suave);
+  isolation: isolate;
+}
+
+.lineasImagen {
+  z-index: -2;
+  object-fit: contain;
+  object-position: right center;
+}
+
+.lineasTitulo {
+  max-width: 12ch;
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-4xl);
+  font-weight: var(--peso-ligero);
+  line-height: 36px;
+  color: var(--color-tinta);
+}
+
+/* 9. Blog ------------------------------------------------------------------- */
+
+.seccionBlog {
+  padding-block: 58px 29px;
+}
+
+.blogEncabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  padding-inline: 4%;
+  margin-block-end: var(--espacio-4);
+}
+
+.blogTitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-4xl);
+  font-weight: var(--peso-ligero);
+  line-height: 36px;
+  color: var(--color-tinta);
+}
+
+.postItem {
+  flex: 0 0 auto;
+  width: 318px;
+  scroll-snap-align: start;
+}
+
+.post {
+  position: relative;
+  display: flex;
+  height: 389px;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--espacio-4);
+  overflow: hidden;
+  border-radius: var(--radio-m);
+  isolation: isolate;
+}
+
+.postImagen {
+  z-index: -2;
+  object-fit: cover;
+}
+
+.post::before {
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(to top, #020101cc 0%, #02010133 60%);
+  content: "";
+  inset: 0;
+}
+
+.postTitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-medio);
+  line-height: 28.8px;
+}
+
+.postEnlace {
+  color: var(--color-fondo);
+  text-decoration: none;
+}
+
+.postEnlace:focus-visible {
+  outline: 2px solid var(--color-fondo);
+  outline-offset: 4px;
+}
+
+/* Móvil --------------------------------------------------------------------- */
+
 @media (max-width: 767px) {
-  .diapositiva {
+  .slide {
     min-height: 70vh;
     padding: var(--espacio-5) var(--espacio-4);
   }
 
-  .heroTexto {
+  .slideTexto {
     width: 70%;
   }
 
-  .diapositiva[data-variante="zero"] .heroTexto,
-  .diapositiva[data-variante="larus"] .heroTexto {
+  .slide[data-variante="zero"] .slideTexto,
+  .slide[data-variante="larus"] .slideTexto {
     width: 75%;
   }
 
-  .antetitulo {
+  .slideAntetitulo {
     font-size: var(--texto-m);
   }
 
-  .heroTitulo {
+  .slideTitulo {
     font-size: 60px;
   }
 
-  .diapositiva[data-variante="zero"] .heroTitulo,
-  .diapositiva[data-variante="larus"] .heroTitulo {
+  .slide[data-variante="zero"] .slideTitulo,
+  .slide[data-variante="larus"] .slideTitulo {
     font-size: 70px;
   }
 
-  .categoriaItem,
-  .filaItem {
-    width: calc(100% - var(--espacio-4));
-  }
-
-  .categorias,
-  .fila {
+  .carruselLista {
     gap: var(--espacio-4);
+    padding-inline: 6%;
   }
 
-  .banner,
-  .personaliza {
+  /* Rellenos verticales del original en móvil, sección por sección. */
+  .seccionCategorias {
+    padding-block: 16px 52px; /* en móvil el original deja más aire bajo las tarjetas */
+  }
+
+  .seccionProductos {
+    padding-block: 31px;
+  }
+
+  .seccionEscritoriosProductos {
+    padding-block: 23px;
+  }
+
+  .seccionBlog {
+    padding-block: 16px 8px;
+  }
+
+  .categoriaItem {
+    width: 294px;
+  }
+
+  .categoria {
+    height: 464px;
+  }
+
+  .categoriaNombre {
+    font-size: var(--texto-3xl);
+  }
+
+  .seccionBanners {
+    grid-template-columns: 1fr;
+    padding: 8px 4%;
+  }
+
+  .banner {
+    min-height: 205px; /* en móvil los dos banners caben en 458px */
     padding: 8%;
   }
 
@@ -379,12 +754,53 @@
     font-size: var(--texto-xl);
   }
 
-  .bannerTexto,
-  .introTexto {
+  .bannerTexto {
     font-size: var(--texto-s);
   }
 
-  .introTitulo {
+  .seccionExplora {
+    padding: 23px 6%;
+  }
+
+  .tituloSeccion,
+  .seccionProductos .tituloSeccion {
     font-size: 28px;
+    line-height: 32px;
+  }
+
+  .silleria {
+    min-height: 300px;
+    padding: var(--espacio-5);
+  }
+
+  .silleriaTitulo {
+    font-size: var(--texto-3xl);
+    line-height: 40px;
+  }
+
+  .productoItem {
+    width: 294px;
+  }
+
+  /* Las secciones 6 y 7 están ocultas en el móvil del original. */
+  .seccionEscritorios,
+  .seccionLineas {
+    display: none;
+  }
+
+  .blogEncabezado {
+    padding-inline: 6%;
+  }
+
+  .blogTitulo {
+    font-size: var(--texto-3xl);
+  }
+
+  .postItem {
+    width: 100%;
+  }
+
+  .post {
+    height: 422px;
   }
 }

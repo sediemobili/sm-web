@@ -124,25 +124,54 @@
     list-style: none;
   }
 
+  /* Tarjeta de producto del original: marco claro con radio 20 y relleno lateral. */
   .sm-tarjeta {
     display: flex;
+    height: 100%;
     flex-direction: column;
+    align-items: flex-start;
     gap: var(--espacio-2);
+    padding: var(--espacio-3) var(--espacio-3) var(--espacio-4);
+    border: 1px solid rgb(207 207 207 / 0.51);
+    border-radius: var(--radio-m);
     font-family: var(--fuente-texto);
     font-size: var(--texto-s);
     color: var(--color-tinta);
     text-decoration: none;
   }
 
+  /* Categoría encima del nombre, como en la tarjeta original. */
+  .sm-tarjeta-categoria {
+    font-size: 10px;
+    font-weight: var(--peso-medio);
+    line-height: 1;
+    color: var(--color-tinta);
+    text-transform: uppercase;
+  }
+
+  .sm-tarjeta-boton {
+    margin-block-start: auto;
+    padding: 12px 24px;
+    border-radius: var(--radio-m);
+    background-color: var(--color-tinta);
+    font-size: var(--texto-s);
+    line-height: 1;
+    color: var(--color-fondo);
+  }
+
   .sm-tarjeta-imagen {
     width: 100%;
     height: auto;
+    /* Proporción fija: si no, cada imagen impone su alto y las filas bailan. */
+    aspect-ratio: 1;
     border-radius: var(--radio-m);
+    object-fit: cover;
   }
 
   .sm-tarjeta-nombre {
-    font-family: var(--fuente-titulo);
-    font-size: var(--texto-m);
+    font-size: var(--texto-l);
+    font-weight: var(--peso-ligero);
+    line-height: 23px;
   }
 
   .sm-tarjeta:focus-visible {

@@ -1,61 +1,135 @@
-/* Ficha de producto: solo lo propio de esta página; lo compartido está en patrones.css.
-   Es la página de referencia del sistema: paridad con /product/[slug]/ del sitio actual. */
-
-/* Ficha: galería e información --------------------------------------------- */
+/* Ficha de producto. Medidas del original, documentadas en docs/producto-original.md:
+   dos columnas de 720px, galería apilada de imágenes de 800px de alto y columna de
+   información con relleno 115/115/0/57. */
 
 .ficha {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--espacio-6);
   align-items: start;
 }
 
+/* Galería ------------------------------------------------------------------ */
+
 .galeria {
+  padding-block-start: 57px;
+}
+
+.galeriaFigura {
+  display: block;
+}
+
+.galeriaImagen {
+  display: block;
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+}
+
+/* Información -------------------------------------------------------------- */
+
+.informacion {
+  position: sticky;
+  inset-block-start: 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--espacio-4);
+  padding: 115px 115px 58px 57px;
 }
 
-.imagenPrincipal {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radio-m);
+.titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 42px;
+  font-weight: var(--peso-medio);
+  line-height: 1;
+  color: var(--color-tinta);
 }
 
-.miniaturas {
+.migas {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  font-weight: var(--peso-ligero);
+  color: var(--color-texto);
+}
+
+.migasLista {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--espacio-2);
+  gap: var(--espacio-1);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.miniatura {
-  display: block;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid transparent;
-  border-radius: var(--radio-s);
-  background: none;
+.migasLista li + li::before {
+  margin-inline-end: var(--espacio-1);
+  content: "/";
+}
+
+.migasLista a {
+  color: var(--color-tinta);
+  text-decoration: none;
+}
+
+.migasLista a:hover {
+  text-decoration: underline;
+}
+
+.especificaciones {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-medio);
+  line-height: 1;
+  color: var(--color-tinta);
+}
+
+/* Descargables -------------------------------------------------------------- */
+
+.acordeon {
+  width: 100%;
+  border-block-end: 1px solid var(--color-fondo-suave);
+}
+
+.acordeonTitulo {
+  padding-block: var(--espacio-3);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-tinta);
   cursor: pointer;
-  transition: border-color var(--transicion);
 }
 
-.miniatura img {
-  display: block;
-  width: var(--espacio-8);
-  height: auto;
+.descargas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-3);
+  margin: 0;
+  padding: 0 0 var(--espacio-4);
+  list-style: none;
 }
 
-.miniatura[data-activa="true"] {
-  border-color: var(--color-tinta);
-}
-
-.informacion {
+.descarga {
   display: flex;
-  flex-direction: column;
-  gap: var(--espacio-4);
+  align-items: center;
+  gap: var(--espacio-2);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-tinta);
+  text-decoration: none;
+}
+
+.descarga:hover {
+  text-decoration: underline;
+}
+
+.descargaTipo {
+  padding: var(--espacio-1) var(--espacio-2);
+  border-radius: var(--radio-s);
+  background-color: var(--color-tinta);
+  font-size: var(--texto-xs);
+  color: var(--color-fondo);
+}
+
+.descripcion {
   font-family: var(--fuente-texto);
   font-size: var(--texto-m);
   font-weight: var(--peso-ligero);
@@ -63,47 +137,24 @@
   color: var(--color-texto);
 }
 
-.taxonomias {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--espacio-2);
-  font-size: var(--texto-s);
-}
-
-.taxonomia {
-  padding: var(--espacio-1) var(--espacio-3);
-  border-radius: var(--radio-pill);
-  background-color: var(--color-fondo-suave);
-  color: var(--color-tinta);
-  text-decoration: none;
-}
-
-.agotado {
-  font-size: var(--texto-s);
-  font-weight: var(--peso-semibold);
-  color: var(--color-acento);
-  text-transform: uppercase;
-}
-
-.descripcionCorta {
-  font-size: var(--texto-l);
-}
-
 .descripcion p + p {
   margin-block-start: var(--espacio-2);
 }
 
-/* Variaciones -------------------------------------------------------------- */
+/* Variaciones ---------------------------------------------------------------- */
 
 .variaciones {
-  border: 0;
+  width: 100%;
   padding: 0;
+  border: 0;
 }
 
-.etiqueta {
+.variacionesEtiqueta {
   padding: 0;
+  font-family: var(--fuente-texto);
   font-size: var(--texto-m);
   font-weight: var(--peso-semibold);
+  line-height: 19px;
   color: var(--color-tinta);
 }
 
@@ -118,6 +169,9 @@
   padding: var(--espacio-1) var(--espacio-4);
   border: 1px solid var(--color-texto-suave);
   border-radius: var(--radio-pill);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-tinta);
   cursor: pointer;
   transition: border-color var(--transicion);
 }
@@ -127,7 +181,7 @@
   background-color: var(--color-fondo-suave);
 }
 
-/* El radio se oculta sin perder el foco ni el teclado. */
+/* El radio se oculta sin perder foco ni teclado. */
 .opcionRadio {
   position: absolute;
   width: 1px;
@@ -141,15 +195,16 @@
   outline-offset: 2px;
 }
 
-/* Nota y acciones ---------------------------------------------------------- */
+/* Nota y acciones ------------------------------------------------------------ */
 
 .nota {
-  width: 70%;
-  padding: var(--espacio-3) var(--espacio-4);
-  border-radius: var(--radio-m);
+  max-width: 383px;
+  padding: 16px 20px;
+  border-radius: var(--radio-s);
   background-color: var(--color-fondo-suave);
+  font-family: var(--fuente-texto);
   font-size: var(--texto-s);
-  font-weight: var(--peso-regular);
+  line-height: var(--interlineado-base);
   color: var(--color-tinta);
 }
 
@@ -159,7 +214,43 @@
   gap: var(--espacio-2);
 }
 
+.boton {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 1px solid var(--color-tinta);
+  border-radius: var(--radio-m);
+  background-color: var(--color-tinta);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  line-height: 1;
+  color: var(--color-fondo-suave);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--transicion),
+    color var(--transicion);
+}
+
+.boton:hover {
+  background-color: var(--color-fondo-suave);
+  color: var(--color-tinta);
+}
+
+.botonSecundario {
+  background-color: transparent;
+  color: var(--color-tinta);
+}
+
+.boton:focus-visible,
+.acordeonTitulo:focus-visible,
+.descarga:focus-visible,
+.migasLista a:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
 .aviso {
+  font-family: var(--fuente-texto);
   font-size: var(--texto-s);
   color: var(--color-tinta);
 }
@@ -168,72 +259,29 @@
   color: var(--color-acento);
 }
 
-/* Descargables ------------------------------------------------------------- */
-
-.descargables,
+/* Añadido nuestro, fuera de las dos columnas del original. */
 .relacionados {
-  margin-block-start: var(--espacio-8);
-}
-
-.listaDescargas {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--espacio-4);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.descarga {
-  display: flex;
-  align-items: center;
-  gap: var(--espacio-2);
-  padding: var(--espacio-3);
-  border: 1px solid var(--color-fondo-suave);
-  border-radius: var(--radio-s);
-  font-family: var(--fuente-texto);
-  font-size: var(--texto-s);
-  color: var(--color-tinta);
-  text-decoration: none;
-  transition: border-color var(--transicion);
-}
-
-.descarga:hover {
-  border-color: var(--color-tinta);
-}
-
-.iconoArchivo {
-  padding: var(--espacio-1) var(--espacio-2);
-  border-radius: var(--radio-s);
-  background-color: var(--color-tinta);
-  font-size: var(--texto-xs);
-  color: var(--color-fondo);
-}
-
-.extension {
-  color: var(--color-texto-suave);
-}
-
-/* Foco --------------------------------------------------------------------- */
-
-.taxonomia:focus-visible,
-.miniatura:focus-visible,
-.descarga:focus-visible {
-  outline: 2px solid var(--color-acento);
-  outline-offset: 2px;
+  grid-column: 1 / -1;
+  max-width: var(--ancho-contenido);
+  margin-inline: auto;
+  padding: var(--espacio-8) 4%;
 }
 
 @media (max-width: 767px) {
   .ficha {
     grid-template-columns: 1fr;
-    gap: var(--espacio-5);
   }
 
-  .nota {
-    width: 100%;
+  .galeria {
+    padding-block-start: 15px;
   }
 
-  .listaDescargas {
+  .informacion {
+    position: static;
+    padding: 31px 31px 40px 15px;
+  }
+
+  .descargas {
     grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -1,30 +1,26 @@
 import type { Download } from "@/lib/data";
-import estilos from "./Producto.module.css";
+import estilos from "./producto.module.css";
 
-// Hoy solo hay .dwg y .pdf; el resto cae en el ícono genérico.
-const ICONOS: Record<string, string> = { pdf: "PDF", dwg: "DWG" };
+// Hoy solo hay .dwg y .pdf; el resto cae en la etiqueta genérica.
+const ETIQUETAS: Record<string, string> = { pdf: "PDF", dwg: "DWG" };
 
+// En el original es un acordeón plegado bajo "Especificaciones"; aquí es <details> nativo.
 export function Descargables({ descargables }: { descargables: Download[] }) {
   return (
-    <section className={estilos.descargables} aria-labelledby="descargables">
-      <h2 id="descargables" className="sm-seccion-titulo">
-        Descargables
-      </h2>
-      <ul className={estilos.listaDescargas}>
+    <details className={estilos.acordeon}>
+      <summary className={estilos.acordeonTitulo}>Descargables</summary>
+      <ul className={estilos.descargas}>
         {descargables.map((archivo) => (
           <li key={archivo.url}>
             <a href={archivo.url} className={estilos.descarga} download>
-              <span className={estilos.iconoArchivo} aria-hidden="true">
-                {ICONOS[archivo.extension ?? ""] ?? "FILE"}
+              <span className={estilos.descargaTipo} aria-hidden="true">
+                {ETIQUETAS[archivo.extension ?? ""] ?? "FILE"}
               </span>
-              <span>
-                {archivo.label}
-                {archivo.extension ? <span className={estilos.extension}>.{archivo.extension}</span> : null}
-              </span>
+              {archivo.label}
             </a>
           </li>
         ))}
       </ul>
-    </section>
+    </details>
   );
 }
