@@ -10,7 +10,7 @@ export type Diapositiva = {
   titulo: string;
   texto: string;
   cta: { label: string; href: string };
-  medio: { tipo: "video"; src: string } | { tipo: "imagen"; src: string };
+  medio: { tipo: "video"; src: string; poster: string } | { tipo: "imagen"; src: string };
   variante: "eugenia" | "zero" | "larus";
 };
 
@@ -22,6 +22,7 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
   const [activa, setActiva] = useState(0);
   const [pausado, setPausado] = useState(false);
   const seccion = useRef<HTMLElement>(null);
+  const videos = useRef<(HTMLVideoElement | null)[]>([]);
 
   const total = diapositivas.length;
   const mover = (paso: number) => setActiva((i) => (i + paso + total) % total);
@@ -34,6 +35,18 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
     const temporizador = window.setInterval(() => setActiva((i) => (i + 1) % total), INTERVALO);
     return () => window.clearInterval(temporizador);
   }, [total, pausado]);
+
+  // Solo reproduce el vídeo de la diapositiva visible: los demás se pausan y se rebobinan.
+  useEffect(() => {
+    videos.current.forEach((video, indice) => {
+      if (!video) return;
+      if (indice === activa) void video.play().catch(() => undefined);
+      else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [activa]);
 
   if (total === 0) return null;
 
@@ -66,13 +79,17 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
         >
           {slide.medio.tipo === "video" ? (
             <video
+              ref={(nodo) => {
+                videos.current[indice] = nodo;
+              }}
               className={estilos.slideMedio}
               src={slide.medio.src}
-              autoPlay
+              poster={slide.medio.poster}
+              autoPlay={indice === 0}
               loop
               muted
               playsInline
-              preload={indice === 0 ? "auto" : "none"}
+              preload="metadata"
               aria-hidden="true"
             />
           ) : (

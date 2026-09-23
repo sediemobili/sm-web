@@ -27,7 +27,7 @@ const HERO: Diapositiva[] = [
     texto:
       "Confort directivo y ergonomía superior para jornadas largas. Respaldo en malla, opción de cabecera, brazos ajustables y más.",
     cta: { label: "Ver Eugenia", href: "/product/eugenia/" },
-    medio: { tipo: "video", src: "/media/video/eugenia.mp4" },
+    medio: { tipo: "video", src: "/media/video/eugenia.mp4", poster: "/media/productos/Eugenia-con-cabecera-gris-2.webp" },
     variante: "eugenia",
   },
   {
@@ -44,7 +44,7 @@ const HERO: Diapositiva[] = [
     titulo: "LARUS",
     texto: "Fusionando estética, funcionalidad y tecnología; ideal para oficinas directivas y ejecutivas.",
     cta: { label: "Ver Colección", href: "/coleccion/larus/" },
-    medio: { tipo: "video", src: "/media/video/larus.mp4" },
+    medio: { tipo: "video", src: "/media/video/larus.mp4", poster: "/media/productos/Larus-LAR-3-1.webp" },
     variante: "larus",
   },
 ];
@@ -180,6 +180,7 @@ export default async function HomePage() {
           alt=""
           width={1200}
           height={800}
+          sizes="(max-width: 767px) 0px, 35vw"
           className={estilos.escritoriosIlustracion}
         />
         <h2 className={estilos.escritoriosTitulo}>

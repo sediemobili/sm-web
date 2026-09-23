@@ -54,6 +54,7 @@ export default async function GraciasPage() {
                     alt=""
                     width={103}
                     height={68}
+                    sizes="103px"
                     className={estilos.noticiaImagen}
                   />
                 ) : null}

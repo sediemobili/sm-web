@@ -101,6 +101,7 @@ export function ListaCotizacion({ productos }: { productos: ProductoResumen[] })
                       alt={producto.imagen.alt}
                       width={80}
                       height={80}
+                      sizes="80px"
                       className={estilos.miniatura}
                     />
                   ) : null}

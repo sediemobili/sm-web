@@ -111,6 +111,7 @@ export default async function ProductoPage({ params }: PageProps<"/product/[slug
                       alt={otro.images[0].alt}
                       width={400}
                       height={400}
+                      sizes="(max-width: 767px) 45vw, 215px"
                       className="sm-tarjeta-imagen"
                     />
                   ) : null}

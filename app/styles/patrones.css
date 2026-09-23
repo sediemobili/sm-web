@@ -8,39 +8,6 @@
     padding: var(--espacio-5) var(--espacio-4) var(--espacio-8);
   }
 
-  /* Migas ------------------------------------------------------------------ */
-  .sm-migas {
-    margin-block-end: var(--espacio-4);
-    font-family: var(--fuente-texto);
-    font-size: var(--texto-s);
-    font-weight: var(--peso-ligero);
-    color: var(--color-texto);
-  }
-
-  .sm-migas-lista {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--espacio-1);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .sm-migas-lista li + li::before {
-    margin-inline-end: var(--espacio-1);
-    content: "/";
-  }
-
-  .sm-migas-lista a {
-    color: var(--color-tinta);
-    text-decoration: none;
-  }
-
-  .sm-migas-lista a:focus-visible {
-    outline: 2px solid var(--color-acento);
-    outline-offset: 2px;
-  }
-
   /* Encabezado de sección -------------------------------------------------- */
   .sm-seccion-titulo {
     margin-block-end: var(--espacio-4);
@@ -51,7 +18,7 @@
     color: var(--color-tinta);
   }
 
-  /* Título de página y conteo -------------------------------------------- */
+  /* Título de página -------------------------------------------------------- */
   .sm-titulo-pagina {
     font-family: var(--fuente-titulo);
     font-size: var(--texto-3xl);
@@ -59,13 +26,6 @@
     line-height: var(--interlineado-titulo);
     letter-spacing: var(--tracking-titulo);
     color: var(--color-tinta);
-  }
-
-  .sm-conteo {
-    margin-block-end: var(--espacio-4);
-    font-family: var(--fuente-texto);
-    font-size: var(--texto-s);
-    color: var(--color-texto-suave);
   }
 
   /* Chips: filas de enlaces a otras taxonomías ----------------------------- */

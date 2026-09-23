@@ -74,7 +74,7 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
           alt="Sedie &amp; Mobili"
           width={1750}
           height={323}
-          priority
+          sizes="200px"
           className={estilos.logoImagen}
         />
       </Link>
