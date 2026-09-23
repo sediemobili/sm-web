@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Carrusel } from "@/components/home/Carrusel";
+import { Carrusel } from "@/components/Home/Carrusel";
 import type { Category } from "@/lib/data";
 import estilos from "./categorias.module.css";
 

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Conversion } from "@/components/Analytics/Conversion";
-import estilos from "@/components/paginas/paginas.module.css";
+import estilos from "@/components/Paginas/Paginas.module.css";
 import { getPageBySlug, getPosts } from "@/lib/data";
 import { metadataDe } from "@/lib/seo";
 

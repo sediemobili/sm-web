@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ProductImage } from "@/lib/data";
-import estilos from "./producto.module.css";
+import estilos from "./Producto.module.css";
 
 // La galería del original es una pila vertical de todas las imágenes, sin miniaturas
 // ni carrusel: cada una ocupa el ancho de la columna con 800px de alto.

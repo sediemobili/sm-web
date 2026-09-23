@@ -1,5 +1,5 @@
 import type { Download } from "@/lib/data";
-import estilos from "./producto.module.css";
+import estilos from "./Producto.module.css";
 
 // Hoy solo hay .dwg y .pdf; el resto cae en la etiqueta genérica.
 const ETIQUETAS: Record<string, string> = { pdf: "PDF", dwg: "DWG" };

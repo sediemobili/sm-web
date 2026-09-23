@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import estilos from "@/components/paginas/paginas.module.css";
+import estilos from "@/components/Paginas/Paginas.module.css";
 import { getPageBySlug } from "@/lib/data";
 import { metadataDe } from "@/lib/seo";
 

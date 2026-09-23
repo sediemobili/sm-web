@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { BotonContacto } from "@/components/ContactoModal/BotonContacto";
 import { CarruselCategorias } from "@/components/categorias/CarruselCategorias";
-import { Carrusel } from "@/components/home/Carrusel";
-import { Hero, type Diapositiva } from "@/components/home/Hero";
-import estilos from "@/components/home/home.module.css";
+import { Carrusel } from "@/components/Home/Carrusel";
+import { Hero, type Diapositiva } from "@/components/Home/Hero";
+import estilos from "@/components/Home/Home.module.css";
 import { getCategories, getPosts, getProductBySlug, type Category, type Product } from "@/lib/data";
 
 // Lo que el original elige a mano y no está en los datos: el orden de las tarjetas,

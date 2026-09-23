@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import estilos from "./home.module.css";
+import estilos from "./Home.module.css";
 
 // Fila desplazable con flechas, como los carruseles del original. El scroll táctil,
 // la rueda y el teclado siguen funcionando: las flechas solo desplazan la lista.

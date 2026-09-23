@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { VistaProducto } from "@/components/Analytics/VistaProducto";
-import { Descargables } from "@/components/producto/Descargables";
-import { Galeria } from "@/components/producto/Galeria";
-import { PanelCompra } from "@/components/producto/PanelCompra";
-import estilos from "@/components/producto/producto.module.css";
+import { Descargables } from "@/components/Producto/Descargables";
+import { Galeria } from "@/components/Producto/Galeria";
+import { PanelCompra } from "@/components/Producto/PanelCompra";
+import estilos from "@/components/Producto/Producto.module.css";
 import { JsonLd } from "@/components/Seo/JsonLd";
 import Image from "next/image";
 import {

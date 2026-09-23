@@ -5,7 +5,7 @@ import { BotonContacto } from "@/components/ContactoModal/BotonContacto";
 import { enviarEvento } from "@/lib/analytics";
 import { useCotizacion } from "@/lib/cotizacion";
 import type { Product } from "@/lib/data";
-import estilos from "./producto.module.css";
+import estilos from "./Producto.module.css";
 
 // Variaciones y CTA. Mantiene la lógica de la lista de cotización y los eventos.
 export function PanelCompra({ producto, categoria }: { producto: Product; categoria: string | null }) {

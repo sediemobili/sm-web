@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import estilos from "./home.module.css";
+import estilos from "./Home.module.css";
 
 export type Diapositiva = {
   antetitulo: string;
