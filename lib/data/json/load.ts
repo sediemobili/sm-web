@@ -2,7 +2,7 @@
 
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { unstable_cacheLife as cacheLife } from "next/cache";
+import { cacheLife } from "next/cache";
 import type { Category, Collection, Page, Post, Procedencia, Product, ProductImage, Section } from "../types";
 
 const DATA_DIR = path.join(process.cwd(), "data");

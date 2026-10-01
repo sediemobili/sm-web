@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { unstable_cacheLife as cacheLife } from "next/cache";
+import { cacheLife } from "next/cache";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { getCategories, getCollections, getPosts, getProcedencias, getProducts } from "@/lib/data";

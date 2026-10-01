@@ -36,6 +36,10 @@ export async function enviarCotizacion(_previo: EstadoCotizacion, formData: Form
     await guardarLead({
       ...datos,
       origen: "cotizacion",
+      destino: null,
+      categorias: null,
+      volumen: null,
+      plazo: null,
       renglones: renglones.data,
       creadoEn: new Date().toISOString(),
     });

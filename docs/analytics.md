@@ -14,8 +14,9 @@ Todos se disparan **en el cliente y después de que la acción tuvo éxito**, nu
 
 | Evento | Cuándo | Dónde | Parámetros |
 |---|---|---|---|
-| `generate_lead` | El modal de contacto se envió correctamente | Modal, disponible en todo el sitio (header, ficha de producto, venta empresarial y home) | `origen: "modal-contacto"`, `interes` |
+| `generate_lead` | El modal de contacto se envió correctamente | Modal, disponible en todo el sitio (header, ficha de producto, venta empresarial y home) | `origen: "modal-contacto"`, `destino`, `interes` |
 | `generate_lead` | La solicitud de cotización se envió correctamente | `/cotizacion/` | `origen: "cotizacion"`, `interes` |
+| `generate_lead` | Se guardaron nombre y teléfono del botón de WhatsApp, justo antes de abrir wa.me | Botón flotante, en todo el sitio | `origen: "whatsapp"` |
 | `sign_up_newsletter` | La suscripción se guardó | Bloque de newsletter de la home | — |
 | `add_to_quote` | Se agregó un producto a la lista de cotización | `/product/[slug]/` | `item_id` (slug), `item_name`, `item_category`, `variacion` |
 | `remove_from_quote` | Se quitó un producto de la lista | `/cotizacion/` | `item_id`, `item_name`, `item_category`, `variacion` |
@@ -26,9 +27,11 @@ Todos se disparan **en el cliente y después de que la acción tuvo éxito**, nu
 
 ### Notas por evento
 
-- **`generate_lead`** distingue los dos formularios por `origen`. `interes` es el valor del
-  campo "¿Qué estás buscando?" (Sillas de oficina, Escritorios, Recepciones, Mesas, Mobiliario
-  en General, Proyecto Integral, Otro).
+- **`generate_lead`** distingue los tres formularios por `origen`. En la cotización, `interes`
+  es el valor del campo "¿Qué estás buscando?" (Sillas de oficina, Escritorios, Recepciones,
+  Mesas, Mobiliario en General, Proyecto Integral, Otro). En el modal, `destino` es la respuesta
+  del paso 1 (`oficina`, `casa`, `proyecto`, `otro`) e `interes` las categorías del paso 2
+  separadas por coma ("Sillas, Escritorios").
 - **`add_to_quote` / `remove_from_quote`**: `variacion` es el valor visible de la variación
   elegida ("Con Cabecera") o `null` si el producto no tiene variaciones.
 - **`view_item_list`**: `item_list_name` es el nombre del listado ("Catálogo", "Escritorios",

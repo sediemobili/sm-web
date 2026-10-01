@@ -4,6 +4,7 @@ import { Albert_Sans, Archivo, Raleway } from "next/font/google";
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
 import { JsonLd } from "@/components/Seo/JsonLd";
+import { BotonWhatsApp } from "@/components/WhatsApp/BotonWhatsApp";
 import { CotizacionProvider } from "@/lib/cotizacion";
 import { organizacion } from "@/lib/jsonld";
 import { NOMBRE, SITE } from "@/lib/seo";
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
           <div id="contenido">{children}</div>
           <Footer />
+          <BotonWhatsApp />
         </CotizacionProvider>
       </body>
     </html>

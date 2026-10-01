@@ -1,40 +1,63 @@
 "use server";
 
 import { guardarLead } from "@/lib/leads";
-import { validarContacto, type ErroresContacto } from "./esquema";
+import { leerAsistente, validarAsistente, type ErroresAsistente, type Paso } from "./esquema";
 
 export type EstadoContacto = {
   estado: "inicial" | "exito" | "error";
-  errores: ErroresContacto;
+  errores: ErroresAsistente;
+  // Primer paso con errores, para que el asistente vuelva a él.
+  paso: Paso | null;
   mensaje: string | null;
-  // Lo consume el evento generate_lead en cliente.
+  // Los consume el evento generate_lead en cliente.
+  destino: string | null;
   interes: string | null;
 };
 
-export const estadoInicial: EstadoContacto = { estado: "inicial", errores: {}, mensaje: null, interes: null };
+export const estadoInicial: EstadoContacto = {
+  estado: "inicial",
+  errores: {},
+  paso: null,
+  mensaje: null,
+  destino: null,
+  interes: null,
+};
+
+const ERROR_GUARDADO = "No pudimos enviar tu solicitud. Inténtalo de nuevo en un momento.";
 
 export async function enviarContacto(_previo: EstadoContacto, formData: FormData): Promise<EstadoContacto> {
-  const { datos, errores } = validarContacto(Object.fromEntries(formData));
+  const { datos, errores, paso } = validarAsistente(leerAsistente(formData));
   if (!datos) {
-    return { estado: "error", errores, mensaje: "Revisa los campos marcados.", interes: null };
+    return { ...estadoInicial, estado: "error", errores, paso, mensaje: "Revisa los campos marcados." };
   }
 
   try {
-    await guardarLead({ ...datos, origen: "modal-contacto", renglones: null, creadoEn: new Date().toISOString() });
+    await guardarLead({
+      nombre: datos.nombre,
+      email: datos.email,
+      telefono: datos.telefono,
+      empresa: datos.empresa,
+      interes: null,
+      mensaje: datos.mensaje,
+      origen: "modal-contacto",
+      destino: datos.destino,
+      categorias: datos.categorias,
+      volumen: datos.volumen,
+      plazo: datos.plazo,
+      renglones: null,
+      creadoEn: new Date().toISOString(),
+    });
   } catch (error) {
     console.error("[lead] no se pudo guardar", error);
-    return {
-      estado: "error",
-      errores: {},
-      mensaje: "No pudimos enviar tu solicitud. Inténtalo de nuevo en un momento.",
-      interes: null,
-    };
+    return { ...estadoInicial, estado: "error", mensaje: ERROR_GUARDADO };
   }
 
   return {
     estado: "exito",
     errores: {},
+    paso: null,
     mensaje: "¡Gracias! Recibimos tu solicitud y te contactamos en menos de 24 horas.",
-    interes: datos.interes,
+    destino: datos.destino,
+    interes: datos.categorias.join(", "),
   };
 }

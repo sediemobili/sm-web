@@ -1,0 +1,111 @@
+/* Botón flotante de WhatsApp y su mini formulario. Va en todas las páginas, sobre el contenido. */
+
+.whatsapp {
+  position: fixed;
+  inset-block-end: var(--espacio-4);
+  inset-inline-end: var(--espacio-4);
+  z-index: var(--z-header);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--espacio-3);
+}
+
+.boton {
+  display: flex;
+  width: var(--espacio-8);
+  height: var(--espacio-8);
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-tinta);
+  box-shadow: var(--sombra-tarjeta);
+  color: var(--color-fondo);
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+.boton svg {
+  width: var(--espacio-5);
+  height: var(--espacio-5);
+}
+
+.panel {
+  width: min(calc(100vw - 2 * var(--espacio-4)), calc(var(--ancho-logo) * 2));
+  padding: var(--espacio-4);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo-suave);
+  box-shadow: var(--sombra-tarjeta);
+  color: var(--color-texto);
+}
+
+.titulo {
+  margin-block-end: var(--espacio-3);
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-medio);
+  line-height: var(--interlineado-titulo);
+  color: var(--color-tinta);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+}
+
+.campo {
+  padding: var(--espacio-2) var(--espacio-3);
+  border: 1px solid var(--color-texto-suave);
+  border-radius: var(--radio-campo);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.campo[aria-invalid="true"] {
+  border-color: var(--color-acento);
+}
+
+.error {
+  font-size: var(--texto-xs);
+  color: var(--color-acento);
+}
+
+.enviar {
+  padding: var(--espacio-2) var(--espacio-5);
+  border: 0;
+  border-radius: var(--radio-l);
+  background-color: var(--color-tinta);
+  font: inherit;
+  color: var(--color-fondo);
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+.enviar:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+/* Interacción ---------------------------------------------------------------- */
+
+.boton:hover,
+.enviar:hover {
+  background-color: var(--color-acento);
+}
+
+.boton:focus-visible,
+.campo:focus-visible,
+.enviar:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}

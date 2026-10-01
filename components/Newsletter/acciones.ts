@@ -27,6 +27,10 @@ export async function suscribir(_previo: EstadoNewsletter, formData: FormData): 
       interes: null,
       mensaje: null,
       origen: "newsletter",
+      destino: null,
+      categorias: null,
+      volumen: null,
+      plazo: null,
       renglones: null,
       creadoEn: new Date().toISOString(),
     });

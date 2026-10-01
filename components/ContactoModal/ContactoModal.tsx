@@ -1,10 +1,9 @@
 "use client";
 
-import { useActionState, useEffect, useId, useRef, useState } from "react";
-import { enviarEvento } from "@/lib/analytics";
-import { enviarContacto, estadoInicial } from "./acciones";
+import Image from "next/image";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { Asistente } from "./Asistente";
 import estilos from "./ContactoModal.module.css";
-import { INTERESES, validarContacto, type ErroresContacto } from "./esquema";
 
 type Props = {
   abierto: boolean;
@@ -17,13 +16,14 @@ const TEXTO =
 
 export function ContactoModal({ abierto, onCerrar }: Props) {
   const dialogo = useRef<HTMLDialogElement>(null);
-  const formulario = useRef<HTMLFormElement>(null);
-  const [estado, accion, enviando] = useActionState(enviarContacto, estadoInicial);
-  const [erroresCliente, setErroresCliente] = useState<ErroresContacto>({});
   const tituloId = useId();
+  // Tras un envío correcto, la siguiente apertura empieza un asistente nuevo.
+  const enviado = useRef(false);
+  const [ronda, setRonda] = useState(0);
 
   // showModal() da el modo modal del navegador: foco atrapado, inerte el resto y Escape nativo.
-  useEffect(() => {
+  // Va en layout effect para que el diálogo ya esté abierto cuando el asistente mueva el foco.
+  useLayoutEffect(() => {
     const elemento = dialogo.current;
     if (!elemento) return;
     if (abierto && !elemento.open) elemento.showModal();
@@ -35,120 +35,54 @@ export function ContactoModal({ abierto, onCerrar }: Props) {
     return () => document.documentElement.classList.remove("is-scroll-locked");
   }, [abierto]);
 
-  // El evento se dispara solo cuando el envío ya fue correcto, nunca antes.
-  useEffect(() => {
-    if (estado.estado !== "exito") return;
-    enviarEvento("generate_lead", { origen: "modal-contacto", interes: estado.interes });
-  }, [estado.estado, estado.interes]);
-
-  const errores: ErroresContacto = { ...erroresCliente, ...estado.errores };
-
-  // Mismo esquema que el servidor: el mensaje aparece al salir del campo.
-  const validarCampo = (campo: keyof ErroresContacto) => () => {
-    if (!formulario.current) return;
-    const valores = Object.fromEntries(new FormData(formulario.current));
-    const { errores: nuevos } = validarContacto(valores);
-    setErroresCliente((previos) => ({ ...previos, [campo]: nuevos[campo] }));
+  const cerrar = () => {
+    if (enviado.current) {
+      enviado.current = false;
+      setRonda((previa) => previa + 1);
+    }
+    onCerrar();
   };
-
-  const campo = (nombre: keyof ErroresContacto) => ({
-    id: `contacto-${nombre}`,
-    name: nombre,
-    onBlur: validarCampo(nombre),
-    "aria-invalid": errores[nombre] ? true : undefined,
-    "aria-describedby": errores[nombre] ? `contacto-${nombre}-error` : undefined,
-    className: estilos.campo,
-  });
-
-  const error = (nombre: keyof ErroresContacto) =>
-    errores[nombre] ? (
-      <p id={`contacto-${nombre}-error`} className={estilos.error}>
-        {errores[nombre]}
-      </p>
-    ) : null;
 
   return (
     <dialog
       ref={dialogo}
       className={estilos.dialogo}
       aria-labelledby={tituloId}
-      onClose={onCerrar}
+      onClose={cerrar}
       onClick={(evento) => {
-        if (evento.target === dialogo.current) onCerrar();
+        if (evento.target === dialogo.current) cerrar();
       }}
     >
-      <div className={estilos.contenido}>
-        <button type="button" className={estilos.cerrar} aria-label="Cerrar" onClick={onCerrar}>
-          ×
-        </button>
+      <div className={estilos.marco}>
+        <div className={estilos.ambiente}>
+          <Image
+            src="/media/categorias/mesas-cat.webp"
+            alt=""
+            fill
+            sizes="30vw"
+            className={estilos.foto}
+          />
+          <Image
+            src="/media/marca/isotipo-06.svg"
+            alt=""
+            width={1080}
+            height={1080}
+            className={estilos.isotipo}
+          />
+        </div>
 
-        <h2 id={tituloId} className={estilos.titulo}>
-          Contáctanos
-        </h2>
+        <div className={estilos.panel}>
+          <button type="button" className={estilos.cerrar} aria-label="Cerrar" onClick={cerrar}>
+            ×
+          </button>
 
-        {estado.estado === "exito" ? (
-          <p className={estilos.exito} role="status">
-            {estado.mensaje}
-          </p>
-        ) : (
-          <>
-            <p className={estilos.texto}>{TEXTO}</p>
+          <h2 id={tituloId} className={estilos.titulo}>
+            Contáctanos
+          </h2>
+          <p className={estilos.texto}>{TEXTO}</p>
 
-            <form ref={formulario} action={accion} className={estilos.formulario} noValidate aria-busy={enviando}>
-              <div className={estilos.grupo}>
-                <label htmlFor="contacto-nombre">Nombre *</label>
-                <input type="text" required autoComplete="name" {...campo("nombre")} />
-                {error("nombre")}
-              </div>
-
-              <div className={estilos.grupo}>
-                <label htmlFor="contacto-email">Email *</label>
-                <input type="email" required autoComplete="email" {...campo("email")} />
-                {error("email")}
-              </div>
-
-              <div className={estilos.grupo}>
-                <label htmlFor="contacto-telefono">Teléfono *</label>
-                <input type="tel" required autoComplete="tel" {...campo("telefono")} />
-                {error("telefono")}
-              </div>
-
-              <div className={estilos.grupo}>
-                <label htmlFor="contacto-empresa">Empresa</label>
-                <input type="text" autoComplete="organization" {...campo("empresa")} />
-                {error("empresa")}
-              </div>
-
-              <div className={estilos.grupo}>
-                <label htmlFor="contacto-interes">¿Qué estás buscando?</label>
-                <select defaultValue={INTERESES[0]} {...campo("interes")}>
-                  {INTERESES.map((interes) => (
-                    <option key={interes} value={interes}>
-                      {interes}
-                    </option>
-                  ))}
-                </select>
-                {error("interes")}
-              </div>
-
-              <div className={estilos.grupo}>
-                <label htmlFor="contacto-mensaje">Mensaje</label>
-                <textarea rows={4} {...campo("mensaje")} />
-                {error("mensaje")}
-              </div>
-
-              {estado.estado === "error" && estado.mensaje ? (
-                <p className={estilos.error} role="alert">
-                  {estado.mensaje}
-                </p>
-              ) : null}
-
-              <button type="submit" className={estilos.enviar} disabled={enviando}>
-                {enviando ? "Enviando…" : "Enviar Solicitud"}
-              </button>
-            </form>
-          </>
-        )}
+          <Asistente key={ronda} activo={abierto} onExito={() => (enviado.current = true)} />
+        </div>
       </div>
     </dialog>
   );
