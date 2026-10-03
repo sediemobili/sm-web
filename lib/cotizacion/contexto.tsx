@@ -50,6 +50,7 @@ export function CotizacionProvider({ children }: { children: React.ReactNode }) 
   const [renglones, setRenglones] = useState<Renglon[]>([]);
 
   // Se lee después del primer render para que el HTML del servidor y el del cliente coincidan.
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- localStorage solo existe en el cliente; leerlo tras el primer render evita el desajuste de hidratación.
   useEffect(() => setRenglones(leer()), []);
 
   const actualizar = useCallback((calcular: (previos: Renglon[]) => Renglon[]) => {

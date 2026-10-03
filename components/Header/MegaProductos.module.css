@@ -1,0 +1,226 @@
+/* Mega-menú de "Productos" en escritorio: tarjeta blanca de cuatro columnas bajo el header
+   flotante, centrada respecto a él. El header (position: fixed) es su bloque contenedor. */
+
+.productos {
+  position: static;
+}
+
+/* Estado del componente: el JS solo cambia data-open. */
+.tarjeta[data-open="false"] {
+  display: none;
+}
+
+.tarjeta {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(100% + var(--espacio-2));
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr 1fr;
+  gap: var(--espacio-6);
+  width: 100%;
+  max-width: var(--ancho-contenido);
+  margin-inline: auto;
+  padding: var(--espacio-6);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo);
+  box-shadow: var(--sombra-tarjeta);
+  color: var(--color-tinta);
+  animation: aparecer var(--transicion);
+}
+
+/* Puente invisible sobre el hueco entre el header y la tarjeta, para que el cursor no lo
+   cuente como salida al bajar. */
+.tarjeta::before {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 100%;
+  height: var(--espacio-2);
+  content: "";
+}
+
+/* Con prefers-reduced-motion, base.css deja la animación en 0,01ms: aparece sin movimiento. */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--espacio-1) * -1));
+  }
+}
+
+.columna {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-4);
+}
+
+.titulo {
+  display: block;
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-regular);
+  line-height: var(--interlineado-titulo);
+  letter-spacing: var(--tracking-titulo);
+  color: var(--color-tinta);
+}
+
+.lista,
+.subcategorias,
+.productosLista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  align-self: stretch;
+}
+
+.enlace,
+.categoria,
+.subcategoria,
+.producto,
+.proyectos {
+  color: var(--color-texto);
+  text-decoration: none;
+  transition:
+    color var(--transicion),
+    background-color var(--transicion);
+}
+
+/* Columna 2: la categoría activa alimenta la columna 3. */
+.categoria {
+  display: block;
+  margin-inline: calc(var(--espacio-2) * -1);
+  padding: var(--espacio-1) var(--espacio-2);
+  border-radius: var(--radio-s);
+}
+
+.categoria[data-activa="true"] {
+  background-color: var(--color-fondo-suave);
+  color: var(--color-tinta);
+}
+
+.catalogo,
+.volumenBoton {
+  display: inline-block;
+  padding: var(--espacio-3) var(--espacio-5);
+  border: 0;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-tinta);
+  font: inherit;
+  font-size: var(--texto-s);
+  line-height: 1;
+  color: var(--color-fondo);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+/* Columna 3: los paneles de todas las categorías comparten celda y reservan el alto. */
+.paneles {
+  display: grid;
+  min-width: 0;
+}
+
+.panel {
+  display: flex;
+  grid-area: 1 / 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.panel[data-activa="false"] {
+  visibility: hidden;
+}
+
+.subcategorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+}
+
+.subcategoria {
+  display: inline-block;
+  padding: var(--espacio-1) var(--espacio-3);
+  border: 1px solid var(--color-fondo-suave);
+  border-radius: var(--radio-pill);
+  font-size: var(--texto-s);
+}
+
+.productosLista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-3);
+}
+
+.producto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+  font-size: var(--texto-s);
+}
+
+.productoImagen {
+  display: block;
+  width: var(--espacio-8);
+  height: var(--espacio-8);
+  border-radius: var(--radio-s);
+  background-color: var(--color-fondo-suave);
+  object-fit: cover;
+}
+
+/* Columna 4 */
+.proyectos {
+  color: var(--color-tinta);
+}
+
+.volumen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-3);
+  padding: var(--espacio-4);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo-suave);
+}
+
+.volumenTexto {
+  font-size: var(--texto-s);
+  line-height: var(--interlineado-base);
+  color: var(--color-texto);
+}
+
+/* Interacción ---------------------------------------------------------------- */
+
+.enlace:hover,
+.categoria:hover,
+.subcategoria:hover,
+.producto:hover,
+.proyectos:hover {
+  color: var(--color-acento);
+}
+
+.subcategoria:hover {
+  border-color: var(--color-acento);
+}
+
+.catalogo:hover,
+.volumenBoton:hover {
+  background-color: var(--color-acento);
+}
+
+.enlace:focus-visible,
+.categoria:focus-visible,
+.subcategoria:focus-visible,
+.producto:focus-visible,
+.proyectos:focus-visible,
+.catalogo:focus-visible,
+.volumenBoton:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}

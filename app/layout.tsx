@@ -12,6 +12,7 @@ import "./styles/tokens.css";
 import "./styles/base.css";
 import "./styles/patrones.css";
 import "./styles/interacciones.css";
+import estilos from "./layout.module.css";
 
 // Los pesos son los que usa el sitio actual; Inter, Roboto y Roboto Slab quedaron fuera.
 // next/font exige que los argumentos sean literales, así que se repiten en cada llamada.
@@ -77,7 +78,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             Saltar al contenido
           </a>
           <Header />
-          <div id="contenido">{children}</div>
+          <div id="contenido" className={estilos.contenido}>
+            {children}
+          </div>
           <Footer />
           <BotonWhatsApp />
         </CotizacionProvider>

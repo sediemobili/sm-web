@@ -54,6 +54,7 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
     <section
       ref={seccion}
       className={estilos.hero}
+      data-hero
       aria-roledescription="carrusel"
       aria-label="Destacados"
       onMouseEnter={() => setPausado(true)}

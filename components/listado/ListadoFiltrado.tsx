@@ -17,7 +17,7 @@ import { aplicarFiltros, leerFiltros, opcionesDe, POR_PAGINA } from "@/lib/filtr
 import { listaItems } from "@/lib/jsonld";
 import estilos from "./listado.module.css";
 
-export type Ambito =
+type Ambito =
   | { tipo: "catalogo" }
   | { tipo: "busqueda"; q: string }
   | { tipo: "categoria"; slug: string }

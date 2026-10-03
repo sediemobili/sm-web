@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { Asistente } from "./Asistente";
 import estilos from "./ContactoModal.module.css";
@@ -53,36 +52,17 @@ export function ContactoModal({ abierto, onCerrar }: Props) {
         if (evento.target === dialogo.current) cerrar();
       }}
     >
-      <div className={estilos.marco}>
-        <div className={estilos.ambiente}>
-          <Image
-            src="/media/categorias/mesas-cat.webp"
-            alt=""
-            fill
-            sizes="30vw"
-            className={estilos.foto}
-          />
-          <Image
-            src="/media/marca/isotipo-06.svg"
-            alt=""
-            width={1080}
-            height={1080}
-            className={estilos.isotipo}
-          />
-        </div>
+      <div className={estilos.panel}>
+        <button type="button" className={estilos.cerrar} aria-label="Cerrar" onClick={cerrar}>
+          ×
+        </button>
 
-        <div className={estilos.panel}>
-          <button type="button" className={estilos.cerrar} aria-label="Cerrar" onClick={cerrar}>
-            ×
-          </button>
+        <h2 id={tituloId} className={estilos.titulo}>
+          Contáctanos
+        </h2>
+        <p className={estilos.texto}>{TEXTO}</p>
 
-          <h2 id={tituloId} className={estilos.titulo}>
-            Contáctanos
-          </h2>
-          <p className={estilos.texto}>{TEXTO}</p>
-
-          <Asistente key={ronda} activo={abierto} onExito={() => (enviado.current = true)} />
-        </div>
+        <Asistente key={ronda} activo={abierto} onExito={() => (enviado.current = true)} />
       </div>
     </dialog>
   );

@@ -97,7 +97,7 @@ export default async function HomePage() {
   };
 
   return (
-    <main>
+    <main className={estilos.inicio}>
       {/* 1. Hero */}
       <Hero diapositivas={HERO} />
 
@@ -106,7 +106,7 @@ export default async function HomePage() {
         <h2 id="categorias-home" className="sm-oculto">
           Categorías
         </h2>
-        <CarruselCategorias categorias={categoriasHome} />
+        <CarruselCategorias categorias={categoriasHome} automatico />
       </section>
 
       {/* 3. Dos banners */}

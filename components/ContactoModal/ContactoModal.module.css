@@ -1,11 +1,11 @@
-/* Modal de contacto. Paridad con el popup 2438 del sitio actual: imagen de ambiente
-   al 30% con el isotipo encima y el contenido al 70% sobre crema. */
+/* Modal de contacto: una sola columna sobre crema, centrada en la pantalla, con el texto
+   centrado. Solo las etiquetas y los campos de "Tus datos" van alineados a la izquierda. */
 
 .dialogo {
   /* El reset de base.css quita el margin: auto del navegador, que es lo que centra el diálogo. */
   margin: auto;
-  width: 70vw;
-  max-width: var(--ancho-contenido);
+  width: 90vw;
+  max-width: 70ch; /* ancho cómodo de lectura para la columna */
   max-height: 90dvh;
   padding: 0;
   border: 0;
@@ -20,38 +20,14 @@
   background-color: var(--color-velo);
 }
 
-.marco {
-  display: grid;
-  grid-template-columns: 3fr 7fr;
-  max-height: 90dvh;
-}
-
-/* Imagen de ambiente --------------------------------------------------------- */
-
-.ambiente {
-  position: relative;
-}
-
-.foto {
-  object-fit: cover;
-}
-
-/* El widget del isotipo del original ocupa el 51% de la columna. */
-.isotipo {
-  position: absolute;
-  inset-block-end: var(--espacio-6);
-  inset-inline: 0;
-  width: 51%;
-  height: auto;
-  margin-inline: auto;
-}
-
 /* Panel ---------------------------------------------------------------------- */
 
 .panel {
   position: relative;
+  max-height: 90dvh;
   overflow-y: auto;
   padding: var(--espacio-6) var(--espacio-7);
+  text-align: center;
 }
 
 .cerrar {
@@ -75,7 +51,7 @@
 
 .titulo {
   margin-block-end: var(--espacio-2);
-  padding-inline-end: var(--espacio-7);
+  padding-inline: var(--espacio-7); /* a los dos lados, para que el botón de cerrar no descentre el título */
   font-family: var(--fuente-titulo);
   font-size: var(--texto-3xl);
   font-weight: var(--peso-medio);
@@ -108,7 +84,9 @@
   border: 0;
 }
 
+/* La leyenda se ajusta a su texto: a todo el ancho, el texto centrado queda en medio. */
 .formulario legend {
+  width: 100%;
   padding: 0;
 }
 
@@ -174,7 +152,7 @@
 .tarjeta {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--espacio-2);
   padding: var(--espacio-4);
   border: 1px solid var(--color-fondo);
@@ -182,7 +160,7 @@
   background-color: var(--color-fondo);
   font: inherit;
   font-size: var(--texto-m);
-  text-align: start;
+  text-align: center;
   color: var(--color-tinta);
   cursor: pointer;
   transition: border-color var(--transicion);
@@ -202,7 +180,18 @@
 .chips {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--espacio-2);
+}
+
+/* Paso 2: las categorías van en rejilla de dos columnas iguales, con la píldora centrada. */
+[data-paso="categorias"] .chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+[data-paso="categorias"] .chip {
+  justify-content: center;
 }
 
 .chip {
@@ -232,6 +221,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--espacio-4);
+  text-align: start; /* un formulario con etiquetas centradas se llena peor */
 }
 
 .grupo {
@@ -264,7 +254,7 @@
 
 .navegacion {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--espacio-3);
 }
 
@@ -286,7 +276,6 @@
 }
 
 .siguiente {
-  margin-inline-start: auto;
   background-color: var(--color-tinta);
   color: var(--color-fondo);
 }
@@ -338,14 +327,6 @@
     width: 90vw;
   }
 
-  .marco {
-    grid-template-columns: 1fr;
-  }
-
-  .ambiente {
-    display: none;
-  }
-
   .panel {
     padding: var(--espacio-5) var(--espacio-4);
   }
@@ -354,7 +335,8 @@
     font-size: var(--texto-2xl);
   }
 
-  .campos {
+  .campos,
+  [data-paso="categorias"] .chips {
     grid-template-columns: 1fr;
   }
 }

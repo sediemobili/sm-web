@@ -26,6 +26,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
             <button type="button" className="sm-boton" onClick={reset}>
               Intentar de nuevo
             </button>
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- esta página sustituye al layout raíz: volver al inicio pide una recarga completa, no navegación del cliente. */}
             <a href="/" className="sm-boton sm-boton--secundario">
               Volver al inicio
             </a>

@@ -77,8 +77,10 @@ export function Asistente({ activo, onExito }: Props) {
   useEffect(() => {
     if (!activo) return;
     const contenedor = formulario.current?.querySelector<HTMLElement>(`[data-paso="${paso}"]`);
+    // aria-invalid puede estar en un campo o en un grupo de radios: en el grupo, el foco va a su primer radio.
+    const invalido = contenedor?.querySelector<HTMLElement>("[aria-invalid='true']");
     const destinoFoco =
-      contenedor?.querySelector<HTMLElement>("[aria-invalid='true']") ??
+      (invalido?.matches(CONTROLES) ? invalido : invalido?.querySelector<HTMLElement>(CONTROLES)) ??
       contenedor?.querySelector<HTMLElement>(CONTROLES);
     destinoFoco?.focus();
   }, [activo, paso, intento]);
@@ -144,9 +146,18 @@ export function Asistente({ activo, onExito }: Props) {
     className: estilos.campo,
   });
 
+  // El error se anuncia en el grupo de radios, no en cada radio: es el grupo el que falta por responder.
   const opciones = (nombre: "volumen" | "plazo", lista: readonly string[], titulo: string) => (
-    <fieldset className={estilos.pregunta} aria-describedby={descrito(nombre)}>
-      <legend className={estilos.subtitulo}>{titulo}</legend>
+    <fieldset
+      className={estilos.pregunta}
+      role="radiogroup"
+      aria-labelledby={`contacto-${nombre}-titulo`}
+      aria-invalid={errores[nombre] ? true : undefined}
+      aria-describedby={descrito(nombre)}
+    >
+      <legend id={`contacto-${nombre}-titulo`} className={estilos.subtitulo}>
+        {titulo}
+      </legend>
       <div className={estilos.chips}>
         {lista.map((valor) => (
           <label key={valor} className={estilos.chip}>
@@ -156,7 +167,6 @@ export function Asistente({ activo, onExito }: Props) {
               value={valor}
               className={estilos.marca}
               onChange={limpiar(nombre)}
-              aria-invalid={errores[nombre] ? true : undefined}
             />
             {valor}
           </label>

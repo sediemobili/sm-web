@@ -1,0 +1,13 @@
+/* Contenedor de las páginas en el layout raíz. */
+
+/* El header es fixed y no ocupa sitio: se reserva su hueco para que no tape el contenido.
+   La home lo anula para que el hero quede debajo del header (Home.module.css, .inicio). */
+.contenido {
+  padding-block-start: var(--reserva-header);
+}
+
+@media (max-width: 767px) {
+  .contenido {
+    padding-block-start: var(--reserva-header-movil);
+  }
+}

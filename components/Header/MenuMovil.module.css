@@ -1,0 +1,268 @@
+/* Menú de la hamburguesa: diálogo modal en forma de tarjeta oscura, con el margen móvil
+   de tarjeta. Nunca pasa del alto de la pantalla: el contenido se desplaza por dentro. */
+
+.menu {
+  width: auto;
+  max-width: none;
+  max-height: calc(100dvh - var(--margen-tarjeta-movil) * 2);
+  margin: var(--margen-tarjeta-movil);
+  margin-block-end: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radio-tarjeta-movil);
+  overflow: hidden;
+  background-color: var(--color-tinta);
+  font-family: var(--fuente-titulo);
+  color: var(--color-fondo-suave);
+}
+
+.menu::backdrop {
+  background-color: var(--color-velo);
+}
+
+/* Con prefers-reduced-motion, base.css deja animaciones y transiciones en 0,01ms. */
+.menu[open] {
+  animation: entrar var(--transicion);
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--espacio-2) * -1));
+  }
+}
+
+/* El marco ocupa todo el diálogo: un clic en el diálogo mismo solo puede venir del fondo. */
+.marco {
+  display: flex;
+  max-height: calc(100dvh - var(--margen-tarjeta-movil) * 2);
+  flex-direction: column;
+  gap: var(--espacio-4);
+  padding: var(--espacio-4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+}
+
+.buscador {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--espacio-1);
+  padding-inline: var(--espacio-3);
+  border: 1px solid var(--color-texto);
+  border-radius: var(--radio-pill);
+}
+
+.campo {
+  flex: 1;
+  min-width: 0;
+  padding-block: var(--espacio-2);
+  border: 0;
+  background: none;
+  font-family: var(--fuente-texto);
+  color: inherit;
+}
+
+.campo:focus {
+  outline: none;
+}
+
+.botonBuscar,
+.cerrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.cerrar {
+  flex: 0 0 auto;
+  width: var(--espacio-6);
+  height: var(--espacio-6);
+  border: 1px solid var(--color-texto);
+  border-radius: var(--radio-pill);
+  font-size: var(--texto-xl);
+  line-height: 1;
+}
+
+.navegacion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-4);
+}
+
+.acordeon {
+  align-self: stretch;
+  border-block-end: 1px solid var(--color-texto);
+}
+
+.acordeonBoton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--espacio-2) 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--texto-l);
+  color: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+/* Chevrón de los acordeones: gira al abrir. */
+.acordeonBoton::after,
+.desplegar::after {
+  width: var(--espacio-2);
+  height: var(--espacio-2);
+  border-block-end: 2px solid currentColor;
+  border-inline-end: 2px solid currentColor;
+  content: "";
+  transform: rotate(45deg);
+  transition: transform var(--transicion);
+}
+
+.acordeonBoton[aria-expanded="true"]::after,
+.desplegar[aria-expanded="true"]::after {
+  transform: rotate(-135deg);
+}
+
+/* Panel plegable: anima el alto con la rejilla y queda oculto (sin foco) cuando se pliega. */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows var(--transicion),
+    visibility var(--transicion);
+}
+
+.panel[data-open="true"] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+
+.panelInterior {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: 0 0 var(--espacio-4) var(--espacio-4);
+  list-style: none;
+}
+
+.sublista {
+  padding-block: var(--espacio-2) 0;
+}
+
+.fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+}
+
+.desplegar {
+  display: flex;
+  width: var(--espacio-5);
+  height: var(--espacio-5);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.enlace,
+.destacado {
+  color: var(--color-fondo-suave);
+  text-decoration: none;
+}
+
+.enlace {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-m);
+}
+
+.destacado {
+  font-size: var(--texto-l);
+}
+
+.boton {
+  display: inline-block;
+  padding: var(--espacio-3) var(--espacio-5);
+  border: 0;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-fondo-suave);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  line-height: 1;
+  color: var(--color-tinta);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.volumen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-3);
+  align-self: stretch;
+  padding: var(--espacio-4);
+  border: 1px solid var(--color-texto);
+  border-radius: var(--radio-m);
+}
+
+.volumenTexto {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  line-height: var(--interlineado-base);
+}
+
+.contacto {
+  width: 100%;
+  text-align: center;
+}
+
+/* Interacción ---------------------------------------------------------------- */
+
+.enlace:hover,
+.destacado:hover,
+.acordeonBoton:hover {
+  color: var(--color-fondo);
+}
+
+.boton:hover {
+  background-color: var(--color-fondo);
+}
+
+.acordeonBoton:focus-visible,
+.desplegar:focus-visible,
+.enlace:focus-visible,
+.destacado:focus-visible,
+.boton:focus-visible,
+.cerrar:focus-visible,
+.botonBuscar:focus-visible,
+.buscador:has(.campo:focus-visible) {
+  outline: 2px solid var(--color-fondo-suave);
+  outline-offset: 2px;
+}

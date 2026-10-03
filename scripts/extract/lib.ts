@@ -9,7 +9,7 @@ const USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36";
 const MIN_INTERVAL_MS = 1000;
 
-export class CaptchaError extends Error {}
+class CaptchaError extends Error {}
 
 let lastRequestAt = 0;
 

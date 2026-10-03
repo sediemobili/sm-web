@@ -3,7 +3,7 @@
 import { z } from "zod";
 import { guardarLead } from "@/lib/leads";
 
-export type EstadoNewsletter = {
+type EstadoNewsletter = {
   estado: "inicial" | "exito" | "error";
   mensaje: string | null;
 };

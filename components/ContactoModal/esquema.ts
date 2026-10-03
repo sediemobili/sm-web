@@ -19,7 +19,7 @@ const TELEFONO = /^[\d\s()-]+$/;
 
 const opcional = (valor: unknown) => (typeof valor === "string" && valor.trim() === "" ? null : valor);
 
-export const esquemaContacto = z.object({
+const esquemaContacto = z.object({
   nombre: z.string().trim().min(2, "Escribe tu nombre (mínimo 2 caracteres)."),
   email: z.string().trim().pipe(z.email("Escribe un correo válido.")),
   telefono: z
@@ -32,7 +32,7 @@ export const esquemaContacto = z.object({
   mensaje: z.preprocess(opcional, z.string().trim().nullable()),
 });
 
-export type DatosContacto = z.infer<typeof esquemaContacto>;
+type DatosContacto = z.infer<typeof esquemaContacto>;
 
 export type ErroresContacto = Partial<Record<keyof DatosContacto, string>>;
 
@@ -111,7 +111,7 @@ const esquemaDetalles = (destino: Destino) =>
 
 const esquemaDatos = esquemaContacto.pick({ nombre: true, telefono: true, email: true, empresa: true, mensaje: true });
 
-export type DatosAsistente = {
+type DatosAsistente = {
   destino: Destino;
   categorias: (typeof CATEGORIAS)[number][];
   volumen: (typeof VOLUMENES)[number] | null;
@@ -189,7 +189,7 @@ export function validarAsistente(
 
 // Mini formulario de WhatsApp -----------------------------------------------------
 
-export const esquemaWhatsApp = esquemaContacto.pick({ nombre: true, telefono: true });
+const esquemaWhatsApp = esquemaContacto.pick({ nombre: true, telefono: true });
 export type ErroresWhatsApp = Partial<Record<keyof z.infer<typeof esquemaWhatsApp>, string>>;
 
 export function validarWhatsApp(valores: Record<string, unknown>) {

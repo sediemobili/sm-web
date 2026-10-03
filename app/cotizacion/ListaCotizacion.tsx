@@ -42,12 +42,14 @@ export function ListaCotizacion({ productos }: { productos: ProductoResumen[] })
   // La Server Action no puede vaciar el localStorage: se limpia aquí y se navega a /gracias/.
   useEffect(() => {
     if (estado.estado !== "exito" || listo) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- marca el envío como atendido para que el evento y la navegación no se repitan si el efecto vuelve a correr.
     setListo(true);
     enviarEvento("generate_lead", { origen: "cotizacion", interes: estado.interes });
     vaciar();
     router.push("/gracias/");
   }, [estado.estado, estado.interes, listo, vaciar, router]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- si la lista cambia, un envío nuevo vuelve a poder disparar el evento y la navegación.
   useEffect(() => setListo(false), [renglones.length]);
 
   if (filas.length === 0) {

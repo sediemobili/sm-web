@@ -29,10 +29,24 @@
   box-shadow: 0 0 0 4px var(--color-fondo);
 }
 
+/* La home anula la reserva del header (app/layout.module.css): el hero empieza arriba del
+   todo, con el margen de su tarjeta, y el header flota encima. */
+.inicio {
+  margin-block-start: calc(var(--reserva-header) * -1);
+}
+
 /* 1. Hero ------------------------------------------------------------------ */
 
+/* El hero es una tarjeta: margen a los lados y arriba, y el medio, las flechas y los puntos
+   se recortan dentro de sus esquinas. La sombra es del propio .hero: su overflow no la
+   recorta y sigue el radio. */
 .hero {
   position: relative;
+  margin: var(--margen-tarjeta) var(--margen-tarjeta) 0;
+  border-radius: var(--radio-tarjeta);
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: var(--sombra-tarjeta);
 }
 
 .slide[data-activa="false"] {
@@ -115,7 +129,7 @@
 }
 
 .slide[data-variante="zero"] .slideTitulo {
-  font-size: 80px;
+  font-size: var(--texto-hero);
   font-weight: var(--peso-regular);
   text-transform: uppercase;
 }
@@ -145,7 +159,7 @@
 }
 
 .slide[data-variante="larus"] .slideTitulo {
-  font-size: 80px;
+  font-size: var(--texto-hero);
   font-weight: var(--peso-regular);
   text-transform: uppercase;
 }
@@ -624,6 +638,16 @@
 /* Móvil --------------------------------------------------------------------- */
 
 @media (max-width: 767px) {
+  .inicio {
+    margin-block-start: calc(var(--reserva-header-movil) * -1);
+  }
+
+  .hero {
+    margin: var(--margen-tarjeta-movil) var(--margen-tarjeta-movil) 0;
+    border-radius: var(--radio-tarjeta-movil);
+    box-shadow: var(--sombra-hero-movil);
+  }
+
   .slide {
     min-height: 70vh;
     padding: var(--espacio-5) var(--espacio-4);

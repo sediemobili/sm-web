@@ -11,7 +11,7 @@
   --color-texto: #5f5146; /* e-global-color-text; unifica el alias 9491a6b */
   --color-texto-suave: #8c7d70; /* e-global-color-3375f71 */
   --color-acento: #5a3a21; /* e-global-color-accent */
-  --color-acento-oscuro: #422a18; /* e-global-color-2e1100b, footer */
+  --color-acento-oscuro: #422a18; /* e-global-color-2e1100b: variante oscura de --color-acento, del kit de la marca; hoy sin uso */
 
   /* Tipografía ------------------------------------------------------------- */
   /* Las familias las carga next/font en app/layout.tsx (latin, swap, pesos 200-600). */
@@ -32,17 +32,17 @@
   --texto-l: 18px; /* entradilla */
   --texto-xl: 24px;
   --texto-2xl: 32px;
-  --texto-3xl: 40px; /* títulos de sección; en móvil es el tamaño del hero */
+  --texto-3xl: 40px; /* títulos de sección */
   --texto-4xl: 48px;
   /* Fuera de la escala, por uso aislado: 13, 15, 20, 26, 28, 30, 35, 55, 70, 90 y 100px. */
-  --texto-hero: 80px; /* hero de la home en escritorio */
-  --texto-hero-movil: 40px; /* mismo hero bajo 767px */
+  --texto-hero: 80px; /* títulos de Zero y LARUS en el hero, escritorio; ver docs/design-tokens.md */
 
   /* El sitio actual usa 10 interlineados sueltos en px; se aproximan con esta escala. */
   --interlineado-titulo: 1.15;
   --interlineado-base: 1.5;
   --interlineado-amplio: 1.7;
   --tracking-titulo: -0.5px; /* el único valor repetido (6 usos) */
+  --tracking-amplio: 0.5px; /* valor propio: textos pequeños sobre foto, como "Ver Colección" */
 
   /* Espaciado (5 · 10 · 12 · 20 · 30 · 40 · 50 · 60) ------------------------ */
   --espacio-1: 5px;
@@ -60,21 +60,49 @@
   --radio-l: 30px;
   --radio-pill: 40px; /* el radio dominante: 41 usos */
   --radio-campo: 15px; /* radio de los campos del formulario del popup */
+  /* Tarjeta visual: bloque con fondo a sangre recortado y separado del borde (hero de la home
+     y las secciones que lo compartan). No existe en el sitio actual: valor propio.
+     El margen va a los lados y arriba; en móvil se reduce pero sigue leyéndose como tarjeta. */
+  --margen-tarjeta: var(--espacio-4); /* 20px */
+  --margen-tarjeta-movil: var(--espacio-2); /* 10px, bajo 767px */
+  --radio-tarjeta: var(--radio-l); /* 30px */
+  --radio-tarjeta-movil: var(--radio-m); /* 20px, bajo 767px */
   --color-velo: rgb(0 0 0 / 0.8); /* fondo del popup del sitio actual */
   --sombra-tarjeta: 2px 8px 23px 3px rgb(0 0 0 / 0.2);
   --sombra-modal: 0 0 10px 0 rgb(0 0 0 / 0.5);
+  /* Sombra del hero bajo 767px: valor propio. --sombra-tarjeta pesa a esa escala y su
+     alcance lateral (24px) pasa del margen móvil (10px); esta no sale de él. */
+  --sombra-hero-movil: 0 4px 10px rgb(0 0 0 / 0.12);
 
   /* Disposición ------------------------------------------------------------ */
   --ancho-contenido: 1170px; /* --container-max-width del kit */
   --ancho-logo: 180px; /* .elementor-element-6de2e2a img{width:180px} del header */
   --espacio-nav: 26px; /* separación entre ítems del menú del header y entre las redes del footer */
   --tamano-icono: 20px; /* --icon-size de las redes del footer */
-  /* El original usa 1% 2%, que al resolverse contra el ancho crece en pantallas anchas
-     (25px arriba a 2560px) y se aplasta en móvil. Se fija a la escala: ~1440px de referencia. */
-  --relleno-header: var(--espacio-3) var(--espacio-5); /* 12px 30px ≈ 1% 2% a 1440px */
-  --gradiente-header: linear-gradient(176deg, var(--color-fondo-suave) 0%, var(--color-fondo) 100%);
+  /* Relleno real del header flotante. El original usa 1% 2%, que crece en pantallas anchas
+     y se aplasta en móvil; aquí es fijo. */
+  --relleno-header: 14px 28px;
+  /* Vidrio esmerilado del header: crema semitransparente con desenfoque y saturación del
+     fondo. No existe en el sitio actual: valores propios. Las opacidades son el porcentaje
+     de crema en la mezcla; 65% mantiene el texto del menú en ~7:1 aun sobre negro puro
+     (el vídeo de LARUS), así que no hace falta oscurecerlo. Al hacer scroll sube a 85%. */
+  --vidrio-opacidad: 65%;
+  --vidrio-opacidad-pegado: 85%;
+  /* Sin backdrop-filter no hay desenfoque que suavice lo de debajo: el crema sube un poco. */
+  --vidrio-opacidad-sin-filtro: 90%;
+  --vidrio-desenfoque: 16px;
+  --vidrio-saturacion: 140%;
+  --vidrio-borde: 1px solid rgb(255 255 255 / 0.35); /* borde translúcido muy sutil */
+  --sombra-vidrio: 0 4px 20px rgb(0 0 0 / 0.08); /* sombra suave del header en reposo */
+  --alto-header: 67px; /* cabecera normal del original */
+  /* El header flota sobre el contenido (position: fixed) y no ocupa sitio en el flujo.
+     Las páginas sin hero reservan arriba su margen más su alto, para no quedar tapadas. */
+  --reserva-header: calc(var(--margen-tarjeta) + var(--alto-header));
+  --reserva-header-movil: calc(var(--margen-tarjeta-movil) + var(--alto-header)); /* bajo 767px */
   --z-header: 100; /* el header va sobre el contenido; no hay escala de z en el original */
   --transicion: 200ms ease; /* no existe en el sitio actual: valor propio para hover y apertura */
+  /* Elevación lenta de las tarjetas al pasar el cursor: valor propio, con curva de salida suave. */
+  --transicion-elevacion: 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Breakpoints del sitio actual, para copiar en las media queries

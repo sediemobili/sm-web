@@ -5,7 +5,16 @@ import estilos from "./Home.module.css";
 
 // Fila desplazable con flechas, como los carruseles del original. El scroll táctil,
 // la rueda y el teclado siguen funcionando: las flechas solo desplazan la lista.
-export function Carrusel({ etiqueta, children }: { etiqueta: string; children: React.ReactNode }) {
+// `claseLista` añade una clase a la lista para quien necesite ajustarla (las categorías).
+export function Carrusel({
+  etiqueta,
+  claseLista,
+  children,
+}: {
+  etiqueta: string;
+  claseLista?: string;
+  children: React.ReactNode;
+}) {
   const lista = useRef<HTMLUListElement>(null);
 
   const mover = (direccion: 1 | -1) => {
@@ -16,7 +25,7 @@ export function Carrusel({ etiqueta, children }: { etiqueta: string; children: R
 
   return (
     <div className={estilos.carrusel}>
-      <ul ref={lista} className={estilos.carruselLista}>
+      <ul ref={lista} className={claseLista ? `${estilos.carruselLista} ${claseLista}` : estilos.carruselLista}>
         {children}
       </ul>
       <button type="button" className={estilos.flechaPrev} aria-label={`Anteriores de ${etiqueta}`} onClick={() => mover(-1)}>

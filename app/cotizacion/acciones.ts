@@ -4,7 +4,7 @@ import { z } from "zod";
 import { validarContacto, type ErroresContacto } from "@/components/ContactoModal/esquema";
 import { guardarLead } from "@/lib/leads";
 
-export type EstadoCotizacion = {
+type EstadoCotizacion = {
   estado: "inicial" | "exito" | "error";
   errores: ErroresContacto;
   mensaje: string | null;

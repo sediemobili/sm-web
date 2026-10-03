@@ -2,40 +2,35 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { ContactoModal } from "@/components/ContactoModal/ContactoModal";
 import { useCotizacion } from "@/lib/cotizacion";
 import estilos from "./Header.module.css";
-
-type Enlace = { name: string; path: string };
+import { MegaProductos, type CategoriaMenu, type EnlaceMenu } from "./MegaProductos";
+import { MenuMovil } from "./MenuMovil";
 
 type Props = {
-  categorias: Enlace[];
-  colecciones: Enlace[];
-  catalogos: Enlace[];
+  colecciones: EnlaceMenu[];
+  categoriasMenu: CategoriaMenu[];
 };
 
-type Columna = { titulo: string; enlaces: Enlace[]; verTodo?: Enlace };
-
-export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
-  const [megaAbierto, setMegaAbierto] = useState(false);
+export function HeaderNav({ colecciones, categoriasMenu }: Props) {
   const [menuMovil, setMenuMovil] = useState(false);
-  const [acordeon, setAcordeon] = useState<string | null>(null);
   const [contacto, setContacto] = useState(false);
-  const megaId = useId();
   const movilId = useId();
   const botonProductos = useRef<HTMLButtonElement>(null);
   const botonContacto = useRef<HTMLButtonElement>(null);
   const botonHamburguesa = useRef<HTMLButtonElement>(null);
   const [contactoDesdeMovil, setContactoDesdeMovil] = useState(false);
+  // "Cotizar por volumen" del mega-menú abre el mismo modal; al cerrarlo el foco vuelve a "Productos".
+  const [contactoDesdeMega, setContactoDesdeMega] = useState(false);
   const { total } = useCotizacion();
   const [pegado, setPegado] = useState(false);
-
-  const columnas: Columna[] = [
-    { titulo: "Productos", enlaces: categorias, verTodo: { name: "↳ Ver Todo", path: "/catalogo/" } },
-    { titulo: "Colecciones", enlaces: colecciones },
-    { titulo: "Catálogos descargables", enlaces: catalogos },
-  ];
+  const cabecera = useRef<HTMLElement>(null);
+  // En la home el header va por dentro de la tarjeta del hero mientras el hero se ve.
+  const enInicio = usePathname() === "/";
+  const [heroPasado, setHeroPasado] = useState(false);
 
   // El original releva la cabecera por otra más alta y fija tras unos 300px de scroll.
   useEffect(() => {
@@ -45,29 +40,44 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
     return () => window.removeEventListener("scroll", alDesplazar);
   }, []);
 
-  // Escape cierra lo que esté abierto y devuelve el foco al disparador.
+  // Separado del vidrio: el doble margen dura mientras el borde inferior del hero siga por
+  // debajo del header. El margen superior del observador es fijo (el borde inferior del
+  // header al montar), así que el cambio de margen no vuelve a disparar el cruce.
   useEffect(() => {
-    if (!megaAbierto && !menuMovil) return;
-    const alPulsar = (evento: KeyboardEvent) => {
-      if (evento.key !== "Escape") return;
-      if (megaAbierto) {
-        setMegaAbierto(false);
-        botonProductos.current?.focus();
-      }
-      setMenuMovil(false);
-    };
-    document.addEventListener("keydown", alPulsar);
-    return () => document.removeEventListener("keydown", alPulsar);
-  }, [megaAbierto, menuMovil]);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- al volver a la home se olvida el cruce anterior y el observador decide de nuevo con el hero de esta página.
+    setHeroPasado(false);
+    if (!enInicio) return;
+    // El hero se marca con data-hero (components/Home/Hero.tsx). Sin él, margen normal.
+    const hero = document.querySelector("[data-hero]");
+    const header = cabecera.current;
+    if (!hero || !header) {
+      setHeroPasado(true);
+      return;
+    }
+    const borde = Math.round(header.getBoundingClientRect().bottom);
+    const observador = new IntersectionObserver(
+      ([entrada]) => setHeroPasado(!entrada.isIntersecting && entrada.boundingClientRect.bottom < borde),
+      { rootMargin: `-${borde}px 0px 0px 0px` },
+    );
+    observador.observe(hero);
+    return () => observador.disconnect();
+  }, [enInicio]);
 
-  // El menú móvil ocupa la pantalla: se bloquea el scroll del documento.
+  // Mientras el menú móvil está abierto, el fondo de la página no se desplaza.
+  // Escape, el foco atrapado y el fondo inerte los da el diálogo modal (MenuMovil).
   useEffect(() => {
     document.documentElement.classList.toggle("is-scroll-locked", menuMovil);
     return () => document.documentElement.classList.remove("is-scroll-locked");
   }, [menuMovil]);
 
+  const abrirContactoDesdeMovil = () => {
+    setContactoDesdeMovil(true);
+    setMenuMovil(false);
+    setContacto(true);
+  };
+
   return (
-    <header className={estilos.header} data-pegado={pegado}>
+    <header ref={cabecera} className={estilos.header} data-pegado={pegado} data-sobre-hero={enInicio && !heroPasado}>
       <Link href="/" className={estilos.logo} aria-label="Sedie &amp; Mobili, ir al inicio">
         <Image
           src="/media/marca/sediemobili.svg"
@@ -80,52 +90,16 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
       </Link>
 
       <nav className={estilos.navegacion} aria-label="Principal">
-        <div
-          className={estilos.productos}
-          data-open={megaAbierto}
-          onMouseEnter={() => setMegaAbierto(true)}
-          onMouseLeave={() => setMegaAbierto(false)}
-          onBlur={(evento) => {
-            if (!evento.currentTarget.contains(evento.relatedTarget)) setMegaAbierto(false);
+        <MegaProductos
+          colecciones={colecciones}
+          categorias={categoriasMenu}
+          claseBoton={estilos.enlace}
+          refBoton={botonProductos}
+          onCotizar={() => {
+            setContactoDesdeMega(true);
+            setContacto(true);
           }}
-        >
-          <button
-            ref={botonProductos}
-            type="button"
-            className={estilos.enlace}
-            aria-expanded={megaAbierto}
-            aria-controls={megaId}
-            onClick={() => setMegaAbierto((abierto) => !abierto)}
-          >
-            Productos
-          </button>
-
-          <div id={megaId} className={estilos.mega} data-open={megaAbierto}>
-            <div className={estilos.megaColumnas}>
-              {columnas.map((columna) => (
-                <section key={columna.titulo} className={estilos.columna} aria-label={columna.titulo}>
-                  <span className={estilos.columnaTitulo}>{columna.titulo}</span>
-                  <ul className={estilos.lista}>
-                    {columna.enlaces.map((enlace) => (
-                      <li key={enlace.path}>
-                        <Link href={enlace.path} className={estilos.enlaceLista}>
-                          {enlace.name}
-                        </Link>
-                      </li>
-                    ))}
-                    {columna.verTodo ? (
-                      <li>
-                        <Link href={columna.verTodo.path} className={estilos.verTodo}>
-                          {columna.verTodo.name}
-                        </Link>
-                      </li>
-                    ) : null}
-                  </ul>
-                </section>
-              ))}
-            </div>
-          </div>
-        </div>
+        />
 
         <Link href="/blog/" className={estilos.enlace}>
           Recursos
@@ -167,8 +141,10 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
           // El botón del menú móvil deja de ser enfocable al cerrarse el menú:
           // el foco vuelve a la hamburguesa, que siempre está visible.
           if (contactoDesdeMovil) botonHamburguesa.current?.focus();
+          else if (contactoDesdeMega) botonProductos.current?.focus();
           else botonContacto.current?.focus();
           setContactoDesdeMovil(false);
+          setContactoDesdeMega(false);
         }}
       />
 
@@ -186,55 +162,19 @@ export function HeaderNav({ categorias, colecciones, catalogos }: Props) {
         <span className={estilos.hamburguesaLinea} aria-hidden="true" />
       </button>
 
-      <nav id={movilId} className={estilos.movil} data-open={menuMovil} aria-label="Menú móvil">
-        {columnas.map((columna) => {
-          const abierto = acordeon === columna.titulo;
-          return (
-            <div key={columna.titulo} className={estilos.acordeon} data-open={abierto}>
-              <button
-                type="button"
-                className={estilos.acordeonBoton}
-                aria-expanded={abierto}
-                onClick={() => setAcordeon(abierto ? null : columna.titulo)}
-              >
-                {columna.titulo}
-              </button>
-              <ul className={estilos.acordeonLista}>
-                {columna.enlaces.map((enlace) => (
-                  <li key={enlace.path}>
-                    <Link href={enlace.path} className={estilos.enlaceLista} onClick={() => setMenuMovil(false)}>
-                      {enlace.name}
-                    </Link>
-                  </li>
-                ))}
-                {columna.verTodo ? (
-                  <li>
-                    <Link href={columna.verTodo.path} className={estilos.verTodo} onClick={() => setMenuMovil(false)}>
-                      {columna.verTodo.name}
-                    </Link>
-                  </li>
-                ) : null}
-              </ul>
-            </div>
-          );
-        })}
-
-        <Link href="/blog/" className={estilos.acordeonBoton} onClick={() => setMenuMovil(false)}>
-          Recursos
-        </Link>
-
-        <button
-          type="button"
-          className={`${estilos.contacto} ${estilos.contactoMovil}`}
-          onClick={() => {
-            setContactoDesdeMovil(true);
-            setMenuMovil(false);
-            setContacto(true);
-          }}
-        >
-          Contáctanos
-        </button>
-      </nav>
+      <MenuMovil
+        id={movilId}
+        abierto={menuMovil}
+        colecciones={colecciones}
+        categorias={categoriasMenu}
+        onCerrar={() => {
+          setMenuMovil(false);
+          // Si se cerró para abrir el modal de contacto, la hamburguesa está inerte y esto no hace nada.
+          botonHamburguesa.current?.focus();
+        }}
+        onCotizar={abrirContactoDesdeMovil}
+        onContacto={abrirContactoDesdeMovil}
+      />
     </header>
   );
 }

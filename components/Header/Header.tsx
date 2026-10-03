@@ -1,23 +1,39 @@
-import { getCategories, getCollections } from "@/lib/data";
+import { getCategories, getCollections, getProducts } from "@/lib/data";
 import { HeaderNav } from "./HeaderNav";
+import type { CategoriaMenu } from "./MegaProductos";
 
-// Los 6 bloques de "Catálogos descargables" del mega-menú actual, en su orden.
-// En WordPress ninguno tiene PDF todavía, así que cada uno enlaza a su categoría;
-// cuando existan los archivos, el href pasa a ser el del catálogo.
-const CATALOGO_SLUGS = ["escritorios", "bancas", "sofas", "sillas-de-oficina", "recepciones", "mesas"];
+// Productos de muestra por categoría en el mega-menú.
+const PRODUCTOS_POR_CATEGORIA = 4;
 
 export async function Header() {
   const [categories, collections] = await Promise.all([getCategories(), getCollections()]);
   const principales = categories.filter((category) => category.parentSlug === null);
-  const catalogos = CATALOGO_SLUGS.map((slug) => principales.find((category) => category.slug === slug)).filter(
-    (category) => category !== undefined,
+
+  // El mega-menú y el menú móvil se arman aquí y viajan con la página: subcategorías y
+  // 4 productos por categoría (el menú móvil no usa los productos).
+  const categoriasMenu: CategoriaMenu[] = await Promise.all(
+    principales.map(async (category) => {
+      const { items } = await getProducts({ category: category.slug, limit: PRODUCTOS_POR_CATEGORIA });
+      return {
+        slug: category.slug,
+        name: category.name,
+        path: category.path,
+        subcategorias: categories
+          .filter((child) => child.parentSlug === category.slug)
+          .map(({ name, path }) => ({ name, path })),
+        productos: items.map((product) => ({
+          name: product.name,
+          path: product.path,
+          imagen: product.images[0]?.src ?? null,
+        })),
+      };
+    }),
   );
 
   return (
     <HeaderNav
-      categorias={principales.map(({ name, path }) => ({ name, path }))}
       colecciones={collections.map(({ name, path }) => ({ name, path }))}
-      catalogos={catalogos.map(({ name, path }) => ({ name, path }))}
+      categoriasMenu={categoriasMenu}
     />
   );
 }

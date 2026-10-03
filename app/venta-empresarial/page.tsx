@@ -5,7 +5,7 @@ import { TarjetaPost } from "@/components/blog/TarjetaPost";
 import { CarruselCategorias } from "@/components/categorias/CarruselCategorias";
 import { BotonContacto } from "@/components/ContactoModal/BotonContacto";
 import estilos from "@/components/Paginas/Paginas.module.css";
-import { getCategories, getPageBySlug, getPosts, type Section } from "@/lib/data";
+import { getCategories, getPageBySlug, getPosts } from "@/lib/data";
 import { metadataDe } from "@/lib/seo";
 
 // Textos de plantilla del original que no están en los datos.

@@ -1,16 +1,17 @@
 /* Tarjeta de categoría del original: imagen de fondo con velo y el nombre encima.
    La usan la home y /venta-empresarial/. */
 
+/* 360 × 438: la proporción de la tarjeta original (407 × 495), más pequeña. */
 .categoriaItem {
   flex: 0 0 auto;
-  width: 407px;
+  width: 360px;
   scroll-snap-align: start;
 }
 
 .categoria {
   position: relative;
   display: flex;
-  height: 495px;
+  height: 438px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
@@ -20,6 +21,11 @@
   border-radius: var(--radio-m);
   isolation: isolate;
   text-decoration: none;
+  /* Elevación: la tarjeta sube y gana la sombra de tarjeta, sin escalar. Es transform, así
+     que no mueve a las vecinas ni cambia el alto de la cinta. Al foco de teclado, igual. */
+  transition:
+    transform var(--transicion-elevacion),
+    box-shadow var(--transicion-elevacion);
 }
 
 .categoriaImagen {
@@ -43,16 +49,17 @@
 
 .categoriaNombre {
   font-family: var(--fuente-titulo);
-  font-size: var(--texto-3xl);
+  font-size: var(--texto-2xl);
   font-weight: var(--peso-medio);
-  line-height: 38px;
+  line-height: var(--interlineado-titulo);
   color: var(--color-fondo);
 }
 
 .categoriaEnlace {
   font-family: var(--fuente-texto);
-  font-size: var(--texto-s);
-  color: var(--color-borde-claro, #dcd9d4);
+  font-size: var(--texto-xs);
+  letter-spacing: var(--tracking-amplio);
+  color: var(--color-fondo);
 }
 
 .categoria:focus-visible {
@@ -60,16 +67,120 @@
   outline-offset: -4px;
 }
 
+@media (hover: hover) {
+  .categoria:hover {
+    box-shadow: var(--sombra-tarjeta);
+    transform: translateY(-8px);
+  }
+}
+
+.categoria:focus-visible {
+  box-shadow: var(--sombra-tarjeta);
+  transform: translateY(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .categoria {
+    transition: none;
+  }
+
+  .categoria:hover,
+  .categoria:focus-visible {
+    transform: none;
+  }
+}
+
+/* Indicador: flecha en círculo arriba a la derecha. Es decorativo (la tarjeta entera es el
+   enlace). Con cursor se oculta en reposo y entra con la transición corta al pasar el cursor
+   o al foco de teclado; en táctil se ve siempre. */
+.categoriaIndicador {
+  position: absolute;
+  inset-block-start: var(--espacio-4);
+  inset-inline-end: var(--espacio-4);
+  display: flex;
+  width: var(--espacio-6);
+  height: var(--espacio-6);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-fondo);
+  color: var(--color-tinta);
+  transition:
+    opacity var(--transicion),
+    transform var(--transicion);
+}
+
+.categoriaIndicador svg {
+  width: 50%;
+  height: 50%;
+}
+
+@media (hover: hover) {
+  .categoriaIndicador {
+    opacity: 0;
+    transform: translate(calc(var(--espacio-1) * -1), var(--espacio-1));
+  }
+
+  .categoria:hover .categoriaIndicador {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.categoria:focus-visible .categoriaIndicador {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .categoriaIndicador {
+    transform: none;
+  }
+}
+
+/* La lista del carrusel es un contenedor de scroll y recorta lo que sobresale: este relleno
+   deja sitio a la subida y a la sombra, y el margen negativo lo devuelve para que el alto
+   de la cinta no cambie. Lleva ul delante para ganar a .carruselLista (padding y margin a 0)
+   sin depender del orden en que se carguen los módulos. */
+ul.listaCategorias {
+  padding-block: var(--espacio-6);
+  margin-block: calc(var(--espacio-6) * -1);
+}
+
+/* Cinta automática de la home (CintaCategorias). La velocidad, en px por segundo, la lee
+   el JS; con movimiento reducido vale 0 y la cinta no se mueve sola. */
+.cinta {
+  --cinta-velocidad: 50;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinta {
+    --cinta-velocidad: 0;
+  }
+}
+
+/* El imán de scroll del carrusel frenaría el avance continuo. */
+.cinta .cintaLista {
+  scroll-snap-type: none;
+}
+
 @media (max-width: 767px) {
   .categoriaItem {
-      width: 294px;
-    }
+    width: 294px;
+  }
 
   .categoria {
-      height: 464px;
-    }
+    height: 464px;
+  }
 
   .categoriaNombre {
-      font-size: var(--texto-3xl);
-    }
+    font-size: var(--texto-xl);
+  }
+
+  .categoriaIndicador {
+    inset-block-start: var(--espacio-3);
+    inset-inline-end: var(--espacio-3);
+    width: var(--espacio-5);
+    height: var(--espacio-5);
+  }
 }
