@@ -1,5 +1,11 @@
 /* Botón flotante de WhatsApp y su mini formulario. Va en todas las páginas, sobre el contenido. */
 
+/* Verdes de WhatsApp, no de la marca: se quedan aquí y no suben a tokens.css. */
+.whatsapp {
+  --verde-whatsapp: #25d366;
+  --verde-whatsapp-oscuro: #1da851;
+}
+
 .whatsapp {
   position: fixed;
   inset-block-end: var(--espacio-4);
@@ -19,7 +25,7 @@
   justify-content: center;
   border: 0;
   border-radius: var(--radio-pill);
-  background-color: var(--color-tinta);
+  background-color: var(--verde-whatsapp);
   box-shadow: var(--sombra-tarjeta);
   color: var(--color-fondo);
   cursor: pointer;
@@ -98,7 +104,10 @@
 
 /* Interacción ---------------------------------------------------------------- */
 
-.boton:hover,
+.boton:hover {
+  background-color: var(--verde-whatsapp-oscuro);
+}
+
 .enviar:hover {
   background-color: var(--color-acento);
 }

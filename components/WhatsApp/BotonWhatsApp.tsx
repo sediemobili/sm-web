@@ -120,9 +120,16 @@ export function BotonWhatsApp() {
         aria-controls={abierto ? panelId : undefined}
         onClick={() => (abierto ? cerrar() : setAbierto(true))}
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" focusable="false">
-          <path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 7.9 19.5L3 21Z" strokeLinejoin="round" />
-          <path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1-1.6-2-1-1 .9a4.5 4.5 0 0 1-2.3-2.3l.9-1-1-2L9 8.5Z" strokeLinejoin="round" />
+        {/* Burbuja en anillo (el hueco lo hace evenodd) y auricular sólido, todo relleno. */}
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path
+            fillRule="evenodd"
+            d="M12 2a10 10 0 1 1-5.03 18.65L2 22l1.38-4.87A10 10 0 0 1 12 2Zm0 1.7a8.3 8.3 0 1 0 0 16.6 8.3 8.3 0 0 0 0-16.6Z"
+          />
+          <path
+            transform="translate(12 12) scale(0.42) translate(-12 -12)"
+            d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"
+          />
         </svg>
       </button>
     </div>
