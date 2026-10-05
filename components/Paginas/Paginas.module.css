@@ -80,7 +80,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--espacio-4);
-  padding: 28px 57px 57px;
+  padding: 28px var(--espacio-6) 57px; /* lateral: el margen único del sitio */
 }
 
 .seccionTitulo {
@@ -159,7 +159,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--espacio-3);
-  padding-inline: 57px;
+  padding-inline: var(--espacio-6); /* el mismo margen que las tarjetas del carrusel */
   margin-block-end: var(--espacio-4);
 }
 

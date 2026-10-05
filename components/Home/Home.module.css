@@ -387,7 +387,7 @@
 /* 4. Explora + Sillería Ejecutiva ------------------------------------------ */
 
 /* Sin encabezado propio: el aire de arriba lo da el margen de la tarjeta (56px). */
-.seccionExplora {
+.seccionSilleria {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -753,7 +753,7 @@
     font-size: var(--texto-s);
   }
 
-  .seccionExplora {
+  .seccionSilleria {
     padding: 0 var(--espacio-4) 23px;
   }
 

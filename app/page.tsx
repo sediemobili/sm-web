@@ -106,8 +106,7 @@ export default async function HomePage() {
 
         <article className={estilos.banner}>
           <Image src="/media/fondos/background-sillas2.webp" alt="" fill sizes="50vw" className={estilos.bannerImagen} />
-          {/* "Personaliza tus Experiencia" es la errata del sitio actual; se copia tal cual. */}
-          <h2 className={estilos.bannerTitulo}>Personaliza tus Experiencia</h2>
+          <h2 className={estilos.bannerTitulo}>Personaliza tu Experiencia</h2>
           <p className={estilos.bannerTexto}>
             Adaptamos nuestros diseños y manejamos grandes volúmenes para tu compañía.
           </p>
@@ -116,7 +115,7 @@ export default async function HomePage() {
       </section>
 
       {/* 4. Sillería Ejecutiva */}
-      <section className={estilos.seccionExplora} aria-labelledby="silleria">
+      <section className={estilos.seccionSilleria} aria-labelledby="silleria">
         <article className={estilos.silleria}>
           <Image
             src="/media/fondos/sillas-para-todos.webp"

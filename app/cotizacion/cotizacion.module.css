@@ -1,5 +1,24 @@
 /* Lista de cotización: tabla de renglones y formulario de envío. */
 
+.resumen {
+  margin-block-start: var(--espacio-2);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-m);
+  color: var(--color-texto);
+}
+
+.resumen strong {
+  font-weight: var(--peso-semibold);
+  color: var(--color-tinta);
+}
+
+.deshacer {
+  margin-block: var(--espacio-3);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-tinta);
+}
+
 .aviso {
   margin-block: var(--espacio-3);
   font-family: var(--fuente-texto);
@@ -48,15 +67,6 @@
   width: var(--espacio-8);
   height: auto;
   border-radius: var(--radio-s);
-}
-
-.cantidad {
-  width: var(--espacio-8);
-  padding: var(--espacio-1) var(--espacio-2);
-  border: 1px solid var(--color-texto-suave);
-  border-radius: var(--radio-campo);
-  font: inherit;
-  color: inherit;
 }
 
 .quitar {
@@ -130,7 +140,6 @@
 }
 
 .campo:focus-visible,
-.cantidad:focus-visible,
 .quitar:focus-visible,
 .producto:focus-visible {
   outline: 2px solid var(--color-acento);

@@ -1,18 +1,9 @@
 "use server";
 
-import { validarWhatsApp, type ErroresWhatsApp } from "@/components/ContactoModal/esquema";
+import { validarWhatsApp } from "@/components/ContactoModal/esquema";
 import { guardarLead } from "@/lib/leads";
 import { WHATSAPP } from "@/lib/sitio";
-
-export type EstadoWhatsApp = {
-  estado: "inicial" | "exito" | "error";
-  errores: ErroresWhatsApp;
-  mensaje: string | null;
-  // Enlace de wa.me al que redirige el cliente tras guardar el lead.
-  url: string | null;
-};
-
-export const estadoInicialWhatsApp: EstadoWhatsApp = { estado: "inicial", errores: {}, mensaje: null, url: null };
+import { estadoInicialWhatsApp, type EstadoWhatsApp } from "./estado";
 
 export async function contactarWhatsApp(_previo: EstadoWhatsApp, formData: FormData): Promise<EstadoWhatsApp> {
   const { datos, errores } = validarWhatsApp(Object.fromEntries(formData));

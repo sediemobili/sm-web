@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { Cantidad } from "@/components/Cantidad/Cantidad";
 import { BotonContacto } from "@/components/ContactoModal/BotonContacto";
 import { enviarEvento } from "@/lib/analytics";
 import { useCotizacion } from "@/lib/cotizacion";
@@ -10,6 +11,7 @@ import estilos from "./Producto.module.css";
 // Variaciones y CTA. Mantiene la lógica de la lista de cotización y los eventos.
 export function PanelCompra({ producto, categoria }: { producto: Product; categoria: string | null }) {
   const [variacion, setVariacion] = useState<number | null>(null);
+  const [cantidad, setCantidad] = useState(1);
   const [aviso, setAviso] = useState<{ tipo: "exito" | "falta"; texto: string } | null>(null);
   const { agregar } = useCotizacion();
   const grupo = useRef<HTMLFieldSetElement>(null);
@@ -25,14 +27,19 @@ export function PanelCompra({ producto, categoria }: { producto: Product; catego
       return;
     }
     const elegida = producto.variations.find((variante) => variante.id === variacion);
-    agregar({ slug: producto.slug, variacionId: variacion, cantidad: 1 });
+    // Si ya está en la lista, lib/cotizacion suma la cantidad en lugar de duplicar el renglón.
+    agregar({ slug: producto.slug, variacionId: variacion, cantidad });
     enviarEvento("add_to_quote", {
       item_id: producto.slug,
       item_name: producto.name,
       item_category: categoria,
       variacion: elegida ? (Object.values(elegida.attributes)[0] ?? null) : null,
+      cantidad,
     });
-    setAviso({ tipo: "exito", texto: "Agregado a tu lista de cotización." });
+    setAviso({
+      tipo: "exito",
+      texto: cantidad === 1 ? "Agregado a tu lista de cotización." : `${cantidad} agregados a tu lista de cotización.`,
+    });
   };
 
   return (
@@ -67,6 +74,7 @@ export function PanelCompra({ producto, categoria }: { producto: Product; catego
       <p className={estilos.nota}>Configúrala según tu proyecto. Medidas, colores y acabados personalizables.</p>
 
       <div className={estilos.acciones}>
+        <Cantidad valor={cantidad} de={producto.name} onCambiar={setCantidad} />
         <button type="button" className={estilos.boton} onClick={cotizar}>
           Solicitar Cotización
         </button>

@@ -62,7 +62,9 @@ export default async function PostPage({ params }: PageProps<"/[slug]">) {
               alt={post.featuredImage.alt}
               fill
               sizes="100vw"
-              priority
+              // En Next 16 priority está obsoleta: la portada se pide de inmediato y con prioridad.
+              loading="eager"
+              fetchPriority="high"
               className={estilos.postPortadaImagen}
             />
           ) : null}

@@ -2,7 +2,8 @@
 
 import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import { enviarEvento } from "@/lib/analytics";
-import { enviarContacto, estadoInicial, type EstadoContacto } from "./acciones";
+import { enviarContacto } from "./acciones";
+import { estadoInicial, type EstadoContacto } from "./estado";
 import estilos from "./ContactoModal.module.css";
 import {
   CATEGORIAS,

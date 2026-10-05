@@ -3,7 +3,8 @@
 import { useActionState, useEffect } from "react";
 import { enviarEvento } from "@/lib/analytics";
 import estilos from "./Newsletter.module.css";
-import { estadoInicialNewsletter, suscribir } from "./acciones";
+import { suscribir } from "./acciones";
+import { estadoInicialNewsletter } from "./estado";
 
 export function Newsletter() {
   const [estado, accion, enviando] = useActionState(suscribir, estadoInicialNewsletter);

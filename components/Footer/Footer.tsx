@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Newsletter } from "@/components/Newsletter/Newsletter";
 import { getCategories } from "@/lib/data";
+import { EMPRESA, REDES, SEDES, type Red } from "@/lib/sitio";
 import estilos from "./Footer.module.css";
 import { Facebook, Instagram, Linkedin, Tiktok, Youtube } from "./redes";
 
@@ -10,13 +11,14 @@ const TEXTO_INSTITUCIONAL =
   "para oficina y sillería profesional. Nos especializamos en soluciones integrales que combinan la " +
   "exclusividad con la calidad de la producción nacional.";
 
-const REDES = [
-  { nombre: "Facebook", href: "https://www.facebook.com/people/Sedie-Mobili/61581781496052/", Icono: Facebook },
-  { nombre: "Instagram", href: "https://www.instagram.com/sediemobili/", Icono: Instagram },
-  { nombre: "YouTube", href: "https://www.youtube.com/@SedieMobili", Icono: Youtube },
-  { nombre: "TikTok", href: "https://www.tiktok.com/@sedie.mobili", Icono: Tiktok },
-  { nombre: "LinkedIn", href: "https://www.linkedin.com/company/sedie-mobili-mexico", Icono: Linkedin },
-];
+// Icono de cada red; los enlaces y su orden salen de lib/sitio.ts.
+const ICONOS: Record<Red, () => React.ReactNode> = {
+  facebook: Facebook,
+  instagram: Instagram,
+  youtube: Youtube,
+  tiktok: Tiktok,
+  linkedin: Linkedin,
+};
 
 // "Showrooms" está en el footer actual sin enlace, así que queda fuera hasta que tenga destino.
 const INFORMACION = [
@@ -27,23 +29,6 @@ const INFORMACION = [
   { nombre: "Términos y Condiciones", href: "/legal/#tc" },
 ];
 
-// El "test city" de Monterrey es un error heredado de WordPress: se copia tal cual.
-const SEDES = [
-  {
-    ciudad: "Monterrey",
-    calle: "Prol. Ruiz Cortinez 2941",
-    cp: "67113",
-    localidad: "test city",
-    region: "N.L.",
-  },
-  {
-    ciudad: "Ciudad de México",
-    calle: "Calle Pte. 128 787-B7, Industrial Vallejo, Azcapotzalco",
-    cp: "02300",
-    localidad: "Ciudad de México",
-    region: "CDMX",
-  },
-];
 
 export async function Footer() {
   const categorias = (await getCategories()).filter((categoria) => categoria.parentSlug === null);
@@ -64,13 +49,16 @@ export async function Footer() {
           />
           <p className={estilos.institucional}>{TEXTO_INSTITUCIONAL}</p>
           <ul className={estilos.redes}>
-            {REDES.map(({ nombre, href, Icono }) => (
-              <li key={nombre}>
-                <a href={href} aria-label={nombre} target="_blank" rel="noopener noreferrer" className={estilos.red}>
-                  <Icono />
-                </a>
-              </li>
-            ))}
+            {REDES.map(({ red, nombre, url }) => {
+              const Icono = ICONOS[red];
+              return (
+                <li key={red}>
+                  <a href={url} aria-label={nombre} target="_blank" rel="noopener noreferrer" className={estilos.red}>
+                    <Icono />
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
@@ -107,14 +95,14 @@ export async function Footer() {
 
         <div className={estilos.sedes}>
           {SEDES.map((sede) => (
-            <div key={sede.ciudad} itemScope itemType="https://schema.org/LocalBusiness" className={estilos.sede}>
-              <meta itemProp="name" content={`Sedie & Mobili ${sede.ciudad}`} />
+            <div key={sede.slug} itemScope itemType="https://schema.org/LocalBusiness" className={estilos.sede}>
+              <meta itemProp="name" content={`${EMPRESA.nombre} ${sede.ciudad}`} />
               <span className={estilos.sedeCiudad}>{sede.ciudad}</span>
               <p itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className={estilos.direccion}>
                 <span itemProp="streetAddress">{sede.calle}</span>,{" "}
                 <span itemProp="postalCode">{sede.cp}</span> <span itemProp="addressLocality">{sede.localidad}</span>,{" "}
                 <span itemProp="addressRegion">{sede.region}</span>
-                <meta itemProp="addressCountry" content="MX" />
+                <meta itemProp="addressCountry" content={EMPRESA.pais} />
               </p>
             </div>
           ))}

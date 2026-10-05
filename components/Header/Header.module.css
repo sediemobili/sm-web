@@ -37,17 +37,16 @@
   gap: var(--espacio-5);
 }
 
-/* Fila 1: logo a la izquierda y, a la derecha, buscar, cotización y contacto. */
+/* Fila 1, marca y acciones: logo a la izquierda; cotización y contacto a la derecha. */
 .filaPrincipal {
   justify-content: space-between;
 }
 
-/* Ocupa el sitio libre de la fila, alineado a la derecha: así el botón de buscar tiene dónde
-   llegar a su ancho y, si falta, es lo primero que encoge. */
+/* Ocupa el sitio libre de la fila, alineado a la derecha: así el buscador tiene dónde llegar
+   a su ancho y, si falta, es lo único que encoge. */
 .acciones {
   display: flex;
   flex: 1;
-  min-width: 0;
   align-items: center;
   justify-content: flex-end;
   gap: var(--espacio-5);
@@ -105,14 +104,16 @@
 }
 
 /* Píldora de la fila 2: enlace a /venta-empresarial/. */
+/* Píldora delineada y pequeña al final de la navegación: venta empresarial. */
 .aviso {
   display: inline-block;
-  padding: var(--espacio-1) var(--espacio-4);
+  padding: var(--espacio-1) var(--espacio-3);
   border: 1px solid currentColor;
   border-radius: var(--radio-pill);
   background: none;
   font: inherit;
-  font-size: var(--texto-s);
+  font-size: var(--texto-xs);
+  white-space: nowrap;
   color: inherit;
   text-decoration: none;
   cursor: pointer;
@@ -145,6 +146,7 @@
 /* Ancho de partida fijo; si falta sitio en la fila encoge él (hasta su contenido), no las demás
    acciones. Va como flex-basis y no como width: un width fijo contaría como su mínimo. */
 .buscador {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: var(--espacio-2);
@@ -158,36 +160,136 @@
     border-color var(--transicion);
 }
 
+.buscador > svg {
+  flex: 0 0 auto;
+}
+
+/* En la fila 1, a la izquierda de la cotización: parte de su ancho y, si falta sitio, encoge
+   él; el texto se recorta, así que la animación nunca cambia su ancho. */
+.acciones > .buscador {
+  flex: 0 1 var(--ancho-buscador);
+  min-width: 0;
+}
+
+/* Texto que se escribe solo, con un cursor que parpadea. */
+.tecleado {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tecleado::after {
+  content: "|";
+  margin-inline-start: 1px;
+  animation: parpadeo 1s steps(1) infinite;
+}
+
+/* Con prefers-reduced-motion, base.css deja la animación en 0,01ms: el cursor queda fijo. */
+@keyframes parpadeo {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Insignia de búsqueda asistida: montada en la esquina, como el contador de un carrito. */
+.insignia {
+  position: absolute;
+  inset-block-start: calc(var(--espacio-1) * -1);
+  inset-inline-end: calc(var(--espacio-1) * -1);
+  display: flex;
+  width: var(--espacio-4);
+  height: var(--espacio-4);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-tinta);
+  color: var(--color-fondo);
+}
+
+.insignia svg {
+  width: 60%;
+  height: 60%;
+}
+
+/* Fila 2: el buscador va a la derecha, tras la navegación. Parte de su ancho y, si falta
+   sitio, encoge él (hasta su contenido). */
 .header[data-estado="transparente"] .buscador {
   border-color: color-mix(in srgb, var(--color-fondo) 60%, transparent);
   background-color: color-mix(in srgb, var(--color-fondo) 15%, transparent);
 }
 
+/* Al pasar el cursor el botón se rellena y su borde se marca: se nota que se puede pulsar. */
 .header[data-estado="solido"] .buscador:hover {
+  border-color: var(--color-texto);
   background-color: var(--color-fondo-suave);
 }
 
-.acciones > .buscador {
-  flex: 0 1 var(--ancho-buscador);
-}
-
-/* Icono de búsqueda asistida, pegado al extremo derecho y separado por una línea. */
-.asistida {
-  display: flex;
-  align-items: center;
-  margin-inline-start: auto;
-  padding-inline-start: var(--espacio-2);
-  border-inline-start: 1px solid currentColor;
+.header[data-estado="transparente"] .buscador:hover {
+  border-color: var(--color-fondo);
+  background-color: color-mix(in srgb, var(--color-fondo) 25%, transparent);
 }
 
 /* Cotización y contacto ------------------------------------------------------ */
 
+/* Cotización: icono en un círculo delineado, con el mismo borde que la píldora del buscador.
+   El contador va como marca pequeña sobre el borde, sin romper el círculo. */
 .cotizacion {
+  position: relative;
   display: flex;
+  width: var(--espacio-6);
+  height: var(--espacio-6);
   align-items: center;
-  gap: var(--espacio-1);
+  justify-content: center;
+  border: 1px solid var(--color-texto-suave);
+  border-radius: var(--radio-pill);
   color: inherit;
   text-decoration: none;
+  transition:
+    background-color var(--transicion),
+    border-color var(--transicion);
+}
+
+.header[data-estado="transparente"] .cotizacion {
+  border-color: color-mix(in srgb, var(--color-fondo) 60%, transparent);
+}
+
+.header[data-estado="solido"] .cotizacion:hover {
+  background-color: var(--color-fondo-suave);
+}
+
+.cotizacion .contador {
+  position: absolute;
+  inset-block-start: calc(var(--espacio-1) * -1);
+  inset-inline-end: calc(var(--espacio-1) * -1);
+}
+
+/* Tooltip "Mi Cotización": aparece al pasar el cursor y con el foco de teclado. */
+.tooltip {
+  position: absolute;
+  inset-block-start: calc(100% + var(--espacio-2));
+  inset-inline-start: 50%;
+  padding: var(--espacio-1) var(--espacio-2);
+  border-radius: var(--radio-s);
+  background-color: var(--color-tinta);
+  font-size: var(--texto-xs);
+  color: var(--color-fondo);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity var(--transicion);
+}
+
+.cotizacion:focus-visible .tooltip {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .cotizacion:hover .tooltip {
+    opacity: 1;
+  }
 }
 
 .contador {
@@ -256,8 +358,31 @@
     display: flex;
   }
 
-  /* En móvil el indicador queda junto a la hamburguesa, solo con el ícono y el número. */
-  .cotizacionTexto {
-    display: none;
+  /* En pantallas muy estrechas (320px) logo, cotización y hamburguesa no caben con la
+     separación de escritorio: se acorta y, si aun así falta, encoge el logo. */
+  .filaPrincipal,
+  .acciones {
+    gap: var(--espacio-3);
+  }
+
+  /* En móvil la cotización sigue como antes: icono y número en línea, sin círculo. */
+  .cotizacion {
+    width: auto;
+    height: auto;
+    gap: var(--espacio-1);
+    border: 0;
+  }
+
+  .cotizacion .contador {
+    position: static;
+  }
+
+  .logo {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .logoImagen {
+    max-width: 100%;
   }
 }

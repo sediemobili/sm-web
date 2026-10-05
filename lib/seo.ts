@@ -1,9 +1,10 @@
 // Utilidades de SEO: URLs absolutas, metadata y descripciones generadas.
 
 import type { Metadata } from "next";
+import { EMPRESA } from "./sitio";
 
 export const SITE = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://sediemobili.com";
-export const NOMBRE = "Sedie & Mobili";
+export const NOMBRE = EMPRESA.nombre;
 
 export const absoluta = (ruta: string) => new URL(ruta, SITE).toString();
 

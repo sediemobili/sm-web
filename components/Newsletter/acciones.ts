@@ -2,13 +2,7 @@
 
 import { z } from "zod";
 import { guardarLead } from "@/lib/leads";
-
-type EstadoNewsletter = {
-  estado: "inicial" | "exito" | "error";
-  mensaje: string | null;
-};
-
-export const estadoInicialNewsletter: EstadoNewsletter = { estado: "inicial", mensaje: null };
+import type { EstadoNewsletter } from "./estado";
 
 const esquemaNewsletter = z.object({ email: z.string().trim().pipe(z.email("Escribe un correo válido.")) });
 

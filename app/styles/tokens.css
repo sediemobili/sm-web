@@ -83,24 +83,10 @@
   --ancho-logo: 180px; /* .elementor-element-6de2e2a img{width:180px} del header */
   --espacio-nav: 26px; /* separación entre ítems del menú del header y entre las redes del footer */
   --tamano-icono: 20px; /* --icon-size de las redes del footer */
-  /* Relleno real del header flotante. El original usa 1% 2%, que crece en pantallas anchas
-     y se aplasta en móvil; aquí es fijo. */
-  --relleno-header: 14px 28px;
-  /* Vidrio esmerilado del header: crema semitransparente con desenfoque y saturación del
-     fondo. No existe en el sitio actual: valores propios. Las opacidades son el porcentaje
-     de crema en la mezcla; 65% mantiene el texto del menú en ~7:1 aun sobre negro puro
-     (el vídeo de LARUS), así que no hace falta oscurecerlo. Al hacer scroll sube a 85%. */
-  --vidrio-opacidad: 65%;
-  --vidrio-opacidad-pegado: 85%;
-  /* Sin backdrop-filter no hay desenfoque que suavice lo de debajo: el crema sube un poco. */
-  --vidrio-opacidad-sin-filtro: 90%;
-  --vidrio-desenfoque: 16px;
-  --vidrio-saturacion: 140%;
-  --vidrio-borde: 1px solid rgb(255 255 255 / 0.35); /* borde translúcido muy sutil */
-  --sombra-vidrio: 0 4px 20px rgb(0 0 0 / 0.08); /* sombra suave del header en reposo */
+  --sombra-vidrio: 0 4px 20px rgb(0 0 0 / 0.08); /* sombra discreta del header en su estado sólido */
   --alto-header: 67px; /* fila 1 del header: la cabecera normal del original */
   --alto-header-nav: var(--espacio-7); /* fila 2 del header (navegación): 50px */
-  --ancho-buscador: 320px; /* ancho del botón "Buscar" del header en escritorio */
+  --ancho-buscador: 460px; /* ancho del botón de buscar del header: cabe la frase animada más larga */
   /* El header va fijo sobre el contenido y no ocupa sitio en el flujo. Las páginas sin hero
      reservan arriba su alto, para no quedar tapadas; en móvil solo hay la fila 1. */
   --reserva-header: calc(var(--alto-header) + var(--alto-header-nav));

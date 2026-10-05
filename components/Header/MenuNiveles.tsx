@@ -72,8 +72,25 @@ export function MenuNiveles({ etiqueta, raiz, abierto, onAbrir, onCerrar, claseB
   const activar = (nivel: number, indice: number) =>
     setRuta((previa) => (previa[nivel] === indice && previa.length === nivel + 1 ? previa : [...previa.slice(0, nivel), indice]));
 
-  // Arriba y abajo recorren la columna; el foco nuevo abre el nivel siguiente.
+  // Arriba y abajo recorren la columna; el foco nuevo abre el nivel siguiente. La derecha entra
+  // en la columna siguiente (la del elemento enfocado) y la izquierda vuelve a la anterior, a su
+  // elemento activo.
   const alTecla = (evento: React.KeyboardEvent<HTMLAnchorElement>) => {
+    const columna = evento.currentTarget.closest<HTMLElement>("[role=group]");
+    if (evento.key === "ArrowRight" || evento.key === "ArrowLeft") {
+      const vecina = (evento.key === "ArrowRight" ? columna?.nextElementSibling : columna?.previousElementSibling) as
+        | HTMLElement
+        | null
+        | undefined;
+      const destino =
+        evento.key === "ArrowLeft"
+          ? (vecina?.querySelector<HTMLAnchorElement>("[data-activo='true']") ?? vecina?.querySelector("a"))
+          : vecina?.querySelector<HTMLAnchorElement>("ul a");
+      if (!destino) return;
+      evento.preventDefault();
+      destino.focus();
+      return;
+    }
     if (evento.key !== "ArrowDown" && evento.key !== "ArrowUp") return;
     evento.preventDefault();
     const enlaces = [...(evento.currentTarget.closest("ul")?.querySelectorAll<HTMLAnchorElement>("a") ?? [])];

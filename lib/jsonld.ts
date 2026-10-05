@@ -1,34 +1,8 @@
 // Constructores de JSON-LD. Un campo que no existe se omite, nunca se inventa.
 
 import { NOMBRE, SITE, absoluta } from "./seo";
+import { EMPRESA, REDES, SEDES } from "./sitio";
 import type { Post, Product } from "./data";
-
-const REDES = [
-  "https://www.facebook.com/people/Sedie-Mobili/61581781496052/",
-  "https://www.instagram.com/sediemobili/",
-  "https://www.youtube.com/@SedieMobili",
-  "https://www.tiktok.com/@sedie.mobili",
-  "https://www.linkedin.com/company/sedie-mobili-mexico",
-];
-
-const SEDES = [
-  {
-    id: `${SITE}/#monterrey`,
-    nombre: `${NOMBRE} Monterrey`,
-    calle: "Prol. Ruiz Cortinez 2941",
-    cp: "67113",
-    localidad: "test city",
-    region: "N.L.",
-  },
-  {
-    id: `${SITE}/#cdmx`,
-    nombre: `${NOMBRE} Ciudad de México`,
-    calle: "Calle Pte. 128 787-B7, Industrial Vallejo, Azcapotzalco",
-    cp: "02300",
-    localidad: "Ciudad de México",
-    region: "CDMX",
-  },
-];
 
 export const organizacion = () => [
   {
@@ -38,13 +12,13 @@ export const organizacion = () => [
     name: NOMBRE,
     url: `${SITE}/`,
     logo: absoluta("/media/marca/sediemobili.svg"),
-    sameAs: REDES,
+    sameAs: REDES.map((red) => red.url),
   },
   ...SEDES.map((sede) => ({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": sede.id,
-    name: sede.nombre,
+    "@id": `${SITE}/#${sede.slug}`,
+    name: `${NOMBRE} ${sede.ciudad}`,
     url: `${SITE}/`,
     image: absoluta("/media/marca/sediemobili.svg"),
     parentOrganization: { "@id": `${SITE}/#organization` },
@@ -54,8 +28,12 @@ export const organizacion = () => [
       postalCode: sede.cp,
       addressLocality: sede.localidad,
       addressRegion: sede.region,
-      addressCountry: "MX",
+      addressCountry: EMPRESA.pais,
     },
+    // Teléfono, correo y horario solo si existen: un campo vacío se omite, no se inventa.
+    ...(sede.telefonos?.length ? { telephone: sede.telefonos[0] } : {}),
+    ...(sede.correos?.length ? { email: sede.correos[0] } : {}),
+    ...(sede.horario ? { openingHours: sede.horario } : {}),
   })),
 ];
 

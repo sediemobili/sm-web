@@ -1,27 +1,8 @@
 "use server";
 
 import { guardarLead } from "@/lib/leads";
-import { leerAsistente, validarAsistente, type ErroresAsistente, type Paso } from "./esquema";
-
-export type EstadoContacto = {
-  estado: "inicial" | "exito" | "error";
-  errores: ErroresAsistente;
-  // Primer paso con errores, para que el asistente vuelva a él.
-  paso: Paso | null;
-  mensaje: string | null;
-  // Los consume el evento generate_lead en cliente.
-  destino: string | null;
-  interes: string | null;
-};
-
-export const estadoInicial: EstadoContacto = {
-  estado: "inicial",
-  errores: {},
-  paso: null,
-  mensaje: null,
-  destino: null,
-  interes: null,
-};
+import { leerAsistente, validarAsistente } from "./esquema";
+import { estadoInicial, type EstadoContacto } from "./estado";
 
 const ERROR_GUARDADO = "No pudimos enviar tu solicitud. Inténtalo de nuevo en un momento.";
 

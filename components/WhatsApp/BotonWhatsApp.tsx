@@ -3,7 +3,8 @@
 import { startTransition, useActionState, useEffect, useId, useRef, useState } from "react";
 import { validarWhatsApp, type ErroresWhatsApp } from "@/components/ContactoModal/esquema";
 import { enviarEvento } from "@/lib/analytics";
-import { contactarWhatsApp, estadoInicialWhatsApp, type EstadoWhatsApp } from "./acciones";
+import { contactarWhatsApp } from "./acciones";
+import { estadoInicialWhatsApp, type EstadoWhatsApp } from "./estado";
 import estilos from "./WhatsApp.module.css";
 
 // Botón flotante de WhatsApp. Antes de abrir el chat pide nombre y teléfono y los guarda como lead.

@@ -1,23 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { validarContacto, type ErroresContacto } from "@/components/ContactoModal/esquema";
+import { validarContacto } from "@/components/ContactoModal/esquema";
 import { guardarLead } from "@/lib/leads";
-
-type EstadoCotizacion = {
-  estado: "inicial" | "exito" | "error";
-  errores: ErroresContacto;
-  mensaje: string | null;
-  // Lo consume el evento generate_lead en cliente.
-  interes: string | null;
-};
-
-export const estadoInicialCotizacion: EstadoCotizacion = {
-  estado: "inicial",
-  errores: {},
-  mensaje: null,
-  interes: null,
-};
+import type { EstadoCotizacion } from "./estado";
 
 const esquemaRenglones = z.array(
   z.object({ slug: z.string(), variacionId: z.number().nullable(), cantidad: z.number().int().positive() }),

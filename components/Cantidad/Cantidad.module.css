@@ -1,0 +1,62 @@
+/* Control de cantidad: botones de restar y sumar a los lados de un campo numérico. */
+
+.cantidad {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-texto-suave);
+  border-radius: var(--radio-pill);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-tinta);
+}
+
+.paso {
+  display: flex;
+  width: var(--espacio-6);
+  height: var(--espacio-6);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radio-pill);
+  background: none;
+  font: inherit;
+  font-size: var(--texto-l);
+  line-height: 1;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+.paso:disabled {
+  color: var(--color-texto-suave);
+  cursor: default;
+}
+
+.campo {
+  width: var(--espacio-7);
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: center;
+  appearance: textfield;
+}
+
+/* Sin las flechas nativas del campo numérico: ya están los botones. */
+.campo::-webkit-inner-spin-button,
+.campo::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.paso:not(:disabled):hover {
+  background-color: var(--color-fondo-suave);
+}
+
+.paso:focus-visible,
+.campo:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}

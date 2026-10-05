@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Carrusel } from "@/components/Home/Carrusel";
+import home from "@/components/Home/Home.module.css";
 import type { Category } from "@/lib/data";
 import { CintaCategorias } from "./CintaCategorias";
 import estilos from "./categorias.module.css";
@@ -52,7 +53,8 @@ export function CarruselCategorias({ categorias, automatico = false }: { categor
   }
 
   return (
-    <Carrusel etiqueta="categorías" claseLista={estilos.listaCategorias}>
+    // Lista espaciada, como los carruseles de la home: arranca y termina con el margen del sitio.
+    <Carrusel etiqueta="categorías" claseLista={`${estilos.listaCategorias} ${home.listaEspaciada}`}>
       {tarjetas}
     </Carrusel>
   );

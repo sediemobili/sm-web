@@ -105,7 +105,10 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
               alt=""
               fill
               sizes="100vw"
-              priority={indice === 0}
+              // En Next 16 priority está obsoleta: la primera diapositiva va con prioridad y el
+              // resto en diferido.
+              loading={indice === 0 ? "eager" : "lazy"}
+              fetchPriority={indice === 0 ? "high" : undefined}
             />
           )}
 

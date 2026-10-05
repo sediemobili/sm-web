@@ -8,9 +8,10 @@ import { ContactoModal } from "@/components/ContactoModal/ContactoModal";
 import { useCotizacion } from "@/lib/cotizacion";
 import { BuscadorModal } from "./BuscadorModal";
 import estilos from "./Header.module.css";
-import { ChispaIcono, ListaIcono, LupaIcono } from "./iconos";
+import { ChispaIcono, CotizacionIcono, LupaIcono } from "./iconos";
 import { EnlaceDestacado, MenuNiveles } from "./MenuNiveles";
 import { MenuMovil } from "./MenuMovil";
+import { TextoTecleado } from "./TextoTecleado";
 import type { CategoriaMenu, EnlaceMenu, NodoMenu, ProductoIndice } from "./tipos";
 
 type Props = {
@@ -22,6 +23,14 @@ type Props = {
 };
 
 type MenuAbierto = "colecciones" | "categorias" | null;
+
+// Ejemplos que se escriben solos en el botón de buscar.
+const FRASES_BUSCADOR = [
+  "Busco escritorios y mesas para mis nuevas oficinas…",
+  "Necesito 20 sillas ergonómicas para mi equipo…",
+  "Quiero renovar la recepción de mi empresa…",
+  "Busco mobiliario para una sala de juntas de 12 personas…",
+] as const;
 
 export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, categoriasNiveles, indice }: Props) {
   const [menuMovil, setMenuMovil] = useState(false);
@@ -38,7 +47,7 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
   const botonHamburguesa = useRef<HTMLButtonElement>(null);
   // Al cerrar el modal de contacto, el foco vuelve a quien lo abrió.
   const retornoFoco = useRef<HTMLElement | null>(null);
-  const { total } = useCotizacion();
+  const { piezas, productos: distintos } = useCotizacion();
   const cabecera = useRef<HTMLElement>(null);
   // En la home el header va transparente sobre el hero mientras el hero se ve.
   const enInicio = usePathname() === "/";
@@ -114,12 +123,14 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
         </Link>
 
         <div className={estilos.acciones}>
-          {/* Sin JavaScript es un enlace a /buscar/; con él abre el modal de búsqueda. */}
+          {/* Sin JavaScript es un enlace a /buscar/; con él abre el modal de búsqueda. El texto
+              que se escribe solo es decorativo: el nombre accesible es "Buscar". */}
           <Link
             ref={botonBuscar}
             href="/buscar/"
             role="button"
             aria-haspopup="dialog"
+            aria-label="Buscar"
             className={estilos.buscador}
             onClick={(evento) => {
               evento.preventDefault();
@@ -132,20 +143,30 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
             }}
           >
             <LupaIcono />
-            <span>Buscar</span>
-            {/* Anuncio de la búsqueda asistida por IA: solo visual por ahora. */}
-            <span className={estilos.asistida}>
+            <TextoTecleado frases={FRASES_BUSCADOR} className={estilos.tecleado} />
+            {/* Insignia de la búsqueda asistida por IA, montada en la esquina: solo visual. */}
+            <span className={estilos.insignia} aria-hidden="true">
               <ChispaIcono />
             </span>
           </Link>
 
-          {total > 0 ? (
-            <Link href="/cotizacion/" className={estilos.cotizacion} aria-label={`Lista de cotización: ${total}`}>
-              <ListaIcono />
-              <span className={estilos.cotizacionTexto}>Cotización</span>
-              <span className={estilos.contador}>{total}</span>
-            </Link>
-          ) : null}
+          {/* Siempre visible para que se sepa que existe; con productos lleva el número de piezas. */}
+          <Link
+            href="/cotizacion/"
+            className={estilos.cotizacion}
+            aria-label={
+              piezas === 0
+                ? "Mi Cotización: vacía"
+                : `Mi Cotización: ${piezas} ${piezas === 1 ? "pieza" : "piezas"} de ${distintos} ${distintos === 1 ? "producto" : "productos"}`
+            }
+          >
+            <CotizacionIcono />
+            {piezas > 0 ? <span className={estilos.contador}>{piezas}</span> : null}
+            {/* Tooltip visual; el nombre accesible ya lo da aria-label. */}
+            <span className={estilos.tooltip} aria-hidden="true">
+              Mi Cotización
+            </span>
+          </Link>
 
           <button
             ref={botonContacto}
@@ -196,12 +217,13 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
           <Link href="/blog/" className={estilos.enlace}>
             Recursos
           </Link>
+
+          {/* Píldora delineada al final de la navegación: se lee como acción comercial. */}
+          <Link href="/venta-empresarial/" className={estilos.aviso}>
+            Venta empresarial · Proyectos a medida
+          </Link>
         </nav>
 
-        {/* Píldora de la fila 2: promueve la venta empresarial. */}
-        <Link href="/venta-empresarial/" className={estilos.aviso}>
-          Venta empresarial · Proyectos a medida
-        </Link>
       </div>
 
       <ContactoModal

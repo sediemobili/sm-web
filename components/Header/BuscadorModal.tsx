@@ -19,6 +19,12 @@ type Props = {
   colecciones: EnlaceMenu[];
 };
 
+// La palabra buscada coincide con una palabra completa del texto, en singular o plural.
+const palabraCompleta = (texto: string, palabra: string) =>
+  texto
+    .split(" ")
+    .some((w) => w === palabra || w === `${palabra}s` || w === `${palabra}es` || palabra === `${w}s` || palabra === `${w}es`);
+
 const rutaBusqueda = (consulta: string) => `/buscar/?q=${encodeURIComponent(consulta.trim())}`;
 
 // Modal de búsqueda del header. Es un diálogo modal: el navegador atrapa el foco, deja inerte
@@ -36,20 +42,25 @@ export function BuscadorModal({ abierto, onCerrar, indice, categorias, coleccion
   // colecciones) ya llegan normalizadas del servidor.
   const normalizados = useMemo(() => indice.map((producto) => normalizar(producto.nombre)), [indice]);
 
-  // Cada palabra tiene que estar en el nombre o en las claves. Primero van los que coinciden
-  // del todo por nombre; después, los que coinciden por categoría o colección.
+  // Cada palabra tiene que estar en el nombre o en las claves. El orden, de más a menos peso:
+  //   1. palabras completas del nombre ("eugenia" en "Eugenia"),
+  //   2. palabras completas de la categoría o colección, admitiendo plural ("mesa" en "Mesas"),
+  //   3. dentro del nombre ("mesa" en "Mesabanco"),
+  //   4. dentro de la categoría o colección.
   const palabras = useMemo(() => terminos(consulta), [consulta]);
   const resultados = useMemo(() => {
     if (palabras.length === 0) return [];
-    const porNombre: ProductoIndice[] = [];
-    const porClaves: ProductoIndice[] = [];
+    const grupos: ProductoIndice[][] = [[], [], [], []];
     indice.forEach((producto, i) => {
       const nombre = normalizados[i];
-      const texto = `${nombre} ${producto.claves}`;
-      if (!palabras.every((palabra) => texto.includes(palabra))) return;
-      (palabras.every((palabra) => nombre.includes(palabra)) ? porNombre : porClaves).push(producto);
+      if (!palabras.every((palabra) => `${nombre} ${producto.claves}`.includes(palabra))) return;
+      const enNombre = palabras.every((palabra) => nombre.includes(palabra));
+      if (enNombre && palabras.every((palabra) => palabraCompleta(nombre, palabra))) grupos[0].push(producto);
+      else if (palabras.every((palabra) => palabraCompleta(producto.claves, palabra))) grupos[1].push(producto);
+      else if (enNombre) grupos[2].push(producto);
+      else grupos[3].push(producto);
     });
-    return [...porNombre, ...porClaves].slice(0, MAXIMO);
+    return grupos.flat().slice(0, MAXIMO);
   }, [palabras, indice, normalizados]);
 
   useLayoutEffect(() => {

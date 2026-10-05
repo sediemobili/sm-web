@@ -175,7 +175,6 @@ propósito, para que la subida se lea como un movimiento tranquilo y no como un 
 | `--ancho-logo` | 180px | `.elementor-element-6de2e2a img{width:180px}` del header |
 | `--espacio-nav` | 26px | Separación entre ítems del menú del header y entre las redes del footer |
 | `--tamano-icono` | 20px | `--icon-size` de las redes del footer |
-| `--relleno-header` | `14px 28px` | Relleno del header flotante. El original usa `1% 2%`, que varía con el ancho; aquí es fijo |
 
 ### Header
 
@@ -183,23 +182,14 @@ El header es fijo (`position: fixed`) sobre el contenido, a todo el ancho y en d
 Sobre el hero de la home es transparente; en el resto, sólido con `--color-fondo` y la sombra
 `--sombra-vidrio`. Salvo el alto de la fila 1, no existe en el sitio actual: son valores propios.
 
-Los tokens `--vidrio-*` son del header anterior (píldora de vidrio esmerilado) y hoy no los usa
-nadie; se mantienen hasta decidir si se borran.
-
 | Token | Valor | Uso |
 |---|---|---|
 | `--alto-header` | 67px | Fila 1 del header (logo, buscador, contacto): la cabecera normal del original |
 | `--alto-header-nav` | `var(--espacio-7)` (50px) | Fila 2 del header (navegación y aviso de volumen) |
-| `--ancho-buscador` | 320px | Ancho del botón "Buscar" de la fila 1 del header, que abre el modal de búsqueda; si falta sitio, encoge hasta su contenido |
+| `--ancho-buscador` | 460px | Ancho del botón de buscar de la fila 1 del header (abre el modal de búsqueda): cabe la frase animada más larga (388px) con la lupa; si falta sitio, encoge y el texto se recorta |
 | `--reserva-header` | `calc(var(--alto-header) + var(--alto-header-nav))` | Hueco que reservan arriba las páginas sin hero, para que el header no las tape |
 | `--reserva-header-movil` | `var(--alto-header)` | La misma reserva bajo 767px, donde solo hay la fila 1 |
 | `--z-header` | 100 | El header va sobre el contenido; el original no tiene escala de z |
-| `--vidrio-opacidad` | 65% | Porcentaje de crema del vidrio en reposo; mantiene el menú en ~7:1 incluso sobre negro |
-| `--vidrio-opacidad-pegado` | 85% | El mismo vidrio con el header pegado, tras hacer scroll |
-| `--vidrio-opacidad-sin-filtro` | 90% | Navegadores sin `backdrop-filter`: sin desenfoque, el crema sube |
-| `--vidrio-desenfoque` | 16px | Desenfoque del fondo |
-| `--vidrio-saturacion` | 140% | Saturación del fondo |
-| `--vidrio-borde` | `1px solid rgb(255 255 255 / 0.35)` | Borde translúcido del vidrio |
 | `--sombra-vidrio` | `0 4px 20px rgb(0 0 0 / 0.08)` | Sombra discreta del header en su estado sólido |
 
 **Breakpoints** (van como comentario en `tokens.css`, porque una custom property no funciona

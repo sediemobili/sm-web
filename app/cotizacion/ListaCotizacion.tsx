@@ -4,10 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useState } from "react";
+import { Cantidad } from "@/components/Cantidad/Cantidad";
 import { INTERESES } from "@/components/ContactoModal/esquema";
 import { enviarEvento } from "@/lib/analytics";
-import { useCotizacion } from "@/lib/cotizacion";
-import { enviarCotizacion, estadoInicialCotizacion } from "./acciones";
+import { contar, useCotizacion } from "@/lib/cotizacion";
+import { enviarCotizacion } from "./acciones";
+import { estadoInicialCotizacion } from "./estado";
 import estilos from "./cotizacion.module.css";
 
 export type ProductoResumen = {
@@ -24,7 +26,7 @@ export type ProductoResumen = {
 const COMERCIO = process.env.NEXT_PUBLIC_COMMERCE_ENABLED === "true";
 
 export function ListaCotizacion({ productos }: { productos: ProductoResumen[] }) {
-  const { renglones, quitar, cambiarCantidad, vaciar } = useCotizacion();
+  const { renglones, quitar, cambiarCantidad, quitado, deshacer, vaciar } = useCotizacion();
   const [estado, accion, enviando] = useActionState(enviarCotizacion, estadoInicialCotizacion);
   const [listo, setListo] = useState(false);
   const router = useRouter();
@@ -38,6 +40,19 @@ export function ListaCotizacion({ productos }: { productos: ProductoResumen[] })
     return [{ renglon, producto, variacion }];
   });
   const huerfanos = renglones.length - filas.length;
+  // El resumen cuenta solo lo que se ve en la tabla (sin los productos que ya no existen).
+  const { piezas, productos: distintos } = contar(filas.map(({ renglon }) => renglon));
+  const nombreQuitado = quitado ? (porSlug.get(quitado.slug)?.name ?? "el producto") : null;
+
+  // Aviso para deshacer el último producto quitado.
+  const avisoDeshacer = quitado ? (
+    <p className={estilos.deshacer} role="status">
+      Quitaste {nombreQuitado} de tu lista.{" "}
+      <button type="button" className={estilos.quitar} onClick={deshacer}>
+        Deshacer
+      </button>
+    </p>
+  ) : null;
 
   // La Server Action no puede vaciar el localStorage: se limpia aquí y se navega a /gracias/.
   useEffect(() => {
@@ -56,6 +71,7 @@ export function ListaCotizacion({ productos }: { productos: ProductoResumen[] })
     return (
       <main className="sm-pagina">
         <h1 className="sm-titulo-pagina">Tu lista de cotización</h1>
+        {avisoDeshacer}
         <div className="sm-vacio">
           <p>Todavía no has agregado productos a tu lista.</p>
           <Link href="/catalogo/" className="sm-boton">
@@ -69,6 +85,15 @@ export function ListaCotizacion({ productos }: { productos: ProductoResumen[] })
   return (
     <main className="sm-pagina">
       <h1 className="sm-titulo-pagina">Tu lista de cotización</h1>
+
+      <p className={estilos.resumen}>
+        <strong>
+          {piezas} {piezas === 1 ? "pieza" : "piezas"}
+        </strong>{" "}
+        · {distintos} {distintos === 1 ? "producto distinto" : "productos distintos"}
+      </p>
+
+      {avisoDeshacer}
 
       {huerfanos > 0 ? (
         <p className={estilos.aviso} role="status">
@@ -112,18 +137,12 @@ export function ListaCotizacion({ productos }: { productos: ProductoResumen[] })
               </td>
               <td>{variacion?.etiqueta ?? "—"}</td>
               <td>
-                <label className={estilos.oculto} htmlFor={`cantidad-${renglon.slug}-${renglon.variacionId ?? "base"}`}>
-                  Cantidad de {producto.name}
-                </label>
-                <input
-                  id={`cantidad-${renglon.slug}-${renglon.variacionId ?? "base"}`}
-                  type="number"
-                  min={1}
-                  value={renglon.cantidad}
-                  className={estilos.cantidad}
-                  onChange={(evento) =>
-                    cambiarCantidad(renglon.slug, renglon.variacionId, Number(evento.target.value))
-                  }
+                {/* Bajar de 1 quita el producto; el aviso de arriba permite deshacerlo. */}
+                <Cantidad
+                  valor={renglon.cantidad}
+                  minimo={0}
+                  de={variacion ? `${producto.name} (${variacion.etiqueta})` : producto.name}
+                  onCambiar={(cantidad) => cambiarCantidad(renglon.slug, renglon.variacionId, cantidad)}
                 />
               </td>
               <td>
