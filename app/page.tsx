@@ -115,17 +115,8 @@ export default async function HomePage() {
         </article>
       </section>
 
-      {/* 4. Explora + Sillería Ejecutiva */}
-      <section className={estilos.seccionExplora} aria-labelledby="explora">
-        <h2 id="explora" className={estilos.tituloSeccion}>
-          Explora Nuestro Mobiliario de Oficinas
-        </h2>
-        <p className={estilos.introTexto}>
-          Transforma tu entorno de trabajo con nuestra selección exclusiva de mobiliario. Desde ergonomía avanzada
-          hasta diseños de recepción que impactan, ofrecemos soluciones integrales para oficinas que inspiran
-          productividad y bienestar.
-        </p>
-
+      {/* 4. Sillería Ejecutiva */}
+      <section className={estilos.seccionExplora} aria-labelledby="silleria">
         <article className={estilos.silleria}>
           <Image
             src="/media/fondos/sillas-para-todos.webp"
@@ -134,11 +125,12 @@ export default async function HomePage() {
             sizes="100vw"
             className={estilos.silleriaImagen}
           />
-          <h3 className={estilos.silleriaTitulo}>
+          {/* h2: sin el título de la sección, es el encabezado que la nombra. */}
+          <h2 id="silleria" className={estilos.silleriaTitulo}>
             Sillería
             <br />
             Ejecutiva
-          </h3>
+          </h2>
           <p className={estilos.silleriaTexto}>Descubre nuestras nuevas líneas disponibles.</p>
           <Link href="/product-category/sillas-de-oficina/" className={estilos.boton}>
             Ver Todas las Sillas

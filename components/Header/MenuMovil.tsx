@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
-import type { CategoriaMenu, EnlaceMenu } from "./MegaProductos";
+import type { CategoriaMenu, EnlaceMenu } from "./tipos";
 import estilos from "./MenuMovil.module.css";
 
 type Props = {

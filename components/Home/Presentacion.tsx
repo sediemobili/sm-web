@@ -15,7 +15,7 @@ export function Presentacion() {
       <p className={estilos.texto}>
         El éxito de su compañía comienza donde su equipo trabaja. Por eso, en Sedie Mobili llevamos más de 25 años
         fabricando las sillas y el mobiliario que sostienen ese trabajo: jornadas largas, equipos que crecen y espacios
-        que cambian.
+        que evolucionan.
       </p>
     </section>
   );

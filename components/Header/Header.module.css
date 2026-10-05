@@ -1,61 +1,73 @@
-/* Header del sitio: logo, mega-menú, buscador y contacto. Paridad con sediemobili.com. */
-
-/* Cabecera normal del original: 67px.
-   Barra flotante: fija sobre el contenido, sin reservar sitio en el flujo, y despegada
-   del borde con el margen de tarjeta. El hueco que deja lo reserva app/layout.module.css.
-   Fondo de vidrio esmerilado; sin backdrop-filter cae a crema casi sólido (abajo). */
+/* Header del sitio: cabecera de dos filas a todo el ancho, fija sobre el contenido.
+   Fila 1: logo, buscador, cotización y contacto. Fila 2: navegación y aviso de volumen.
+   Dos estados (data-estado): transparente sobre el hero de la home y sólido en el resto.
+   Su alto lo reservan las páginas sin hero (app/layout.module.css, --reserva-header). */
 .header {
   position: fixed;
-  inset-block-start: var(--margen-tarjeta);
-  inset-inline: var(--margen-tarjeta);
+  inset-block-start: 0;
+  inset-inline: 0;
   z-index: var(--z-header);
-  border-radius: var(--radio-pill);
-  display: flex;
-  min-height: var(--alto-header);
-  align-items: center;
-  gap: var(--espacio-nav);
-  padding: var(--relleno-header);
-  border: var(--vidrio-borde);
-  background-color: color-mix(in srgb, var(--color-fondo-suave) var(--vidrio-opacidad-sin-filtro), transparent);
+  padding-inline: var(--espacio-6);
+  background-color: var(--color-fondo);
   box-shadow: var(--sombra-vidrio);
-  transition:
-    background-color var(--transicion),
-    inset-block-start var(--transicion),
-    inset-inline-start var(--transicion),
-    inset-inline-end var(--transicion);
   font-family: var(--fuente-texto);
   font-size: var(--texto-nav);
   color: var(--color-tinta);
+  /* Color del anillo de foco: el del texto del header en cada estado. */
+  --color-foco: var(--color-tinta);
+  /* Con prefers-reduced-motion, base.css deja las transiciones en 0,01ms. */
+  transition:
+    background-color var(--transicion),
+    color var(--transicion),
+    box-shadow var(--transicion);
 }
 
-/* En la home, mientras se ve el hero, el header se separa al doble del margen de tarjeta:
-   queda por dentro de la tarjeta del hero y el vídeo asoma por arriba y por los lados.
-   Pasado el hero vuelve al margen normal (HeaderNav, IntersectionObserver). */
-.header[data-sobre-hero="true"] {
-  inset-block-start: calc(var(--margen-tarjeta) * 2);
-  inset-inline: calc(var(--margen-tarjeta) * 2);
+/* Sobre el hero: sin fondo ni sombra, y todo en blanco. */
+.header[data-estado="transparente"] {
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--color-fondo);
+  --color-foco: var(--color-fondo);
 }
 
-/* Versión pegada: mismo alto y mismo logo; solo cambian el vidrio, más opaco, y la sombra. */
-.header[data-pegado="true"] {
-  box-shadow: var(--sombra-tarjeta);
+.fila {
+  display: flex;
+  min-height: var(--alto-header);
+  align-items: center;
+  gap: var(--espacio-5);
 }
 
-@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-  .header {
-    background-color: color-mix(in srgb, var(--color-fondo-suave) var(--vidrio-opacidad), transparent);
-    -webkit-backdrop-filter: blur(var(--vidrio-desenfoque)) saturate(var(--vidrio-saturacion));
-    backdrop-filter: blur(var(--vidrio-desenfoque)) saturate(var(--vidrio-saturacion));
-  }
+/* Fila 1: logo a la izquierda y, a la derecha, buscar, cotización y contacto. */
+.filaPrincipal {
+  justify-content: space-between;
+}
 
-  .header[data-pegado="true"] {
-    background-color: color-mix(in srgb, var(--color-fondo-suave) var(--vidrio-opacidad-pegado), transparent);
-  }
+/* Ocupa el sitio libre de la fila, alineado a la derecha: así el botón de buscar tiene dónde
+   llegar a su ancho y, si falta, es lo primero que encoge. */
+.acciones {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--espacio-5);
+}
+
+/* Si falta sitio en la fila, encoge el buscador, no la cotización ni los botones. */
+.acciones > *,
+.cotizacion > * {
+  flex-shrink: 0;
+}
+
+.filaNavegacion {
+  min-height: var(--alto-header-nav);
+  justify-content: space-between;
 }
 
 .logo {
   display: flex;
   flex: 0 0 auto;
+  color: inherit;
 }
 
 .logoImagen {
@@ -63,77 +75,112 @@
   height: auto;
 }
 
+/* Navegación --------------------------------------------------------------- */
+
 .navegacion {
   display: flex;
   align-items: center;
   gap: var(--espacio-nav);
-  margin-inline-start: auto;
 }
 
 .enlace {
   padding: 0;
-  transition: color var(--transicion);
   border: 0;
   background: none;
   font: inherit;
   color: inherit;
   text-decoration: none;
+  text-underline-offset: var(--espacio-1);
   cursor: pointer;
+  transition: color var(--transicion);
 }
 
-.enlace:hover {
+.header[data-estado="solido"] .enlace:hover {
   color: var(--color-acento);
 }
 
+/* Sobre el hero el acento no se leería: el hover subraya. */
+.header[data-estado="transparente"] .enlace:hover {
+  text-decoration: underline;
+}
+
+/* Píldora de la fila 2: enlace a /venta-empresarial/. */
+.aviso {
+  display: inline-block;
+  padding: var(--espacio-1) var(--espacio-4);
+  border: 1px solid currentColor;
+  border-radius: var(--radio-pill);
+  background: none;
+  font: inherit;
+  font-size: var(--texto-s);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+.header[data-estado="solido"] .aviso:hover {
+  background-color: var(--color-fondo-suave);
+}
+
+.header[data-estado="transparente"] .aviso:hover {
+  background-color: color-mix(in srgb, var(--color-fondo) 15%, transparent);
+}
+
+/* Foco visible en los dos estados: el anillo toma el color del texto del header (tinta o
+   blanco), no el del propio elemento, para que también se vea alrededor de "Contáctanos". */
 .enlace:focus-visible,
-.botonBuscar:focus-visible,
+.aviso:focus-visible,
 .contacto:focus-visible,
 .hamburguesa:focus-visible,
-.campo:focus-visible {
-  outline: 2px solid var(--color-acento);
+.cotizacion:focus-visible,
+.logo:focus-visible,
+.buscador:focus-visible {
+  outline: 2px solid var(--color-foco);
   outline-offset: 2px;
 }
 
-/* Buscador y contacto ----------------------------------------------------- */
+/* Buscar: botón discreto que abre el modal de búsqueda (BuscadorModal). */
 
+/* Ancho de partida fijo; si falta sitio en la fila encoge él (hasta su contenido), no las demás
+   acciones. Va como flex-basis y no como width: un width fijo contaría como su mínimo. */
 .buscador {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--espacio-1);
-  padding-inline: var(--espacio-3);
+  gap: var(--espacio-2);
+  padding: var(--espacio-2) var(--espacio-4);
   border: 1px solid var(--color-texto-suave);
   border-radius: var(--radio-pill);
-}
-
-.campo {
-  width: var(--espacio-8);
-  padding-block: var(--espacio-1);
-  border: 0;
-  background: none;
   color: inherit;
+  text-decoration: none;
+  transition:
+    background-color var(--transicion),
+    border-color var(--transicion);
 }
 
-.campo:focus {
-  outline: none;
+.header[data-estado="transparente"] .buscador {
+  border-color: color-mix(in srgb, var(--color-fondo) 60%, transparent);
+  background-color: color-mix(in srgb, var(--color-fondo) 15%, transparent);
 }
 
-.botonBuscar {
+.header[data-estado="solido"] .buscador:hover {
+  background-color: var(--color-fondo-suave);
+}
+
+.acciones > .buscador {
+  flex: 0 1 var(--ancho-buscador);
+}
+
+/* Icono de búsqueda asistida, pegado al extremo derecho y separado por una línea. */
+.asistida {
   display: flex;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  cursor: pointer;
+  align-items: center;
+  margin-inline-start: auto;
+  padding-inline-start: var(--espacio-2);
+  border-inline-start: 1px solid currentColor;
 }
 
-.etiquetaOculta {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
+/* Cotización y contacto ------------------------------------------------------ */
 
 .cotizacion {
   display: flex;
@@ -155,19 +202,22 @@
   color: var(--color-fondo);
 }
 
-.cotizacion:focus-visible {
-  outline: 2px solid var(--color-acento);
-  outline-offset: 2px;
-}
-
 .contacto {
-  padding: var(--espacio-1) var(--espacio-4);
+  flex: 0 0 auto;
+  padding: var(--espacio-2) var(--espacio-4);
   border: 0;
   border-radius: var(--radio-pill);
   background-color: var(--color-tinta);
   font: inherit;
   color: var(--color-fondo);
   cursor: pointer;
+}
+
+/* Sobre el hero, contador y botón se invierten para destacar sobre el vídeo. */
+.header[data-estado="transparente"] .contador,
+.header[data-estado="transparente"] .contacto {
+  background-color: var(--color-fondo);
+  color: var(--color-tinta);
 }
 
 /* Móvil ------------------------------------------------------------------- */
@@ -177,58 +227,37 @@
   flex-direction: column;
   gap: var(--espacio-1);
   padding: var(--espacio-2);
-  border: 1px solid var(--color-fondo-suave);
+  border: 1px solid currentColor;
   border-radius: var(--radio-s);
   background: none;
+  color: inherit;
   cursor: pointer;
 }
 
 .hamburguesaLinea {
   width: var(--espacio-4);
   height: 2px;
-  background-color: var(--color-tinta);
+  background-color: currentColor;
 }
 
+/* En móvil la estructura no cambia: logo, cotización y hamburguesa en una sola fila. */
 @media (max-width: 767px) {
   .header {
-    inset-block-start: var(--margen-tarjeta-movil);
-    inset-inline: var(--margen-tarjeta-movil);
-    border-radius: var(--radio-tarjeta-movil);
+    padding-inline: var(--espacio-4);
   }
 
-  .header[data-sobre-hero="true"] {
-    inset-block-start: calc(var(--margen-tarjeta-movil) * 2);
-    inset-inline: calc(var(--margen-tarjeta-movil) * 2);
-  }
-
-  .navegacion,
+  .filaNavegacion,
   .buscador,
-  .header > .contacto {
+  .acciones > .contacto {
     display: none;
   }
 
-  /* La hamburguesa va a la derecha; si hay cotización, es el indicador el que se separa. */
   .hamburguesa {
     display: flex;
-    margin-inline-start: auto;
   }
 
   /* En móvil el indicador queda junto a la hamburguesa, solo con el ícono y el número. */
-  .cotizacion {
-    margin-inline-start: auto;
-  }
-
-  .cotizacion ~ .hamburguesa {
-    margin-inline-start: 0;
-  }
-
   .cotizacionTexto {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .hamburguesa {
     display: none;
   }
 }

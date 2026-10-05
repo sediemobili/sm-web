@@ -55,19 +55,23 @@
   --espacio-8: 60px;
 
   /* Radios y sombras ------------------------------------------------------- */
-  --radio-s: 12px;
-  --radio-m: 20px;
-  --radio-l: 30px;
+  /* Radios bajados un tercio respecto al original (12, 20, 30 y 15px) para un sitio más sobrio. */
+  --radio-s: 8px;
+  --radio-m: 14px;
+  --radio-l: 20px;
   --radio-pill: 40px; /* el radio dominante: 41 usos */
-  --radio-campo: 15px; /* radio de los campos del formulario del popup */
+  --radio-campo: 10px; /* campos de formulario; 15px en el popup original */
   /* Tarjeta visual: bloque con fondo a sangre recortado y separado del borde (hero de la home
      y las secciones que lo compartan). No existe en el sitio actual: valor propio.
      El margen va a los lados y arriba; en móvil se reduce pero sigue leyéndose como tarjeta. */
   --margen-tarjeta: var(--espacio-4); /* 20px */
   --margen-tarjeta-movil: var(--espacio-2); /* 10px, bajo 767px */
-  --radio-tarjeta: var(--radio-l); /* 30px */
-  --radio-tarjeta-movil: var(--radio-m); /* 20px, bajo 767px */
+  --radio-tarjeta: var(--radio-l); /* 20px */
+  --radio-tarjeta-movil: var(--radio-m); /* 14px, bajo 767px */
   --color-velo: rgb(0 0 0 / 0.8); /* fondo del popup del sitio actual */
+  /* Velo de la franja del header sobre el hero: --color-velo al 70% (negro al 56%), lo justo
+     para que el texto blanco del header dé 4,5:1 incluso sobre un fotograma blanco. */
+  --color-velo-header: color-mix(in srgb, var(--color-velo) 70%, transparent);
   --sombra-tarjeta: 2px 8px 23px 3px rgb(0 0 0 / 0.2);
   --sombra-modal: 0 0 10px 0 rgb(0 0 0 / 0.5);
   /* Sombra del hero bajo 767px: valor propio. --sombra-tarjeta pesa a esa escala y su
@@ -94,11 +98,13 @@
   --vidrio-saturacion: 140%;
   --vidrio-borde: 1px solid rgb(255 255 255 / 0.35); /* borde translúcido muy sutil */
   --sombra-vidrio: 0 4px 20px rgb(0 0 0 / 0.08); /* sombra suave del header en reposo */
-  --alto-header: 67px; /* cabecera normal del original */
-  /* El header flota sobre el contenido (position: fixed) y no ocupa sitio en el flujo.
-     Las páginas sin hero reservan arriba su margen más su alto, para no quedar tapadas. */
-  --reserva-header: calc(var(--margen-tarjeta) + var(--alto-header));
-  --reserva-header-movil: calc(var(--margen-tarjeta-movil) + var(--alto-header)); /* bajo 767px */
+  --alto-header: 67px; /* fila 1 del header: la cabecera normal del original */
+  --alto-header-nav: var(--espacio-7); /* fila 2 del header (navegación): 50px */
+  --ancho-buscador: 320px; /* ancho del botón "Buscar" del header en escritorio */
+  /* El header va fijo sobre el contenido y no ocupa sitio en el flujo. Las páginas sin hero
+     reservan arriba su alto, para no quedar tapadas; en móvil solo hay la fila 1. */
+  --reserva-header: calc(var(--alto-header) + var(--alto-header-nav));
+  --reserva-header-movil: var(--alto-header); /* bajo 767px */
   --z-header: 100; /* el header va sobre el contenido; no hay escala de z en el original */
   --transicion: 200ms ease; /* no existe en el sitio actual: valor propio para hover y apertura */
   /* Elevación lenta de las tarjetas al pasar el cursor: valor propio, con curva de salida suave. */

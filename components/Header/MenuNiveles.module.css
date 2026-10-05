@@ -1,0 +1,139 @@
+/* Menú por columnas progresivas del header (Colecciones y Categorías). El panel cuelga del
+   borde izquierdo de la pantalla justo bajo el header (su bloque contenedor) y crece hacia la
+   derecha con cada nivel abierto. El ancho de columna es propio de este menú. */
+
+.contenedor {
+  position: static;
+}
+
+/* Estados del componente: el JS solo cambia data-open. */
+.panel[data-open="false"],
+.velo[data-open="false"] {
+  display: none;
+}
+
+.panel {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  z-index: 1;
+  display: flex;
+  max-width: 100%;
+  max-height: calc(100svh - var(--reserva-header));
+  background-color: var(--color-fondo);
+  box-shadow: var(--sombra-tarjeta);
+  color: var(--color-tinta);
+  animation: aparecer var(--transicion);
+}
+
+/* Velo sobre la página, por debajo del panel y sin tapar el header. */
+.velo {
+  position: fixed;
+  inset: var(--reserva-header) 0 0;
+  z-index: 0;
+  background-color: var(--color-velo-header);
+  animation: fundido var(--transicion);
+}
+
+.columna {
+  display: flex;
+  flex: 0 0 auto;
+  width: 260px;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  padding: var(--espacio-5) var(--espacio-4);
+  overflow-y: auto;
+  border-inline-end: 1px solid var(--color-fondo-suave);
+  animation: aparecer var(--transicion);
+}
+
+.titulo {
+  font-size: var(--texto-xs);
+  letter-spacing: var(--tracking-amplio);
+  color: var(--color-texto);
+  text-transform: uppercase;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  padding: var(--espacio-2) var(--espacio-3);
+  border-radius: var(--radio-s);
+  font-size: var(--texto-m);
+  line-height: var(--interlineado-titulo);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background-color var(--transicion),
+    color var(--transicion);
+}
+
+/* El elemento cuyo nivel está abierto queda marcado. */
+.item[data-activo="true"] {
+  background-color: var(--color-fondo-suave);
+}
+
+.mas {
+  flex: 0 0 auto;
+  font-size: var(--texto-l);
+  line-height: 1;
+  color: var(--color-texto);
+}
+
+.pie {
+  margin-block-start: var(--espacio-2);
+}
+
+.destacado {
+  display: inline-block;
+  padding: var(--espacio-3) var(--espacio-5);
+  border-radius: var(--radio-pill);
+  background-color: var(--color-tinta);
+  font-size: var(--texto-s);
+  line-height: 1;
+  color: var(--color-fondo);
+  text-decoration: none;
+  transition: background-color var(--transicion);
+}
+
+/* Con prefers-reduced-motion, base.css deja las animaciones en 0,01ms: aparece sin movimiento. */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateX(calc(var(--espacio-2) * -1));
+  }
+}
+
+@keyframes fundido {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Interacción ---------------------------------------------------------------- */
+
+.item:hover {
+  color: var(--color-acento);
+}
+
+.destacado:hover {
+  background-color: var(--color-acento);
+}
+
+/* El anillo va hacia dentro: la columna se desplaza y recortaría uno hacia fuera. */
+.item:focus-visible,
+.destacado:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: -2px;
+}

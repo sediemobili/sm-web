@@ -84,7 +84,6 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
                 videos.current[indice] = nodo;
               }}
               className={estilos.slideMedio}
-              src={slide.medio.src}
               poster={slide.medio.poster}
               autoPlay={indice === 0}
               loop
@@ -92,7 +91,13 @@ export function Hero({ diapositivas }: { diapositivas: Diapositiva[] }) {
               playsInline
               preload="metadata"
               aria-hidden="true"
-            />
+            >
+              {/* El navegador toma el primero que soporta: AV1, luego VP9 y el MP4 (H.264) de respaldo.
+                  Las versiones viven junto al MP4 con el mismo nombre (eugenia.av1.mp4, eugenia.webm). */}
+              <source src={slide.medio.src.replace(/\.mp4$/, ".av1.mp4")} type='video/mp4; codecs="av01.0.05M.08"' />
+              <source src={slide.medio.src.replace(/\.mp4$/, ".webm")} type='video/webm; codecs="vp9"' />
+              <source src={slide.medio.src} type="video/mp4" />
+            </video>
           ) : (
             <Image
               className={estilos.slideMedio}

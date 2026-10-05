@@ -21,7 +21,10 @@
   margin-block-start: calc(var(--texto-2xl) * 0.4 - 200px * 90 / 1080);
 }
 
+/* El bloque de texto va al extremo derecho de la sección; el párrafo sigue alineado a la
+   izquierda dentro de él. */
 .texto {
+  justify-self: end;
   max-width: 40ch;
   font-family: var(--fuente-titulo);
   font-size: var(--texto-2xl);
@@ -44,6 +47,7 @@
   }
 
   .texto {
+    justify-self: stretch;
     font-size: var(--texto-xl);
   }
 }

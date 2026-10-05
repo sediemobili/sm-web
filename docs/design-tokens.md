@@ -19,6 +19,7 @@ Este documento se edita a mano.
 | `--color-acento` | #5A3A21 | `accent` | Botones y enlaces destacados |
 | `--color-acento-oscuro` | #422A18 | `2e1100b` | Variante oscura de `--color-acento`, del kit de la marca; hoy sin uso |
 | `--color-velo` | `rgb(0 0 0 / 0.8)` | Fondo del popup | Fondo del modal de contacto y del menú móvil (`::backdrop`) |
+| `--color-velo-header` | `color-mix(in srgb, var(--color-velo) 70%, transparent)` (negro al 56%) | Propio | Velo superior del hero bajo el header transparente: el mínimo para que el texto blanco dé 4,5:1 sobre blanco |
 
 **Consolidaciones:**
 - `--color-tinta` unifica los tres casi negros del sitio actual: #0A0807, #000000 y #020101.
@@ -124,14 +125,18 @@ Escala de 8 pasos, tomada de los `gap` del sitio actual:
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--radio-s` | 12px | |
-| `--radio-m` | 20px | Tarjetas |
-| `--radio-l` | 30px | |
+| `--radio-s` | 8px | |
+| `--radio-m` | 14px | Tarjetas |
+| `--radio-l` | 20px | |
 | `--radio-pill` | 40px | El radio dominante: 41 usos |
-| `--radio-campo` | 15px | Campos del formulario del popup |
+| `--radio-campo` | 10px | Campos de formulario |
 | `--sombra-tarjeta` | `2px 8px 23px 3px rgb(0 0 0 / 0.2)` | Tarjetas |
 | `--sombra-modal` | `0 0 10px 0 rgb(0 0 0 / 0.5)` | Modal |
 | `--sombra-hero-movil` | `0 4px 10px rgb(0 0 0 / 0.12)` | Hero de la home bajo 767px |
+
+Los radios `s`, `m`, `l` y `campo` están bajados un tercio respecto al sitio actual (12, 20, 30
+y 15px) para que el sitio se lea más sobrio. `--radio-pill` no baja: es el de los círculos y las
+píldoras, y con menos de la mitad de su alto dejarían de serlo.
 
 `--sombra-tarjeta` y `--sombra-modal` son las únicas 2 sombras del sitio actual.
 `--sombra-hero-movil` es un valor propio: en móvil `--sombra-tarjeta` se ve pesada y su
@@ -149,8 +154,8 @@ el header flotante. No existe en el sitio actual: son valores propios, hechos co
 |---|---|---|
 | `--margen-tarjeta` | `var(--espacio-4)` (20px) | Margen a los lados y arriba |
 | `--margen-tarjeta-movil` | `var(--espacio-2)` (10px) | El mismo margen bajo 767px |
-| `--radio-tarjeta` | `var(--radio-l)` (30px) | Esquinas |
-| `--radio-tarjeta-movil` | `var(--radio-m)` (20px) | Esquinas bajo 767px |
+| `--radio-tarjeta` | `var(--radio-l)` (20px) | Esquinas |
+| `--radio-tarjeta-movil` | `var(--radio-m)` (14px) | Esquinas bajo 767px |
 
 ## Transiciones
 
@@ -172,16 +177,22 @@ propósito, para que la subida se lea como un movimiento tranquilo y no como un 
 | `--tamano-icono` | 20px | `--icon-size` de las redes del footer |
 | `--relleno-header` | `14px 28px` | Relleno del header flotante. El original usa `1% 2%`, que varía con el ancho; aquí es fijo |
 
-### Header flotante
+### Header
 
-El header es fijo (`position: fixed`) sobre el contenido, con fondo de vidrio esmerilado. Salvo
-el alto, no existe en el sitio actual: son valores propios.
+El header es fijo (`position: fixed`) sobre el contenido, a todo el ancho y en dos filas.
+Sobre el hero de la home es transparente; en el resto, sólido con `--color-fondo` y la sombra
+`--sombra-vidrio`. Salvo el alto de la fila 1, no existe en el sitio actual: son valores propios.
+
+Los tokens `--vidrio-*` son del header anterior (píldora de vidrio esmerilado) y hoy no los usa
+nadie; se mantienen hasta decidir si se borran.
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--alto-header` | 67px | Alto de la cabecera normal del original |
-| `--reserva-header` | `calc(var(--margen-tarjeta) + var(--alto-header))` | Hueco que reservan arriba las páginas sin hero, para que el header no las tape |
-| `--reserva-header-movil` | `calc(var(--margen-tarjeta-movil) + var(--alto-header))` | La misma reserva bajo 767px |
+| `--alto-header` | 67px | Fila 1 del header (logo, buscador, contacto): la cabecera normal del original |
+| `--alto-header-nav` | `var(--espacio-7)` (50px) | Fila 2 del header (navegación y aviso de volumen) |
+| `--ancho-buscador` | 320px | Ancho del botón "Buscar" de la fila 1 del header, que abre el modal de búsqueda; si falta sitio, encoge hasta su contenido |
+| `--reserva-header` | `calc(var(--alto-header) + var(--alto-header-nav))` | Hueco que reservan arriba las páginas sin hero, para que el header no las tape |
+| `--reserva-header-movil` | `var(--alto-header)` | La misma reserva bajo 767px, donde solo hay la fila 1 |
 | `--z-header` | 100 | El header va sobre el contenido; el original no tiene escala de z |
 | `--vidrio-opacidad` | 65% | Porcentaje de crema del vidrio en reposo; mantiene el menú en ~7:1 incluso sobre negro |
 | `--vidrio-opacidad-pegado` | 85% | El mismo vidrio con el header pegado, tras hacer scroll |
@@ -189,7 +200,7 @@ el alto, no existe en el sitio actual: son valores propios.
 | `--vidrio-desenfoque` | 16px | Desenfoque del fondo |
 | `--vidrio-saturacion` | 140% | Saturación del fondo |
 | `--vidrio-borde` | `1px solid rgb(255 255 255 / 0.35)` | Borde translúcido del vidrio |
-| `--sombra-vidrio` | `0 4px 20px rgb(0 0 0 / 0.08)` | Sombra suave del header en reposo |
+| `--sombra-vidrio` | `0 4px 20px rgb(0 0 0 / 0.08)` | Sombra discreta del header en su estado sólido |
 
 **Breakpoints** (van como comentario en `tokens.css`, porque una custom property no funciona
 dentro de `@media`):

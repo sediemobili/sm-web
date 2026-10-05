@@ -1,0 +1,215 @@
+/* Modal de búsqueda del header: capa centrada arriba, con el fondo oscurecido. */
+
+.modal {
+  width: 90vw;
+  max-width: 70ch; /* el mismo ancho de lectura que el modal de contacto */
+  max-height: 80dvh;
+  margin: 10dvh auto auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radio-m);
+  overflow: hidden;
+  background-color: var(--color-fondo);
+  box-shadow: var(--sombra-tarjeta);
+  font-family: var(--fuente-texto);
+  color: var(--color-tinta);
+}
+
+.modal::backdrop {
+  background-color: var(--color-velo);
+}
+
+/* Con prefers-reduced-motion, base.css deja la animación en 0,01ms. */
+.modal[open] {
+  animation: aparecer var(--transicion);
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--espacio-2) * -1));
+  }
+}
+
+/* El marco ocupa todo el diálogo: un clic en el diálogo mismo solo puede venir del fondo. */
+.marco {
+  display: flex;
+  max-height: 80dvh;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Campo grande: lupa a la izquierda y búsqueda asistida a la derecha. */
+.formulario {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: var(--espacio-4) var(--espacio-5);
+  border-block-end: 1px solid var(--color-fondo-suave);
+}
+
+.lupa,
+.asistida {
+  display: flex;
+  flex: 0 0 auto;
+  color: var(--color-texto);
+}
+
+.asistida {
+  padding-inline-start: var(--espacio-3);
+  border-inline-start: 1px solid var(--color-fondo-suave);
+}
+
+.campo {
+  flex: 1;
+  min-width: 0;
+  padding-block: var(--espacio-2);
+  border: 0;
+  background: none;
+  font-family: inherit;
+  font-size: var(--texto-xl);
+  color: inherit;
+}
+
+.campo:focus {
+  outline: none;
+}
+
+/* Sin la X nativa del navegador: desentona con el modal y Escape ya cierra. */
+.campo::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+/* Accesos rápidos ------------------------------------------------------------ */
+
+.accesos,
+.resultados {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-5);
+  padding: var(--espacio-5);
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}
+
+.grupoTitulo {
+  font-size: var(--texto-xs);
+  letter-spacing: var(--tracking-amplio);
+  color: var(--color-texto);
+  text-transform: uppercase;
+}
+
+.pildoras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pildora {
+  display: inline-block;
+  padding: var(--espacio-1) var(--espacio-4);
+  border: 1px solid var(--color-fondo-suave);
+  border-radius: var(--radio-pill);
+  font-size: var(--texto-s);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color var(--transicion);
+}
+
+/* Resultados ----------------------------------------------------------------- */
+
+.resultados {
+  gap: var(--espacio-3);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resultado {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: var(--espacio-2);
+  border-radius: var(--radio-s);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color var(--transicion);
+}
+
+.miniatura {
+  display: block;
+  flex: 0 0 auto;
+  width: var(--espacio-7);
+  height: var(--espacio-7);
+  overflow: hidden;
+  border-radius: var(--radio-s);
+  background-color: var(--color-fondo-suave);
+}
+
+.imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.textoResultado {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.nombre {
+  font-size: var(--texto-m);
+  font-weight: var(--peso-medio);
+}
+
+.categoria {
+  font-size: var(--texto-xs);
+  letter-spacing: var(--tracking-amplio);
+  color: var(--color-texto);
+  text-transform: uppercase;
+}
+
+.vacio {
+  font-size: var(--texto-m);
+  color: var(--color-texto);
+}
+
+.todos {
+  align-self: flex-start;
+  font-size: var(--texto-s);
+  color: var(--color-acento);
+}
+
+/* Interacción ---------------------------------------------------------------- */
+
+.pildora:hover {
+  border-color: var(--color-texto);
+}
+
+/* El resultado enfocado con las flechas queda resaltado, además de su anillo. */
+.resultado:hover,
+.resultado:focus-visible {
+  background-color: var(--color-fondo-suave);
+}
+
+.pildora:focus-visible,
+.resultado:focus-visible,
+.todos:focus-visible,
+.formulario:has(.campo:focus-visible) {
+  outline: 2px solid var(--color-acento);
+  outline-offset: -2px;
+}

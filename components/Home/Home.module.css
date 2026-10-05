@@ -56,7 +56,7 @@
 .slide {
   position: relative;
   display: flex;
-  min-height: 75vh;
+  min-height: 100svh; /* alto de la ventana; svh no salta con la barra del navegador en móvil */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -82,6 +82,23 @@
   background-color: #00000057;
   content: "";
   inset: 0;
+}
+
+/* Velo superior para el header transparente: pleno en la franja del header y desvanecido
+   en otro tanto por debajo, para que no se note el corte. Va en todas las diapositivas,
+   entre el medio y el contenido; flechas y puntos quedan por encima porque viven fuera
+   de la diapositiva. */
+.slide::after {
+  position: absolute;
+  z-index: -1;
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-velo-header) var(--reserva-header),
+    transparent calc(var(--reserva-header) * 2)
+  );
+  content: "";
+  inset: 0;
+  pointer-events: none;
 }
 
 .slideTexto {
@@ -232,7 +249,7 @@
   justify-content: center;
   padding: 0;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--radio-s);
   background-color: var(--color-fondo);
   box-shadow: var(--sombra-modal);
   font-size: var(--texto-xl);
@@ -268,7 +285,7 @@
   justify-content: center;
   padding: 0;
   border: 0;
-  border-radius: 7px;
+  border-radius: var(--radio-s);
   background-color: #d0d0d0;
   font-size: var(--texto-xl);
   line-height: 1;
@@ -331,7 +348,7 @@
   gap: var(--espacio-2);
   padding: 4%;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: var(--radio-s);
   background-color: #f4f4f4;
   isolation: isolate;
 }
@@ -369,12 +386,13 @@
 
 /* 4. Explora + Sillería Ejecutiva ------------------------------------------ */
 
+/* Sin encabezado propio: el aire de arriba lo da el margen de la tarjeta (56px). */
 .seccionExplora {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--espacio-3);
-  padding: 58px var(--espacio-6) 29px;
+  padding: 0 var(--espacio-6) 29px;
 }
 
 .tituloSeccion {
@@ -382,15 +400,6 @@
   font-size: var(--texto-3xl);
   font-weight: var(--peso-regular);
   line-height: 40px;
-  color: var(--color-tinta);
-}
-
-.introTexto {
-  max-width: 90ch;
-  font-family: var(--fuente-texto);
-  font-size: var(--texto-m);
-  font-weight: var(--peso-regular);
-  line-height: 24px;
   color: var(--color-tinta);
 }
 
@@ -408,6 +417,19 @@
   overflow: hidden;
   border-radius: var(--radio-m);
   isolation: isolate;
+}
+
+/* Velo para el texto blanco: --color-velo pleno en la franja del texto y desvanecido hacia
+   arriba. Va en px desde abajo, no en %, para que cubra el texto igual en la tarjeta alta de
+   escritorio y en la corta de móvil; por encima de 420px la foto queda limpia. Lo recorta
+   el overflow de la tarjeta, así que sigue su radio, y no intercepta el cursor. */
+.silleria::after {
+  position: absolute;
+  z-index: -1;
+  background-image: linear-gradient(to top, var(--color-velo) 200px, transparent 420px);
+  content: "";
+  inset: 0;
+  pointer-events: none;
 }
 
 .silleriaImagen {
@@ -653,8 +675,15 @@
   }
 
   .slide {
-    min-height: 70vh;
     padding: var(--espacio-5) var(--espacio-4);
+  }
+
+  .slide::after {
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-velo-header) var(--reserva-header-movil),
+      transparent calc(var(--reserva-header-movil) * 2)
+    );
   }
 
   .slideTexto {
@@ -725,7 +754,7 @@
   }
 
   .seccionExplora {
-    padding: 23px var(--espacio-4);
+    padding: 0 var(--espacio-4) 23px;
   }
 
   .tituloSeccion {
