@@ -37,13 +37,13 @@
 
 /* 1. Hero ------------------------------------------------------------------ */
 
-/* El hero es una tarjeta: margen a los lados y arriba, y el medio, las flechas y los puntos
-   se recortan dentro de sus esquinas. La sombra es del propio .hero: su overflow no la
-   recorta y sigue el radio. */
+/* El hero va a ancho completo, pegado a los bordes y arriba; solo las esquinas de abajo
+   llevan radio, para que se lea como una tarjeta que termina. El medio, las flechas y los
+   puntos se recortan dentro. La sombra es la de tarjeta: a los lados y arriba cae fuera de
+   la pantalla, así que solo se ve abajo. */
 .hero {
   position: relative;
-  margin: var(--margen-tarjeta) var(--margen-tarjeta) 0;
-  border-radius: var(--radio-tarjeta);
+  border-radius: 0 0 var(--radio-tarjeta) var(--radio-tarjeta);
   overflow: hidden;
   isolation: isolate;
   box-shadow: var(--sombra-tarjeta);
@@ -318,7 +318,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--espacio-4);
-  padding: 29px 4%;
+  padding: 29px var(--espacio-6);
 }
 
 .banner {
@@ -374,7 +374,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--espacio-3);
-  padding: 58px 4% 29px;
+  padding: 58px var(--espacio-6) 29px;
 }
 
 .tituloSeccion {
@@ -436,9 +436,36 @@
   padding-block: 29px 58px;
 }
 
-.seccionProductos .tituloSeccion {
-  padding-inline: 4%;
+/* Encabezado de los carruseles de sillas y escritorios: título y párrafo a la izquierda y el
+   botón a la derecha, en la fila del título, como el del blog. En móvil el botón baja al final. */
+.encabezadoProductos {
+  display: grid;
+  grid-template-areas:
+    "titulo boton"
+    "texto .";
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--espacio-4);
+  row-gap: var(--espacio-3);
+  padding-inline: var(--espacio-6); /* el mismo margen que las tarjetas (.listaEspaciada) */
   margin-block-end: 60px; /* el original deja bastante aire entre el título y las tarjetas */
+}
+
+.encabezadoProductos .tituloSeccion {
+  grid-area: titulo;
+}
+
+.encabezadoProductos .boton {
+  grid-area: boton;
+  align-self: center;
+}
+
+.encabezadoTexto {
+  grid-area: texto;
+  max-width: 60ch;
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-m);
+  line-height: var(--interlineado-base);
+  color: var(--color-texto);
 }
 
 .productoItem {
@@ -447,44 +474,10 @@
   scroll-snap-align: start;
 }
 
-.producto {
-  display: flex;
-  min-height: 419px; /* alto de la tarjeta en el original */
-  height: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--espacio-2);
-}
 
-.productoFigura {
-  width: 258px;
-  height: 258px;
-  overflow: hidden;
-  border-radius: var(--radio-s);
-}
 
-.productoImagen {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
-.productoCategoria {
-  font-family: var(--fuente-texto);
-  font-size: 10px;
-  font-weight: var(--peso-medio);
-  line-height: 10px;
-  color: var(--color-tinta);
-  text-transform: uppercase;
-}
 
-.productoNombre {
-  font-family: var(--fuente-texto);
-  font-size: var(--texto-l);
-  font-weight: var(--peso-ligero);
-  line-height: 23px;
-  color: var(--color-tinta);
-}
 
 .seccionEscritoriosProductos {
   padding-block: 86px; /* el carrusel de escritorios respira más que el de sillas */
@@ -496,7 +489,7 @@
   position: relative;
   display: flex;
   justify-content: flex-end;
-  padding: 72px 6% 43px;
+  padding: 72px var(--espacio-6) 43px;
   overflow: hidden;
   background-color: var(--color-fondo-suave);
   isolation: isolate;
@@ -542,7 +535,7 @@
   align-items: flex-start;
   justify-content: center;
   gap: var(--espacio-4);
-  padding: 86px 6%;
+  padding: 86px var(--espacio-6);
   overflow: hidden;
   background-color: var(--color-fondo-suave);
   isolation: isolate;
@@ -575,7 +568,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--espacio-3);
-  padding-inline: 4%;
+  padding-inline: var(--espacio-6);
   margin-block-end: var(--espacio-4);
 }
 
@@ -585,6 +578,18 @@
   font-weight: var(--peso-ligero);
   line-height: 36px;
   color: var(--color-tinta);
+}
+
+/* Listas de los carruseles de la home (sillas, escritorios y blog): arrancan y terminan con
+   el mismo espacio que separa una tarjeta de otra. El imán de scroll alinea cada tarjeta al
+   borde del contenedor y se comería el relleno: scroll-padding le dice dónde está ese borde. */
+.listaEspaciada {
+  padding-inline: var(--espacio-6); /* = gap de .carruselLista (40px) */
+  scroll-padding-inline: var(--espacio-6);
+  /* La lista recorta lo que sobresale: este relleno deja sitio a la elevación y la sombra de
+     la tarjeta de producto, y el margen negativo lo devuelve para no cambiar el alto. */
+  padding-block: var(--espacio-6);
+  margin-block: calc(var(--espacio-6) * -1);
 }
 
 .postItem {
@@ -643,8 +648,7 @@
   }
 
   .hero {
-    margin: var(--margen-tarjeta-movil) var(--margen-tarjeta-movil) 0;
-    border-radius: var(--radio-tarjeta-movil);
+    border-radius: 0 0 var(--radio-tarjeta-movil) var(--radio-tarjeta-movil);
     box-shadow: var(--sombra-hero-movil);
   }
 
@@ -680,6 +684,11 @@
     padding-inline: 6%;
   }
 
+  .listaEspaciada {
+    padding-inline: var(--espacio-4); /* = gap móvil de .carruselLista */
+    scroll-padding-inline: var(--espacio-4);
+  }
+
   /* Rellenos verticales del original en móvil, sección por sección. */
   .seccionCategorias {
     padding-block: 16px 52px; /* en móvil el original deja más aire bajo las tarjetas */
@@ -699,7 +708,7 @@
 
   .seccionBanners {
     grid-template-columns: 1fr;
-    padding: 8px 4%;
+    padding: 8px var(--espacio-4);
   }
 
   .banner {
@@ -716,11 +725,10 @@
   }
 
   .seccionExplora {
-    padding: 23px 6%;
+    padding: 23px var(--espacio-4);
   }
 
-  .tituloSeccion,
-  .seccionProductos .tituloSeccion {
+  .tituloSeccion {
     font-size: 28px;
     line-height: 32px;
   }
@@ -739,14 +747,29 @@
     width: 294px;
   }
 
-  /* Las secciones 6 y 7 están ocultas en el móvil del original. */
+  /* Las secciones 6 y 7 están ocultas en el móvil del original. El relleno queda listo
+     con el margen móvil de la home por si se muestran. */
   .seccionEscritorios,
   .seccionLineas {
     display: none;
+    padding-inline: var(--espacio-4);
   }
 
+  .encabezadoProductos,
   .blogEncabezado {
-    padding-inline: 6%;
+    padding-inline: var(--espacio-4);
+  }
+
+  .encabezadoProductos {
+    grid-template-areas:
+      "titulo"
+      "texto"
+      "boton";
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .encabezadoProductos .boton {
+    justify-self: start;
   }
 
   .blogTitulo {

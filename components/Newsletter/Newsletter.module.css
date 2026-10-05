@@ -50,6 +50,8 @@
 }
 
 .campo {
+  flex: 1;
+  min-width: 0;
   padding: var(--espacio-2) var(--espacio-3);
   border: 1px solid var(--color-texto-suave);
   border-radius: var(--radio-campo);
@@ -74,4 +76,12 @@
   font-family: var(--fuente-texto);
   font-size: var(--texto-m);
   color: var(--color-tinta);
+}
+
+/* En móvil el bloque va dentro de la tarjeta del footer, que ya tiene su relleno. */
+@media (max-width: 767px) {
+  .newsletter {
+    margin-inline: 0;
+    padding: var(--espacio-5);
+  }
 }

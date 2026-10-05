@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { VistaListado } from "@/components/Analytics/VistaListado";
 import { Filtros } from "@/components/filtros/Filtros";
 import { Paginacion } from "@/components/filtros/Paginacion";
+import { TarjetaProducto } from "@/components/Producto/TarjetaProducto";
 import { JsonLd } from "@/components/Seo/JsonLd";
 import {
   getCategories,
@@ -16,6 +16,10 @@ import { buscarProductos, terminos } from "@/lib/buscar";
 import { aplicarFiltros, leerFiltros, opcionesDe, POR_PAGINA } from "@/lib/filtros";
 import { listaItems } from "@/lib/jsonld";
 import estilos from "./listado.module.css";
+
+// Ancho medido de la columna de la rejilla: ~165px en móvil, hasta 390px en tablet y
+// entre 243 y 297px en escritorio.
+const TAMANO_REJILLA = "(max-width: 767px) 45vw, (max-width: 1023px) 400px, 300px";
 
 type Ambito =
   | { tipo: "catalogo" }
@@ -95,21 +99,7 @@ export async function ListadoFiltrado({
                 const categoria = nombreCategoria(producto.categories);
                 return (
                   <li key={producto.slug}>
-                    <Link href={producto.path} className="sm-tarjeta">
-                      {producto.images[0] ? (
-                        <Image
-                          src={producto.images[0].src}
-                          alt={producto.images[0].alt}
-                          width={215}
-                          height={215}
-                          sizes="(max-width: 767px) 45vw, 215px"
-                          className="sm-tarjeta-imagen"
-                        />
-                      ) : null}
-                      {categoria ? <span className="sm-tarjeta-categoria">{categoria}</span> : null}
-                      <span className="sm-tarjeta-nombre">{producto.name}</span>
-                      <span className="sm-tarjeta-boton">Más información</span>
-                    </Link>
+                    <TarjetaProducto producto={producto} categoria={categoria} sizes={TAMANO_REJILLA} />
                   </li>
                 );
               })}

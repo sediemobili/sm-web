@@ -1,11 +1,15 @@
+import { TarjetaProductoEsqueleto } from "@/components/Producto/TarjetaProducto";
 import estilos from "./filtros.module.css";
 
-// Hueco que ocupa la rejilla mientras se resuelve la parte dinámica de la página.
+// Hueco que ocupa la rejilla mientras se resuelve la parte dinámica de la página. Cada hueco
+// es el esqueleto de la tarjeta de producto, para que al llegar las tarjetas nada salte.
 export function EsqueletoRejilla({ tarjetas = 8 }: { tarjetas?: number }) {
   return (
     <ul className={estilos.esqueleto} aria-hidden="true">
       {Array.from({ length: tarjetas }, (_, indice) => (
-        <li key={indice} className={estilos.esqueletoTarjeta} />
+        <li key={indice}>
+          <TarjetaProductoEsqueleto />
+        </li>
       ))}
     </ul>
   );

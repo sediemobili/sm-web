@@ -14,7 +14,7 @@ function Tarjeta({ categoria, copia = false }: { categoria: Category; copia?: bo
             src={categoria.image}
             alt=""
             fill
-            sizes="(max-width: 767px) 80vw, 360px"
+            sizes="(max-width: 767px) 80vw, 240px"
             className={estilos.categoriaImagen}
           />
         ) : null}

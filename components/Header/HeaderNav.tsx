@@ -32,7 +32,7 @@ export function HeaderNav({ colecciones, categoriasMenu }: Props) {
   const enInicio = usePathname() === "/";
   const [heroPasado, setHeroPasado] = useState(false);
 
-  // El original releva la cabecera por otra más alta y fija tras unos 300px de scroll.
+  // Tras unos 300px de scroll el header pasa a pegado: solo cambian el vidrio y la sombra.
   useEffect(() => {
     const alDesplazar = () => setPegado(window.scrollY > 300);
     alDesplazar();

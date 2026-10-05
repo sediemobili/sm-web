@@ -6,13 +6,15 @@
   color: var(--color-fondo);
 }
 
-/* Tarjeta oscura del original: 1382px de ancho, radio 20 y 55px de relleno. */
+/* Tarjeta oscura del original: radio 20 y 55px de relleno, con el margen único del sitio.
+   Las columnas miden lo del original (298, 257, 248 y 298px) cuando caben; si no, se
+   reparten el ancho en lugar de salirse de la pantalla. */
 .tarjeta {
   display: grid;
-  grid-template-columns: 298px 257px 248px 298px;
+  grid-template-columns: minmax(0, 298px) minmax(0, 257px) minmax(0, 248px) minmax(0, 298px);
   justify-content: space-between;
   gap: var(--espacio-5) var(--espacio-5);
-  margin-inline: 29px;
+  margin-inline: var(--espacio-6);
   padding: 55px;
   border-radius: var(--radio-m);
   background-color: var(--color-tinta);
@@ -33,6 +35,7 @@
 
 .logo {
   width: 238px; /* ancho del logo blanco en el footer original */
+  max-width: 100%;
   height: auto;
 }
 
@@ -169,15 +172,23 @@
   outline-offset: 2px;
 }
 
+/* Tablet: cuatro columnas no caben con legibilidad; van de dos en dos, en el mismo orden. */
+@media (max-width: 1189px) {
+  .tarjeta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 767px) {
+  /* El relleno del footer ya da el margen único móvil: la tarjeta no suma otro. */
   .footer {
     padding: var(--espacio-5) var(--espacio-4);
   }
 
   .tarjeta {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--espacio-5);
-    margin-inline: var(--espacio-4);
+    margin-inline: 0;
     padding: var(--espacio-5);
   }
 

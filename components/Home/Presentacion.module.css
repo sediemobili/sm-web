@@ -1,0 +1,49 @@
+/* Presentación de marca bajo el hero: isotipo a la izquierda y párrafo grande a la derecha,
+   con el margen único de la home y mucho aire arriba y abajo. Los tamaños del isotipo son
+   propios de esta sección. */
+
+.presentacion {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--espacio-8);
+  padding: calc(var(--espacio-8) * 2) var(--espacio-6);
+  background-color: var(--color-fondo);
+}
+
+.isotipo {
+  width: 200px;
+  height: auto;
+  color: var(--color-tinta);
+  /* Alineación óptica: el dibujo empieza a 90/1080 del alto del lienzo, y la mayúscula de la
+     primera línea a 0,4em de la caja del párrafo (Raleway con interlineado 1,5, medido). Se
+     sube el lienzo esa diferencia para que el borde de arriba del dibujo quede a esa altura. */
+  margin-block-start: calc(var(--texto-2xl) * 0.4 - 200px * 90 / 1080);
+}
+
+.texto {
+  max-width: 40ch;
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-regular);
+  line-height: var(--interlineado-base);
+  color: var(--color-tinta);
+}
+
+@media (max-width: 767px) {
+  .presentacion {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--espacio-5);
+    padding: var(--espacio-8) var(--espacio-4);
+  }
+
+  /* En móvil el isotipo va encima del texto: no hay línea con la que alinearlo. */
+  .isotipo {
+    width: 96px;
+    margin-block-start: 0;
+  }
+
+  .texto {
+    font-size: var(--texto-xl);
+  }
+}

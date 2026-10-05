@@ -4,9 +4,9 @@ import { VistaProducto } from "@/components/Analytics/VistaProducto";
 import { Descargables } from "@/components/Producto/Descargables";
 import { Galeria } from "@/components/Producto/Galeria";
 import { PanelCompra } from "@/components/Producto/PanelCompra";
+import { TarjetaProducto } from "@/components/Producto/TarjetaProducto";
 import estilos from "@/components/Producto/Producto.module.css";
 import { JsonLd } from "@/components/Seo/JsonLd";
-import Image from "next/image";
 import {
   getCategories,
   getCategoryBySlug,
@@ -17,6 +17,9 @@ import {
 } from "@/lib/data";
 import { migas as migasLd, producto as productoLd } from "@/lib/jsonld";
 import { descripcionProducto, metadataDe } from "@/lib/seo";
+
+// Ancho medido de la columna de relacionados: ~166px en móvil y 176px en escritorio.
+const TAMANO_RELACIONADOS = "(max-width: 767px) 45vw, 180px";
 
 export async function generateStaticParams() {
   return (await getProducts()).items.map((producto) => ({ slug: producto.slug }));
@@ -104,19 +107,11 @@ export default async function ProductoPage({ params }: PageProps<"/product/[slug
           <ul className="sm-rejilla">
             {relacionados.map((otro) => (
               <li key={otro.slug}>
-                <Link href={otro.path} className="sm-tarjeta">
-                  {otro.images[0] ? (
-                    <Image
-                      src={otro.images[0].src}
-                      alt={otro.images[0].alt}
-                      width={400}
-                      height={400}
-                      sizes="(max-width: 767px) 45vw, 215px"
-                      className="sm-tarjeta-imagen"
-                    />
-                  ) : null}
-                  <span className="sm-tarjeta-nombre">{otro.name}</span>
-                </Link>
+                <TarjetaProducto
+                  producto={otro}
+                  categoria={categoriaPrincipal(otro.categories, categorias)?.name ?? null}
+                  sizes={TAMANO_RELACIONADOS}
+                />
               </li>
             ))}
           </ul>

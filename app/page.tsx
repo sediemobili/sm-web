@@ -4,6 +4,8 @@ import { BotonContacto } from "@/components/ContactoModal/BotonContacto";
 import { CarruselCategorias } from "@/components/categorias/CarruselCategorias";
 import { Carrusel } from "@/components/Home/Carrusel";
 import { Hero, type Diapositiva } from "@/components/Home/Hero";
+import { Presentacion } from "@/components/Home/Presentacion";
+import { TarjetaProducto } from "@/components/Producto/TarjetaProducto";
 import estilos from "@/components/Home/Home.module.css";
 import { getCategories, getPosts, getProductBySlug, type Category, type Product } from "@/lib/data";
 
@@ -19,6 +21,9 @@ const ESCRITORIOS = [
   "versatil-v3-hyblsp",
   "versatil-v3-hyb",
 ];
+
+// Ancho de la tarjeta de producto en los carruseles (.productoItem).
+const TAMANO_CARRUSEL = "(max-width: 767px) 294px, 295px";
 
 const HERO: Diapositiva[] = [
   {
@@ -54,32 +59,6 @@ async function porSlug(slugs: string[]) {
   return productos.filter((producto) => producto !== null);
 }
 
-function TarjetaProducto({ producto, categoria }: { producto: Product; categoria: string | null }) {
-  return (
-    <li className={estilos.productoItem}>
-      <article className={estilos.producto}>
-        {producto.images[0] ? (
-          <figure className={estilos.productoFigura}>
-            <Image
-              src={producto.images[0].src}
-              alt={producto.images[0].alt}
-              width={258}
-              height={258}
-              sizes="(max-width: 767px) 80vw, 260px"
-              className={estilos.productoImagen}
-            />
-          </figure>
-        ) : null}
-        {categoria ? <p className={estilos.productoCategoria}>{categoria}</p> : null}
-        <h3 className={estilos.productoNombre}>{producto.name}</h3>
-        <Link href={producto.path} className={estilos.boton}>
-          Más información
-        </Link>
-      </article>
-    </li>
-  );
-}
-
 export default async function HomePage() {
   const [categorias, posts, sillas, escritorios] = await Promise.all([
     getCategories(),
@@ -100,6 +79,9 @@ export default async function HomePage() {
     <main className={estilos.inicio}>
       {/* 1. Hero */}
       <Hero diapositivas={HERO} />
+
+      {/* Presentación de marca */}
+      <Presentacion />
 
       {/* 2. Carrusel de categorías */}
       <section className={estilos.seccionCategorias} aria-labelledby="categorias-home">
@@ -166,12 +148,23 @@ export default async function HomePage() {
 
       {/* 5. Carrusel de sillas */}
       <section className={estilos.seccionProductos} aria-labelledby="sillas">
-        <h2 id="sillas" className={estilos.tituloSeccion}>
-          Descubre el Catálogo de Sillas para oficina
-        </h2>
-        <Carrusel etiqueta="sillas">
+        <div className={estilos.encabezadoProductos}>
+          <h2 id="sillas" className={estilos.tituloSeccion}>
+            Descubre el Catálogo de Sillas para oficina
+          </h2>
+          <p className={estilos.encabezadoTexto}>
+            Sillas de oficina pensadas para jornadas largas: directivas, ejecutivas, operativas y de visita, con
+            respaldo ergonómico y ajustes que se adaptan a cada postura.
+          </p>
+          <Link href="/product-category/sillas-de-oficina/" className={estilos.boton}>
+            Ver todas las sillas
+          </Link>
+        </div>
+        <Carrusel etiqueta="sillas" claseLista={estilos.listaEspaciada}>
           {sillas.map((producto) => (
-            <TarjetaProducto key={producto.slug} producto={producto} categoria={nombreCategoria(producto)} />
+            <li key={producto.slug} className={estilos.productoItem}>
+              <TarjetaProducto producto={producto} categoria={nombreCategoria(producto)} sizes={TAMANO_CARRUSEL} />
+            </li>
           ))}
         </Carrusel>
       </section>
@@ -208,12 +201,23 @@ export default async function HomePage() {
         className={`${estilos.seccionProductos} ${estilos.seccionEscritoriosProductos}`}
         aria-labelledby="escritorios"
       >
-        <h2 id="escritorios" className={estilos.tituloSeccion}>
-          Nuestros Escritorios para Oficina
-        </h2>
-        <Carrusel etiqueta="escritorios">
+        <div className={estilos.encabezadoProductos}>
+          <h2 id="escritorios" className={estilos.tituloSeccion}>
+            Nuestros Escritorios para Oficina
+          </h2>
+          <p className={estilos.encabezadoTexto}>
+            Escritorios y estaciones de trabajo para equipar oficinas completas: individuales, en isla o en
+            península, en medidas y acabados que se adaptan a tu espacio.
+          </p>
+          <Link href="/product-category/escritorios/" className={estilos.boton}>
+            Ver todos los escritorios
+          </Link>
+        </div>
+        <Carrusel etiqueta="escritorios" claseLista={estilos.listaEspaciada}>
           {escritorios.map((producto) => (
-            <TarjetaProducto key={producto.slug} producto={producto} categoria={nombreCategoria(producto)} />
+            <li key={producto.slug} className={estilos.productoItem}>
+              <TarjetaProducto producto={producto} categoria={nombreCategoria(producto)} sizes={TAMANO_CARRUSEL} />
+            </li>
           ))}
         </Carrusel>
       </section>
@@ -225,10 +229,10 @@ export default async function HomePage() {
             Nuestro Blog
           </h2>
           <Link href="/blog/" className={estilos.boton}>
-            Ver Más
+            Ver todo
           </Link>
         </div>
-        <Carrusel etiqueta="blog">
+        <Carrusel etiqueta="blog" claseLista={estilos.listaEspaciada}>
           {posts.map((post) => (
             <li key={post.slug} className={estilos.postItem}>
               <article className={estilos.post}>

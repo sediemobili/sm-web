@@ -42,7 +42,6 @@ export const metadata: Metadata = {
   title: { default: NOMBRE, template: `%s - ${NOMBRE}` },
   description:
     "Fabricante de mobiliario para oficina y sillería profesional con sedes en Monterrey y Ciudad de México.",
-  icons: { icon: "/favicon.ico" },
   // Canonical de la home; cada página define el suyo.
   alternates: { canonical: "/" },
   openGraph: {

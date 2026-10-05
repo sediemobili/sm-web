@@ -1,17 +1,18 @@
 /* Tarjeta de categoría del original: imagen de fondo con velo y el nombre encima.
    La usan la home y /venta-empresarial/. */
 
-/* 360 × 438: la proporción de la tarjeta original (407 × 495), más pequeña. */
+/* 240 × 292: la proporción de la tarjeta original (407 × 495), más pequeña. A 1440 caben
+   cinco completas en la cinta: 40 + 5 × 240 + 4 × 40 + 40 = 1440. */
 .categoriaItem {
   flex: 0 0 auto;
-  width: 360px;
+  width: 240px;
   scroll-snap-align: start;
 }
 
 .categoria {
   position: relative;
   display: flex;
-  height: 438px;
+  height: 292px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
@@ -159,12 +160,18 @@ ul.listaCategorias {
   }
 }
 
-/* El imán de scroll del carrusel frenaría el avance continuo. */
+/* El imán de scroll del carrusel frenaría el avance continuo. La cinta arranca con el mismo
+   margen que el resto de la home (el de los títulos y los carruseles). */
 .cinta .cintaLista {
+  padding-inline: var(--espacio-6);
   scroll-snap-type: none;
 }
 
 @media (max-width: 767px) {
+  .cinta .cintaLista {
+    padding-inline: var(--espacio-4);
+  }
+
   .categoriaItem {
     width: 294px;
   }

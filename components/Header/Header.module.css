@@ -19,7 +19,6 @@
   background-color: color-mix(in srgb, var(--color-fondo-suave) var(--vidrio-opacidad-sin-filtro), transparent);
   box-shadow: var(--sombra-vidrio);
   transition:
-    min-height var(--transicion),
     background-color var(--transicion),
     inset-block-start var(--transicion),
     inset-inline-start var(--transicion),
@@ -37,9 +36,8 @@
   inset-inline: calc(var(--margen-tarjeta) * 2);
 }
 
-/* Versión pegada: más alta, logo mayor y vidrio más opaco. */
+/* Versión pegada: mismo alto y mismo logo; solo cambian el vidrio, más opaco, y la sombra. */
 .header[data-pegado="true"] {
-  min-height: 93px;
   box-shadow: var(--sombra-tarjeta);
 }
 
@@ -63,11 +61,6 @@
 .logoImagen {
   width: var(--ancho-logo);
   height: auto;
-  transition: width var(--transicion);
-}
-
-.header[data-pegado="true"] .logoImagen {
-  width: 200px;
 }
 
 .navegacion {

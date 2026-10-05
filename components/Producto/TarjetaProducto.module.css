@@ -1,0 +1,152 @@
+/* Tarjeta de producto de todo el sitio: carruseles de la home, listados y relacionados.
+   Se adapta al ancho de su contenedor: la rejilla o el ítem del carrusel deciden el ancho. */
+
+.tarjeta {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo);
+  font-family: var(--fuente-texto);
+  color: var(--color-tinta);
+  text-decoration: none;
+  /* Elevación: los mismos tokens que la tarjeta de categoría. */
+  transition:
+    transform var(--transicion-elevacion),
+    box-shadow var(--transicion-elevacion);
+}
+
+/* Zona de imagen cuadrada e igual en todas; la foto la llena sin deformarse. */
+.imagenZona {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  background-color: var(--color-fondo-suave);
+}
+
+.imagen {
+  object-fit: cover;
+}
+
+/* Cuerpo: categoría arriba y nombre debajo; a la derecha, el precio (cuando lo haya) y la
+   flecha. La primera fila reserva el alto de la categoría aunque falte, y el nombre reserva
+   dos líneas: todas las tarjetas de una fila miden lo mismo. */
+.cuerpo {
+  display: grid;
+  flex: 1;
+  grid-template-areas:
+    "categoria precio"
+    "nombre flecha";
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(calc(var(--texto-xs) * var(--interlineado-base)), auto) auto;
+  align-content: start;
+  column-gap: var(--espacio-3);
+  row-gap: var(--espacio-1);
+  padding: var(--espacio-3) var(--espacio-3) var(--espacio-4);
+}
+
+.categoria {
+  grid-area: categoria;
+  overflow: hidden;
+  font-size: var(--texto-xs);
+  line-height: var(--interlineado-base);
+  letter-spacing: var(--tracking-amplio);
+  color: var(--color-texto-suave);
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nombre {
+  --tamano-nombre: var(--texto-l);
+  display: -webkit-box;
+  grid-area: nombre;
+  min-height: calc(var(--tamano-nombre) * var(--interlineado-titulo) * 2);
+  overflow: hidden;
+  font-size: var(--tamano-nombre);
+  font-weight: var(--peso-semibold);
+  line-height: var(--interlineado-titulo);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.precio {
+  grid-area: precio;
+  justify-self: end;
+  font-size: var(--texto-s);
+  font-weight: var(--peso-semibold);
+  line-height: var(--interlineado-base);
+}
+
+/* Flecha decorativa, del mismo lenguaje que la de la tarjeta de categoría, pero oscura. */
+.flecha {
+  display: flex;
+  grid-area: flecha;
+  align-self: end;
+  width: var(--espacio-6);
+  height: var(--espacio-6);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-tinta);
+  color: var(--color-fondo);
+}
+
+.flecha svg {
+  width: 50%;
+  height: 50%;
+}
+
+@media (hover: hover) {
+  .tarjeta:hover {
+    box-shadow: var(--sombra-tarjeta);
+    transform: translateY(-8px);
+  }
+}
+
+.tarjeta:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+  box-shadow: var(--sombra-tarjeta);
+  transform: translateY(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta {
+    transition: none;
+  }
+
+  .tarjeta:hover,
+  .tarjeta:focus-visible {
+    transform: none;
+  }
+}
+
+/* Esqueleto de carga: la misma forma y las mismas medidas que la tarjeta (zona cuadrada y
+   las filas del cuerpo), con barras en el lugar del texto. */
+.esqueleto {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo);
+}
+
+.barra {
+  border-radius: var(--radio-s);
+  background-color: var(--color-fondo-suave);
+}
+
+.categoria.barra {
+  width: 40%;
+}
+
+@media (max-width: 767px) {
+  .flecha {
+    width: var(--espacio-5);
+    height: var(--espacio-5);
+  }
+}
