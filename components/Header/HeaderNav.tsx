@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { ContactoModal } from "@/components/ContactoModal/ContactoModal";
+import { MarianaModal } from "@/components/Mariana/MarianaModal";
+import { OjosMariana } from "@/components/Mariana/OjosMariana";
 import { useCotizacion } from "@/lib/cotizacion";
 import { BuscadorModal } from "./BuscadorModal";
 import estilos from "./Header.module.css";
@@ -37,6 +39,8 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
   const [buscador, setBuscador] = useState(false);
   const botonBuscar = useRef<HTMLAnchorElement>(null);
   const [contacto, setContacto] = useState(false);
+  const [mariana, setMariana] = useState(false);
+  const botonMariana = useRef<HTMLButtonElement>(null);
   // Solo un panel de la fila 2 abierto a la vez: abrir uno cierra el otro.
   const [menu, setMenu] = useState<MenuAbierto>(null);
   const cerrarMenu = useCallback((cual: MenuAbierto) => setMenu((actual) => (actual === cual ? null : actual)), []);
@@ -45,8 +49,9 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
   const movilId = useId();
   const botonContacto = useRef<HTMLButtonElement>(null);
   const botonHamburguesa = useRef<HTMLButtonElement>(null);
-  // Al cerrar el modal de contacto, el foco vuelve a quien lo abrió.
+  // Al cerrar el modal de contacto o el de Mariana, el foco vuelve a quien lo abrió.
   const retornoFoco = useRef<HTMLElement | null>(null);
+  const retornoMariana = useRef<HTMLElement | null>(null);
   const { piezas, productos: distintos } = useCotizacion();
   const cabecera = useRef<HTMLElement>(null);
   // En la home el header va transparente sobre el hero mientras el hero se ve.
@@ -75,9 +80,9 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
     return () => observador.disconnect();
   }, [enInicio]);
 
-  // Mientras el menú móvil o el buscador están abiertos, el fondo de la página no se desplaza.
-  // Escape, el foco atrapado y el fondo inerte los dan sus diálogos modales.
-  const bloqueado = menuMovil || buscador;
+  // Mientras el menú móvil, el buscador o Mariana están abiertos, el fondo de la página no se
+  // desplaza. Escape, el foco atrapado y el fondo inerte los dan sus diálogos modales.
+  const bloqueado = menuMovil || buscador || mariana;
   useEffect(() => {
     document.documentElement.classList.toggle("is-scroll-locked", bloqueado);
     return () => document.documentElement.classList.remove("is-scroll-locked");
@@ -104,6 +109,11 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
   const abrirContactoDesdeMovil = () => {
     setMenuMovil(false);
     abrirContacto(botonHamburguesa.current);
+  };
+
+  const abrirMariana = (origen: HTMLElement | null) => {
+    retornoMariana.current = origen;
+    setMariana(true);
   };
 
   const transparente = enInicio && !heroPasado;
@@ -149,6 +159,23 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
               <ChispaIcono />
             </span>
           </Link>
+
+          {/* Mariana: píldora con el mismo lenguaje que el buscador. El tooltip es visual; el
+              nombre accesible ya lo da aria-label. En móvil va dentro del menú. */}
+          <button
+            ref={botonMariana}
+            type="button"
+            aria-haspopup="dialog"
+            aria-label="Mariana, asistente de Sedie"
+            className={estilos.mariana}
+            onClick={() => abrirMariana(botonMariana.current)}
+          >
+            <OjosMariana className={estilos.ojos} />
+            Mariana
+            <span className={estilos.tooltip} aria-hidden="true">
+              Mariana, asistente de Sedie
+            </span>
+          </button>
 
           {/* Siempre visible para que se sepa que existe; con productos lleva el número de piezas. */}
           <Link
@@ -235,6 +262,15 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
         }}
       />
 
+      <MarianaModal
+        abierto={mariana}
+        onCerrar={() => {
+          setMariana(false);
+          retornoMariana.current?.focus();
+          retornoMariana.current = null;
+        }}
+      />
+
       <BuscadorModal
         abierto={buscador}
         onCerrar={() => {
@@ -258,6 +294,10 @@ export function HeaderNav({ colecciones, categoriasMenu, coleccionesNiveles, cat
         }}
         onCotizar={abrirContactoDesdeMovil}
         onContacto={abrirContactoDesdeMovil}
+        onMariana={() => {
+          setMenuMovil(false);
+          abrirMariana(botonHamburguesa.current);
+        }}
       />
     </header>
   );

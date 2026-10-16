@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { OjosMariana } from "@/components/Mariana/OjosMariana";
 import type { CategoriaMenu, EnlaceMenu } from "./tipos";
 import estilos from "./MenuMovil.module.css";
 
@@ -14,13 +15,14 @@ type Props = {
   onCerrar: () => void;
   onCotizar: () => void;
   onContacto: () => void;
+  onMariana: () => void;
 };
 
 type Seccion = "productos" | "colecciones";
 
 // Menú de la hamburguesa. Es un diálogo modal: el navegador atrapa el foco, deja inerte el
 // resto y cierra con Escape. Los datos llegan armados del servidor (Header.tsx).
-export function MenuMovil({ id, abierto, colecciones, categorias, onCerrar, onCotizar, onContacto }: Props) {
+export function MenuMovil({ id, abierto, colecciones, categorias, onCerrar, onCotizar, onContacto, onMariana }: Props) {
   const dialogo = useRef<HTMLDialogElement>(null);
   const prefijo = useId();
   // Un solo acordeón abierto por nivel: una sección y, dentro de Productos, una categoría.
@@ -94,6 +96,18 @@ export function MenuMovil({ id, abierto, colecciones, categorias, onCerrar, onCo
         </div>
 
         <nav aria-label="Menú móvil" className={estilos.navegacion}>
+          {/* En móvil, Mariana va aquí y no en la fila del header. */}
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-label="Mariana, asistente de Sedie"
+            className={estilos.mariana}
+            onClick={onMariana}
+          >
+            <OjosMariana />
+            Mariana
+          </button>
+
           <div className={estilos.acordeon}>
             <button
               type="button"

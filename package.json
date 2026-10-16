@@ -15,7 +15,8 @@
     "extract:contenido": "node scripts/extract/contenido.ts",
     "extract:tokens": "node scripts/extract/tokens.ts",
     "medios": "node scripts/extract/medios.ts",
-    "comparar": "node scripts/comparar.ts"
+    "comparar": "node scripts/comparar.ts",
+    "sync:catalogo": "node --env-file-if-exists=.env.local scripts/sync/catalogo.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.5",

@@ -197,3 +197,31 @@ export function validarWhatsApp(valores: Record<string, unknown>) {
   if (resultado.success) return { datos: resultado.data, errores: {} as ErroresWhatsApp };
   return { datos: null, errores: erroresPorCampo<ErroresWhatsApp>(resultado.error.issues) };
 }
+
+// Formulario de Mariana -----------------------------------------------------------
+
+// Un solo campo de contacto: vale un correo o un teléfono de 10 dígitos.
+const esCorreo = (valor: string) => z.email().safeParse(valor).success;
+const esTelefono = (valor: string) => TELEFONO.test(valor) && valor.replace(/\D/g, "").length === 10;
+
+const esquemaMariana = z.object({
+  mensaje: z.string().trim().min(3, "Cuéntame qué necesitas."),
+  nombre: esquemaContacto.shape.nombre,
+  contacto: z
+    .string()
+    .trim()
+    .refine((valor) => esCorreo(valor) || esTelefono(valor), "Escribe un correo válido o un teléfono de 10 dígitos."),
+});
+
+export type ErroresMariana = Partial<Record<keyof z.infer<typeof esquemaMariana>, string>>;
+
+export function validarMariana(valores: Record<string, unknown>) {
+  const resultado = esquemaMariana.safeParse(valores);
+  if (!resultado.success) return { datos: null, errores: erroresPorCampo<ErroresMariana>(resultado.error.issues) };
+  const { mensaje, nombre, contacto } = resultado.data;
+  const correo = esCorreo(contacto);
+  return {
+    datos: { mensaje, nombre, email: correo ? contacto : null, telefono: correo ? null : contacto },
+    errores: {} as ErroresMariana,
+  };
+}

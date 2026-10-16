@@ -16,10 +16,12 @@ import estilos from "./layout.module.css";
 
 // Los pesos son los que usa el sitio actual; Inter, Roboto y Roboto Slab quedaron fuera.
 // next/font exige que los argumentos sean literales, así que se repiten en cada llamada.
+// Raleway va como fuente variable, sin lista de pesos: con la lista, el build de Turbopack falla
+// ("next/font/google queries have exactly one entry"); con webpack no. Google sirve los mismos
+// archivos en los dos casos (uno variable por subconjunto), así que los pesos 200-600 no cambian.
 const raleway = Raleway({
   variable: "--font-raleway",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600"],
   display: "swap",
 });
 

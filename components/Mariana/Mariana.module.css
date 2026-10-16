@@ -1,0 +1,210 @@
+/* Panel de Mariana: capa centrada arriba con el fondo oscurecido, como el modal de búsqueda. */
+
+.modal {
+  width: 90vw;
+  max-width: 70ch; /* el mismo ancho de lectura que los modales de búsqueda y contacto */
+  max-height: 80dvh;
+  margin: 10dvh auto auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radio-m);
+  overflow: hidden;
+  background-color: var(--color-fondo);
+  box-shadow: var(--sombra-tarjeta);
+  font-family: var(--fuente-texto);
+  color: var(--color-tinta);
+}
+
+.modal::backdrop {
+  background-color: var(--color-velo);
+}
+
+/* Con prefers-reduced-motion, base.css deja la animación en 0,01ms. */
+.modal[open] {
+  animation: aparecer var(--transicion);
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--espacio-2) * -1));
+  }
+}
+
+/* El marco ocupa todo el diálogo: un clic en el diálogo mismo solo puede venir del fondo. */
+.marco {
+  display: flex;
+  max-height: 80dvh;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  padding: var(--espacio-5);
+  overflow-y: auto;
+}
+
+/* Saludo: la marca en un círculo delineado y el texto al lado. */
+.saludo {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacio-3);
+  font-size: var(--texto-m);
+  line-height: var(--interlineado-base);
+  color: var(--color-texto);
+}
+
+.marca {
+  display: flex;
+  flex: 0 0 auto;
+  width: var(--espacio-6);
+  height: var(--espacio-6);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-texto-suave);
+  border-radius: var(--radio-pill);
+  color: var(--color-tinta);
+}
+
+.marca svg {
+  width: var(--espacio-4);
+  height: var(--espacio-4);
+}
+
+/* Formulario ----------------------------------------------------------------- */
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  font-size: var(--texto-s);
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+}
+
+.pregunta {
+  margin-block-end: var(--espacio-1);
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-medio);
+  line-height: var(--interlineado-titulo);
+  color: var(--color-tinta);
+}
+
+.campo {
+  padding: var(--espacio-2) var(--espacio-3);
+  border: 1px solid var(--color-texto-suave);
+  border-radius: var(--radio-campo);
+  background-color: var(--color-fondo);
+  font: inherit;
+  color: var(--color-texto);
+}
+
+.mensaje {
+  font-size: var(--texto-m);
+  line-height: var(--interlineado-base);
+  resize: vertical;
+}
+
+.campo[aria-invalid="true"] {
+  border-color: var(--color-acento);
+}
+
+.error {
+  font-size: var(--texto-xs);
+  color: var(--color-acento);
+}
+
+.ejemplos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ejemplo {
+  padding: var(--espacio-1) var(--espacio-4);
+  border: 1px solid var(--color-fondo-suave);
+  border-radius: var(--radio-pill);
+  background-color: var(--color-fondo-suave);
+  font: inherit;
+  color: var(--color-tinta);
+  text-align: start;
+  cursor: pointer;
+  transition: border-color var(--transicion);
+}
+
+.datos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-4);
+}
+
+.enviar {
+  align-self: flex-start;
+  padding: var(--espacio-2) var(--espacio-5);
+  border: 1px solid var(--color-tinta);
+  border-radius: var(--radio-l);
+  background-color: var(--color-tinta);
+  font: inherit;
+  color: var(--color-fondo);
+  cursor: pointer;
+  transition:
+    background-color var(--transicion),
+    border-color var(--transicion);
+}
+
+.enviar:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+/* Confirmación ---------------------------------------------------------------- */
+
+.confirmacion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-3);
+  font-size: var(--texto-m);
+  line-height: var(--interlineado-amplio);
+  color: var(--color-texto);
+}
+
+.enlace {
+  font-size: var(--texto-s);
+  color: var(--color-acento);
+}
+
+/* Interacción ---------------------------------------------------------------- */
+
+.ejemplo:hover {
+  border-color: var(--color-tinta);
+}
+
+.enviar:hover {
+  border-color: var(--color-acento);
+  background-color: var(--color-acento);
+}
+
+.campo:focus-visible,
+.ejemplo:focus-visible,
+.enviar:focus-visible,
+.enlace:focus-visible,
+.confirmacion:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .marco {
+    padding: var(--espacio-4);
+  }
+
+  .datos {
+    grid-template-columns: 1fr;
+  }
+}

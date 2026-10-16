@@ -3,7 +3,6 @@
 // con sumarla a SEDES; ningún componente cambia.
 //
 // PROVISIONALES (marcados también abajo con "PROVISIONAL"):
-// - WHATSAPP: número de ejemplo; falta el real de Sedie.
 // - Sede Monterrey, `localidad`: "test city" es un error heredado de WordPress que se copia tal
 //   cual hasta que se corrija en origen.
 // - Teléfonos, correos y horarios: el sitio actual no los publica en ninguna parte, así que no
@@ -60,5 +59,12 @@ export const REDES: { red: Red; nombre: string; url: string }[] = [
 ];
 
 // Número de WhatsApp en formato de wa.me: lada de país y número, solo dígitos y sin "+".
-// PROVISIONAL: valor de ejemplo. Falta el número real de Sedie.
-export const WHATSAPP = "520000000000";
+export const WHATSAPP = "525584210902";
+
+// Avisos de leads por correo (LEADS_SINK=resend). El remitente sale del subdominio verificado
+// en la cuenta de Resend de Sedie. El newsletter no avisa aquí: va a los contactos de Resend.
+export const AVISOS_LEADS = {
+  remitente: "Sedie & Mobili <no-reply@mail.sediemobili.com>",
+  para: ["ventas1mx@ergocomp.com", "ventas2mx@ergocomp.com", "egarza@ergocomp.com", "eduardodlg92@gmail.com"],
+  copia: ["hola@scndal.com", "michel.l@scndal.com", "andrea.r@scndal.com", "andrea.m@scndal.com"],
+};

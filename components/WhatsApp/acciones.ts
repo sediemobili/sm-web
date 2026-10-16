@@ -34,5 +34,15 @@ export async function contactarWhatsApp(_previo: EstadoWhatsApp, formData: FormD
     };
   }
 
-  return { estado: "exito", errores: {}, mensaje: null, url: `https://wa.me/${WHATSAPP}` };
+  // Mensaje precargado en el chat; sin nombre se omite esa parte.
+  const nombre = datos.nombre.trim();
+  const texto = nombre
+    ? `Hola, soy ${nombre}. Me gustaría recibir información sobre mobiliario para oficina.`
+    : "Hola, me gustaría recibir información sobre mobiliario para oficina.";
+  return {
+    estado: "exito",
+    errores: {},
+    mensaje: null,
+    url: `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`,
+  };
 }

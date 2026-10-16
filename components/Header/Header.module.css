@@ -47,6 +47,9 @@
 .acciones {
   display: flex;
   flex: 1;
+  /* Sin esto el bloque no baja de su contenido mínimo y, con Mariana, a 768px se salía del
+     margen: así el buscador puede encoger lo que haga falta. */
+  min-width: 0;
   align-items: center;
   justify-content: flex-end;
   gap: var(--espacio-5);
@@ -136,7 +139,8 @@
 .hamburguesa:focus-visible,
 .cotizacion:focus-visible,
 .logo:focus-visible,
-.buscador:focus-visible {
+.buscador:focus-visible,
+.mariana:focus-visible {
   outline: 2px solid var(--color-foco);
   outline-offset: 2px;
 }
@@ -229,6 +233,73 @@
 .header[data-estado="transparente"] .buscador:hover {
   border-color: var(--color-fondo);
   background-color: color-mix(in srgb, var(--color-fondo) 25%, transparent);
+}
+
+/* Mariana ------------------------------------------------------------------- */
+
+/* Píldora delineada a la derecha del buscador, con su mismo borde y sus dos estados. No
+   encoge (.acciones > *): si falta sitio, encoge el buscador. */
+.mariana {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  padding: var(--espacio-2) var(--espacio-4);
+  border: 1px solid var(--color-texto-suave);
+  border-radius: var(--radio-pill);
+  background: none;
+  font: inherit;
+  white-space: nowrap;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    background-color var(--transicion),
+    border-color var(--transicion);
+}
+
+.header[data-estado="transparente"] .mariana {
+  border-color: color-mix(in srgb, var(--color-fondo) 60%, transparent);
+  background-color: color-mix(in srgb, var(--color-fondo) 15%, transparent);
+}
+
+.header[data-estado="solido"] .mariana:hover {
+  border-color: var(--color-texto);
+  background-color: var(--color-fondo-suave);
+}
+
+.header[data-estado="transparente"] .mariana:hover {
+  border-color: var(--color-fondo);
+  background-color: color-mix(in srgb, var(--color-fondo) 25%, transparent);
+}
+
+/* Parpadeo corto cada 6 s: los ojos se cierran durante unos 120 ms. Con prefers-reduced-motion,
+   base.css deja una sola vuelta de 0,01ms y los ojos quedan abiertos. */
+.ojos ellipse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: parpadear 6s ease-in-out infinite;
+}
+
+@keyframes parpadear {
+  0%,
+  97%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  98.5% {
+    transform: scaleY(0.1);
+  }
+}
+
+.mariana:focus-visible .tooltip {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .mariana:hover .tooltip {
+    opacity: 1;
+  }
 }
 
 /* Cotización y contacto ------------------------------------------------------ */
@@ -350,6 +421,7 @@
 
   .filaNavegacion,
   .buscador,
+  .acciones > .mariana,
   .acciones > .contacto {
     display: none;
   }
