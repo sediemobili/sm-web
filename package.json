@@ -13,6 +13,7 @@
     "extract:productos": "node scripts/extract/productos.ts",
     "extract:fichas": "node scripts/extract/fichas.ts",
     "extract:contenido": "node scripts/extract/contenido.ts",
+    "extract:enlaces": "node scripts/extract/enlaces.ts",
     "extract:tokens": "node scripts/extract/tokens.ts",
     "medios": "node scripts/extract/medios.ts",
     "comparar": "node scripts/comparar.ts",

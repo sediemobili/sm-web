@@ -22,7 +22,11 @@ const nextConfig: NextConfig = {
   },
   images: {
     // Provisional: las imágenes se sirven desde WordPress hasta que T06 las baje a public/media.
-    remotePatterns: [{ protocol: "https", hostname: "sediemobili.com", pathname: "/wp-content/uploads/**" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "sediemobili.com", pathname: "/wp-content/uploads/**" },
+      // Fotos, galerías y acabados de la API de catálogo de Sedie (almacenamiento de Supabase).
+      { protocol: "https", hostname: "xudiivbanplpsdpiskln.supabase.co", pathname: "/storage/v1/object/**" },
+    ],
   },
 };
 

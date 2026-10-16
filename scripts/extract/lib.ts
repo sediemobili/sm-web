@@ -141,6 +141,13 @@ export type DownloadTipo = "modelo3d" | "dwg" | "instructivo" | "ficha_tecnica" 
 export type Download = { tipo: DownloadTipo; label: string; url: string; extension: string | null };
 export type Spec = { label: string; value: string };
 
+// Erratas de WordPress ya corregidas en data/. Cada extracción las vuelve a traer de WordPress,
+// así que los extractores las corrigen igual hasta que se arreglen en origen: taxonomias.ts en
+// el nombre y el título del término, y enlaces.ts en las rutas de los enlaces del contenido.
+export const ERRATAS: { slug: string; mal: string; bien: string }[] = [
+  { slug: "silla-industrial", mal: "Industiral", bien: "Industrial" },
+];
+
 export function run(main: () => Promise<void>) {
   main().catch((err) => {
     console.error(err instanceof CaptchaError ? `DETENIDO: ${err.message}` : err);

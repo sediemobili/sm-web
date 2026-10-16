@@ -15,6 +15,7 @@ import {
   type Seo,
   type YoastHead,
 } from "./lib.ts";
+import { cargarDestinos, corregirEnlaces, reportarEnlaces } from "./enlaces.ts";
 
 // Solo las páginas del mapa del sitio; la home se define en CLAUDE.md.
 const PAGE_SLUGS = ["nosotros", "venta-empresarial", "legal", "gracias"];
@@ -196,8 +197,15 @@ async function main() {
     });
   }
 
-  await writeFile(path.join(DATA_DIR, "posts.json"), JSON.stringify(posts, null, 2) + "\n");
-  await writeFile(path.join(DATA_DIR, "pages.json"), JSON.stringify(pages, null, 2) + "\n");
+  // Enlaces internos: a relativos y, donde hay certeza, a rutas que existen (enlaces.ts). Las
+  // rutas de productos y taxonomías salen de los demás JSON: correr antes sus extractores.
+  const destinos = await cargarDestinos();
+  for (const entrada of [...posts, ...pages]) destinos.rutas.add(entrada.path);
+  const corregido = corregirEnlaces(posts, pages, destinos);
+
+  await writeFile(path.join(DATA_DIR, "posts.json"), JSON.stringify(corregido.posts, null, 2) + "\n");
+  await writeFile(path.join(DATA_DIR, "pages.json"), JSON.stringify(corregido.pages, null, 2) + "\n");
+  reportarEnlaces(corregido.conteo);
 
   const imagesIn = (html: string | null) => [...(html ?? "").matchAll(/<img[^>]*\ssrc="([^"]+)"/g)].map((m) => m[1]);
   const contentImages = [

@@ -8,6 +8,14 @@ export const NOMBRE = EMPRESA.nombre;
 
 export const absoluta = (ruta: string) => new URL(ruta, SITE).toString();
 
+// La marca va una sola vez al final de cada título, siempre con este separador. La añade la
+// plantilla del layout (app/layout.tsx); los títulos de Yoast ya la traen, con " - " o con
+// " | " y sin "&", así que metadataDe se la quita antes y la plantilla la pone igual en todos.
+export const SEPARADOR = " - ";
+const MARCA = /Sedie\s*(?:&amp;|&|y)?\s*Mobili/i;
+const MARCA_FINAL = new RegExp(`\\s*[-–—·|]\\s*${MARCA.source}\\s*$`, "i");
+export const sinMarca = (titulo: string) => titulo.replace(MARCA_FINAL, "").trim();
+
 type Opciones = {
   title: string;
   description: string;
@@ -19,13 +27,17 @@ type Opciones = {
 
 export function metadataDe({ title, description, canonical, ogImage, noindex, tipo = "website" }: Opciones): Metadata {
   const url = absoluta(canonical);
+  // Si la marca sigue dentro del título ("Acerca de Sedie & Mobili") va tal cual; si el título
+  // era solo la marca, queda "Sedie & Mobili".
+  const limpio = sinMarca(title);
+  const completo = !limpio ? NOMBRE : MARCA.test(limpio) ? limpio : `${limpio}${SEPARADOR}${NOMBRE}`;
   return {
-    title,
+    title: completo === `${limpio}${SEPARADOR}${NOMBRE}` ? limpio : { absolute: completo },
     description,
     alternates: { canonical: url },
     robots: noindex ? { index: false, follow: true } : undefined,
     openGraph: {
-      title,
+      title: completo,
       description,
       url,
       type: tipo,

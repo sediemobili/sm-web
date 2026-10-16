@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/Seo/JsonLd";
 import { BotonWhatsApp } from "@/components/WhatsApp/BotonWhatsApp";
 import { CotizacionProvider } from "@/lib/cotizacion";
 import { organizacion } from "@/lib/jsonld";
-import { NOMBRE, SITE } from "@/lib/seo";
+import { NOMBRE, SEPARADOR, SITE } from "@/lib/seo";
 import "./styles/tokens.css";
 import "./styles/base.css";
 import "./styles/patrones.css";
@@ -41,7 +41,7 @@ const archivo = Archivo({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
-  title: { default: NOMBRE, template: `%s - ${NOMBRE}` },
+  title: { default: NOMBRE, template: `%s${SEPARADOR}${NOMBRE}` },
   description:
     "Fabricante de mobiliario para oficina y sillería profesional con sedes en Monterrey y Ciudad de México.",
   // Canonical de la home; cada página define el suyo.

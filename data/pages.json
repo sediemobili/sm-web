@@ -68,7 +68,7 @@
         "image": null,
         "cta": {
           "label": "Ver Más",
-          "href": "https://sediemobili.com/blog"
+          "href": "/blog/"
         }
       }
     ],
@@ -124,7 +124,7 @@
         },
         "cta": {
           "label": "Volver al Inicio",
-          "href": "https://sediemobili.com"
+          "href": "/"
         }
       }
     ],

@@ -1,0 +1,1258 @@
+[
+  {
+    "wpSlug": "03-be15",
+    "wpNombre": "03-BE15",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "14-10800",
+    "wpNombre": "14-10800",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "air-duo-1",
+    "wpNombre": "Air Duo 1",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "air-duo-2",
+    "wpNombre": "Air Duo 2",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "air-duo-3",
+    "wpNombre": "Air Duo 3",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "airport",
+    "wpNombre": "Airport",
+    "apiSlug": "bancas/banca-airport",
+    "estado": "inequivoco",
+    "motivo": "Nombre de la API con prefijo de categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "alejandria",
+    "wpNombre": "Alejandría",
+    "apiSlug": "soft-seating/alejandria",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "amsterdam",
+    "wpNombre": "Amsterdam",
+    "apiSlug": "recepciones/amsterdam",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "andy",
+    "wpNombre": "Andy",
+    "apiSlug": "sillas/andy",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "atenas",
+    "wpNombre": "Atenas",
+    "apiSlug": "sofas/atenas",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "bali",
+    "wpNombre": "Bali",
+    "apiSlug": "soft-seating/bali",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "barcelona",
+    "wpNombre": "Barcelona",
+    "apiSlug": "sillas/barcelona",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "basic-1",
+    "wpNombre": "Basic 1",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "basic-2",
+    "wpNombre": "Basic 2",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "berlin",
+    "wpNombre": "Berlin",
+    "apiSlug": "sillas/silla-berlin",
+    "estado": "inequivoco",
+    "motivo": "Nombre de la API con prefijo de categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "bini",
+    "wpNombre": "Bini",
+    "apiSlug": "sillas/bini",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "birmania",
+    "wpNombre": "Birmania",
+    "apiSlug": "sofas/birmania",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "black-jack",
+    "wpNombre": "Black Jack",
+    "apiSlug": "sillas/black-jack",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "blitz",
+    "wpNombre": "Blitz",
+    "apiSlug": "sillas/blitz",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "blitz-visita",
+    "wpNombre": "Blitz Visita",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "braun",
+    "wpNombre": "Braun",
+    "apiSlug": "sofas/braun",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "bubble",
+    "wpNombre": "Bubble",
+    "apiSlug": "soft-seating/bubble",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "cairo",
+    "wpNombre": "Cairo",
+    "apiSlug": "sofas/cairo",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "cannes",
+    "wpNombre": "Cannes",
+    "apiSlug": "sofas/cannes",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "castell",
+    "wpNombre": "Castell",
+    "apiSlug": "sillas/castell",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "castell-visita",
+    "wpNombre": "Castell Visita",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "chaya",
+    "wpNombre": "Chaya",
+    "apiSlug": "bancas/banca-chaya",
+    "estado": "inequivoco",
+    "motivo": "Nombre de la API con prefijo de categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "clementina",
+    "wpNombre": "Clementina",
+    "apiSlug": "sillas/clementina",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "com-sette",
+    "wpNombre": "Com Sette",
+    "apiSlug": "soft-seating/com-sette",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría (nombre repetido en WordPress).",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "com-sette-2",
+    "wpNombre": "Com Sette",
+    "apiSlug": "sillas/com-sette",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría (nombre repetido en WordPress).",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "cristal",
+    "wpNombre": "Cristal",
+    "apiSlug": "sillas/cristal",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "dakota",
+    "wpNombre": "Dakota",
+    "apiSlug": "soft-seating/dakota",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "dinamo-1",
+    "wpNombre": "Dínamo 1",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "dubai-ii",
+    "wpNombre": "Dubai II",
+    "apiSlug": "sofas/dubai-ii",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "dublin",
+    "wpNombre": "Dublín",
+    "apiSlug": "recepciones/dublin",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "elegance-i",
+    "wpNombre": "Elegance I",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "elegance-ii",
+    "wpNombre": "Elegance II",
+    "apiSlug": "sofas/elegance-ii",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "elisa",
+    "wpNombre": "Elisa",
+    "apiSlug": "sillas/elisa",
+    "estado": "inequivoco",
+    "motivo": "Desempate por subcategoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "ergo",
+    "wpNombre": "Ergo",
+    "apiSlug": "sillas/ergo",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "eugenia",
+    "wpNombre": "Eugenia",
+    "apiSlug": "sillas/eugenia",
+    "estado": "inequivoco",
+    "motivo": "Desempate por subcategoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "eureka",
+    "wpNombre": "Eureka",
+    "apiSlug": "sillas/eureka",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "eureka-visita",
+    "wpNombre": "Eureka Visita",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "felicita",
+    "wpNombre": "Felicita",
+    "apiSlug": "sillas/felicita",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "flight",
+    "wpNombre": "Flight",
+    "apiSlug": "sillas/flight",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "frill",
+    "wpNombre": "Frill",
+    "apiSlug": "taburetes/frill",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "galaxy",
+    "wpNombre": "Galaxy",
+    "apiSlug": "sillas/galaxy",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "galaxy-visita",
+    "wpNombre": "Galaxy Visita",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "h2o",
+    "wpNombre": "H2O",
+    "apiSlug": "sofas/h2o",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "habana",
+    "wpNombre": "Habana",
+    "apiSlug": "sillas/habana",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "habana-visita",
+    "wpNombre": "Habana Visita",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "industrial-1",
+    "wpNombre": "Industrial 1",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "infinity",
+    "wpNombre": "Infinity",
+    "apiSlug": "sillas/infinity",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "iso-secretarial",
+    "wpNombre": "Iso Secretarial",
+    "apiSlug": "sillas/iso-secretarial",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "italia",
+    "wpNombre": "Italia",
+    "apiSlug": "soft-seating/italia",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "jojo",
+    "wpNombre": "Jojo",
+    "apiSlug": "sillas/jojo",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "jonas",
+    "wpNombre": "Jonas",
+    "apiSlug": "soft-seating/jonas",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "junior",
+    "wpNombre": "Junior",
+    "apiSlug": "sillas/junior",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "jupiter",
+    "wpNombre": "Jupiter",
+    "apiSlug": "sillas/jupiter",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "karl",
+    "wpNombre": "Karl",
+    "apiSlug": "taburetes/karl",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "karla",
+    "wpNombre": "Karla",
+    "apiSlug": "bancas/banca-karla",
+    "estado": "inequivoco",
+    "motivo": "Nombre de la API con prefijo de categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "kind",
+    "wpNombre": "Kind",
+    "apiSlug": "sillas/kind",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "kiwi",
+    "wpNombre": "Kiwi",
+    "apiSlug": "bancas/banca-kiwi",
+    "estado": "inequivoco",
+    "motivo": "Resolución manual.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "kontor",
+    "wpNombre": "Kontor",
+    "apiSlug": "sillas/kontor",
+    "estado": "inequivoco",
+    "motivo": "Desempate por subcategoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "kube",
+    "wpNombre": "Kube",
+    "apiSlug": "soft-seating/kube",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "kuga",
+    "wpNombre": "Kuga",
+    "apiSlug": "sillas/kuga",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "larus-1",
+    "wpNombre": "Larus 1",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "larus-2",
+    "wpNombre": "Larus 2",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "larus-3",
+    "wpNombre": "Larus 3",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "larus-4",
+    "wpNombre": "Larus 4",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "lavaredo",
+    "wpNombre": "Lavaredo",
+    "apiSlug": "bancas/lavaredo",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "leo",
+    "wpNombre": "Leo",
+    "apiSlug": "soft-seating/leo",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría (nombre repetido en WordPress).",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "leo-2",
+    "wpNombre": "Leo",
+    "apiSlug": "taburetes/leo",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría (nombre repetido en WordPress).",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "lithos-1",
+    "wpNombre": "Lithos 1",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "lithos-2",
+    "wpNombre": "Lithos 2",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "lithos-3",
+    "wpNombre": "Lithos 3",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "lithos-4",
+    "wpNombre": "Lithos 4",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "living",
+    "wpNombre": "Living",
+    "apiSlug": "sillas/living",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "lucca",
+    "wpNombre": "Lucca",
+    "apiSlug": "sillas/lucca",
+    "estado": "inequivoco",
+    "motivo": "Desempate por subcategoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "malaga",
+    "wpNombre": "Malaga",
+    "apiSlug": "sofas/malaga",
+    "estado": "inequivoco",
+    "motivo": "Resolución manual.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "marbella",
+    "wpNombre": "Marbella",
+    "apiSlug": "sillas/marbella",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "marilyn",
+    "wpNombre": "Marilyn",
+    "apiSlug": "sillas/marilyn",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "melania",
+    "wpNombre": "Melania",
+    "apiSlug": "sillas/melania",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "mesabanco-berlin",
+    "wpNombre": "Mesabanco Berlin",
+    "apiSlug": "mesabancos/mesabanco-berlin",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "mesabanco-iso",
+    "wpNombre": "Mesabanco Iso",
+    "apiSlug": "mesabancos/mesabanco-iso",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "mesabanco-roma",
+    "wpNombre": "Mesabanco Roma",
+    "apiSlug": "mesabancos/mesabanco-roma",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "mesabanco-virgola",
+    "wpNombre": "Mesabanco Virgola",
+    "apiSlug": "mesabancos/mesabanco-virgola",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "mesabanco-vita",
+    "wpNombre": "Mesabanco Vita",
+    "apiSlug": "mesabancos/mesabanco-vita",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "mimi",
+    "wpNombre": "Mimi",
+    "apiSlug": "taburetes/mimi",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "modular",
+    "wpNombre": "Modular",
+    "apiSlug": "soft-seating/modular",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "moka",
+    "wpNombre": "Moka",
+    "apiSlug": "recepciones/moka",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "muzio",
+    "wpNombre": "Muzio",
+    "apiSlug": "sillas/muzio",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "new",
+    "wpNombre": "New",
+    "apiSlug": "bancas/banca-new",
+    "estado": "inequivoco",
+    "motivo": "Nombre de la API con prefijo de categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "nilo",
+    "wpNombre": "Nilo",
+    "apiSlug": "taburetes/nilo",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "niza",
+    "wpNombre": "Niza",
+    "apiSlug": "soft-seating/niza",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "nova-iso",
+    "wpNombre": "Nova Iso",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "orlando",
+    "wpNombre": "Orlando",
+    "apiSlug": "sillas/orlando",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "orlando-visita",
+    "wpNombre": "Orlando Visita",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "ovidio",
+    "wpNombre": "Ovidio",
+    "apiSlug": "sillas/ovidio",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "pablo",
+    "wpNombre": "Pablo",
+    "apiSlug": "sillas/pablo",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "paco",
+    "wpNombre": "Paco",
+    "apiSlug": "taburetes/paco",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "piero",
+    "wpNombre": "Piero",
+    "apiSlug": "taburetes/piero",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "polonia",
+    "wpNombre": "Polonia",
+    "apiSlug": "soft-seating/polonia",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "poppea",
+    "wpNombre": "Poppea",
+    "apiSlug": "soft-seating/poppea",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "pull",
+    "wpNombre": "Pull",
+    "apiSlug": "taburetes/pull",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "pupitre-vita",
+    "wpNombre": "Pupitre Vita",
+    "apiSlug": "mesabancos/pupitre-vita",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "q3",
+    "wpNombre": "Q3",
+    "apiSlug": "sillas/q3",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "quadri-q11",
+    "wpNombre": "Quadri Q11",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "quadri-q16",
+    "wpNombre": "Quadri Q16",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "quadri-q18",
+    "wpNombre": "Quadri Q18",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "quadri-q20",
+    "wpNombre": "Quadri Q20",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "quadri-q22",
+    "wpNombre": "Quadri Q22",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "quadri-q23",
+    "wpNombre": "Quadri Q23",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "quadri-q3",
+    "wpNombre": "Quadri Q3",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "quadri-q4",
+    "wpNombre": "Quadri Q4",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "quadri-q6",
+    "wpNombre": "Quadri Q6",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "raffa",
+    "wpNombre": "Raffa",
+    "apiSlug": "soft-seating/raffa",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "red",
+    "wpNombre": "Red",
+    "apiSlug": "sillas/red",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "rene",
+    "wpNombre": "Rene",
+    "apiSlug": "sillas/rene",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "rodri",
+    "wpNombre": "Rodri",
+    "apiSlug": "sillas/rodri",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "rolls",
+    "wpNombre": "Rolls",
+    "apiSlug": "sillas/rolls",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "rz1",
+    "wpNombre": "Rz1",
+    "apiSlug": "sillas/rz1",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "seneca",
+    "wpNombre": "Seneca",
+    "apiSlug": "sillas/seneca",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "seneca-visita",
+    "wpNombre": "Seneca Visita",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "skeiter",
+    "wpNombre": "Skeiter",
+    "apiSlug": "sillas/skeiter",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "sofia",
+    "wpNombre": "Sofia",
+    "apiSlug": "soft-seating/sofia",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "solar",
+    "wpNombre": "Solar",
+    "apiSlug": "sillas/solar",
+    "estado": "inequivoco",
+    "motivo": "Desempate por subcategoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "space-plegable",
+    "wpNombre": "Space Plegable",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "square",
+    "wpNombre": "Square",
+    "apiSlug": "sofas/square",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "suiza",
+    "wpNombre": "Suiza",
+    "apiSlug": "sofas/suiza",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría (nombre repetido en WordPress).",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "suiza-2",
+    "wpNombre": "Suiza",
+    "apiSlug": "sillas/suiza",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría (nombre repetido en WordPress).",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "taburete-ergonomico",
+    "wpNombre": "Taburete Ergonómico",
+    "apiSlug": "sillas/taburete-ergonomico",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "tapas",
+    "wpNombre": "Tapas",
+    "apiSlug": "mesas/mesa-tapas",
+    "estado": "inequivoco",
+    "motivo": "Nombre de la API con prefijo de categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "tauro",
+    "wpNombre": "Tauro",
+    "apiSlug": "sillas/tauro",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "tela",
+    "wpNombre": "Tela",
+    "apiSlug": "sillas/tela",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "temx-one",
+    "wpNombre": "TEMX One",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "temx-two",
+    "wpNombre": "TEMX Two",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "tenerife",
+    "wpNombre": "Tenerife",
+    "apiSlug": "sofas/tenerife",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "thai",
+    "wpNombre": "Thai",
+    "apiSlug": "soft-seating/thai",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "thank-you",
+    "wpNombre": "Thank You",
+    "apiSlug": "sillas/thank-you",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "tom",
+    "wpNombre": "Tom",
+    "apiSlug": "taburetes/tom",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "torino",
+    "wpNombre": "Torino",
+    "apiSlug": "sillas/torino",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "turin",
+    "wpNombre": "Turin",
+    "apiSlug": "recepciones/turin",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "uno",
+    "wpNombre": "Uno",
+    "apiSlug": "escritorios/uno",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "valencia",
+    "wpNombre": "Valencia",
+    "apiSlug": "recepciones/valencia",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "valle-sport",
+    "wpNombre": "Valle Sport",
+    "apiSlug": "bancas/banca-valle-sport",
+    "estado": "inequivoco",
+    "motivo": "Nombre de la API con prefijo de categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "venus",
+    "wpNombre": "Venus",
+    "apiSlug": "sillas/venus",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "versatil-v1",
+    "wpNombre": "Versátil V1",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "versatil-v3-hyb",
+    "wpNombre": "Versátil V3-HYB",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "versatil-v3-hyblsp",
+    "wpNombre": "Versátil V3-HYB+LSP",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "versatil-v4-met",
+    "wpNombre": "Versátil V4-MET",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "versatil-v7-met",
+    "wpNombre": "Versátil V7-MET",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "versatil-v8-mesa",
+    "wpNombre": "Versátil V8-MESA",
+    "apiSlug": null,
+    "estado": "sin-pareja",
+    "motivo": "Ningún producto de la API tiene este nombre.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "visio",
+    "wpNombre": "Visio",
+    "apiSlug": "sillas/visio",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "y10",
+    "wpNombre": "Y10",
+    "apiSlug": "sillas/y10",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "yeka",
+    "wpNombre": "Yeka",
+    "apiSlug": "taburetes/yeka",
+    "estado": "inequivoco",
+    "motivo": "Desempate por categoría.",
+    "candidatos": []
+  },
+  {
+    "wpSlug": "zero",
+    "wpNombre": "Zero",
+    "apiSlug": "sofas/zero",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  },
+  {
+    "wpSlug": "zip",
+    "wpNombre": "Zip",
+    "apiSlug": "soft-seating/zip",
+    "estado": "inequivoco",
+    "motivo": null,
+    "candidatos": []
+  }
+]

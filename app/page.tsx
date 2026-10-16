@@ -8,19 +8,12 @@ import { Presentacion } from "@/components/Home/Presentacion";
 import { TarjetaProducto } from "@/components/Producto/TarjetaProducto";
 import estilos from "@/components/Home/Home.module.css";
 import { getCategories, getPosts, getProductBySlug, type Category, type Product } from "@/lib/data";
+import { ESCRITORIOS, SILLAS } from "@/lib/destacados";
 
 // Lo que el original elige a mano y no está en los datos: el orden de las tarjetas,
 // los productos de cada carrusel y los textos de plantilla de cada sección.
 const CATEGORIAS = ["sillas-de-oficina", "recepciones", "mesas", "escritorios", "taburetes", "sofas"];
-const SILLAS = ["flight", "eugenia", "felicita", "space-plegable", "solar", "visio"];
-const ESCRITORIOS = [
-  "dinamo-1",
-  "versatil-v8-mesa",
-  "versatil-v7-met",
-  "versatil-v4-met",
-  "versatil-v3-hyblsp",
-  "versatil-v3-hyb",
-];
+// Los productos de cada carrusel viven en lib/destacados.ts: también los prerenderiza la ficha.
 
 // Ancho de la tarjeta de producto en los carruseles (.productoItem).
 const TAMANO_CARRUSEL = "(max-width: 767px) 294px, 295px";
@@ -56,7 +49,8 @@ const HERO: Diapositiva[] = [
 
 async function porSlug(slugs: string[]) {
   const productos = await Promise.all(slugs.map((slug) => getProductBySlug(slug)));
-  return productos.filter((producto) => producto !== null);
+  // Sin foto no sale en el carrusel; su ficha sigue existiendo.
+  return productos.filter((producto): producto is Product => producto !== null && producto.images.length > 0);
 }
 
 export default async function HomePage() {

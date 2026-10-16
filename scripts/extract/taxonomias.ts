@@ -12,6 +12,7 @@ import {
   fetchJson,
   run,
   seoFrom,
+  ERRATAS,
   type Seo,
   type YoastHead,
 } from "./lib.ts";
@@ -105,6 +106,17 @@ function toTerms(
   }));
 }
 
+// Erratas de WordPress (tabla ERRATAS en lib.ts): se corrigen en el nombre y el título de Yoast
+// del término. El slug y la ruta no cambian.
+function corregirErratas(terms: Term[]): Term[] {
+  return terms.map((t) => {
+    const suyas = ERRATAS.filter((e) => e.slug === t.slug);
+    if (!suyas.length) return t;
+    const corregir = (texto: string) => suyas.reduce((acc, e) => acc.replaceAll(e.mal, e.bien), texto);
+    return { ...t, name: corregir(t.name), seo: { ...t.seo, title: t.seo.title ? corregir(t.seo.title) : null } };
+  });
+}
+
 async function writeData(file: string, terms: Term[]) {
   await writeFile(path.join(DATA_DIR, file), JSON.stringify(terms, null, 2) + "\n");
 }
@@ -135,11 +147,11 @@ async function main() {
   // Categorías: datos y imagen de la Store API; el SEO de Yoast solo viene en wp/v2.
   const store = (await fetchJson<StoreCategory[]>(`${SITE}/wp-json/wc/store/v1/products/categories`)).data;
   const productCat = await fetchAllTerms("product_cat");
-  const categories = ordenar(toTerms(
+  const categories = corregirErratas(ordenar(toTerms(
     store.map((c) => ({ ...c, image: c.image?.src ?? null })),
     new Map(productCat.map((t) => [t.id, t.yoast_head_json])),
     "/product-category/",
-  ), ORDEN_CATEGORIAS);
+  ), ORDEN_CATEGORIAS));
 
   const taxonomies = (await fetchJson<Record<string, WpTaxonomy>>(`${SITE}/wp-json/wp/v2/taxonomies`)).data;
   const restBase = (slug: string) => {

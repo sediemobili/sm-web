@@ -3,7 +3,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { cacheLife } from "next/cache";
-import type { Category, Collection, Page, Post, Procedencia, Product, ProductImage, Section } from "../types";
+import type { Category, Collection, Page, Post, Procedencia, Product, ProductImage, Section, Term } from "../types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -46,6 +46,8 @@ function normalizeProduct(product: Product): Product {
   }
   return {
     ...product,
+    acabados: [],
+    origen: "wordpress",
     images: withAlt(product.images, product.name, (src) => variantAlt.get(src) ?? product.name),
   };
 }
@@ -67,9 +69,20 @@ export async function loadProducts(): Promise<Product[]> {
   return (await load<Product[]>("products.json")).map(normalizeProduct);
 }
 
-export const loadCategories = () => load<Category[]>("categories.json");
-export const loadCollections = () => load<Collection[]>("collections.json");
-export const loadProcedencias = () => load<Procedencia[]>("procedencias.json");
+// WordPress titula sus páginas de archivo "Escritorios archivos - Sedie & Mobili": el
+// "archivos" no le dice nada al visitante ni al buscador. Se quita al leer, antes de la marca
+// si la hay; la marca la pone la plantilla del título (lib/seo.ts). Si no queda nada, null, y
+// la página usa el nombre del término.
+const SUFIJO_ARCHIVO = /\s+archivos(?=\s*(?:[-–—·|]\s*Sedie\b.*)?$)/i;
+
+function normalizeTerm<T extends Term>(term: T): T {
+  const title = term.seo.title?.replace(SUFIJO_ARCHIVO, "").trim() || null;
+  return { ...term, seo: { ...term.seo, title } };
+}
+
+export const loadCategories = async () => (await load<Category[]>("categories.json")).map(normalizeTerm);
+export const loadCollections = async () => (await load<Collection[]>("collections.json")).map(normalizeTerm);
+export const loadProcedencias = async () => (await load<Procedencia[]>("procedencias.json")).map(normalizeTerm);
 
 export async function loadPosts(): Promise<Post[]> {
   return (await load<Post[]>("posts.json")).map(normalizeEntry);

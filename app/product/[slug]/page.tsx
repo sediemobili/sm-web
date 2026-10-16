@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { VistaProducto } from "@/components/Analytics/VistaProducto";
+import { Acabados } from "@/components/Producto/Acabados";
 import { Descargables } from "@/components/Producto/Descargables";
 import { Galeria } from "@/components/Producto/Galeria";
 import { PanelCompra } from "@/components/Producto/PanelCompra";
@@ -11,18 +12,29 @@ import {
   getCategories,
   getCategoryBySlug,
   getProductBySlug,
-  getProducts,
   getProductsByCategory,
   type Category,
 } from "@/lib/data";
+import { ESCRITORIOS, SILLAS } from "@/lib/destacados";
 import { migas as migasLd, producto as productoLd } from "@/lib/jsonld";
 import { descripcionProducto, metadataDe } from "@/lib/seo";
 
 // Ancho medido de la columna de relacionados: ~166px en móvil y 176px en escritorio.
 const TAMANO_RELACIONADOS = "(max-width: 767px) 45vw, 180px";
 
+// En el build se prerenderizan solo los productos de la home y los primeros de cada categoría;
+// el resto se genera la primera vez que alguien los visita y queda guardado.
+const PRIMEROS_POR_CATEGORIA = 3;
+
 export async function generateStaticParams() {
-  return (await getProducts()).items.map((producto) => ({ slug: producto.slug }));
+  const categorias = (await getCategories()).filter((categoria) => categoria.parentSlug === null);
+  const primeros = await Promise.all(
+    categorias.map(async (categoria) =>
+      (await getProductsByCategory(categoria.slug)).slice(0, PRIMEROS_POR_CATEGORIA).map((producto) => producto.slug),
+    ),
+  );
+  const slugs = new Set([...SILLAS, ...ESCRITORIOS, ...primeros.flat()]);
+  return [...slugs].map((slug) => ({ slug }));
 }
 
 // La categoría principal es la más profunda: WooCommerce etiqueta con la hija y la madre.
@@ -94,6 +106,9 @@ export default async function ProductoPage({ params }: PageProps<"/product/[slug
         {producto.description ? (
           <div className={estilos.descripcion} dangerouslySetInnerHTML={{ __html: producto.description }} />
         ) : null}
+
+        {/* La API trae la lista de acabados vacía: mientras lo esté, no se pinta nada. */}
+        {producto.acabados.length ? <Acabados acabados={producto.acabados} /> : null}
 
         <PanelCompra producto={producto} categoria={detalle?.name ?? null} />
       </div>

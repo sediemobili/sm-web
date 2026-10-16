@@ -42,6 +42,18 @@ export type Variant = {
   image: string | null;
 };
 
+// Acabado de un producto (tela, color, material). Solo lo trae la API; hoy llega vacío.
+export type Acabado = {
+  id: string;
+  label: string;
+  description: string | null;
+  image: string | null;
+};
+
+// De dónde sale el producto. Con DATA_SOURCE=sedie-api, "wordpress" marca los que la API no
+// tiene y se siguen sirviendo del JSON extraído ("sin origen en la API").
+export type ProductOrigen = "sedie-api" | "wordpress";
+
 export type Product = {
   id: number;
   slug: string;
@@ -64,6 +76,8 @@ export type Product = {
   tags: string[];
   specs: Spec[] | null;
   downloads: Download[] | null;
+  acabados: Acabado[];
+  origen: ProductOrigen;
   seo: Seo;
 };
 
@@ -142,6 +156,9 @@ export type ProductQuery = {
   procedencia?: string;
   limit?: number;
   offset?: number;
+  // Los productos sin foto no salen en listados ni carruseles, pero su ficha existe. Lo que
+  // necesita encontrarlos igual (la lista de cotización) pasa true.
+  incluirOcultos?: boolean;
 };
 
 // getProducts pagina: items es la página pedida y total cuenta todo lo que pasa el filtro.

@@ -1,0 +1,481 @@
+Sincronización con la API de catálogo de Sedie
+Fuente: https://sedie-wiki.vercel.app/api/external/v1
+
+Productos de la API por categoría
+---------------------------------
+  bancas.................................... 25
+  escritorios............................... 18
+  mesabancos................................ 14
+  mesas..................................... 10
+  recepciones............................... 8
+  sillas.................................... 207
+  sofas..................................... 83
+  soft-seating.............................. 24
+  taburetes................................. 16
+  Total..................................... 405
+
+Contenido
+---------
+  Con foto principal........................ 307 de 405
+  Con galería............................... 297 de 405
+  Con PDF................................... 240 de 405
+  Con algún documento (PDF u otro).......... 240 de 405
+  Con especificaciones...................... 55 de 405
+  Con descripción........................... 405 de 405
+  Con descripción propia (no repetida)...... 381 de 405
+
+Cruce con WordPress (157 productos), por nombre normalizado
+-----------------------------------------------------------
+  Con equivalente inequívoco................ 113
+    por nombre exacto....................... 73
+    desempatados por categoría.............. 26
+    desempatados por subcategoría........... 5
+    por prefijo de categoría................ 7
+    por resolución manual................... 2
+  Dudosos................................... 0
+  Sin equivalente........................... 44
+
+Productos de WordPress sin equivalente en la API (a resolver a mano)
+--------------------------------------------------------------------
+  - 03-BE15 (03-be15)
+  - 14-10800 (14-10800)
+  - Air Duo 1 (air-duo-1)
+  - Air Duo 2 (air-duo-2)
+  - Air Duo 3 (air-duo-3)
+  - Basic 1 (basic-1)
+  - Basic 2 (basic-2)
+  - Blitz Visita (blitz-visita)
+  - Castell Visita (castell-visita)
+  - Dínamo 1 (dinamo-1)
+  - Elegance I (elegance-i)
+  - Eureka Visita (eureka-visita)
+  - Galaxy Visita (galaxy-visita)
+  - Habana Visita (habana-visita)
+  - Industrial 1 (industrial-1)
+  - Larus 1 (larus-1)
+  - Larus 2 (larus-2)
+  - Larus 3 (larus-3)
+  - Larus 4 (larus-4)
+  - Lithos 1 (lithos-1)
+  - Lithos 2 (lithos-2)
+  - Lithos 3 (lithos-3)
+  - Lithos 4 (lithos-4)
+  - Nova Iso (nova-iso)
+  - Orlando Visita (orlando-visita)
+  - Quadri Q11 (quadri-q11)
+  - Quadri Q16 (quadri-q16)
+  - Quadri Q18 (quadri-q18)
+  - Quadri Q20 (quadri-q20)
+  - Quadri Q22 (quadri-q22)
+  - Quadri Q23 (quadri-q23)
+  - Quadri Q3 (quadri-q3)
+  - Quadri Q4 (quadri-q4)
+  - Quadri Q6 (quadri-q6)
+  - Seneca Visita (seneca-visita)
+  - Space Plegable (space-plegable)
+  - TEMX One (temx-one)
+  - TEMX Two (temx-two)
+  - Versátil V1 (versatil-v1)
+  - Versátil V3-HYB (versatil-v3-hyb)
+  - Versátil V3-HYB+LSP (versatil-v3-hyblsp)
+  - Versátil V4-MET (versatil-v4-met)
+  - Versátil V7-MET (versatil-v7-met)
+  - Versátil V8-MESA (versatil-v8-mesa)
+
+Emparejados por una regla o a mano (revisar)
+--------------------------------------------
+  - Airport (airport) → bancas/banca-airport: Nombre de la API con prefijo de categoría.
+  - Alejandría (alejandria) → soft-seating/alejandria: Desempate por categoría.
+  - Bali (bali) → soft-seating/bali: Desempate por categoría.
+  - Barcelona (barcelona) → sillas/barcelona: Desempate por categoría.
+  - Berlin (berlin) → sillas/silla-berlin: Nombre de la API con prefijo de categoría.
+  - Bubble (bubble) → soft-seating/bubble: Desempate por categoría.
+  - Chaya (chaya) → bancas/banca-chaya: Nombre de la API con prefijo de categoría.
+  - Com Sette (com-sette) → soft-seating/com-sette: Desempate por categoría (nombre repetido en WordPress).
+  - Com Sette (com-sette-2) → sillas/com-sette: Desempate por categoría (nombre repetido en WordPress).
+  - Dakota (dakota) → soft-seating/dakota: Desempate por categoría.
+  - Dublín (dublin) → recepciones/dublin: Desempate por categoría.
+  - Elisa (elisa) → sillas/elisa: Desempate por subcategoría.
+  - Eugenia (eugenia) → sillas/eugenia: Desempate por subcategoría.
+  - Frill (frill) → taburetes/frill: Desempate por categoría.
+  - Italia (italia) → soft-seating/italia: Desempate por categoría.
+  - Karl (karl) → taburetes/karl: Desempate por categoría.
+  - Karla (karla) → bancas/banca-karla: Nombre de la API con prefijo de categoría.
+  - Kiwi (kiwi) → bancas/banca-kiwi: Resolución manual.
+  - Kontor (kontor) → sillas/kontor: Desempate por subcategoría.
+  - Kube (kube) → soft-seating/kube: Desempate por categoría.
+  - Leo (leo) → soft-seating/leo: Desempate por categoría (nombre repetido en WordPress).
+  - Leo (leo-2) → taburetes/leo: Desempate por categoría (nombre repetido en WordPress).
+  - Lucca (lucca) → sillas/lucca: Desempate por subcategoría.
+  - Malaga (malaga) → sofas/malaga: Resolución manual.
+  - Mimi (mimi) → taburetes/mimi: Desempate por categoría.
+  - New (new) → bancas/banca-new: Nombre de la API con prefijo de categoría.
+  - Nilo (nilo) → taburetes/nilo: Desempate por categoría.
+  - Niza (niza) → soft-seating/niza: Desempate por categoría.
+  - Piero (piero) → taburetes/piero: Desempate por categoría.
+  - Polonia (polonia) → soft-seating/polonia: Desempate por categoría.
+  - Pull (pull) → taburetes/pull: Desempate por categoría.
+  - Raffa (raffa) → soft-seating/raffa: Desempate por categoría.
+  - Solar (solar) → sillas/solar: Desempate por subcategoría.
+  - Suiza (suiza) → sofas/suiza: Desempate por categoría (nombre repetido en WordPress).
+  - Suiza (suiza-2) → sillas/suiza: Desempate por categoría (nombre repetido en WordPress).
+  - Tapas (tapas) → mesas/mesa-tapas: Nombre de la API con prefijo de categoría.
+  - Thai (thai) → soft-seating/thai: Desempate por categoría.
+  - Uno (uno) → escritorios/uno: Desempate por categoría.
+  - Valle Sport (valle-sport) → bancas/banca-valle-sport: Nombre de la API con prefijo de categoría.
+  - Yeka (yeka) → taburetes/yeka: Desempate por categoría.
+
+Productos de WordPress dudosos por nombre repetido en la API (a resolver a mano)
+--------------------------------------------------------------------------------
+  (ninguno)
+
+Productos de WordPress dudosos por nombre repetido en WordPress (a resolver a mano)
+-----------------------------------------------------------------------------------
+  (ninguno)
+
+Nombres repetidos en la API (no se elige ninguno)
+-------------------------------------------------
+  - Uno: escritorios/uno [Mobiliario nacional], sofas/uno [Mobiliario italiano]
+  - Dublin: recepciones/dublin [Recepción], sofas/dublin [Sofá Comunitario]
+  - Madrid: recepciones/madrid [Recepción], sillas/madrid [Silla ejecutiva]
+  - Alejandria: sillas/alejandria [Silla de visita], soft-seating/alejandria [Soft seating]
+  - Barcelona: sillas/barcelona [Silla escolar], sofas/barcelona [Sofá Capacitacion]
+  - Centurión: sillas/centurion [Silla directiva], sofas/centurion [Sofá Recepcion]
+  - College: sillas/college [Silla de visita], sillas/college-sillas-escolar [Silla escolar]
+  - Com Sette: sillas/com-sette [Silla ejecutiva], soft-seating/com-sette [Soft seating]
+  - Elisa: sillas/elisa [Silla directiva], sillas/elisa-sillas-ejecutivas [Silla ejecutiva]
+  - Eugenia: sillas/eugenia [Silla directiva], sillas/eugenia-sillas-ejecutivas [Silla ejecutiva]
+  - Ferrovivo: sillas/ferrovivo [Silla directiva], sillas/ferrovivo-sillas-ejecutivas [Silla ejecutiva]
+  - Frill: sillas/frill [Silla de visita], taburetes/frill [Taburete]
+  - Karl: sillas/karl [Silla de visita], taburetes/karl [Taburete]
+  - Kiwi: sillas/kiwi [Silla de visita], taburetes/kiwi [Taburete]
+  - Kontor: sillas/kontor [Silla operativa], sillas/kontor-sillas-secretariales [Silla secretarial]
+  - Lucca: sillas/lucca [Silla operativa], sillas/lucca-sillas-visita [Silla de visita]
+  - Lunapiena: sillas/lunapiena [Silla directiva], sillas/lunapiena-sillas-ejecutivas [Silla ejecutiva]
+  - Margot: sillas/margot [Silla de visita], taburetes/margot [Taburete]
+  - Mimi: sillas/mimi [Silla de visita], taburetes/mimi [Taburete]
+  - Nilo: sillas/nilo [Silla de visita], taburetes/nilo [Taburete]
+  - Piero: sillas/piero [Silla de visita], taburetes/piero [Taburete]
+  - Pull: sillas/pull [Silla de visita], taburetes/pull [Taburete]
+  - Raffa: sillas/raffa [Silla de visita], soft-seating/raffa [Soft seating]
+  - Roll: sillas/roll [Silla de visita], taburetes/roll [Taburete]
+  - Smile: sillas/smile [Silla de visita], taburetes/smile [Taburete]
+  - Solar: sillas/solar [Silla directiva], sillas/solar-sillas-ejecutivas [Silla ejecutiva]
+  - Specchio Nero: sillas/specchio-nero [Silla directiva], sillas/specchio-nero-sillas-ejecutivas [Silla ejecutiva]
+  - Suiza: sillas/suiza [Silla operativa], sofas/suiza [Sofá Recepcion]
+  - Volare: sillas/volare [Silla directiva], sillas/volare-sillas-ejecutivas [Silla ejecutiva]
+  - Yeka: sillas/yeka [Silla de visita], taburetes/yeka [Taburete]
+  - Bali: sofas/bali [Sofá Comunitario], soft-seating/bali [Soft seating]
+  - Bubble: sofas/bubble [Sofá Hogar], soft-seating/bubble [Soft seating]
+  - Dakota: sofas/dakota [Sofá Generales], soft-seating/dakota [Soft seating]
+  - Gales: sofas/gales [Sofá Recepcion], sofas/gales-sofas-capacitacion [Sofá Capacitacion]
+  - Italia: sofas/italia [Sofá Hogar], soft-seating/italia [Soft seating]
+  - Kube: sofas/kube [Sofá Generales], soft-seating/kube [Soft seating]
+  - Londres: sofas/londres [Sofá Comunitario], sofas/londres-sofas-capacitacion [Sofá Capacitacion]
+  - Malaga: sofas/malaga [Sofá Recepcion], sofas/malaga-sofas-generales [Sofá Generales]
+  - Niza: sofas/niza [Sofá Generales], soft-seating/niza [Soft seating]
+  - Patmos: sofas/patmos [Sofá Generales], soft-seating/patmos [Soft seating]
+  - Polonia: sofas/polonia [Sofá Comunitario], soft-seating/polonia [Soft seating]
+  - Thai: sofas/thai [Sofá Comunitario], soft-seating/thai [Soft seating]
+  - Leo: soft-seating/leo [Soft seating], taburetes/leo [Taburete]
+
+Nombres repetidos en WordPress
+------------------------------
+  - Suiza: suiza, suiza-2
+  - Leo: leo, leo-2
+  - Com Sette: com-sette, com-sette-2
+
+Productos de la API que no existen hoy en el sitio: 292
+-------------------------------------------------------
+  - Banca Aero (bancas/banca-aero)
+  - Banca BE15 (bancas/banca-be15)
+  - Banca Bec21 (bancas/banca-bec21)
+  - Banca Bec24 (bancas/banca-bec24)
+  - Banca Bec26 (bancas/banca-bec26)
+  - Banca Bem51 (bancas/banca-bem51)
+  - Banca Beo13 (bancas/banca-beo13)
+  - Banca Beo14 (bancas/banca-beo14)
+  - Banca Ber41 (bancas/banca-ber41)
+  - Banca Doble Tubo (bancas/banca-doble-tubo)
+  - Banca Euro (bancas/banca-euro)
+  - Banca Luna (bancas/banca-luna)
+  - Banca Mall (bancas/banca-mall)
+  - Banca Napoli (bancas/banca-napoli)
+  - Banca Ricci (bancas/banca-ricci)
+  - Banca Romy (bancas/banca-romy)
+  - Banca Slim (bancas/banca-slim)
+  - Banca Solution (bancas/banca-solution)
+  - Archiveros (escritorios/archiveros)
+  - Cajoneras (escritorios/cajoneras)
+  - Credenzas (escritorios/credenzas)
+  - Ekompi (escritorios/ekompi)
+  - Escritorio (escritorios/escritorio)
+  - Escritorio Credenza (escritorios/escritorio-credenza)
+  - Escritorio Librero (escritorios/escritorio-librero)
+  - Estación de Trabajo (escritorios/estacion-de-trabajo)
+  - Libreros (escritorios/libreros)
+  - Línea Air Duo (escritorios/linea-air-duo)
+  - Línea Basic (escritorios/linea-basic)
+  - Línea Dinamo (escritorios/linea-dinamo)
+  - Línea Quadri (escritorios/linea-quadri)
+  - Línea TEMX (escritorios/linea-temx)
+  - Línea Versatil (escritorios/linea-versatil)
+  - Segno (escritorios/segno)
+  - Tricepta (escritorios/tricepta)
+  - Mesa Escolar (mesabancos/mesa-escolar)
+  - Mesabanco Básico (mesabancos/mesabanco-basico)
+  - Mesabanco Custom (mesabancos/mesabanco-custom)
+  - Mesabanco Euro (mesabancos/mesabanco-euro)
+  - Mesabanco Filo (mesabancos/mesabanco-filo)
+  - Mesabanco Nova Iso (mesabancos/mesabanco-nova-iso)
+  - Mesabanco SOLUTION (mesabancos/mesabanco-solution)
+  - Pupitre Flux (mesabancos/pupitre-flux)
+  - Mesa Ajustable (mesas/mesa-ajustable)
+  - Mesa Infinity (mesas/mesa-infinity)
+  - Mesa Juntas (mesas/mesa-juntas)
+  - Mesa Lex (mesas/mesa-lex)
+  - Mesa Paula (mesas/mesa-paula)
+  - Mesa Plegable Manual (mesas/mesa-plegable-manual)
+  - Mesa Tapas A (mesas/mesa-tapas-a)
+  - Mesa Thumper (mesas/mesa-thumper)
+  - Mesa Twins (mesas/mesa-twins)
+  - Ca-Pedestal (recepciones/ca-pedestal)
+  - Madrid (recepciones/madrid)
+  - Repisa y Panel-AMST (recepciones/repisa-y-panel-amst)
+  - Absolute (sillas/absolute)
+  - Agata (sillas/agata)
+  - Alejandria (sillas/alejandria)
+  - Andromeda (sillas/andromeda)
+  - Atlanta (sillas/atlanta)
+  - Atlantis (sillas/atlantis)
+  - Aurora (sillas/aurora)
+  - Austria (sillas/austria)
+  - Bengala (sillas/bengala)
+  - Betania (sillas/betania)
+  - Boucle (sillas/boucle)
+  - Braun Chair (sillas/braun-chair)
+  - Brooklyn (sillas/brooklyn)
+  - Cajun (sillas/cajun)
+  - Casio (sillas/casio)
+  - Catullo (sillas/catullo)
+  - Centurión (sillas/centurion)
+  - Cicero (sillas/cicero)
+  - College (sillas/college)
+  - College (sillas/college-sillas-escolar)
+  - Colorado (sillas/colorado)
+  - Corinto (sillas/corinto)
+  - Cross (sillas/cross)
+  - Dortmund (sillas/dortmund)
+  - Duilio (sillas/duilio)
+  - Eco Express (sillas/eco-express)
+  - Efeso (sillas/efeso)
+  - Elisa (sillas/elisa-sillas-ejecutivas)
+  - Equity (sillas/equity)
+  - Escocia (sillas/escocia)
+  - Esparta (sillas/esparta)
+  - Eugenia (sillas/eugenia-sillas-ejecutivas)
+  - Euro (sillas/euro)
+  - Fanny (sillas/fanny)
+  - Feel (sillas/feel)
+  - Ferrara (sillas/ferrara)
+  - Ferrovivo (sillas/ferrovivo)
+  - Ferrovivo (sillas/ferrovivo-sillas-ejecutivas)
+  - Filo (sillas/filo)
+  - Finlandia (sillas/finlandia)
+  - Frill (sillas/frill)
+  - Fulkrom (sillas/fulkrom)
+  - Galicia (sillas/galicia)
+  - Gemina (sillas/gemina)
+  - Goa (sillas/goa)
+  - Grecia (sillas/grecia)
+  - Guinea (sillas/guinea)
+  - Hello (sillas/hello)
+  - Idea (sillas/idea)
+  - Iso Net (sillas/iso-net)
+  - Iso Visita (sillas/iso-visita)
+  - Jack (sillas/jack)
+  - James (sillas/james)
+  - Kairo (sillas/kairo)
+  - Karl (sillas/karl)
+  - Kentra (sillas/kentra)
+  - Kenya (sillas/kenya)
+  - Kepler (sillas/kepler)
+  - Kioto (sillas/kioto)
+  - Kiwi (sillas/kiwi)
+  - Kontor (sillas/kontor-sillas-secretariales)
+  - Kubo (sillas/kubo)
+  - Kuvie (sillas/kuvie)
+  - Larisa (sillas/larisa)
+  - Layer (sillas/layer)
+  - Leverkusen (sillas/leverkusen)
+  - Linz (sillas/linz)
+  - Lucca (sillas/lucca-sillas-visita)
+  - Lucky (sillas/lucky)
+  - Lunapiena (sillas/lunapiena)
+  - Lunapiena (sillas/lunapiena-sillas-ejecutivas)
+  - Lux (sillas/lux)
+  - Madrid (sillas/madrid)
+  - Magix (sillas/magix)
+  - Malé (sillas/male)
+  - Manila (sillas/manila)
+  - Margot (sillas/margot)
+  - Marruecos (sillas/marruecos)
+  - Maya (sillas/maya)
+  - Melita (sillas/melita)
+  - Mika (sillas/mika)
+  - Miki (sillas/miki)
+  - Mimi (sillas/mimi)
+  - Mont (sillas/mont)
+  - Montecarlo (sillas/montecarlo)
+  - Mozart (sillas/mozart)
+  - Mua (sillas/mua)
+  - Munich (sillas/munich)
+  - Naín (sillas/nain)
+  - Namaste (sillas/namaste)
+  - Napolitana (sillas/napolitana)
+  - Nara (sillas/nara)
+  - Nilo (sillas/nilo)
+  - Noruega (sillas/noruega)
+  - Nova iso Secretarial (sillas/nova-iso-secretarial)
+  - Nova Iso Visita (sillas/nova-iso-visita)
+  - Oki (sillas/oki)
+  - Olympus (sillas/olympus)
+  - Orion (sillas/orion)
+  - Orus (sillas/orus)
+  - Paris (sillas/paris)
+  - Paula (sillas/paula)
+  - Piero (sillas/piero)
+  - Pinko (sillas/pinko)
+  - Pluto (sillas/pluto)
+  - Porto (sillas/porto)
+  - Praga (sillas/praga)
+  - Pretorio (sillas/pretorio)
+  - Provenza (sillas/provenza)
+  - Pull (sillas/pull)
+  - Q32 (sillas/q32)
+  - Raffa (sillas/raffa)
+  - Roby (sillas/roby)
+  - Roll (sillas/roll)
+  - Rz1 Secretarial (sillas/rz1-secretarial)
+  - Scorpion (sillas/scorpion)
+  - Serbia (sillas/serbia)
+  - Sevilla (sillas/sevilla)
+  - Sidón (sillas/sidon)
+  - Sienna (sillas/sienna)
+  - Silla Industrial (sillas/silla-industrial)
+  - Sión (sillas/sion)
+  - Smile (sillas/smile)
+  - Solar (sillas/solar-sillas-ejecutivas)
+  - Solution (sillas/solution)
+  - Soreq (sillas/soreq)
+  - Space (sillas/space)
+  - Specchio Nero (sillas/specchio-nero)
+  - Specchio Nero (sillas/specchio-nero-sillas-ejecutivas)
+  - Star-Parma (sillas/star-parma)
+  - Steel (sillas/steel)
+  - Stela (sillas/stela)
+  - Stilissima (sillas/stilissima)
+  - Stratos (sillas/stratos)
+  - Taburete Industrial (sillas/taburete-industrial)
+  - Tarzo (sillas/tarzo)
+  - Tessa (sillas/tessa)
+  - Tokyo (sillas/tokyo)
+  - Toledo (sillas/toledo)
+  - Toronto (sillas/toronto)
+  - Tulip (sillas/tulip)
+  - Utility (sillas/utility)
+  - Vigo (sillas/vigo)
+  - Virgola (sillas/virgola)
+  - Vita (sillas/vita)
+  - Volare (sillas/volare)
+  - Volare (sillas/volare-sillas-ejecutivas)
+  - Volo (sillas/volo)
+  - Walter Jr (sillas/walter-jr)
+  - Work (sillas/work)
+  - X2 (sillas/x2)
+  - X3 (sillas/x3)
+  - Ximena (sillas/ximena)
+  - Yeka (sillas/yeka)
+  - Andrea (sofas/andrea)
+  - Angel (sofas/angel)
+  - Asis (sofas/asis)
+  - Bali (sofas/bali)
+  - Barcelona (sofas/barcelona)
+  - Bubble (sofas/bubble)
+  - Catania (sofas/catania)
+  - Centurion (sofas/centurion)
+  - Cloud (sofas/cloud)
+  - Dakota (sofas/dakota)
+  - Denali (sofas/denali)
+  - Dubai (sofas/dubai)
+  - Dublin (sofas/dublin)
+  - Dunas (sofas/dunas)
+  - Ébano (sofas/ebano)
+  - Egipto (sofas/egipto)
+  - Elegance (sofas/elegance)
+  - Estambul (sofas/estambul)
+  - Estocolmo (sofas/estocolmo)
+  - Estonia (sofas/estonia)
+  - Everest (sofas/everest)
+  - Filipo (sofas/filipo)
+  - Florencia (sofas/florencia)
+  - Francia (sofas/francia)
+  - Frankfurt (sofas/frankfurt)
+  - Gales (sofas/gales)
+  - Gales (sofas/gales-sofas-capacitacion)
+  - Henry (sofas/henry)
+  - HK Soft (sofas/hk-soft)
+  - Italia (sofas/italia)
+  - Kansas (sofas/kansas)
+  - Karim (sofas/karim)
+  - Korolev (sofas/korolev)
+  - Kube (sofas/kube)
+  - Larus (sofas/larus)
+  - Lithos (sofas/lithos)
+  - Londres (sofas/londres)
+  - Londres (sofas/londres-sofas-capacitacion)
+  - Malaga (sofas/malaga-sofas-generales)
+  - Malta (sofas/malta)
+  - Manhatan (sofas/manhatan)
+  - Miami (sofas/miami)
+  - Milan (sofas/milan)
+  - Monaco (sofas/monaco)
+  - Movie (sofas/movie)
+  - Nepal (sofas/nepal)
+  - Niza (sofas/niza)
+  - Nube (sofas/nube)
+  - Oxford (sofas/oxford)
+  - Paolo (sofas/paolo)
+  - Pasha (sofas/pasha)
+  - Patmos (sofas/patmos)
+  - Polonia (sofas/polonia)
+  - Portugal (sofas/portugal)
+  - Pozzeto (sofas/pozzeto)
+  - Pozzetto (sofas/pozzetto)
+  - Qatar (sofas/qatar)
+  - Roma (sofas/roma)
+  - Sahara (sofas/sahara)
+  - Soft (sofas/soft)
+  - Star (sofas/star)
+  - Stuttgart (sofas/stuttgart)
+  - Tarento (sofas/tarento)
+  - Thai (sofas/thai)
+  - Tokio (sofas/tokio)
+  - Turquia (sofas/turquia)
+  - Twister (sofas/twister)
+  - Uno (sofas/uno)
+  - Venecia (sofas/venecia)
+  - Viena (sofas/viena)
+  - Air (soft-seating/air)
+  - Branch (soft-seating/branch)
+  - H20 (soft-seating/h20)
+  - Leaf (soft-seating/leaf)
+  - Patmos (soft-seating/patmos)
+  - Water (soft-seating/water)
+  - Wind (soft-seating/wind)
+  - Banco Lab (taburetes/banco-lab)
+  - Kiwi (taburetes/kiwi)
+  - Margot (taburetes/margot)
+  - Roll (taburetes/roll)
+  - Ross (taburetes/ross)
+  - Smile (taburetes/smile)

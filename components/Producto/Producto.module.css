@@ -129,6 +129,46 @@
   color: var(--color-fondo);
 }
 
+/* Acabados: muestra pequeña y nombre, en la misma rejilla que los descargables. */
+.acabados {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-3);
+  margin: 0;
+  padding: 0 0 var(--espacio-4);
+  list-style: none;
+}
+
+.acabado {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  color: var(--color-tinta);
+}
+
+.acabadoMuestra {
+  flex: 0 0 auto;
+  width: var(--espacio-6);
+  height: var(--espacio-6);
+  overflow: hidden;
+  border-radius: var(--radio-s);
+  background-color: var(--color-fondo-suave);
+}
+
+.acabadoImagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.acabadoDescripcion {
+  display: block;
+  font-size: var(--texto-xs);
+  color: var(--color-texto);
+}
+
 .descripcion {
   font-family: var(--fuente-texto);
   font-size: var(--texto-m);
@@ -281,7 +321,8 @@
     padding: 31px 31px 40px 15px;
   }
 
-  .descargas {
+  .descargas,
+  .acabados {
     grid-template-columns: repeat(2, 1fr);
   }
 }

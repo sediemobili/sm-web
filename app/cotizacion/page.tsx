@@ -9,12 +9,13 @@ export const metadata: Metadata = {
 };
 
 export default async function CotizacionPage() {
-  const [{ items }, categorias] = await Promise.all([getProducts(), getCategories()]);
+  const [{ items }, categorias] = await Promise.all([getProducts({ incluirOcultos: true }), getCategories()]);
   const nombreCategoria = (slugs: string[]) => {
     const suyas = categorias.filter((categoria) => slugs.includes(categoria.slug));
     return (suyas.find((categoria) => categoria.parentSlug !== null) ?? suyas[0])?.name ?? null;
   };
 
+  // incluirOcultos: un producto sin foto no sale en los listados, pero se puede cotizar desde su ficha.
   // Solo lo que la tabla necesita: los datos siguen viniendo de lib/data, no de la lista.
   const productos: ProductoResumen[] = items.map((producto) => ({
     slug: producto.slug,

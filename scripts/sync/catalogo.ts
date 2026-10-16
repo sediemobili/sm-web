@@ -7,6 +7,11 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { normalizar } from "../../lib/buscar.ts";
+import {
+  EQUIVALENCIAS_MANUALES,
+  PREFIJOS_CATEGORIA,
+  categoriaSitio,
+} from "../../lib/data/sedie-api/correspondencias.ts";
 
 const API = "https://sedie-wiki.vercel.app/api/external/v1";
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -49,6 +54,10 @@ type ProductoGuardado = Producto & {
 };
 
 type ProductoWp = { slug: string; name: string; categories: string[] };
+type CategoriaWp = { slug: string; parentSlug: string | null };
+
+// Las tablas de correspondencia (categorías, subcategorías, prefijos y resoluciones manuales)
+// viven en lib/data/sedie-api/correspondencias.ts: las comparte el repositorio del sitio.
 
 type Equivalencia = {
   wpSlug: string;
@@ -184,27 +193,119 @@ function agrupar<T>(items: T[], clave: (item: T) => string) {
   return grupos;
 }
 
-function cruzar(api: ProductoGuardado[], wp: ProductoWp[]) {
+function cruzar(api: ProductoGuardado[], wp: ProductoWp[], categoriasWp: CategoriaWp[]) {
   const apiPorNombre = agrupar(api, (p) => normalizar(p.nombre));
   const wpPorNombre = agrupar(wp, (p) => normalizar(p.name));
+  const apiPorSlug = new Map(api.map((p) => [p.slug, p]));
+  const madres = new Map(categoriasWp.map((c) => [c.slug, c.parentSlug]));
+  const madreDe = (slug: string) => madres.get(slug) ?? null;
+  const primerNivel = (slug: string) => madreDe(slug) ?? slug;
+
+  // Dónde se publicaría cada producto de la API en el sitio, con las tablas compartidas.
+  const sitioDe = (p: ProductoGuardado) => categoriaSitio(p.categoria, p.tipo, madreDe);
+  // Misma categoría de primer nivel que alguna del producto de WordPress.
+  const mismaCategoria = (p: ProductoGuardado, w: ProductoWp) => {
+    const sitio = sitioDe(p);
+    return sitio !== null && w.categories.some((c) => primerNivel(c) === primerNivel(sitio));
+  };
+  // Además, la subcategoría no se contradice: es la misma, o uno de los dos solo tiene la madre.
+  const mismaSubcategoria = (p: ProductoGuardado, w: ProductoWp) => {
+    const sitio = sitioDe(p);
+    return sitio !== null && w.categories.some((c) => c === sitio || c === primerNivel(sitio) || sitio === primerNivel(c));
+  };
+
+  // Desempate de varios candidatos: primero la categoría y, si sigue el empate, la subcategoría.
+  function desempatar(w: ProductoWp, candidatos: ProductoGuardado[], motivoExtra: string) {
+    const porCategoria = candidatos.filter((p) => mismaCategoria(p, w));
+    if (porCategoria.length === 1) return { elegido: porCategoria[0], motivo: `Desempate por categoría${motivoExtra}.` };
+    if (porCategoria.length === 0) return { elegido: null, quedan: candidatos, motivo: "ningún candidato es de su categoría" };
+    const porSubcategoria = porCategoria.filter((p) => mismaSubcategoria(p, w));
+    if (porSubcategoria.length === 1)
+      return { elegido: porSubcategoria[0], motivo: `Desempate por subcategoría${motivoExtra}.` };
+    return {
+      elegido: null,
+      quedan: porSubcategoria.length > 1 ? porSubcategoria : porCategoria,
+      motivo: "la categoría no desempata",
+    };
+  }
+
+  // Nombres de la API con el prefijo de su categoría ("Banca Kiwi"): para los que no tienen
+  // pareja por nombre exacto. Cuenta solo si la categoría (y la subcategoría) coinciden.
+  function porPrefijo(w: ProductoWp) {
+    const nombre = normalizar(w.name);
+    return api.filter(
+      (p) =>
+        (PREFIJOS_CATEGORIA[p.categoria] ?? []).some((prefijo) => normalizar(`${prefijo} ${w.name}`) === normalizar(p.nombre)) &&
+        normalizar(p.nombre) !== nombre &&
+        // Un producto de la API que ya tiene pareja exacta en WordPress no es candidato.
+        !wpPorNombre.has(normalizar(p.nombre)) &&
+        mismaSubcategoria(p, w),
+    );
+  }
 
   const equivalencias: Equivalencia[] = wp.map((producto) => {
     const nombre = normalizar(producto.name);
-    const candidatos = (apiPorNombre.get(nombre) ?? []).map((p) => p.slug).sort();
     const base = { wpSlug: producto.slug, wpNombre: producto.name };
-    if (candidatos.length === 0)
-      return { ...base, apiSlug: null, estado: "sin-pareja", motivo: "Ningún producto de la API tiene este nombre.", candidatos };
-    if (candidatos.length > 1)
-      return { ...base, apiSlug: null, estado: "dudoso", motivo: "El nombre está repetido en la API.", candidatos };
-    if ((wpPorNombre.get(nombre) ?? []).length > 1)
-      return { ...base, apiSlug: null, estado: "dudoso", motivo: "El nombre está repetido en WordPress.", candidatos };
-    return { ...base, apiSlug: candidatos[0], estado: "inequivoco", motivo: null, candidatos: [] };
+    const inequivoco = (apiSlug: string, motivo: string | null): Equivalencia => ({
+      ...base,
+      apiSlug,
+      estado: "inequivoco",
+      motivo,
+      candidatos: [],
+    });
+    const dudoso = (motivo: string, quedan: ProductoGuardado[]): Equivalencia => ({
+      ...base,
+      apiSlug: null,
+      estado: "dudoso",
+      motivo,
+      candidatos: quedan.map((p) => p.slug).sort(),
+    });
+
+    const manual = EQUIVALENCIAS_MANUALES[producto.slug];
+    if (manual) {
+      if (!apiPorSlug.has(manual)) return dudoso(`La resolución manual apunta a ${manual}, que la API no tiene.`, []);
+      return inequivoco(manual, "Resolución manual.");
+    }
+
+    const exactos = apiPorNombre.get(nombre) ?? [];
+    const repetidoWp = (wpPorNombre.get(nombre) ?? []).length > 1;
+
+    if (exactos.length === 0) {
+      const prefijados = porPrefijo(producto);
+      if (prefijados.length === 1) return inequivoco(prefijados[0].slug, "Nombre de la API con prefijo de categoría.");
+      if (prefijados.length > 1) return dudoso("Varios nombres de la API con prefijo de categoría.", prefijados);
+      return { ...base, apiSlug: null, estado: "sin-pareja", motivo: "Ningún producto de la API tiene este nombre.", candidatos: [] };
+    }
+    if (exactos.length === 1 && !repetidoWp) return inequivoco(exactos[0].slug, null);
+
+    // Nombre repetido en la API, en WordPress o en los dos: decide la categoría.
+    const extra = repetidoWp ? " (nombre repetido en WordPress)" : "";
+    const resultado = desempatar(producto, exactos, extra);
+    if (resultado.elegido) return inequivoco(resultado.elegido.slug, resultado.motivo);
+    const donde = repetidoWp ? "en WordPress" : "en la API";
+    return dudoso(`El nombre está repetido ${donde} y ${resultado.motivo}.`, resultado.quedan ?? exactos);
   });
+
+  // Un producto de la API no puede ser la pareja de dos de WordPress: si pasa, los dos quedan dudosos.
+  const porApiSlug = agrupar(
+    equivalencias.filter((e) => e.apiSlug),
+    (e) => e.apiSlug!,
+  );
+  for (const grupo of porApiSlug.values()) {
+    if (grupo.length < 2) continue;
+    for (const e of grupo) {
+      e.candidatos = [e.apiSlug!];
+      e.motivo = `Otro producto de WordPress apunta al mismo de la API (${grupo.map((g) => g.wpSlug).join(", ")}).`;
+      e.apiSlug = null;
+      e.estado = "dudoso";
+    }
+  }
   equivalencias.sort((a, b) => a.wpSlug.localeCompare(b.wpSlug));
 
+  const emparejados = new Set(equivalencias.map((e) => e.apiSlug).filter(Boolean));
   const repetidosApi = [...apiPorNombre.values()].filter((grupo) => grupo.length > 1);
   const repetidosWp = [...wpPorNombre.values()].filter((grupo) => grupo.length > 1);
-  const soloApi = api.filter((p) => !wpPorNombre.has(normalizar(p.nombre)));
+  const soloApi = api.filter((p) => !emparejados.has(p.slug));
   return { equivalencias, repetidosApi, repetidosWp, soloApi };
 }
 
@@ -247,17 +348,34 @@ function reporte(api: ProductoGuardado[], wp: ProductoWp[], cruce: ReturnType<ty
 
   const { equivalencias, repetidosApi, repetidosWp, soloApi } = cruce;
   const por = (estado: Equivalencia["estado"]) => equivalencias.filter((e) => e.estado === estado);
+  const conMotivo = (inicio: string) => por("inequivoco").filter((e) => e.motivo?.startsWith(inicio));
+  const repetidoWp = (e: Equivalencia) => Boolean(e.motivo?.startsWith("El nombre está repetido en WordPress"));
 
   titulo(`Cruce con WordPress (${wp.length} productos), por nombre normalizado`);
   lineas.push(`  ${"Con equivalente inequívoco".padEnd(42, ".")} ${por("inequivoco").length}`);
-  lineas.push(`  ${"Dudosos (nombre repetido)".padEnd(42, ".")} ${por("dudoso").length}`);
+  lineas.push(`  ${"  por nombre exacto".padEnd(42, ".")} ${por("inequivoco").filter((e) => !e.motivo).length}`);
+  lineas.push(`  ${"  desempatados por categoría".padEnd(42, ".")} ${conMotivo("Desempate por categoría").length}`);
+  lineas.push(`  ${"  desempatados por subcategoría".padEnd(42, ".")} ${conMotivo("Desempate por subcategoría").length}`);
+  lineas.push(`  ${"  por prefijo de categoría".padEnd(42, ".")} ${conMotivo("Nombre de la API con prefijo").length}`);
+  lineas.push(`  ${"  por resolución manual".padEnd(42, ".")} ${conMotivo("Resolución manual").length}`);
+  lineas.push(`  ${"Dudosos".padEnd(42, ".")} ${por("dudoso").length}`);
   lineas.push(`  ${"Sin equivalente".padEnd(42, ".")} ${por("sin-pareja").length}`);
 
   titulo("Productos de WordPress sin equivalente en la API (a resolver a mano)");
   lista(por("sin-pareja").map((e) => `${e.wpNombre} (${e.wpSlug})`));
 
-  titulo("Productos de WordPress dudosos (a resolver a mano)");
-  lista(por("dudoso").map((e) => `${e.wpNombre} (${e.wpSlug}): ${e.motivo} Candidatos: ${e.candidatos.join(", ")}`));
+  titulo("Emparejados por una regla o a mano (revisar)");
+  lista(por("inequivoco").filter((e) => e.motivo).map((e) => `${e.wpNombre} (${e.wpSlug}) → ${e.apiSlug}: ${e.motivo}`));
+
+  titulo("Productos de WordPress dudosos por nombre repetido en la API (a resolver a mano)");
+  lista(
+    por("dudoso")
+      .filter((e) => !repetidoWp(e))
+      .map((e) => `${e.wpNombre} (${e.wpSlug}): ${e.motivo} Candidatos: ${e.candidatos.join(", ")}`),
+  );
+
+  titulo("Productos de WordPress dudosos por nombre repetido en WordPress (a resolver a mano)");
+  lista(por("dudoso").filter(repetidoWp).map((e) => `${e.wpNombre} (${e.wpSlug}): candidatos en la API ${e.candidatos.join(", ")}`));
 
   titulo("Nombres repetidos en la API (no se elige ninguno)");
   lista(repetidosApi.map((g) => `${g[0].nombre}: ${g.map((p) => `${p.slug}${p.tipo ? ` [${p.tipo}]` : ""}`).join(", ")}`));
@@ -283,8 +401,10 @@ async function escribir(nombre: string, contenido: string) {
 }
 
 async function main() {
+  // --sin-descarga rehace el cruce y el reporte con el data/api/productos.json ya descargado.
+  const sinDescarga = process.argv.includes("--sin-descarga");
   const clave = process.env.SEDIE_API_KEY?.trim();
-  if (!clave) {
+  if (!clave && !sinDescarga) {
     console.error(
       "Falta SEDIE_API_KEY: la clave de la API de catálogo de Sedie.\n" +
         "Defínela en .env.local (SEDIE_API_KEY=...) o en el entorno y vuelve a correr pnpm sync:catalogo.",
@@ -294,9 +414,11 @@ async function main() {
 
   const wp = JSON.parse(await readFile(path.join(DATA_DIR, "products.json"), "utf8")) as ProductoWp[];
 
-  const lista = await listarProductos(clave);
-  const api = (await detallar(lista, clave)).sort((a, b) => a.slug.localeCompare(b.slug));
-  const cruce = cruzar(api, wp);
+  const api = sinDescarga
+    ? (JSON.parse(await readFile(path.join(SALIDA, "productos.json"), "utf8")) as ProductoGuardado[])
+    : (await detallar(await listarProductos(clave!), clave!)).sort((a, b) => a.slug.localeCompare(b.slug));
+  const categoriasWp = JSON.parse(await readFile(path.join(DATA_DIR, "categories.json"), "utf8")) as CategoriaWp[];
+  const cruce = cruzar(api, wp, categoriasWp);
   const texto = reporte(api, wp, cruce);
 
   console.log(texto);
