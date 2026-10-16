@@ -1,0 +1,236 @@
+/* Venta empresarial. Referencia de estilo: la ficha de producto (fotos con radio m, títulos en
+   Raleway medio) y la categoría (rejilla de tres). Los títulos de sección y los botones son
+   los patrones sm-*; aquí solo va lo propio de esta página. */
+
+/* Contenedor común: el ancho de contenido del sitio con su margen lateral. */
+.portada,
+.seccion {
+  max-width: var(--ancho-contenido);
+  margin-inline: auto;
+  padding-inline: var(--espacio-4);
+}
+
+/* Portada ------------------------------------------------------------------- */
+
+.portada {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--espacio-7);
+  padding-block: var(--espacio-6) var(--espacio-8);
+}
+
+.portadaTexto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-4);
+}
+
+.titulo {
+  font-size: var(--texto-4xl);
+  font-weight: var(--peso-medio);
+}
+
+.entrada {
+  font-size: var(--texto-l);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-3);
+  margin-block-start: var(--espacio-2);
+}
+
+.portadaFoto {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo-suave);
+}
+
+.portadaFoto img {
+  object-fit: cover;
+}
+
+/* Secciones ----------------------------------------------------------------- */
+
+.seccion {
+  padding-block: var(--espacio-6);
+}
+
+.subtitulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-medio);
+  line-height: var(--interlineado-titulo);
+  color: var(--color-tinta);
+}
+
+.texto {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-m);
+  font-weight: var(--peso-ligero);
+  line-height: var(--interlineado-base);
+  color: var(--color-texto);
+}
+
+/* Con quién trabajamos -------------------------------------------------------- */
+
+.audiencias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.audiencia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+/* Sin foto, el marco queda con el fondo crema: es el hueco de la foto pendiente. */
+.audienciaFoto {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  margin-block-end: var(--espacio-2);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo-suave);
+}
+
+.audienciaFoto img {
+  object-fit: cover;
+}
+
+/* Cómo trabajamos ------------------------------------------------------------- */
+
+.pasos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--espacio-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paso {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  padding-block-start: var(--espacio-4);
+  border-block-start: 1px solid var(--color-tinta);
+}
+
+.numero {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-ligero);
+  line-height: 1;
+  color: var(--color-acento);
+}
+
+/* Por qué con nosotros -------------------------------------------------------- */
+
+.motivos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--espacio-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.motivo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  padding: var(--espacio-5);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo-suave);
+}
+
+/* Categorías: la cinta va a todo el ancho, con su propio margen. */
+.categorias {
+  padding-block: var(--espacio-6);
+}
+
+/* Cierre ---------------------------------------------------------------------- */
+
+.cierre {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-4);
+  padding: var(--espacio-7);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo-suave);
+}
+
+.cierreTitulo {
+  margin-block-end: 0;
+  font-size: var(--texto-2xl);
+}
+
+.contacto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2) var(--espacio-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-m);
+  color: var(--color-texto);
+}
+
+.contacto a {
+  color: var(--color-tinta);
+}
+
+.horario {
+  display: block;
+  font-size: var(--texto-s);
+}
+
+.contacto a:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+/* Tablet ---------------------------------------------------------------------- */
+
+@media (max-width: 1189px) {
+  .pasos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Móvil ----------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .portada {
+    grid-template-columns: 1fr;
+    gap: var(--espacio-5);
+    padding-block: var(--espacio-4) var(--espacio-6);
+  }
+
+  .titulo {
+    font-size: var(--texto-2xl);
+  }
+
+  .audiencias,
+  .pasos,
+  .motivos {
+    grid-template-columns: 1fr;
+  }
+
+  .cierre {
+    padding: var(--espacio-5);
+  }
+}

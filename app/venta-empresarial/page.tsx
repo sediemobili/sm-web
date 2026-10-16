@@ -1,156 +1,213 @@
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { TarjetaPost } from "@/components/blog/TarjetaPost";
 import { CarruselCategorias } from "@/components/categorias/CarruselCategorias";
 import { BotonContacto } from "@/components/ContactoModal/BotonContacto";
-import estilos from "@/components/Paginas/Paginas.module.css";
-import { getCategories, getPageBySlug, getPosts } from "@/lib/data";
+import { getCategories } from "@/lib/data";
 import { metadataDe } from "@/lib/seo";
+import { TELEFONO, WHATSAPP } from "@/lib/sitio";
+import estilos from "./page.module.css";
 
-// Textos de plantilla del original que no están en los datos.
-const ANTETITULO = "Proyectos Empresariales";
+const CTA = "Cuéntanos tu proyecto";
 
-// La sección "Atención Especializada" llega mezclada desde Elementor: un carrusel de 4 imágenes
-// y las 3 ventajas en un mismo bloque. Se separan por su estructura: cada ventaja es una
-// imagen seguida de un párrafo, con su título cuando lo tiene.
-function separarAtencion(body: string, tituloSeccion: string | null) {
-  const figuras = [...body.matchAll(/<figure><img src="([^"]*)" alt="([^"]*)"><\/figure>/g)];
-  const parrafos = [...body.matchAll(/<p>([\s\S]*?)<\/p>/g)];
-  const titulos = [...body.matchAll(/<h3>([\s\S]*?)<\/h3>/g)];
+type Foto = { src: string; alt: string } | null;
 
-  const ventajas = parrafos.map((parrafo, orden) => {
-    const figura = figuras.filter((f) => f.index < parrafo.index).at(-1);
-    const titulo = titulos.filter((t) => t.index < parrafo.index).at(-1);
-    return {
-      imagen: figura ? { src: figura[1], alt: figura[2] } : null,
-      // La primera ventaja perdió su <h3>: en Elementor ese título es el de la sección.
-      titulo: titulo && (!figura || titulo.index > figura.index) ? titulo[1] : orden === 0 ? tituloSeccion : null,
-      texto: parrafo[1],
-    };
-  });
+const AUDIENCIAS: { titulo: string; texto: string; foto: Foto }[] = [
+  {
+    titulo: "Empresas y corporativos",
+    texto:
+      "Necesitas amueblar un piso nuevo, renovar un área o estandarizar varias sedes. Armamos la propuesta completa, con una sola cotización y un solo responsable del proyecto.",
+    foto: { src: "/media/paginas/volumen.webp", alt: "Hileras de sillas operativas iguales" },
+  },
+  {
+    titulo: "Arquitectos e interioristas",
+    texto:
+      "Respetamos tu partido de diseño. Adaptamos medidas, acabados y telas a tu especificación, y te damos fichas técnicas para tus entregables.",
+    foto: { src: "/media/paginas/personalizacion.webp", alt: "Muestrario de telas abierto sobre planos de un proyecto" },
+  },
+  {
+    titulo: "Contratistas y gerentes de proyecto",
+    texto:
+      "Fechas, etapas y entregas parciales. Coordinamos la instalación con el avance de obra, para que el mobiliario llegue cuando el espacio está listo.",
+    // FOTO PENDIENTE: instalación de mobiliario en una oficina en obra o recién terminada.
+    foto: null,
+  },
+];
 
-  const usadas = new Set(ventajas.map((ventaja) => ventaja.imagen?.src));
-  const galeria = figuras.filter((f) => !usadas.has(f[1])).map((f) => ({ src: f[1], alt: f[2] }));
-  return { galeria, ventajas };
-}
+const PASOS: { titulo: string; texto: string }[] = [
+  {
+    titulo: "Levantamiento",
+    texto: "Visitamos el espacio o partimos de tus planos. Definimos áreas, aforo y necesidades por puesto.",
+  },
+  {
+    titulo: "Propuesta",
+    texto:
+      "Entregamos la selección de piezas, la distribución y la cotización por partidas, para que puedas comparar y ajustar.",
+  },
+  {
+    titulo: "Muestras y acabados",
+    texto:
+      "Ves y pruebas las piezas clave antes de producir. Eliges telas, maderas y metales sobre muestra física.",
+  },
+  {
+    titulo: "Fabricación",
+    texto: "Producimos en nuestras instalaciones. Las piezas a medida se fabrican bajo tu especificación.",
+  },
+  {
+    titulo: "Entrega e instalación",
+    texto: "Entregamos, armamos y dejamos el espacio listo para usarse. Por etapas si la obra lo pide.",
+  },
+];
 
-export async function generateMetadata() {
-  const pagina = await getPageBySlug("venta-empresarial");
-  return metadataDe({
-    title: pagina?.seo.title ?? "Venta empresarial",
-    description:
-      pagina?.seo.description ??
-      "Proyectos de mobiliario a medida, precios por volumen y asesoría para empresas.",
-    canonical: "/venta-empresarial/",
-    ogImage: pagina?.seo.ogImage ?? null,
-  });
-}
+const MOTIVOS: { titulo: string; texto: string }[] = [
+  {
+    titulo: "Fabricación propia",
+    texto:
+      "No revendemos. Al fabricar podemos cambiar medidas, acabados y configuraciones sin que el proyecto se vuelva inviable.",
+  },
+  {
+    titulo: "Personalización real",
+    texto:
+      "Medidas especiales, telas por referencia y acabados a juego con tu paleta. Si la pieza existe, la adaptamos; si no, la desarrollamos.",
+  },
+  {
+    titulo: "Dos puntos de atención",
+    texto: "Monterrey y Ciudad de México, con cobertura en todo el país.",
+  },
+  {
+    titulo: "Catálogo amplio",
+    texto:
+      "Sillería, escritorios, mesas, recepciones, bancas y sofás, de una misma fábrica y con lenguaje visual consistente entre áreas.",
+  },
+];
+
+export const metadata = metadataDe({
+  title: "Venta empresarial y proyectos a medida - Sedie & Mobili",
+  description:
+    "Amueblamos oficinas completas: levantamiento, propuesta, fabricación e instalación. Trabajamos con empresas, arquitectos e interioristas en todo México.",
+  canonical: "/venta-empresarial/",
+});
 
 export default async function VentaEmpresarialPage() {
-  const [pagina, categorias, posts] = await Promise.all([
-    getPageBySlug("venta-empresarial"),
-    getCategories(),
-    getPosts(),
-  ]);
-  if (!pagina) notFound();
-
-  const secciones = pagina.sections ?? [];
-  const portada = secciones[0];
-  const atencion = secciones[1];
-  const vision = secciones[2];
+  const categorias = await getCategories();
   const principales = categorias.filter((categoria) => categoria.parentSlug === null);
-  const { galeria, ventajas } = separarAtencion(atencion?.body ?? "", atencion?.heading ?? null);
-
-  // El cuerpo de la portada trae el título grande como <h2> y el párrafo.
-  const tituloPortada = portada?.body?.match(/<h2>([\s\S]*?)<\/h2>/)?.[1] ?? "";
-  const textoPortada = portada?.body?.match(/<p>([\s\S]*?)<\/p>/)?.[1] ?? "";
 
   return (
     <main>
       {/* 1. Portada */}
       <section className={estilos.portada}>
-        <p className={estilos.antetitulo}>{portada?.heading ?? ANTETITULO}</p>
-        <h1 className={estilos.portadaTitulo} dangerouslySetInnerHTML={{ __html: tituloPortada }} />
-        <p className={estilos.prosa} dangerouslySetInnerHTML={{ __html: textoPortada }} />
-        {/* El CTA del original abre el popup de Elementor: aquí abre nuestro modal. */}
-        <BotonContacto label={portada?.cta?.label ?? "Contáctanos"} className={estilos.botonOscuro} />
+        <div className={estilos.portadaTexto}>
+          <h1 className={`sm-titulo-pagina ${estilos.titulo}`}>Proyectos de mobiliario, de principio a fin</h1>
+          <p className={`sm-prosa ${estilos.entrada}`}>
+            Más de 25 años fabricando mobiliario de oficina en México. Acompañamos el proyecto completo:
+            levantamiento del espacio, selección y personalización de piezas, fabricación, entrega e instalación.
+          </p>
+          <div className={estilos.acciones}>
+            <BotonContacto label={CTA} origen="venta-empresarial" />
+            <Link href="/catalogo/" className="sm-boton sm-boton--secundario">
+              Explorar el catálogo
+            </Link>
+          </div>
+        </div>
+        <div className={estilos.portadaFoto}>
+          <Image
+            src="/media/paginas/envato-labs-image-edit-4-2.webp"
+            alt="Escritorio ejecutivo de madera con librero a juego en una oficina"
+            fill
+            sizes="(max-width: 767px) 100vw, 50vw"
+          />
+        </div>
       </section>
 
-      {/* 2. Galería y ventajas */}
-      {galeria.length > 0 ? (
-        <ul className={estilos.galeria}>
-          {galeria.map((imagen) => (
-            <li key={imagen.src}>
-              <figure className={estilos.galeriaFigura}>
-                <Image
-                  src={imagen.src}
-                  alt={imagen.alt}
-                  width={331}
-                  height={331}
-                  sizes="(max-width: 767px) 90vw, 331px"
-                  className={estilos.galeriaImagen}
-                />
-              </figure>
+      {/* 2. Con quién trabajamos */}
+      <section className={estilos.seccion} aria-labelledby="audiencias">
+        <h2 id="audiencias" className="sm-seccion-titulo">
+          Con quién trabajamos
+        </h2>
+        <ul className={estilos.audiencias}>
+          {AUDIENCIAS.map((audiencia) => (
+            <li key={audiencia.titulo} className={estilos.audiencia}>
+              <div className={estilos.audienciaFoto}>
+                {audiencia.foto ? (
+                  <Image
+                    src={audiencia.foto.src}
+                    alt={audiencia.foto.alt}
+                    fill
+                    sizes="(max-width: 767px) 100vw, (max-width: 1189px) 33vw, 370px"
+                  />
+                ) : null}
+              </div>
+              <h3 className={estilos.subtitulo}>{audiencia.titulo}</h3>
+              <p className={estilos.texto}>{audiencia.texto}</p>
             </li>
           ))}
         </ul>
-      ) : null}
+      </section>
 
-      {ventajas.length > 0 ? (
-        <ul className={estilos.ventajas}>
-          {ventajas.map((ventaja) => (
-            <li key={ventaja.texto} className={estilos.ventaja}>
-              {ventaja.imagen ? (
-                <Image
-                  src={ventaja.imagen.src}
-                  alt=""
-                  width={400}
-                  height={267}
-                  sizes="(max-width: 767px) 90vw, 400px"
-                  className={estilos.ventajaImagen}
-                />
-              ) : null}
-              {ventaja.titulo ? <h2 className={estilos.ventajaTitulo}>{ventaja.titulo}</h2> : null}
-              <p className={estilos.ventajaTexto}>{ventaja.texto}</p>
+      {/* 3. Cómo trabajamos */}
+      <section className={estilos.seccion} aria-labelledby="pasos">
+        <h2 id="pasos" className="sm-seccion-titulo">
+          Cómo trabajamos
+        </h2>
+        <ol className={estilos.pasos}>
+          {PASOS.map((paso, indice) => (
+            <li key={paso.titulo} className={estilos.paso}>
+              <span className={estilos.numero} aria-hidden="true">
+                {String(indice + 1).padStart(2, "0")}
+              </span>
+              <h3 className={estilos.subtitulo}>{paso.titulo}</h3>
+              <p className={estilos.texto}>{paso.texto}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* 4. Por qué con nosotros */}
+      <section className={estilos.seccion} aria-labelledby="motivos">
+        <h2 id="motivos" className="sm-seccion-titulo">
+          Por qué con nosotros
+        </h2>
+        <ul className={estilos.motivos}>
+          {MOTIVOS.map((motivo) => (
+            <li key={motivo.titulo} className={estilos.motivo}>
+              <h3 className={estilos.subtitulo}>{motivo.titulo}</h3>
+              <p className={estilos.texto}>{motivo.texto}</p>
             </li>
           ))}
         </ul>
-      ) : null}
-
-      {/* 3. Tu visión */}
-      {vision ? (
-        <section className={estilos.seccion}>
-          <h2 className={estilos.seccionTitulo}>{vision.heading}</h2>
-          {vision.body ? <div className={estilos.prosa} dangerouslySetInnerHTML={{ __html: vision.body }} /> : null}
-        </section>
-      ) : null}
-
-      {/* 4. Explore nuestros productos: en Elementor es un carrusel dinámico de categorías. */}
-      <section className={estilos.listado} aria-labelledby="categorias">
-        <div className={estilos.listadoEncabezado}>
-          <h2 id="categorias" className={estilos.seccionTitulo}>
-            Explore nuestros productos
-          </h2>
-        </div>
-        <CarruselCategorias categorias={principales} />
       </section>
 
-      {/* 5. Nuestro Blog: también dinámico. */}
-      <section className={estilos.listado} aria-labelledby="blog">
-        <div className={estilos.listadoEncabezado}>
-          <h2 id="blog" className={estilos.blogTitulo}>
-            Nuestro Blog
+      {/* 5. Categorías: la cinta automática de la home (CintaCategorias, vía la prop automatico). */}
+      <section className={estilos.categorias} aria-labelledby="categorias">
+        <h2 id="categorias" className="sm-oculto">
+          Categorías
+        </h2>
+        <CarruselCategorias categorias={principales} automatico />
+      </section>
+
+      {/* 6. Cierre */}
+      <section className={estilos.seccion} aria-labelledby="cierre">
+        <div className={estilos.cierre}>
+          <h2 id="cierre" className={`sm-seccion-titulo ${estilos.cierreTitulo}`}>
+            Cuéntanos del proyecto
           </h2>
-          <Link href="/blog/" className={estilos.botonOscuro}>
-            Ver Más
-          </Link>
+          <p className={`sm-prosa ${estilos.entrada}`}>
+            Dinos cuántas personas, en qué ciudad y para cuándo. Te respondemos con una propuesta, no con un
+            catálogo genérico.
+          </p>
+          <BotonContacto label={CTA} origen="venta-empresarial" />
+          <ul className={estilos.contacto}>
+            <li>
+              Teléfono: <a href={`tel:${TELEFONO.marcar}`}>{TELEFONO.visible}</a>
+              <span className={estilos.horario}>{TELEFONO.horario.texto}</span>
+            </li>
+            <li>
+              WhatsApp:{" "}
+              <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer">
+                {TELEFONO.visible}
+              </a>
+            </li>
+          </ul>
         </div>
-        <ul className={estilos.galeria}>
-          {posts.slice(0, 4).map((post) => (
-            <TarjetaPost key={post.slug} post={post} />
-          ))}
-        </ul>
       </section>
     </main>
   );

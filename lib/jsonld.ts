@@ -1,8 +1,16 @@
 // Constructores de JSON-LD. Un campo que no existe se omite, nunca se inventa.
 
 import { NOMBRE, SITE, absoluta } from "./seo";
-import { EMPRESA, REDES, SEDES } from "./sitio";
+import { EMPRESA, REDES, SEDES, TELEFONO } from "./sitio";
 import type { Post, Product } from "./data";
+
+// Horario de atención del teléfono, en el formato de schema.org.
+const horario = {
+  "@type": "OpeningHoursSpecification",
+  dayOfWeek: TELEFONO.horario.dias,
+  opens: TELEFONO.horario.abre,
+  closes: TELEFONO.horario.cierra,
+};
 
 export const organizacion = () => [
   {
@@ -13,6 +21,15 @@ export const organizacion = () => [
     url: `${SITE}/`,
     logo: absoluta("/media/marca/sediemobili.svg"),
     sameAs: REDES.map((red) => red.url),
+    telephone: TELEFONO.marcar,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: TELEFONO.marcar,
+      contactType: "customer service",
+      areaServed: EMPRESA.pais,
+      availableLanguage: "es",
+      hoursAvailable: horario,
+    },
   },
   ...SEDES.map((sede) => ({
     "@context": "https://schema.org",
@@ -30,10 +47,11 @@ export const organizacion = () => [
       addressRegion: sede.region,
       addressCountry: EMPRESA.pais,
     },
-    // Teléfono, correo y horario solo si existen: un campo vacío se omite, no se inventa.
-    ...(sede.telefonos?.length ? { telephone: sede.telefonos[0] } : {}),
+    // Teléfono y horario: los del sitio, comunes a las dos sedes.
+    telephone: TELEFONO.marcar,
+    openingHoursSpecification: horario,
+    // Correo solo si existe: un campo vacío se omite, no se inventa.
     ...(sede.correos?.length ? { email: sede.correos[0] } : {}),
-    ...(sede.horario ? { openingHours: sede.horario } : {}),
   })),
 ];
 

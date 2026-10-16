@@ -131,6 +131,32 @@
   color: var(--color-fondo-suave);
 }
 
+/* Atención: teléfono, horario y WhatsApp, uno debajo de otro. */
+.telefono {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-ligero);
+  line-height: var(--interlineado-amplio);
+  color: var(--color-fondo-suave);
+}
+
+.telefonoEnlace {
+  align-self: flex-start;
+  color: var(--color-fondo);
+  text-decoration: none;
+}
+
+.telefonoEnlace:hover {
+  text-decoration: underline;
+}
+
+.telefonoEnlace:focus-visible {
+  outline: 2px solid var(--color-fondo);
+  outline-offset: 2px;
+}
+
 /* Pie ---------------------------------------------------------------------- */
 
 /* Barra inferior: 55px, fondo marrón y esquinas superiores redondeadas. */

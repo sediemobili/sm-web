@@ -61,6 +61,7 @@ async function paginaDeOrigen() {
 const ORIGENES: Record<Exclude<Lead["origen"], "newsletter">, string> = {
   cotizacion: "Solicitud de cotización",
   "modal-contacto": "Formulario de contacto",
+  "venta-empresarial": "Formulario de contacto (Venta empresarial)",
   whatsapp: "Botón de WhatsApp",
   mariana: "Asistente Mariana",
 };

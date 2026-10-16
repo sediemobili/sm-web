@@ -3,7 +3,7 @@
 import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import { enviarEvento } from "@/lib/analytics";
 import { enviarContacto } from "./acciones";
-import { estadoInicial, type EstadoContacto } from "./estado";
+import { estadoInicial, type EstadoContacto, type OrigenContacto } from "./estado";
 import estilos from "./ContactoModal.module.css";
 import {
   CATEGORIAS,
@@ -37,11 +37,12 @@ type Props = {
   // El foco solo se mueve con el modal abierto.
   activo: boolean;
   onExito: () => void;
+  origen: OrigenContacto;
 };
 
 // Asistente de 4 pasos del modal de contacto. Todos los pasos viven en el mismo formulario
 // y los que no tocan se ocultan con hidden, así el envío final lleva todas las respuestas.
-export function Asistente({ activo, onExito }: Props) {
+export function Asistente({ activo, onExito, origen }: Props) {
   const formulario = useRef<HTMLFormElement>(null);
   const [destino, setDestino] = useState<Destino | null>(null);
   const [indice, setIndice] = useState(0);
@@ -58,7 +59,7 @@ export function Asistente({ activo, onExito }: Props) {
       if (resultado.estado === "exito") {
         // El evento se dispara solo cuando el envío ya fue correcto, nunca antes.
         enviarEvento("generate_lead", {
-          origen: "modal-contacto",
+          origen,
           destino: resultado.destino,
           interes: resultado.interes,
         });
@@ -189,6 +190,7 @@ export function Asistente({ activo, onExito }: Props) {
 
   return (
     <form ref={formulario} className={estilos.formulario} onSubmit={enviar} noValidate aria-busy={enviando}>
+      <input type="hidden" name="origen" value={origen} />
       <div className={estilos.progreso}>
         <p role="status" className={estilos.contador}>
           Paso {numero} de {pasos.length}

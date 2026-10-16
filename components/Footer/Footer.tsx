@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Newsletter } from "@/components/Newsletter/Newsletter";
 import { getCategories } from "@/lib/data";
-import { EMPRESA, REDES, SEDES, type Red } from "@/lib/sitio";
+import { EMPRESA, REDES, SEDES, TELEFONO, WHATSAPP, type Red } from "@/lib/sitio";
 import estilos from "./Footer.module.css";
 import { Facebook, Instagram, Linkedin, Tiktok, Youtube } from "./redes";
 
@@ -104,8 +104,30 @@ export async function Footer() {
                 <span itemProp="addressRegion">{sede.region}</span>
                 <meta itemProp="addressCountry" content={EMPRESA.pais} />
               </p>
+              {/* El teléfono no se pinta por sede (sale una vez en "Atención"), pero sigue en sus datos. */}
+              <meta itemProp="telephone" content={TELEFONO.marcar} />
+              <meta itemProp="openingHours" content={TELEFONO.horario.corto} />
             </div>
           ))}
+
+          {/* Un solo conmutador atiende a las dos sedes: va una vez, en la misma columna. */}
+          <div className={estilos.sede}>
+            <span className={estilos.sedeCiudad}>Atención</span>
+            <p className={estilos.telefono}>
+              <a href={`tel:${TELEFONO.marcar}`} className={estilos.telefonoEnlace}>
+                {TELEFONO.visible}
+              </a>
+              <span>{TELEFONO.horario.texto}</span>
+              <a
+                href={`https://wa.me/${WHATSAPP}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={estilos.telefonoEnlace}
+              >
+                WhatsApp
+              </a>
+            </p>
+          </div>
         </div>
       </div>
 

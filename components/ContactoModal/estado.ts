@@ -3,6 +3,10 @@
 
 import type { ErroresAsistente, Paso } from "./esquema";
 
+// Orígenes con los que puede abrirse el modal: distinguen de qué página llega el lead.
+export const ORIGENES_CONTACTO = ["modal-contacto", "venta-empresarial"] as const;
+export type OrigenContacto = (typeof ORIGENES_CONTACTO)[number];
+
 export type EstadoContacto = {
   estado: "inicial" | "exito" | "error";
   errores: ErroresAsistente;

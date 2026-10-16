@@ -2,18 +2,20 @@
 
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { Asistente } from "./Asistente";
+import type { OrigenContacto } from "./estado";
 import estilos from "./ContactoModal.module.css";
 
 type Props = {
   abierto: boolean;
   onCerrar: () => void;
+  origen?: OrigenContacto;
 };
 
 const TEXTO =
   "¿Necesitas mobiliario ergonómico o corporativo? Cuéntanos qué buscas y te llamamos en menos de 24h " +
   "con las mejores opciones para tu oficina.";
 
-export function ContactoModal({ abierto, onCerrar }: Props) {
+export function ContactoModal({ abierto, onCerrar, origen = "modal-contacto" }: Props) {
   const dialogo = useRef<HTMLDialogElement>(null);
   const tituloId = useId();
   // Tras un envío correcto, la siguiente apertura empieza un asistente nuevo.
@@ -62,7 +64,7 @@ export function ContactoModal({ abierto, onCerrar }: Props) {
         </h2>
         <p className={estilos.texto}>{TEXTO}</p>
 
-        <Asistente key={ronda} activo={abierto} onExito={() => (enviado.current = true)} />
+        <Asistente key={ronda} activo={abierto} origen={origen} onExito={() => (enviado.current = true)} />
       </div>
     </dialog>
   );

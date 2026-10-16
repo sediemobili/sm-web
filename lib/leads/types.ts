@@ -10,7 +10,7 @@ export type Lead = {
   empresa: string | null;
   interes: string | null;
   mensaje: string | null;
-  origen: "modal-contacto" | "newsletter" | "cotizacion" | "whatsapp" | "mariana";
+  origen: "modal-contacto" | "venta-empresarial" | "newsletter" | "cotizacion" | "whatsapp" | "mariana";
   // Respuestas del asistente del modal de contacto; null en los demás orígenes.
   destino: string | null;
   categorias: string[] | null;

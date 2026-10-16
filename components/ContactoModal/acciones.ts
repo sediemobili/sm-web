@@ -2,9 +2,16 @@
 
 import { guardarLead } from "@/lib/leads";
 import { leerAsistente, validarAsistente } from "./esquema";
-import { estadoInicial, type EstadoContacto } from "./estado";
+import { estadoInicial, ORIGENES_CONTACTO, type EstadoContacto, type OrigenContacto } from "./estado";
 
 const ERROR_GUARDADO = "No pudimos enviar tu solicitud. Inténtalo de nuevo en un momento.";
+
+// El origen llega en un campo oculto del formulario; lo que no sea un origen conocido cuenta
+// como el modal general.
+function leerOrigen(formData: FormData): OrigenContacto {
+  const valor = formData.get("origen");
+  return ORIGENES_CONTACTO.find((origen) => origen === valor) ?? "modal-contacto";
+}
 
 export async function enviarContacto(_previo: EstadoContacto, formData: FormData): Promise<EstadoContacto> {
   const { datos, errores, paso } = validarAsistente(leerAsistente(formData));
@@ -20,7 +27,7 @@ export async function enviarContacto(_previo: EstadoContacto, formData: FormData
       empresa: datos.empresa,
       interes: null,
       mensaje: datos.mensaje,
-      origen: "modal-contacto",
+      origen: leerOrigen(formData),
       destino: datos.destino,
       categorias: datos.categorias,
       volumen: datos.volumen,
