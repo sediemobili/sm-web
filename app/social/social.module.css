@@ -1,0 +1,159 @@
+/* /social/: página de enlaces para las redes. Móvil primero, una columna centrada. */
+
+.pagina {
+  /* Ancho de la columna en escritorio: valor propio, fuera de tokens.css (que esta tarea no
+     toca). Lo justo para que los botones no se estiren más que en un móvil grande. */
+  --ancho-social: 480px;
+
+  min-block-size: 100svh;
+  padding: var(--espacio-6) var(--espacio-4) var(--espacio-5);
+  background-color: var(--color-fondo);
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-5);
+  max-inline-size: var(--ancho-social);
+  margin-inline: auto;
+}
+
+/* Cabecera ----------------------------------------------------------------- */
+
+.cabecera {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-3);
+  text-align: center;
+}
+
+.isotipo {
+  display: flex;
+  padding: var(--espacio-4);
+  border-radius: var(--radio-l);
+  background-color: var(--color-fondo-suave);
+  color: var(--color-tinta);
+}
+
+.isotipo svg {
+  inline-size: var(--espacio-8);
+  block-size: var(--espacio-8);
+}
+
+.nombre {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-semibold);
+  line-height: var(--interlineado-titulo);
+  letter-spacing: var(--tracking-titulo);
+  color: var(--color-tinta);
+}
+
+.lema {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  line-height: var(--interlineado-base);
+  color: var(--color-texto);
+}
+
+/* Botones: .sm-boton a ancho completo, con el icono a la izquierda ---------- */
+
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.boton {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  inline-size: 100%;
+  padding-block: var(--espacio-3);
+  padding-inline: var(--espacio-4);
+  font-size: var(--texto-m);
+}
+
+.icono {
+  flex-shrink: 0;
+  inline-size: var(--tamano-icono);
+  block-size: var(--tamano-icono);
+}
+
+.etiqueta {
+  display: flex;
+  flex-direction: column;
+}
+
+.horario {
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-ligero);
+}
+
+/* Redes -------------------------------------------------------------------- */
+
+.redes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espacio-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.red {
+  display: flex;
+  padding: var(--espacio-3);
+  border: 1px solid var(--color-tinta);
+  border-radius: var(--radio-pill);
+  color: var(--color-tinta);
+  transition:
+    background-color var(--transicion),
+    color var(--transicion);
+}
+
+.red svg {
+  inline-size: var(--tamano-icono);
+  block-size: var(--tamano-icono);
+}
+
+.red:hover {
+  background-color: var(--color-tinta);
+  color: var(--color-fondo);
+}
+
+.red:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+/* Sedes -------------------------------------------------------------------- */
+
+.sedes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  text-align: center;
+}
+
+.sede {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-ligero);
+  line-height: var(--interlineado-amplio);
+  color: var(--color-texto-suave);
+}
+
+.ciudad {
+  display: block;
+  font-weight: var(--peso-medio);
+  color: var(--color-texto);
+}

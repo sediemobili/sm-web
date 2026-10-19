@@ -33,7 +33,7 @@ Este documento se edita a mano.
 
 ## Tipografía
 
-Las familias las carga `next/font/google` en `app/layout.tsx` con subset `latin`,
+Las familias las carga `next/font/google` en `app/(sitio)/layout.tsx` con subset `latin`,
 `display: swap` y los pesos 200, 300, 400, 500 y 600, que son los que usa el sitio actual.
 Cada una expone su variable CSS y los tokens de fuente apuntan a ella.
 

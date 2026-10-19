@@ -9,7 +9,7 @@ export const NOMBRE = EMPRESA.nombre;
 export const absoluta = (ruta: string) => new URL(ruta, SITE).toString();
 
 // La marca va una sola vez al final de cada título, siempre con este separador. La añade la
-// plantilla del layout (app/layout.tsx); los títulos de Yoast ya la traen, con " - " o con
+// plantilla del layout (app/(sitio)/layout.tsx); los títulos de Yoast ya la traen, con " - " o con
 // " | " y sin "&", así que metadataDe se la quita antes y la plantilla la pone igual en todos.
 export const SEPARADOR = " - ";
 const MARCA = /Sedie\s*(?:&amp;|&|y)?\s*Mobili/i;

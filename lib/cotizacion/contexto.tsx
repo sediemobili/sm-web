@@ -133,6 +133,6 @@ export function CotizacionProvider({ children }: { children: React.ReactNode }) 
 
 export function useCotizacion() {
   const contexto = useContext(CotizacionContexto);
-  if (!contexto) throw new Error("useCotizacion necesita CotizacionProvider (va en app/layout.tsx).");
+  if (!contexto) throw new Error("useCotizacion necesita CotizacionProvider (va en app/(sitio)/layout.tsx).");
   return contexto;
 }

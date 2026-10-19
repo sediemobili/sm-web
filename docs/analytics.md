@@ -1,7 +1,7 @@
 # Analítica: GTM y eventos
 
 El sitio carga **Google Tag Manager `GTM-WQCFFJMD`** (el mismo del sitio actual) desde
-`app/layout.tsx`, con `GoogleTagManager` de `next/third-parties/google` y su `<noscript>`.
+`app/(sitio)/layout.tsx`, con `GoogleTagManager` de `next/third-parties/google` y su `<noscript>`.
 El id sale de `NEXT_PUBLIC_GTM_ID`: si la variable no está definida, no se carga nada.
 
 Todos los eventos pasan por `enviarEvento(nombre, datos)` de `lib/analytics/`, que empuja al

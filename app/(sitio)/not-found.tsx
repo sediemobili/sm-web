@@ -1,12 +1,12 @@
 import Link from "next/link";
 import estilos from "@/components/estado/estado.module.css";
-import { getCategories } from "@/lib/data";
+import { TELEFONO, WHATSAPP } from "@/lib/sitio";
 
 // Es la página que ve quien llega a una URL que no existe, y también la que muestran
 // notFound() en producto, categoría, colección, procedencia y post.
-export default async function NoEncontrado() {
-  const categorias = (await getCategories()).filter((categoria) => categoria.parentSlug === null);
-
+// Estática a propósito: sin async ni datos, para que el servidor la pinte entera y se vea
+// sin JavaScript. Los enlaces van a rutas fijas; el teléfono y el WhatsApp, de lib/sitio.ts.
+export default function NoEncontrado() {
   return (
     <main className={estilos.pagina}>
       {/* not-found.tsx no admite export const metadata: el robots va en la propia página. */}
@@ -35,22 +35,21 @@ export default async function NoEncontrado() {
         <Link href="/catalogo/" className="sm-boton sm-boton--secundario">
           Ver el catálogo
         </Link>
+        <Link href="/venta-empresarial/" className="sm-boton sm-boton--secundario">
+          Venta empresarial
+        </Link>
+        <a href={`tel:${TELEFONO.marcar}`} className="sm-boton sm-boton--secundario">
+          Llámanos al {TELEFONO.visible}
+        </a>
+        <a
+          href={`https://wa.me/${WHATSAPP}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="sm-boton sm-boton--secundario"
+        >
+          Escríbenos por WhatsApp
+        </a>
       </div>
-
-      <section className={estilos.categorias} aria-labelledby="categorias-404">
-        <h2 id="categorias-404" className={estilos.categoriasTitulo}>
-          O empieza por una categoría
-        </h2>
-        <ul className="sm-chips">
-          {categorias.map((categoria) => (
-            <li key={categoria.slug}>
-              <Link href={categoria.path} className="sm-chip">
-                {categoria.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
     </main>
   );
 }

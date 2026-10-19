@@ -8,10 +8,10 @@ import { BotonWhatsApp } from "@/components/WhatsApp/BotonWhatsApp";
 import { CotizacionProvider } from "@/lib/cotizacion";
 import { organizacion } from "@/lib/jsonld";
 import { NOMBRE, SEPARADOR, SITE } from "@/lib/seo";
-import "./styles/tokens.css";
-import "./styles/base.css";
-import "./styles/patrones.css";
-import "./styles/interacciones.css";
+import "../styles/tokens.css";
+import "../styles/base.css";
+import "../styles/patrones.css";
+import "../styles/interacciones.css";
 import estilos from "./layout.module.css";
 
 // Los pesos son los que usa el sitio actual; Inter, Roboto y Roboto Slab quedaron fuera.

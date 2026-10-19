@@ -14,7 +14,7 @@
   --color-acento-oscuro: #422a18; /* e-global-color-2e1100b: variante oscura de --color-acento, del kit de la marca; hoy sin uso */
 
   /* Tipografía ------------------------------------------------------------- */
-  /* Las familias las carga next/font en app/layout.tsx (latin, swap, pesos 200-600). */
+  /* Las familias las carga next/font en app/(sitio)/layout.tsx (latin, swap, pesos 200-600). */
   --fuente-titulo: var(--font-raleway), sans-serif; /* Raleway: encabezados */
   --fuente-texto: var(--font-albert-sans), sans-serif; /* Albert Sans: cuerpo y botones */
   --fuente-secundaria: var(--font-archivo), sans-serif; /* Archivo: footer y algunos títulos */

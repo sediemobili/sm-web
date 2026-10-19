@@ -29,7 +29,7 @@
   box-shadow: 0 0 0 4px var(--color-fondo);
 }
 
-/* La home anula la reserva del header (app/layout.module.css): el hero empieza arriba del
+/* La home anula la reserva del header (app/(sitio)/layout.module.css): el hero empieza arriba del
    todo, con el margen de su tarjeta, y el header flota encima. */
 .inicio {
   margin-block-start: calc(var(--reserva-header) * -1);

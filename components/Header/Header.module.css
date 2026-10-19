@@ -1,7 +1,7 @@
 /* Header del sitio: cabecera de dos filas a todo el ancho, fija sobre el contenido.
    Fila 1: logo, buscador, cotización y contacto. Fila 2: navegación y aviso de volumen.
    Dos estados (data-estado): transparente sobre el hero de la home y sólido en el resto.
-   Su alto lo reservan las páginas sin hero (app/layout.module.css, --reserva-header). */
+   Su alto lo reservan las páginas sin hero (app/(sitio)/layout.module.css, --reserva-header). */
 .header {
   position: fixed;
   inset-block-start: 0;
