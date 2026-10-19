@@ -53,8 +53,7 @@ export function Filtros({ base, filtros, opciones }: Props) {
         <h2 className={estilos.titulo}>Filtros Inteligentes</h2>
         {grupo("Categoría", opciones.categorias, filtros.categoria, "categoria")}
         {grupo("Colecciones", opciones.colecciones, filtros.coleccion, "coleccion")}
-        {/* "Orígen" es la etiqueta del original, con su acento de más. */}
-        {grupo("Orígen", opciones.procedencias, filtros.procedencia, "procedencia")}
+        {grupo("Origen", opciones.procedencias, filtros.procedencia, "procedencia")}
         {hayFiltros(filtros) ? (
           <Link
             href={construirUrl(base, filtros, {

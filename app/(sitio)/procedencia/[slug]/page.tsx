@@ -40,8 +40,7 @@ export default async function ProcedenciaPage({ params, searchParams }: PageProp
         ])}
       />
 
-      {/* "Orígen" es la etiqueta del original, con su acento de más. */}
-      <Banda prefijo="Orígen" nombre={procedencia.name} />
+      <Banda prefijo="Origen" nombre={procedencia.name} />
 
       <section className={estilos.listado} aria-label={`Productos de procedencia ${procedencia.name}`}>
         <Suspense fallback={<EsqueletoRejilla />}>

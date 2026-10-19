@@ -17,7 +17,9 @@
   align-items: flex-start;
   justify-content: flex-end;
   gap: var(--espacio-2);
-  padding: var(--espacio-5);
+  /* Lateral más estrecho que el vertical: en los 240px de la tarjeta deja 200px útiles, y el
+     nombre más largo ("Sillas de Oficina", 177px a --texto-xl) entra con holgura. */
+  padding: var(--espacio-5) var(--espacio-4);
   overflow: hidden;
   border-radius: var(--radio-m);
   isolation: isolate;
@@ -48,9 +50,14 @@
   opacity: 0.35;
 }
 
+/* Un escalón bajo --texto-2xl, para que el nombre más largo ("Sillas de Oficina") quepa en una
+   línea. Es el mismo tamaño en móvil. Reserva el alto de dos líneas, con el texto arriba: si un
+   nombre pasa a dos líneas o la fuente tarda en cargar, la fila no salta y las tarjetas siguen
+   parejas. */
 .categoriaNombre {
+  min-block-size: calc(2em * var(--interlineado-titulo));
   font-family: var(--fuente-titulo);
-  font-size: var(--texto-2xl);
+  font-size: var(--texto-xl);
   font-weight: var(--peso-medio);
   line-height: var(--interlineado-titulo);
   color: var(--color-fondo);
@@ -176,12 +183,10 @@ ul.listaCategorias {
     width: 294px;
   }
 
+  /* En móvil la tarjeta es más ancha y el nombre cabe de sobra: vuelve el relleno de 30px. */
   .categoria {
     height: 464px;
-  }
-
-  .categoriaNombre {
-    font-size: var(--texto-xl);
+    padding-inline: var(--espacio-5);
   }
 
   .categoriaIndicador {

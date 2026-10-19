@@ -20,7 +20,7 @@ function Tarjeta({ categoria, copia = false }: { categoria: Category; copia?: bo
           />
         ) : null}
         <h3 className={estilos.categoriaNombre}>{categoria.name}</h3>
-        <span className={estilos.categoriaEnlace}>Ver Colección</span>
+        <span className={estilos.categoriaEnlace}>Ver categoría</span>
         <span className={estilos.categoriaIndicador}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" focusable="false">
             <path d="M7 17 17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />

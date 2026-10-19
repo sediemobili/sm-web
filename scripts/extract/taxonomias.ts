@@ -13,6 +13,7 @@ import {
   run,
   seoFrom,
   ERRATAS,
+  RENOMBRES,
   type Seo,
   type YoastHead,
 } from "./lib.ts";
@@ -117,6 +118,14 @@ function corregirErratas(terms: Term[]): Term[] {
   });
 }
 
+// Renombres a propósito (tabla RENOMBRES en lib.ts): solo el nombre del término.
+function aplicarRenombres(terms: Term[]): Term[] {
+  return terms.map((t) => {
+    const renombre = RENOMBRES.find((r) => r.slug === t.slug);
+    return renombre ? { ...t, name: renombre.nombre } : t;
+  });
+}
+
 async function writeData(file: string, terms: Term[]) {
   await writeFile(path.join(DATA_DIR, file), JSON.stringify(terms, null, 2) + "\n");
 }
@@ -147,11 +156,11 @@ async function main() {
   // Categorías: datos y imagen de la Store API; el SEO de Yoast solo viene en wp/v2.
   const store = (await fetchJson<StoreCategory[]>(`${SITE}/wp-json/wc/store/v1/products/categories`)).data;
   const productCat = await fetchAllTerms("product_cat");
-  const categories = corregirErratas(ordenar(toTerms(
+  const categories = aplicarRenombres(corregirErratas(ordenar(toTerms(
     store.map((c) => ({ ...c, image: c.image?.src ?? null })),
     new Map(productCat.map((t) => [t.id, t.yoast_head_json])),
     "/product-category/",
-  ), ORDEN_CATEGORIAS));
+  ), ORDEN_CATEGORIAS)));
 
   const taxonomies = (await fetchJson<Record<string, WpTaxonomy>>(`${SITE}/wp-json/wp/v2/taxonomies`)).data;
   const restBase = (slug: string) => {

@@ -148,6 +148,14 @@ export const ERRATAS: { slug: string; mal: string; bien: string }[] = [
   { slug: "silla-industrial", mal: "Industiral", bien: "Industrial" },
 ];
 
+// Nombres de término que se cambian a propósito, no por errata: taxonomias.ts los aplica solo al
+// nombre, sin tocar el título de Yoast, el slug ni la ruta. Cada extracción los vuelve a traer de
+// WordPress, así que se corrigen aquí hasta que se cambien en origen.
+export const RENOMBRES: { slug: string; nombre: string }[] = [
+  // "Sillas" a secas: así lo busca la gente, y así ya lo dicen la pestaña y la ruta.
+  { slug: "sillas-de-oficina", nombre: "Sillas de Oficina" },
+];
+
 export function run(main: () => Promise<void>) {
   main().catch((err) => {
     console.error(err instanceof CaptchaError ? `DETENIDO: ${err.message}` : err);
