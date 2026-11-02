@@ -48,7 +48,7 @@
     "seo": {
       "title": "Mesabanco Virgola - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Mesabanco-Virgola-1.png.jpg"
+      "ogImage": "/media/og/Mesabanco-Virgola-1.png.jpg"
     }
   },
   {
@@ -112,7 +112,7 @@
     "seo": {
       "title": "Barcelona - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Barcelona-2.jpg"
+      "ogImage": "/media/og/Barcelona-2.jpg"
     }
   },
   {
@@ -184,7 +184,7 @@
     "seo": {
       "title": "Mesabanco Iso - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Mesabanco-Iso-2.jpg"
+      "ogImage": "/media/og/Mesabanco-Iso-2.jpg"
     }
   },
   {
@@ -252,7 +252,7 @@
     "seo": {
       "title": "Mesabanco Vita - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Mesabanco-Vita-2.jpg"
+      "ogImage": "/media/og/Mesabanco-Vita-2.jpg"
     }
   },
   {
@@ -308,7 +308,7 @@
     "seo": {
       "title": "Pupitre Vita - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Pupitre-Vita-1.jpg"
+      "ogImage": "/media/og/Pupitre-Vita-1.jpg"
     }
   },
   {
@@ -376,7 +376,7 @@
     "seo": {
       "title": "Clementina - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Clementina-2.jpg"
+      "ogImage": "/media/og/Clementina-2.jpg"
     }
   },
   {
@@ -440,7 +440,7 @@
     "seo": {
       "title": "Mesabanco Roma - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Mesabanco-Roma-2.jpg"
+      "ogImage": "/media/og/Mesabanco-Roma-2.jpg"
     }
   },
   {
@@ -508,7 +508,7 @@
     "seo": {
       "title": "Berlin - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Berlin-2.jpg"
+      "ogImage": "/media/og/Berlin-2.jpg"
     }
   },
   {
@@ -576,7 +576,7 @@
     "seo": {
       "title": "Cristal - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Cristal-2.jpg"
+      "ogImage": "/media/og/Cristal-2.jpg"
     }
   },
   {
@@ -644,7 +644,7 @@
     "seo": {
       "title": "Mesabanco Berlin - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Mesabanco-Berlin-2.jpg"
+      "ogImage": "/media/og/Mesabanco-Berlin-2.jpg"
     }
   },
   {
@@ -664,27 +664,27 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Industrial-con-Aro-2.jpg",
+        "src": "/media/productos/Silla-Industrial-con-Aro-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Industrial-con-Aro-6.jpg",
+        "src": "/media/productos/Silla-Industrial-con-Aro-6.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Industrial-con-Aro-5.jpg",
+        "src": "/media/productos/Silla-Industrial-con-Aro-5.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Industrial-con-Aro-4.jpg",
+        "src": "/media/productos/Silla-Industrial-con-Aro-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Industrial-con-Aro-3.jpg",
+        "src": "/media/productos/Silla-Industrial-con-Aro-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Industrial-con-Aro-1.jpg",
+        "src": "/media/productos/Silla-Industrial-con-Aro-1.webp",
         "alt": ""
       }
     ],
@@ -699,7 +699,7 @@
     "seo": {
       "title": "Industrial 1 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-Industrial-con-Aro-2.jpg"
+      "ogImage": "/media/og/Silla-Industrial-con-Aro-2.jpg"
     }
   },
   {
@@ -759,7 +759,7 @@
     "seo": {
       "title": "Taburete Ergonómico - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Taburete-Industrial-1.jpg"
+      "ogImage": "/media/og/Taburete-Industrial-1.jpg"
     }
   },
   {
@@ -798,7 +798,7 @@
     "seo": {
       "title": "Skeiter - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Skeiter-Cajero-scaled.jpg"
+      "ogImage": "/media/og/Skeiter-Cajero-scaled.jpg"
     }
   },
   {
@@ -882,7 +882,7 @@
     "seo": {
       "title": "Suiza - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Suiza-Negra-2.jpg"
+      "ogImage": "/media/og/Suiza-Negra-2.jpg"
     }
   },
   {
@@ -938,7 +938,7 @@
     "seo": {
       "title": "Pablo - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Pablo-2.jpg"
+      "ogImage": "/media/og/Pablo-2.jpg"
     }
   },
   {
@@ -1030,7 +1030,7 @@
     "seo": {
       "title": "Tela - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Tela-Gris-2.jpg"
+      "ogImage": "/media/og/Tela-Gris-2.jpg"
     }
   },
   {
@@ -1089,7 +1089,7 @@
     "seo": {
       "title": "Lucca - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Lucca-Gris-1.png"
+      "ogImage": "/media/og/Lucca-Gris-1.jpg"
     }
   },
   {
@@ -1145,7 +1145,7 @@
     "seo": {
       "title": "Kontor - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Kontor-2.jpg"
+      "ogImage": "/media/og/Kontor-2.jpg"
     }
   },
   {
@@ -1201,7 +1201,7 @@
     "seo": {
       "title": "Black Jack - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Black-Jack-2.jpg"
+      "ogImage": "/media/og/Black-Jack-2.jpg"
     }
   },
   {
@@ -1269,7 +1269,7 @@
     "seo": {
       "title": "Torino - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Torino-2.jpg"
+      "ogImage": "/media/og/Torino-2.jpg"
     }
   },
   {
@@ -1333,7 +1333,7 @@
     "seo": {
       "title": "Red - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Red-2.jpg"
+      "ogImage": "/media/og/Red-2.jpg"
     }
   },
   {
@@ -1401,7 +1401,7 @@
     "seo": {
       "title": "Rene - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Rene-2.jpg"
+      "ogImage": "/media/og/Rene-2.jpg"
     }
   },
   {
@@ -1469,7 +1469,7 @@
     "seo": {
       "title": "Living - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Living-2.jpg"
+      "ogImage": "/media/og/Living-2.jpg"
     }
   },
   {
@@ -1537,7 +1537,7 @@
     "seo": {
       "title": "Venus - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Venus-2.jpg"
+      "ogImage": "/media/og/Venus-2.jpg"
     }
   },
   {
@@ -1601,7 +1601,7 @@
     "seo": {
       "title": "Iso Secretarial - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Iso-Secretarial-2.jpg"
+      "ogImage": "/media/og/Iso-Secretarial-2.jpg"
     }
   },
   {
@@ -1669,7 +1669,7 @@
     "seo": {
       "title": "Rz1 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Rz1-Secretarial-5.jpg"
+      "ogImage": "/media/og/Rz1-Secretarial-5.jpg"
     }
   },
   {
@@ -1689,23 +1689,23 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Nova-iso-Secretarial-2.jpg",
+        "src": "/media/productos/Nova-iso-Secretarial-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Nova-iso-Secretarial-5.jpg",
+        "src": "/media/productos/Nova-iso-Secretarial-5.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Nova-iso-Secretarial-4.jpg",
+        "src": "/media/productos/Nova-iso-Secretarial-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Nova-iso-Secretarial-3.jpg",
+        "src": "/media/productos/Nova-iso-Secretarial-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Nova-iso-Secretarial-1.jpg",
+        "src": "/media/productos/Nova-iso-Secretarial-1.webp",
         "alt": ""
       }
     ],
@@ -1733,7 +1733,7 @@
     "seo": {
       "title": "Nova Iso - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Nova-iso-Secretarial-2.jpg"
+      "ogImage": "/media/og/Nova-iso-Secretarial-2.jpg"
     }
   },
   {
@@ -1797,7 +1797,7 @@
     "seo": {
       "title": "Tauro - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Tauro-2.jpg"
+      "ogImage": "/media/og/Tauro-2.jpg"
     }
   },
   {
@@ -1865,7 +1865,7 @@
     "seo": {
       "title": "Ergo - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Ergo-2.jpg"
+      "ogImage": "/media/og/Ergo-2.jpg"
     }
   },
   {
@@ -1933,7 +1933,7 @@
     "seo": {
       "title": "Bini - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Bini-2.jpg"
+      "ogImage": "/media/og/Bini-2.jpg"
     }
   },
   {
@@ -2001,7 +2001,7 @@
     "seo": {
       "title": "Junior - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Junior-2.jpg"
+      "ogImage": "/media/og/Junior-2.jpg"
     }
   },
   {
@@ -2053,7 +2053,7 @@
     "seo": {
       "title": "Valle Sport - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-Valle-Sport-1.jpg"
+      "ogImage": "/media/og/Banca-Valle-Sport-1.jpg"
     }
   },
   {
@@ -2073,19 +2073,19 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-B15-2.jpg",
+        "src": "/media/productos/Banca-B15-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-B15-4.jpg",
+        "src": "/media/productos/Banca-B15-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-B15-3.jpg",
+        "src": "/media/productos/Banca-B15-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-B15-1.jpg",
+        "src": "/media/productos/Banca-B15-1.webp",
         "alt": ""
       }
     ],
@@ -2113,7 +2113,7 @@
     "seo": {
       "title": "03-BE15 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-B15-2.jpg"
+      "ogImage": "/media/og/Banca-B15-2.jpg"
     }
   },
   {
@@ -2213,7 +2213,7 @@
     "seo": {
       "title": "New - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-Top-Napoli-1.jpg"
+      "ogImage": "/media/og/Banca-Top-Napoli-1.jpg"
     }
   },
   {
@@ -2255,7 +2255,7 @@
     "seo": {
       "title": "Kiwi - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-Kiwi.jpg"
+      "ogImage": "/media/og/Banca-Kiwi.jpg"
     }
   },
   {
@@ -2305,7 +2305,7 @@
     "seo": {
       "title": "Airport - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/banca-airport-3-plazas.png"
+      "ogImage": "/media/og/banca-airport-3-plazas.jpg"
     }
   },
   {
@@ -2351,7 +2351,7 @@
     "seo": {
       "title": "Chaya - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-Chaya1.jpg"
+      "ogImage": "/media/og/Banca-Chaya1.jpg"
     }
   },
   {
@@ -2390,7 +2390,7 @@
     "seo": {
       "title": "Lavaredo - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-Lavaredo-1.jpg"
+      "ogImage": "/media/og/Banca-Lavaredo-1.jpg"
     }
   },
   {
@@ -2452,7 +2452,7 @@
     "seo": {
       "title": "Karla - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Banca-Karla-5.jpg"
+      "ogImage": "/media/og/Banca-Karla-5.jpg"
     }
   },
   {
@@ -2514,7 +2514,7 @@
     "seo": {
       "title": "Leo - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/LEO2.jpg"
+      "ogImage": "/media/og/LEO2.jpg"
     }
   },
   {
@@ -2566,7 +2566,7 @@
     "seo": {
       "title": "Piero - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Piero-Banco.jpg"
+      "ogImage": "/media/og/Piero-Banco.jpg"
     }
   },
   {
@@ -2630,7 +2630,7 @@
     "seo": {
       "title": "Mimi - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Mimi-2.jpg"
+      "ogImage": "/media/og/Mimi-2.jpg"
     }
   },
   {
@@ -2686,7 +2686,7 @@
     "seo": {
       "title": "Karl - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Karl-1.jpg"
+      "ogImage": "/media/og/Karl-1.jpg"
     }
   },
   {
@@ -2750,7 +2750,7 @@
     "seo": {
       "title": "Yeka - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Yeka-2.jpg"
+      "ogImage": "/media/og/Yeka-2.jpg"
     }
   },
   {
@@ -2814,7 +2814,7 @@
     "seo": {
       "title": "Paco - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Paco-2.jpg"
+      "ogImage": "/media/og/Paco-2.jpg"
     }
   },
   {
@@ -2878,7 +2878,7 @@
     "seo": {
       "title": "Frill - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Frill-2.jpg"
+      "ogImage": "/media/og/Frill-2.jpg"
     }
   },
   {
@@ -2942,7 +2942,7 @@
     "seo": {
       "title": "Pull - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Pull-2.jpg"
+      "ogImage": "/media/og/Pull-2.jpg"
     }
   },
   {
@@ -3006,7 +3006,7 @@
     "seo": {
       "title": "Nilo - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Taburete-Nilo-2.jpg"
+      "ogImage": "/media/og/Taburete-Nilo-2.jpg"
     }
   },
   {
@@ -3094,7 +3094,7 @@
     "seo": {
       "title": "Tom - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Tom-2.jpg"
+      "ogImage": "/media/og/Tom-2.jpg"
     }
   },
   {
@@ -3178,7 +3178,7 @@
     "seo": {
       "title": "Kind - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Kind-Tela-2.jpg"
+      "ogImage": "/media/og/Kind-Tela-2.jpg"
     }
   },
   {
@@ -3246,7 +3246,7 @@
     "seo": {
       "title": "Y10 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Y10-2.jpg"
+      "ogImage": "/media/og/Y10-2.jpg"
     }
   },
   {
@@ -3314,7 +3314,7 @@
     "seo": {
       "title": "Q3 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Q3-con-Cabecera-2.jpg"
+      "ogImage": "/media/og/Q3-con-Cabecera-2.jpg"
     }
   },
   {
@@ -3334,27 +3334,27 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Habana-Trineo-2.jpg",
+        "src": "/media/productos/Habana-Trineo-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Habana-Trineo-5.jpg",
+        "src": "/media/productos/Habana-Trineo-5.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Habana-Trineo-4.jpg",
+        "src": "/media/productos/Habana-Trineo-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Habana-Trineo-3.jpg",
+        "src": "/media/productos/Habana-Trineo-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Habana-Trineo-1.jpg",
+        "src": "/media/productos/Habana-Trineo-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Habana-Trineo-Medidas-scaled.jpg",
+        "src": "/media/productos/Habana-Trineo-Medidas-scaled.webp",
         "alt": ""
       }
     ],
@@ -3369,7 +3369,7 @@
     "seo": {
       "title": "Habana Visita - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Habana-Trineo-2.jpg"
+      "ogImage": "/media/og/Habana-Trineo-2.jpg"
     }
   },
   {
@@ -3461,7 +3461,7 @@
     "seo": {
       "title": "Habana - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Habana-con-Cabecera-2.jpg"
+      "ogImage": "/media/og/Habana-con-Cabecera-2.jpg"
     }
   },
   {
@@ -3529,7 +3529,7 @@
     "seo": {
       "title": "Com Sette - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Com-Sette-2.jpg"
+      "ogImage": "/media/og/Com-Sette-2.jpg"
     }
   },
   {
@@ -3597,7 +3597,7 @@
     "seo": {
       "title": "Thank You - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Thank-You-2.jpg"
+      "ogImage": "/media/og/Thank-You-2.jpg"
     }
   },
   {
@@ -3665,7 +3665,7 @@
     "seo": {
       "title": "Muzio - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Muzio-2.jpg"
+      "ogImage": "/media/og/Muzio-2.jpg"
     }
   },
   {
@@ -3733,7 +3733,7 @@
     "seo": {
       "title": "Rolls - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Rolls-2.jpg"
+      "ogImage": "/media/og/Rolls-2.jpg"
     }
   },
   {
@@ -3793,7 +3793,7 @@
     "seo": {
       "title": "Rodri - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Rodri-2.jpg"
+      "ogImage": "/media/og/Rodri-2.jpg"
     }
   },
   {
@@ -3861,7 +3861,7 @@
     "seo": {
       "title": "Andy - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Andy-2.jpg"
+      "ogImage": "/media/og/Andy-2.jpg"
     }
   },
   {
@@ -3921,7 +3921,7 @@
     "seo": {
       "title": "Ovidio - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Ovidio-2.jpg"
+      "ogImage": "/media/og/Ovidio-2.jpg"
     }
   },
   {
@@ -3989,7 +3989,7 @@
     "seo": {
       "title": "Elisa - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Elisa-Gris-con-Cabecera-2.jpg"
+      "ogImage": "/media/og/Elisa-Gris-con-Cabecera-2.jpg"
     }
   },
   {
@@ -4061,7 +4061,7 @@
     "seo": {
       "title": "Melania - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Melania-con-Cabecera-1.jpg"
+      "ogImage": "/media/og/Melania-con-Cabecera-1.jpg"
     }
   },
   {
@@ -4129,7 +4129,7 @@
     "seo": {
       "title": "Marilyn - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Marilyn-2.jpg"
+      "ogImage": "/media/og/Marilyn-2.jpg"
     }
   },
   {
@@ -4149,15 +4149,15 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Seneca-Visita-1.jpg",
+        "src": "/media/productos/Seneca-Visita-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Seneca-Visita-3-scaled.jpg",
+        "src": "/media/productos/Seneca-Visita-3-scaled.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Seneca-Visita-2.jpg",
+        "src": "/media/productos/Seneca-Visita-2.webp",
         "alt": ""
       }
     ],
@@ -4185,7 +4185,7 @@
     "seo": {
       "title": "Seneca Visita - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Seneca-Visita-1.jpg"
+      "ogImage": "/media/og/Seneca-Visita-1.jpg"
     }
   },
   {
@@ -4253,7 +4253,7 @@
     "seo": {
       "title": "Seneca - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Seneca-2.jpg"
+      "ogImage": "/media/og/Seneca-2.jpg"
     }
   },
   {
@@ -4273,27 +4273,27 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/10-800-2.jpg",
+        "src": "/media/productos/10-800-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/10-800-3.jpg",
+        "src": "/media/productos/10-800-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/10-800-4.jpg",
+        "src": "/media/productos/10-800-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/10-800-5.jpg",
+        "src": "/media/productos/10-800-5.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/10-800-6.jpg",
+        "src": "/media/productos/10-800-6.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/10-800-1.jpg",
+        "src": "/media/productos/10-800-1.webp",
         "alt": ""
       }
     ],
@@ -4321,7 +4321,7 @@
     "seo": {
       "title": "14-10800 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/10-800-2.jpg"
+      "ogImage": "/media/og/10-800-2.jpg"
     }
   },
   {
@@ -4341,23 +4341,23 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Eureka-Visita-2.jpg",
+        "src": "/media/productos/Eureka-Visita-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Eureka-Visita-1.jpg",
+        "src": "/media/productos/Eureka-Visita-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Eureka-Visita-3.jpg",
+        "src": "/media/productos/Eureka-Visita-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Eureka-Visita-4.jpg",
+        "src": "/media/productos/Eureka-Visita-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Eureka-Visita-5.jpg",
+        "src": "/media/productos/Eureka-Visita-5.webp",
         "alt": ""
       }
     ],
@@ -4379,7 +4379,7 @@
     "seo": {
       "title": "Eureka Visita - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Eureka-Visita-2.jpg"
+      "ogImage": "/media/og/Eureka-Visita-2.jpg"
     }
   },
   {
@@ -4447,7 +4447,7 @@
     "seo": {
       "title": "Eureka - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Eureka-2.jpg"
+      "ogImage": "/media/og/Eureka-2.jpg"
     }
   },
   {
@@ -4467,19 +4467,19 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-Trineo-2.jpg",
+        "src": "/media/productos/Orlando-Trineo-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-Trineo-4.jpg",
+        "src": "/media/productos/Orlando-Trineo-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-Trineo-3.jpg",
+        "src": "/media/productos/Orlando-Trineo-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-Trineo-1.jpg",
+        "src": "/media/productos/Orlando-Trineo-1.webp",
         "alt": ""
       }
     ],
@@ -4507,7 +4507,7 @@
     "seo": {
       "title": "Orlando Visita - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-Trineo-2.jpg"
+      "ogImage": "/media/og/Orlando-Trineo-2.jpg"
     }
   },
   {
@@ -4541,7 +4541,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-con-cabecera-2.jpg"
+        "image": "/media/productos/Orlando-con-cabecera-2.webp"
       },
       {
         "id": 1290,
@@ -4551,7 +4551,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-sin-cabecera-2.jpg"
+        "image": "/media/productos/Orlando-sin-cabecera-2.webp"
       }
     ],
     "images": [
@@ -4584,7 +4584,7 @@
     "seo": {
       "title": "Orlando - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Orlando-con-cabecera-1.jpg"
+      "ogImage": "/media/og/Orlando-con-cabecera-1.jpg"
     }
   },
   {
@@ -4604,7 +4604,7 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/silla-gris1-scaled.jpg",
+        "src": "/media/productos/silla-gris1-scaled.webp",
         "alt": ""
       }
     ],
@@ -4632,7 +4632,7 @@
     "seo": {
       "title": "Galaxy Visita - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/silla-gris1-scaled.jpg"
+      "ogImage": "/media/og/silla-gris1-scaled.jpg"
     }
   },
   {
@@ -4700,7 +4700,7 @@
     "seo": {
       "title": "Galaxy - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Galaxy-2.jpg"
+      "ogImage": "/media/og/Galaxy-2.jpg"
     }
   },
   {
@@ -4720,23 +4720,23 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-Visita-2.jpg",
+        "src": "/media/productos/Blitz-Visita-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-Visita-1.jpg",
+        "src": "/media/productos/Blitz-Visita-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-Visita-3.jpg",
+        "src": "/media/productos/Blitz-Visita-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-Visita-4.jpg",
+        "src": "/media/productos/Blitz-Visita-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-Visita-5.jpg",
+        "src": "/media/productos/Blitz-Visita-5.webp",
         "alt": ""
       }
     ],
@@ -4764,7 +4764,7 @@
     "seo": {
       "title": "Blitz Visita - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-Visita-2.jpg"
+      "ogImage": "/media/og/Blitz-Visita-2.jpg"
     }
   },
   {
@@ -4832,7 +4832,7 @@
     "seo": {
       "title": "Blitz - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Blitz-2.jpg"
+      "ogImage": "/media/og/Blitz-2.jpg"
     }
   },
   {
@@ -4900,7 +4900,7 @@
     "seo": {
       "title": "Kuga - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Kuga-2.jpg"
+      "ogImage": "/media/og/Kuga-2.jpg"
     }
   },
   {
@@ -4968,7 +4968,7 @@
     "seo": {
       "title": "Jupiter - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Jupiter-2.jpg"
+      "ogImage": "/media/og/Jupiter-2.jpg"
     }
   },
   {
@@ -5036,7 +5036,7 @@
     "seo": {
       "title": "Marbella - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Marbella-2.jpg"
+      "ogImage": "/media/og/Marbella-2.jpg"
     }
   },
   {
@@ -5056,19 +5056,19 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Castell-Visita-2.jpg",
+        "src": "/media/productos/Castell-Visita-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Castell-Visita-4.jpg",
+        "src": "/media/productos/Castell-Visita-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Castell-Visita-3.jpg",
+        "src": "/media/productos/Castell-Visita-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Castell-Visita-1.jpg",
+        "src": "/media/productos/Castell-Visita-1.webp",
         "alt": ""
       }
     ],
@@ -5090,7 +5090,7 @@
     "seo": {
       "title": "Castell Visita - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Castell-Visita-2.jpg"
+      "ogImage": "/media/og/Castell-Visita-2.jpg"
     }
   },
   {
@@ -5158,7 +5158,7 @@
     "seo": {
       "title": "Castell - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Castell-2.jpg"
+      "ogImage": "/media/og/Castell-2.jpg"
     }
   },
   {
@@ -5226,7 +5226,7 @@
     "seo": {
       "title": "Jojo - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Jojo-2.jpg"
+      "ogImage": "/media/og/Jojo-2.jpg"
     }
   },
   {
@@ -5278,7 +5278,7 @@
     "seo": {
       "title": "Visio - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/4.png"
+      "ogImage": "/media/og/4.jpg"
     }
   },
   {
@@ -5312,7 +5312,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Solar-gris-2.jpg"
+        "image": "/media/productos/Solar-gris-2.webp"
       },
       {
         "id": 1199,
@@ -5322,7 +5322,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/4.png"
+        "image": "/media/productos/4.webp"
       }
     ],
     "images": [
@@ -5367,7 +5367,7 @@
     "seo": {
       "title": "Solar - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Solar-2.jpg"
+      "ogImage": "/media/og/Solar-2.jpg"
     }
   },
   {
@@ -5391,15 +5391,15 @@
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-plegable-Space-Negro-3-scaled.jpg",
+        "src": "/media/productos/Silla-plegable-Space-Negro-3-scaled.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-plegable-Space-Negro-4-scaled.jpg",
+        "src": "/media/productos/Silla-plegable-Space-Negro-4-scaled.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-plegable-Space-Negro-2-scaled.jpg",
+        "src": "/media/productos/Silla-plegable-Space-Negro-2-scaled.webp",
         "alt": ""
       }
     ],
@@ -5412,7 +5412,7 @@
     "seo": {
       "title": "Space Plegable - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Silla-plegable-Space-Negro-1-scaled.jpg"
+      "ogImage": "/media/og/Silla-plegable-Space-Negro-1-scaled.jpg"
     }
   },
   {
@@ -5456,7 +5456,7 @@
     "seo": {
       "title": "Felicita - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Felicita-blanca-1-scaled.jpg"
+      "ogImage": "/media/og/Felicita-blanca-1-scaled.jpg"
     }
   },
   {
@@ -5490,7 +5490,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Eugenia-con-cabecera-gris-2.jpg"
+        "image": "/media/productos/Eugenia-con-cabecera-gris-2.webp"
       },
       {
         "id": 1171,
@@ -5500,7 +5500,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Eugenia-con-cabecera-negro-2.jpg"
+        "image": "/media/productos/Eugenia-con-cabecera-negro-2.webp"
       }
     ],
     "images": [
@@ -5521,7 +5521,7 @@
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Eugenia-con-cabecera-negro-2.jpg",
+        "src": "/media/productos/Eugenia-con-cabecera-negro-2.webp",
         "alt": ""
       },
       {
@@ -5573,7 +5573,7 @@
     "seo": {
       "title": "Eugenia - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Eugenia-con-cabecera-gris-2.jpg"
+      "ogImage": "/media/og/Eugenia-con-cabecera-gris-2.jpg"
     }
   },
   {
@@ -5631,7 +5631,7 @@
     "seo": {
       "title": "Tapas - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/04-Mesa-tapas-conjunto.jpg"
+      "ogImage": "/media/og/04-Mesa-tapas-conjunto.jpg"
     }
   },
   {
@@ -5666,7 +5666,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/01-Mesa-Infinity-Alta-scaled.jpg"
+        "image": "/media/productos/01-Mesa-Infinity-Alta-scaled.webp"
       },
       {
         "id": 1152,
@@ -5676,7 +5676,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/01-Mesa-Infinity-Media-scaled.jpg"
+        "image": "/media/productos/01-Mesa-Infinity-Media-scaled.webp"
       },
       {
         "id": 1153,
@@ -5686,12 +5686,12 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/01-Mesa-Infinity-Baja-scaled.jpg"
+        "image": "/media/productos/01-Mesa-Infinity-Baja-scaled.webp"
       }
     ],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/01-Mesa-Infinity-Media-scaled.jpg",
+        "src": "/media/productos/01-Mesa-Infinity-Media-scaled.webp",
         "alt": ""
       },
       {
@@ -5707,11 +5707,11 @@
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/01-Mesa-Infinity-Baja-scaled.jpg",
+        "src": "/media/productos/01-Mesa-Infinity-Baja-scaled.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/01-Mesa-Infinity-Alta-scaled.jpg",
+        "src": "/media/productos/01-Mesa-Infinity-Alta-scaled.webp",
         "alt": ""
       },
       {
@@ -5730,7 +5730,7 @@
     "seo": {
       "title": "Infinity - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/01-Mesa-Infinity-Media-scaled.jpg"
+      "ogImage": "/media/og/01-Mesa-Infinity-Media-scaled.jpg"
     }
   },
   {
@@ -5784,7 +5784,7 @@
     "seo": {
       "title": "Suiza - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/suiza-2-plazas.jpg"
+      "ogImage": "/media/og/suiza-2-plazas.jpg"
     }
   },
   {
@@ -5846,7 +5846,7 @@
     "seo": {
       "title": "Tenerife - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Tenerife-3-plazas.jpg"
+      "ogImage": "/media/og/Tenerife-3-plazas.jpg"
     }
   },
   {
@@ -5900,7 +5900,7 @@
     "seo": {
       "title": "Square - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Square2.jpg"
+      "ogImage": "/media/og/Square2.jpg"
     }
   },
   {
@@ -5954,7 +5954,7 @@
     "seo": {
       "title": "Malaga - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Malaga2.jpg"
+      "ogImage": "/media/og/Malaga2.jpg"
     }
   },
   {
@@ -6008,7 +6008,7 @@
     "seo": {
       "title": "Elegance II - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Elegance-II-2-plazas.jpg"
+      "ogImage": "/media/og/Elegance-II-2-plazas.jpg"
     }
   },
   {
@@ -6028,23 +6028,23 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Elegance-2-plazas.jpg",
+        "src": "/media/productos/Elegance-2-plazas.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Elegance-3.jpg",
+        "src": "/media/productos/Elegance-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Elegance-Perspectiva.jpg",
+        "src": "/media/productos/Elegance-Perspectiva.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Elegance-perspectiva-posterior.jpg",
+        "src": "/media/productos/Elegance-perspectiva-posterior.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Elegance-Lateral.jpg",
+        "src": "/media/productos/Elegance-Lateral.webp",
         "alt": ""
       }
     ],
@@ -6066,7 +6066,7 @@
     "seo": {
       "title": "Elegance I - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Elegance-2-plazas.jpg"
+      "ogImage": "/media/og/Elegance-2-plazas.jpg"
     }
   },
   {
@@ -6116,7 +6116,7 @@
     "seo": {
       "title": "Dubai II - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Dubai-II-2-plazas.jpg"
+      "ogImage": "/media/og/Dubai-II-2-plazas.jpg"
     }
   },
   {
@@ -6150,7 +6150,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Cannes-1-plaza.jpg"
+        "image": "/media/productos/Cannes-1-plaza.webp"
       },
       {
         "id": 1106,
@@ -6160,12 +6160,12 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Cannes-2-plazas.jpg"
+        "image": "/media/productos/Cannes-2-plazas.webp"
       }
     ],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Cannes-2-plazas.jpg",
+        "src": "/media/productos/Cannes-2-plazas.webp",
         "alt": ""
       }
     ],
@@ -6187,7 +6187,7 @@
     "seo": {
       "title": "Cannes - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Cannes-2-plazas.jpg"
+      "ogImage": "/media/og/Cannes-2-plazas.jpg"
     }
   },
   {
@@ -6241,7 +6241,7 @@
     "seo": {
       "title": "Cairo - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Cairo.jpg"
+      "ogImage": "/media/og/Cairo.jpg"
     }
   },
   {
@@ -6276,7 +6276,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Braun1.jpg"
+        "image": "/media/productos/Braun1.webp"
       },
       {
         "id": 1093,
@@ -6286,7 +6286,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Braun2.jpg"
+        "image": "/media/productos/Braun2.webp"
       },
       {
         "id": 1094,
@@ -6296,20 +6296,20 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Braun3.jpg"
+        "image": "/media/productos/Braun3.webp"
       }
     ],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Braun2.jpg",
+        "src": "/media/productos/Braun2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Braun1.jpg",
+        "src": "/media/productos/Braun1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Braun3.jpg",
+        "src": "/media/productos/Braun3.webp",
         "alt": ""
       },
       {
@@ -6335,7 +6335,7 @@
     "seo": {
       "title": "Braun - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Braun2.jpg"
+      "ogImage": "/media/og/Braun2.jpg"
     }
   },
   {
@@ -6402,7 +6402,7 @@
     "seo": {
       "title": "Birmania - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Birmania2.jpg"
+      "ogImage": "/media/og/Birmania2.jpg"
     }
   },
   {
@@ -6437,7 +6437,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Atenas1.jpg"
+        "image": "/media/productos/Atenas1.webp"
       },
       {
         "id": 1081,
@@ -6447,7 +6447,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Atenas2.jpg"
+        "image": "/media/productos/Atenas2.webp"
       },
       {
         "id": 1082,
@@ -6457,12 +6457,12 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Atenas3.jpg"
+        "image": "/media/productos/Atenas3.webp"
       }
     ],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Atenas3.jpg",
+        "src": "/media/productos/Atenas3.webp",
         "alt": ""
       },
       {
@@ -6488,7 +6488,7 @@
     "seo": {
       "title": "Atenas - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Atenas3.jpg"
+      "ogImage": "/media/og/Atenas3.jpg"
     }
   },
   {
@@ -6508,11 +6508,11 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/ZIP-1.jpg",
+        "src": "/media/productos/ZIP-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/ZIP-2.jpg",
+        "src": "/media/productos/ZIP-2.webp",
         "alt": ""
       }
     ],
@@ -6534,7 +6534,7 @@
     "seo": {
       "title": "Zip - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/ZIP-1.jpg"
+      "ogImage": "/media/og/ZIP-1.jpg"
     }
   },
   {
@@ -6554,11 +6554,11 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Thai-1.jpg",
+        "src": "/media/productos/Thai-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Thai-2.jpg",
+        "src": "/media/productos/Thai-2.webp",
         "alt": ""
       }
     ],
@@ -6580,7 +6580,7 @@
     "seo": {
       "title": "Thai - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Thai-1.jpg"
+      "ogImage": "/media/og/Thai-1.jpg"
     }
   },
   {
@@ -6600,11 +6600,11 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/SOFIA-1.jpg",
+        "src": "/media/productos/SOFIA-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/SOFIA-2.jpg",
+        "src": "/media/productos/SOFIA-2.webp",
         "alt": ""
       }
     ],
@@ -6626,7 +6626,7 @@
     "seo": {
       "title": "Sofia - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/SOFIA-1.jpg"
+      "ogImage": "/media/og/SOFIA-1.jpg"
     }
   },
   {
@@ -6672,7 +6672,7 @@
     "seo": {
       "title": "Raffa - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/RAFFA-1.jpg"
+      "ogImage": "/media/og/RAFFA-1.jpg"
     }
   },
   {
@@ -6692,11 +6692,11 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Poppea-1.jpg",
+        "src": "/media/productos/Poppea-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Poppea-2.jpg",
+        "src": "/media/productos/Poppea-2.webp",
         "alt": ""
       }
     ],
@@ -6718,7 +6718,7 @@
     "seo": {
       "title": "Poppea - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Poppea-1.jpg"
+      "ogImage": "/media/og/Poppea-1.jpg"
     }
   },
   {
@@ -6764,7 +6764,7 @@
     "seo": {
       "title": "Polonia - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Polonia-1.jpg"
+      "ogImage": "/media/og/Polonia-1.jpg"
     }
   },
   {
@@ -6810,7 +6810,7 @@
     "seo": {
       "title": "Niza - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/NIZA-1.jpg"
+      "ogImage": "/media/og/NIZA-1.jpg"
     }
   },
   {
@@ -6856,7 +6856,7 @@
     "seo": {
       "title": "Modular - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/MODULAR-1.jpg"
+      "ogImage": "/media/og/MODULAR-1.jpg"
     }
   },
   {
@@ -6876,11 +6876,11 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/LEO-1.jpg",
+        "src": "/media/productos/LEO-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/LEO-2.jpg",
+        "src": "/media/productos/LEO-2.webp",
         "alt": ""
       }
     ],
@@ -6902,7 +6902,7 @@
     "seo": {
       "title": "Leo - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/LEO-1.jpg"
+      "ogImage": "/media/og/LEO-1.jpg"
     }
   },
   {
@@ -6922,11 +6922,11 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Kube-1.jpg",
+        "src": "/media/productos/Kube-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Kube-2.jpg",
+        "src": "/media/productos/Kube-2.webp",
         "alt": ""
       }
     ],
@@ -6948,7 +6948,7 @@
     "seo": {
       "title": "Kube - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Kube-1.jpg"
+      "ogImage": "/media/og/Kube-1.jpg"
     }
   },
   {
@@ -6968,11 +6968,11 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Jonas-1.jpg",
+        "src": "/media/productos/Jonas-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Jonas-2.jpg",
+        "src": "/media/productos/Jonas-2.webp",
         "alt": ""
       }
     ],
@@ -6994,7 +6994,7 @@
     "seo": {
       "title": "Jonas - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Jonas-1.jpg"
+      "ogImage": "/media/og/Jonas-1.jpg"
     }
   },
   {
@@ -7040,7 +7040,7 @@
     "seo": {
       "title": "Italia - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/ITALIA-1.jpg"
+      "ogImage": "/media/og/ITALIA-1.jpg"
     }
   },
   {
@@ -7079,7 +7079,7 @@
     "seo": {
       "title": "H2O - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/H2O-1.jpg"
+      "ogImage": "/media/og/H2O-1.jpg"
     }
   },
   {
@@ -7125,7 +7125,7 @@
     "seo": {
       "title": "Dakota - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/DAKOTA-1.jpg"
+      "ogImage": "/media/og/DAKOTA-1.jpg"
     }
   },
   {
@@ -7145,11 +7145,11 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/COM-SETTE-Sof.jpg",
+        "src": "/media/productos/COM-SETTE-Sof.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/COM-SETTE-Sof-1.jpg",
+        "src": "/media/productos/COM-SETTE-Sof-1.webp",
         "alt": ""
       }
     ],
@@ -7171,7 +7171,7 @@
     "seo": {
       "title": "Com Sette - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/COM-SETTE-Sof.jpg"
+      "ogImage": "/media/og/COM-SETTE-Sof.jpg"
     }
   },
   {
@@ -7217,7 +7217,7 @@
     "seo": {
       "title": "Bubble - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Bubble-1.jpg"
+      "ogImage": "/media/og/Bubble-1.jpg"
     }
   },
   {
@@ -7263,7 +7263,7 @@
     "seo": {
       "title": "Bali - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/BALI-1.jpg"
+      "ogImage": "/media/og/BALI-1.jpg"
     }
   },
   {
@@ -7309,7 +7309,7 @@
     "seo": {
       "title": "Alejandría - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/ALEJANDRIA-1.jpg"
+      "ogImage": "/media/og/ALEJANDRIA-1.jpg"
     }
   },
   {
@@ -7348,7 +7348,7 @@
     "seo": {
       "title": "Moka - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Moka-1.jpg"
+      "ogImage": "/media/og/Moka-1.jpg"
     }
   },
   {
@@ -7368,11 +7368,11 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Turin-1.jpg",
+        "src": "/media/productos/Turin-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Turin-2.jpg",
+        "src": "/media/productos/Turin-2.webp",
         "alt": ""
       }
     ],
@@ -7387,7 +7387,7 @@
     "seo": {
       "title": "Turin - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Turin-1.jpg"
+      "ogImage": "/media/og/Turin-1.jpg"
     }
   },
   {
@@ -7426,7 +7426,7 @@
     "seo": {
       "title": "Valencia - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Valencia-1.jpg"
+      "ogImage": "/media/og/Valencia-1.jpg"
     }
   },
   {
@@ -7465,7 +7465,7 @@
     "seo": {
       "title": "Dublín - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Dublin-1.jpg"
+      "ogImage": "/media/og/Dublin-1.jpg"
     }
   },
   {
@@ -7504,7 +7504,7 @@
     "seo": {
       "title": "Amsterdam - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Amsterdam-1.jpg"
+      "ogImage": "/media/og/Amsterdam-1.jpg"
     }
   },
   {
@@ -7528,7 +7528,7 @@
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Dinamo-2.jpg",
+        "src": "/media/productos/Dinamo-2.webp",
         "alt": ""
       }
     ],
@@ -7545,7 +7545,7 @@
     "seo": {
       "title": "Dínamo 1 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Dinamo-1.jpg"
+      "ogImage": "/media/og/Dinamo-1.jpg"
     }
   },
   {
@@ -7598,7 +7598,7 @@
     "seo": {
       "title": "Versátil V8-MESA - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Versatil-V8-1.jpg"
+      "ogImage": "/media/og/Versatil-V8-1.jpg"
     }
   },
   {
@@ -7643,7 +7643,7 @@
     "seo": {
       "title": "Versátil V7-MET - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Versatil-V7-MET.jpg"
+      "ogImage": "/media/og/Versatil-V7-MET.jpg"
     }
   },
   {
@@ -7680,7 +7680,7 @@
     "seo": {
       "title": "Versátil V4-MET - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Versatil-V4-MET.jpg"
+      "ogImage": "/media/og/Versatil-V4-MET.jpg"
     }
   },
   {
@@ -7725,7 +7725,7 @@
     "seo": {
       "title": "Versátil V3-HYB+LSP - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Versatil-V3-HYBLSP.jpg"
+      "ogImage": "/media/og/Versatil-V3-HYBLSP.jpg"
     }
   },
   {
@@ -7770,7 +7770,7 @@
     "seo": {
       "title": "Versátil V3-HYB - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Versatil-V3-HYB.jpg"
+      "ogImage": "/media/og/Versatil-V3-HYB.jpg"
     }
   },
   {
@@ -7807,7 +7807,7 @@
     "seo": {
       "title": "Versátil V1 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Versatil-V1-1.jpg"
+      "ogImage": "/media/og/Versatil-V1-1.jpg"
     }
   },
   {
@@ -7852,7 +7852,7 @@
     "seo": {
       "title": "Quadri Q23 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Quadri-Q23-1.jpg"
+      "ogImage": "/media/og/Quadri-Q23-1.jpg"
     }
   },
   {
@@ -7897,7 +7897,7 @@
     "seo": {
       "title": "Quadri Q22 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Quadri-Q22-1.jpg"
+      "ogImage": "/media/og/Quadri-Q22-1.jpg"
     }
   },
   {
@@ -7942,7 +7942,7 @@
     "seo": {
       "title": "Quadri Q20 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Quadri-Q20-1.jpg"
+      "ogImage": "/media/og/Quadri-Q20-1.jpg"
     }
   },
   {
@@ -7987,7 +7987,7 @@
     "seo": {
       "title": "Quadri Q18 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Quadri-Q18-1.jpg"
+      "ogImage": "/media/og/Quadri-Q18-1.jpg"
     }
   },
   {
@@ -8024,7 +8024,7 @@
     "seo": {
       "title": "Quadri Q16 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Quadri-Q16-1.jpg"
+      "ogImage": "/media/og/Quadri-Q16-1.jpg"
     }
   },
   {
@@ -8073,7 +8073,7 @@
     "seo": {
       "title": "Quadri Q11 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Quadri-Q11-2.jpg"
+      "ogImage": "/media/og/Quadri-Q11-2.jpg"
     }
   },
   {
@@ -8118,7 +8118,7 @@
     "seo": {
       "title": "Quadri Q6 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Quadri-Q6-1.jpg"
+      "ogImage": "/media/og/Quadri-Q6-1.jpg"
     }
   },
   {
@@ -8163,7 +8163,7 @@
     "seo": {
       "title": "Quadri Q4 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Quadri-Q4-1.jpg"
+      "ogImage": "/media/og/Quadri-Q4-1.jpg"
     }
   },
   {
@@ -8208,7 +8208,7 @@
     "seo": {
       "title": "Quadri Q3 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Quadri-Q3-1.jpg"
+      "ogImage": "/media/og/Quadri-Q3-1.jpg"
     }
   },
   {
@@ -8228,19 +8228,19 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Basic-BA6-2.jpg",
+        "src": "/media/productos/Basic-BA6-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Basic-BA6-1.jpg",
+        "src": "/media/productos/Basic-BA6-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Basic-BA6-3.jpg",
+        "src": "/media/productos/Basic-BA6-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Basic-BA6-4.jpg",
+        "src": "/media/productos/Basic-BA6-4.webp",
         "alt": ""
       }
     ],
@@ -8257,7 +8257,7 @@
     "seo": {
       "title": "Basic 2 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Basic-BA6-2.jpg"
+      "ogImage": "/media/og/Basic-BA6-2.jpg"
     }
   },
   {
@@ -8277,15 +8277,15 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Basic-BA1-1.jpg",
+        "src": "/media/productos/Basic-BA1-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Basic-BA1-2.jpg",
+        "src": "/media/productos/Basic-BA1-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Basic-BA1-3.jpg",
+        "src": "/media/productos/Basic-BA1-3.webp",
         "alt": ""
       }
     ],
@@ -8302,7 +8302,7 @@
     "seo": {
       "title": "Basic 1 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Basic-BA1-1.jpg"
+      "ogImage": "/media/og/Basic-BA1-1.jpg"
     }
   },
   {
@@ -8402,7 +8402,7 @@
     "seo": {
       "title": "Flight - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Flight-Malla-1.jpg"
+      "ogImage": "/media/og/Flight-Malla-1.jpg"
     }
   },
   {
@@ -8447,7 +8447,7 @@
     "seo": {
       "title": "Air Duo 3 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Air-Duo-AD3-2.jpg"
+      "ogImage": "/media/og/Air-Duo-AD3-2.jpg"
     }
   },
   {
@@ -8492,7 +8492,7 @@
     "seo": {
       "title": "Air Duo 2 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Air-Duo-AD2-1.jpg"
+      "ogImage": "/media/og/Air-Duo-AD2-1.jpg"
     }
   },
   {
@@ -8537,7 +8537,7 @@
     "seo": {
       "title": "Air Duo 1 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Air-Duo-AD1-1.jpg"
+      "ogImage": "/media/og/Air-Duo-AD1-1.jpg"
     }
   },
   {
@@ -8586,7 +8586,7 @@
     "seo": {
       "title": "TEMX Two - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/TEMX-Two-1.jpg"
+      "ogImage": "/media/og/TEMX-Two-1.jpg"
     }
   },
   {
@@ -8635,7 +8635,7 @@
     "seo": {
       "title": "TEMX One - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/TEMX-One-1.jpg"
+      "ogImage": "/media/og/TEMX-One-1.jpg"
     }
   },
   {
@@ -8669,7 +8669,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-4-1.jpg"
+        "image": "/media/productos/Lithos-LIT-4-1.webp"
       },
       {
         "id": 601,
@@ -8679,24 +8679,24 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-4-1.jpg"
+        "image": "/media/productos/Lithos-LIT-4-1.webp"
       }
     ],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-4-1.jpg",
+        "src": "/media/productos/Lithos-LIT-4-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-4-3.jpg",
+        "src": "/media/productos/Lithos-LIT-4-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-4-4.jpg",
+        "src": "/media/productos/Lithos-LIT-4-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-4-2.jpg",
+        "src": "/media/productos/Lithos-LIT-4-2.webp",
         "alt": ""
       }
     ],
@@ -8713,7 +8713,7 @@
     "seo": {
       "title": "Lithos 4 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-4-1.jpg"
+      "ogImage": "/media/og/Lithos-LIT-4-1.jpg"
     }
   },
   {
@@ -8747,7 +8747,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-3-1.jpg"
+        "image": "/media/productos/Lithos-LIT-3-1.webp"
       },
       {
         "id": 599,
@@ -8757,24 +8757,24 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-3-1.jpg"
+        "image": "/media/productos/Lithos-LIT-3-1.webp"
       }
     ],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-3-1.jpg",
+        "src": "/media/productos/Lithos-LIT-3-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-3-3.jpg",
+        "src": "/media/productos/Lithos-LIT-3-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-3-4.jpg",
+        "src": "/media/productos/Lithos-LIT-3-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-3-2.jpg",
+        "src": "/media/productos/Lithos-LIT-3-2.webp",
         "alt": ""
       }
     ],
@@ -8791,7 +8791,7 @@
     "seo": {
       "title": "Lithos 3 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-3-1.jpg"
+      "ogImage": "/media/og/Lithos-LIT-3-1.jpg"
     }
   },
   {
@@ -8825,7 +8825,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-2-2.jpg"
+        "image": "/media/productos/Lithos-LIT-2-2.webp"
       },
       {
         "id": 598,
@@ -8835,24 +8835,24 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-2-2.jpg"
+        "image": "/media/productos/Lithos-LIT-2-2.webp"
       }
     ],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-2-2.jpg",
+        "src": "/media/productos/Lithos-LIT-2-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-2-1.jpg",
+        "src": "/media/productos/Lithos-LIT-2-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-2-4.jpg",
+        "src": "/media/productos/Lithos-LIT-2-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-2-3.jpg",
+        "src": "/media/productos/Lithos-LIT-2-3.webp",
         "alt": ""
       }
     ],
@@ -8869,7 +8869,7 @@
     "seo": {
       "title": "Lithos 2 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-2-2.jpg"
+      "ogImage": "/media/og/Lithos-LIT-2-2.jpg"
     }
   },
   {
@@ -8903,7 +8903,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-1-1.jpg"
+        "image": "/media/productos/Lithos-LIT-1-1.webp"
       },
       {
         "id": 596,
@@ -8913,24 +8913,24 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-1-1.jpg"
+        "image": "/media/productos/Lithos-LIT-1-1.webp"
       }
     ],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-1-1.jpg",
+        "src": "/media/productos/Lithos-LIT-1-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-1-2.jpg",
+        "src": "/media/productos/Lithos-LIT-1-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-1-4.jpg",
+        "src": "/media/productos/Lithos-LIT-1-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-1-3.jpg",
+        "src": "/media/productos/Lithos-LIT-1-3.webp",
         "alt": ""
       }
     ],
@@ -8947,7 +8947,7 @@
     "seo": {
       "title": "Lithos 1 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Lithos-LIT-1-1.jpg"
+      "ogImage": "/media/og/Lithos-LIT-1-1.jpg"
     }
   },
   {
@@ -9059,7 +9059,7 @@
     "seo": {
       "title": "Uno - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/10/Uno-1.jpg"
+      "ogImage": "/media/og/Uno-1.jpg"
     }
   },
   {
@@ -9087,47 +9087,47 @@
     "variations": [],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero-800px.jpg",
+        "src": "/media/productos/Zero-800px.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero8.jpg",
+        "src": "/media/productos/Zero8.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero7.jpg",
+        "src": "/media/productos/Zero7.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero6.jpg",
+        "src": "/media/productos/Zero6.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero5.jpg",
+        "src": "/media/productos/Zero5.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero4.jpg",
+        "src": "/media/productos/Zero4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero3.jpg",
+        "src": "/media/productos/Zero3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero2.jpg",
+        "src": "/media/productos/Zero2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero1.jpg",
+        "src": "/media/productos/Zero1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero-4.jpg",
+        "src": "/media/productos/Zero-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/10/Zero-1.jpg",
+        "src": "/media/productos/Zero-1.webp",
         "alt": ""
       }
     ],
@@ -9144,7 +9144,7 @@
     "seo": {
       "title": "Zero - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/10/Zero-800px.jpg"
+      "ogImage": "/media/og/Zero-800px.jpg"
     }
   },
   {
@@ -9179,7 +9179,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-3-1.jpg"
+        "image": "/media/productos/Larus-LAR-3-1.webp"
       },
       {
         "id": 545,
@@ -9189,7 +9189,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-3-1.jpg"
+        "image": "/media/productos/Larus-LAR-3-1.webp"
       },
       {
         "id": 544,
@@ -9199,7 +9199,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-3-1.jpg"
+        "image": "/media/productos/Larus-LAR-3-1.webp"
       }
     ],
     "images": [
@@ -9208,15 +9208,15 @@
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-3-2.jpg",
+        "src": "/media/productos/Larus-LAR-3-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-3-4.jpg",
+        "src": "/media/productos/Larus-LAR-3-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-3-3.jpg",
+        "src": "/media/productos/Larus-LAR-3-3.webp",
         "alt": ""
       }
     ],
@@ -9233,7 +9233,7 @@
     "seo": {
       "title": "Larus 3 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-3-1.jpg"
+      "ogImage": "/media/og/Larus-LAR-3-1.jpg"
     }
   },
   {
@@ -9268,7 +9268,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-4-2.jpg"
+        "image": "/media/productos/Larus-LAR-4-2.webp"
       },
       {
         "id": 542,
@@ -9278,7 +9278,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-4-2.jpg"
+        "image": "/media/productos/Larus-LAR-4-2.webp"
       },
       {
         "id": 541,
@@ -9288,24 +9288,24 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-4-2.jpg"
+        "image": "/media/productos/Larus-LAR-4-2.webp"
       }
     ],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-4-2.jpg",
+        "src": "/media/productos/Larus-LAR-4-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-4-1.jpg",
+        "src": "/media/productos/Larus-LAR-4-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-4-4.jpg",
+        "src": "/media/productos/Larus-LAR-4-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-4-3.jpg",
+        "src": "/media/productos/Larus-LAR-4-3.webp",
         "alt": ""
       }
     ],
@@ -9322,7 +9322,7 @@
     "seo": {
       "title": "Larus 4 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-4-2.jpg"
+      "ogImage": "/media/og/Larus-LAR-4-2.jpg"
     }
   },
   {
@@ -9357,7 +9357,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-2-1.jpg"
+        "image": "/media/productos/Larus-LAR-2-1.webp"
       },
       {
         "id": 539,
@@ -9367,7 +9367,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-2-1.jpg"
+        "image": "/media/productos/Larus-LAR-2-1.webp"
       },
       {
         "id": 538,
@@ -9377,24 +9377,24 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-2-1.jpg"
+        "image": "/media/productos/Larus-LAR-2-1.webp"
       }
     ],
     "images": [
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-2-1.jpg",
+        "src": "/media/productos/Larus-LAR-2-1.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-2-3.jpg",
+        "src": "/media/productos/Larus-LAR-2-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-2-4.jpg",
+        "src": "/media/productos/Larus-LAR-2-4.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-2-2.jpg",
+        "src": "/media/productos/Larus-LAR-2-2.webp",
         "alt": ""
       }
     ],
@@ -9411,7 +9411,7 @@
     "seo": {
       "title": "Larus 2 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-2-1.jpg"
+      "ogImage": "/media/og/Larus-LAR-2-1.jpg"
     }
   },
   {
@@ -9445,7 +9445,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-1-1.jpg"
+        "image": "/media/productos/Larus-LAR-1-1.webp"
       },
       {
         "id": 525,
@@ -9455,7 +9455,7 @@
         },
         "price": null,
         "stockStatus": "instock",
-        "image": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-1-1.jpg"
+        "image": "/media/productos/Larus-LAR-1-1.webp"
       }
     ],
     "images": [
@@ -9464,15 +9464,15 @@
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-1-3.jpg",
+        "src": "/media/productos/Larus-LAR-1-3.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-1-2.jpg",
+        "src": "/media/productos/Larus-LAR-1-2.webp",
         "alt": ""
       },
       {
-        "src": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-1-4.jpg",
+        "src": "/media/productos/Larus-LAR-1-4.webp",
         "alt": ""
       }
     ],
@@ -9489,7 +9489,7 @@
     "seo": {
       "title": "Larus 1 - Sedie & Mobili",
       "description": null,
-      "ogImage": "https://sediemobili.com/wp-content/uploads/2025/11/Larus-LAR-1-1.jpg"
+      "ogImage": "/media/og/Larus-LAR-1-1.jpg"
     }
   }
 ]

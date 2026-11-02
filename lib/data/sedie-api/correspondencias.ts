@@ -46,6 +46,17 @@ export const PREFIJOS_CATEGORIA: Record<string, string[]> = {
 export const EQUIVALENCIAS_MANUALES: Record<string, string> = {
   kiwi: "bancas/banca-kiwi",
   malaga: "sofas/malaga",
+  // Uno de WordPress es el italiano (colección uno-zero), no el escritorio nacional homónimo.
+  uno: "escritorios/uno-italiano",
+  // Mismo producto con otro nombre comercial en la API.
+  "air-duo-1": "escritorios/air-duo-ad1",
+  "air-duo-2": "escritorios/air-duo-ad2",
+  "air-duo-3": "escritorios/air-duo-ad3",
+  "versatil-v3-hyb": "escritorios/versatil-v3-hibrido",
+  "versatil-v3-hyblsp": "escritorios/versatil-v3-hibrido-con-librero",
+  "versatil-v4-met": "escritorios/versatil-v4",
+  "versatil-v7-met": "escritorios/versatil-v7",
+  "versatil-v8-mesa": "escritorios/versatil-v8",
 };
 
 // Categoría del sitio de un producto de la API: la de su categoría y, si su "tipo" corresponde a

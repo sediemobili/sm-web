@@ -7,7 +7,7 @@ import { Hero, type Diapositiva } from "@/components/Home/Hero";
 import { Presentacion } from "@/components/Home/Presentacion";
 import { TarjetaProducto } from "@/components/Producto/TarjetaProducto";
 import estilos from "@/components/Home/Home.module.css";
-import { getCategories, getPosts, getProductBySlug, type Category, type Product } from "@/lib/data";
+import { getCategories, getPosts, getProducts, type Category, type Product } from "@/lib/data";
 import { ESCRITORIOS, SILLAS } from "@/lib/destacados";
 
 // Lo que el original elige a mano y no está en los datos: el orden de las tarjetas,
@@ -47,10 +47,14 @@ const HERO: Diapositiva[] = [
   },
 ];
 
+// Las tarjetas salen del listado, no de la ficha: así su foto es la principal y nunca una de la
+// galería. Sin foto no sale en el carrusel; su ficha sigue existiendo.
 async function porSlug(slugs: string[]) {
-  const productos = await Promise.all(slugs.map((slug) => getProductBySlug(slug)));
-  // Sin foto no sale en el carrusel; su ficha sigue existiendo.
-  return productos.filter((producto): producto is Product => producto !== null && producto.images.length > 0);
+  const { items } = await getProducts();
+  const porSlug = new Map(items.map((producto) => [producto.slug, producto]));
+  return slugs
+    .map((slug) => porSlug.get(slug))
+    .filter((producto): producto is Product => producto !== undefined && producto.images.length > 0);
 }
 
 export default async function HomePage() {

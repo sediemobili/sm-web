@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/Seo/JsonLd";
 import { BotonWhatsApp } from "@/components/WhatsApp/BotonWhatsApp";
 import { CotizacionProvider } from "@/lib/cotizacion";
 import { organizacion } from "@/lib/jsonld";
-import { NOMBRE, SEPARADOR, SITE } from "@/lib/seo";
+import { NOMBRE, OG_RESPALDO, SEPARADOR, SITE } from "@/lib/seo";
 import "../styles/tokens.css";
 import "../styles/base.css";
 import "../styles/patrones.css";
@@ -51,7 +51,10 @@ export const metadata: Metadata = {
     locale: "es_MX",
     type: "website",
     url: `${SITE}/`,
+    // La home y las páginas sin metadataDe comparten con la imagen de respaldo.
+    images: [{ url: OG_RESPALDO }],
   },
+  twitter: { card: "summary_large_image", images: [OG_RESPALDO] },
 };
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;

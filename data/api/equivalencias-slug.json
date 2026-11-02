@@ -18,25 +18,25 @@
   {
     "wpSlug": "air-duo-1",
     "wpNombre": "Air Duo 1",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/air-duo-ad1",
+    "estado": "inequivoco",
+    "motivo": "Resolución manual.",
     "candidatos": []
   },
   {
     "wpSlug": "air-duo-2",
     "wpNombre": "Air Duo 2",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/air-duo-ad2",
+    "estado": "inequivoco",
+    "motivo": "Resolución manual.",
     "candidatos": []
   },
   {
     "wpSlug": "air-duo-3",
     "wpNombre": "Air Duo 3",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/air-duo-ad3",
+    "estado": "inequivoco",
+    "motivo": "Resolución manual.",
     "candidatos": []
   },
   {
@@ -850,73 +850,73 @@
   {
     "wpSlug": "quadri-q11",
     "wpNombre": "Quadri Q11",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/quadri-q11",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
     "wpSlug": "quadri-q16",
     "wpNombre": "Quadri Q16",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/quadri-q16",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
     "wpSlug": "quadri-q18",
     "wpNombre": "Quadri Q18",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/quadri-q18",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
     "wpSlug": "quadri-q20",
     "wpNombre": "Quadri Q20",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/quadri-q20",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
     "wpSlug": "quadri-q22",
     "wpNombre": "Quadri Q22",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/quadri-q22",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
     "wpSlug": "quadri-q23",
     "wpNombre": "Quadri Q23",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/quadri-q23",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
     "wpSlug": "quadri-q3",
     "wpNombre": "Quadri Q3",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/quadri-q3",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
     "wpSlug": "quadri-q4",
     "wpNombre": "Quadri Q4",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/quadri-q4",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
     "wpSlug": "quadri-q6",
     "wpNombre": "Quadri Q6",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/quadri-q6",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
@@ -1074,17 +1074,17 @@
   {
     "wpSlug": "temx-one",
     "wpNombre": "TEMX One",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/temx-one",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
     "wpSlug": "temx-two",
     "wpNombre": "TEMX Two",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/temx-two",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
@@ -1138,9 +1138,9 @@
   {
     "wpSlug": "uno",
     "wpNombre": "Uno",
-    "apiSlug": "escritorios/uno",
+    "apiSlug": "escritorios/uno-italiano",
     "estado": "inequivoco",
-    "motivo": "Desempate por categoría.",
+    "motivo": "Resolución manual.",
     "candidatos": []
   },
   {
@@ -1170,49 +1170,49 @@
   {
     "wpSlug": "versatil-v1",
     "wpNombre": "Versátil V1",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/versatil-v1",
+    "estado": "inequivoco",
+    "motivo": null,
     "candidatos": []
   },
   {
     "wpSlug": "versatil-v3-hyb",
     "wpNombre": "Versátil V3-HYB",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/versatil-v3-hibrido",
+    "estado": "inequivoco",
+    "motivo": "Resolución manual.",
     "candidatos": []
   },
   {
     "wpSlug": "versatil-v3-hyblsp",
     "wpNombre": "Versátil V3-HYB+LSP",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/versatil-v3-hibrido-con-librero",
+    "estado": "inequivoco",
+    "motivo": "Resolución manual.",
     "candidatos": []
   },
   {
     "wpSlug": "versatil-v4-met",
     "wpNombre": "Versátil V4-MET",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/versatil-v4",
+    "estado": "inequivoco",
+    "motivo": "Resolución manual.",
     "candidatos": []
   },
   {
     "wpSlug": "versatil-v7-met",
     "wpNombre": "Versátil V7-MET",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/versatil-v7",
+    "estado": "inequivoco",
+    "motivo": "Resolución manual.",
     "candidatos": []
   },
   {
     "wpSlug": "versatil-v8-mesa",
     "wpNombre": "Versátil V8-MESA",
-    "apiSlug": null,
-    "estado": "sin-pareja",
-    "motivo": "Ningún producto de la API tiene este nombre.",
+    "apiSlug": "escritorios/versatil-v8",
+    "estado": "inequivoco",
+    "motivo": "Resolución manual.",
     "candidatos": []
   },
   {
@@ -1242,7 +1242,7 @@
   {
     "wpSlug": "zero",
     "wpNombre": "Zero",
-    "apiSlug": "sofas/zero",
+    "apiSlug": "escritorios/zero",
     "estado": "inequivoco",
     "motivo": null,
     "candidatos": []

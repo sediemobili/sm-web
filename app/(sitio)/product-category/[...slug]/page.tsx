@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps<"/product-category/
     title: categoria.seo.title ?? categoria.name,
     description: categoria.seo.description ?? descripcionListado(categoria.name, productos.length),
     canonical: categoria.path,
-    ogImage: categoria.seo.ogImage ?? categoria.image,
+    ogImage: [categoria.seo.ogImage, categoria.image],
   });
 }
 

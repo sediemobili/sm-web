@@ -16,11 +16,33 @@ const MARCA = /Sedie\s*(?:&amp;|&|y)?\s*Mobili/i;
 const MARCA_FINAL = new RegExp(`\\s*[-–—·|]\\s*${MARCA.source}\\s*$`, "i");
 export const sinMarca = (titulo: string) => titulo.replace(MARCA_FINAL, "").trim();
 
+// Imagen al compartir en redes (og:image y twitter:image). Vive en el repositorio: el escritorio
+// Zero, la misma foto de la diapositiva del hero. La usan las páginas sin imagen propia.
+// Las imágenes para compartir van en JPEG (public/media/og/): WebP no es fiable en las
+// previsualizaciones de WhatsApp y Facebook. Las genera pnpm medios --og.
+export const OG_RESPALDO = "/media/og/ZERO.jpg";
+
+// og:image de una ficha de la API: su foto principal, convertida a JPEG por app/og/producto/.
+export const ogProducto = (slug: string) => `/og/producto/${slug}.jpg`;
+
+// Nada de sediemobili.com/wp-content/: el día que se apague WordPress, esa previsualización
+// quedaría en blanco. Lo usan también los datos estructurados (lib/jsonld.ts).
+const DE_WORDPRESS = /\/\/(?:www\.)?sediemobili\.com\/wp-content\//i;
+export const esDeWordPress = (url: string) => DE_WORDPRESS.test(url);
+
+type Candidata = string | null | undefined;
+
+// La primera candidata, en orden, que no dependa de WordPress; si no queda ninguna, la de respaldo.
+export function imagenCompartir(...candidatas: Candidata[]) {
+  return candidatas.find((src): src is string => Boolean(src) && !esDeWordPress(src!)) ?? OG_RESPALDO;
+}
+
 type Opciones = {
   title: string;
   description: string;
   canonical: string;
-  ogImage?: string | null;
+  // Una imagen o varias candidatas en orden de preferencia.
+  ogImage?: Candidata | Candidata[];
   noindex?: boolean;
   tipo?: "website" | "article";
 };
@@ -31,6 +53,7 @@ export function metadataDe({ title, description, canonical, ogImage, noindex, ti
   // era solo la marca, queda "Sedie & Mobili".
   const limpio = sinMarca(title);
   const completo = !limpio ? NOMBRE : MARCA.test(limpio) ? limpio : `${limpio}${SEPARADOR}${NOMBRE}`;
+  const imagen = imagenCompartir(...(Array.isArray(ogImage) ? ogImage : [ogImage]));
   return {
     title: completo === `${limpio}${SEPARADOR}${NOMBRE}` ? limpio : { absolute: completo },
     description,
@@ -43,8 +66,9 @@ export function metadataDe({ title, description, canonical, ogImage, noindex, ti
       type: tipo,
       siteName: NOMBRE,
       locale: "es_MX",
-      images: ogImage ? [{ url: ogImage }] : undefined,
+      images: [{ url: imagen }],
     },
+    twitter: { card: "summary_large_image", images: [imagen] },
   };
 }
 

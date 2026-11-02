@@ -12,6 +12,16 @@ const POR_PAGINA = 200;
 const INTERVALO_MS = 1000;
 const ESPERAS_429_MS = [10_000, 20_000, 40_000];
 
+// Cada imagen del producto, clasificada por la API. "plano" es el dibujo de cotas: nunca es una
+// foto de producto.
+export type ImagenApi = {
+  tipo: "principal" | "galeria" | "plano" | "acabado" | "detalle";
+  url: string;
+  orden: number;
+  ancho: number | null;
+  alto: number | null;
+};
+
 export type ProductoApi = {
   slug: string;
   sku: string | null;
@@ -24,6 +34,8 @@ export type ProductoApi = {
   descripcion: string | null;
   especificaciones: { etiqueta: string; valor: string }[] | null;
   imagen_principal: string | null;
+  // Llega en el listado y en el detalle.
+  imagenes: ImagenApi[] | null;
   acabados: { id: string; label: string; description: string | null; imagen_url: string | null }[] | null;
 };
 

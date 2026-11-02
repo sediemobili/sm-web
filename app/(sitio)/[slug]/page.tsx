@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps<"/[slug]">) {
     title: post.seo.title ?? post.title,
     description: post.seo.description ?? extracto ?? descripcionPost(post.title),
     canonical: post.path,
-    ogImage: post.seo.ogImage ?? post.featuredImage?.src ?? null,
+    ogImage: [post.seo.ogImage, post.featuredImage?.src],
     tipo: "article",
   });
 }

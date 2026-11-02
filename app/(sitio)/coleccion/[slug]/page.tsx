@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps<"/coleccion/[slug]"
     title: coleccion.seo.title ?? coleccion.name,
     description: coleccion.seo.description ?? descripcionListado(coleccion.name, productos.length),
     canonical: coleccion.path,
-    ogImage: coleccion.seo.ogImage ?? productos[0]?.images[0]?.src ?? null,
+    ogImage: [coleccion.seo.ogImage, productos[0]?.seo.ogImage],
   });
 }
 

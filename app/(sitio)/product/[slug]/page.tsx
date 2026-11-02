@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: PageProps<"/product/[slug]">)
     title: producto.seo.title ?? producto.name,
     description: producto.seo.description ?? descripcionProducto(producto.name, categoria?.name ?? null),
     canonical: producto.path,
-    ogImage: producto.seo.ogImage ?? producto.images[0]?.src ?? null,
+    ogImage: producto.seo.ogImage,
   });
 }
 

@@ -2,8 +2,9 @@
 // se puede probar fuera del servidor.
 
 import { normalizar } from "../../buscar";
+import { ogProducto } from "../../seo";
 import type { Category, Download, Product, Seo } from "../types";
-import type { ProductoApi, ProductoDetalleApi } from "./cliente";
+import type { ImagenApi, ProductoApi, ProductoDetalleApi } from "./cliente";
 import { categoriaSitio } from "./correspondencias";
 
 const MARCA = "Sedie & Mobili";
@@ -114,6 +115,34 @@ const extension = (url: string) => {
   return punto > ruta.lastIndexOf("/") ? ruta.slice(punto + 1).toLowerCase() : null;
 };
 
+// Fotos de un producto de la API, según el tipo con que la API clasifica cada imagen. Fuera de
+// la ficha solo cuenta imagen_principal: sin ella, el producto no tiene foto y no sale en
+// listados. En la ficha se suman, en su orden, las de galería y detalle. Un plano nunca es foto
+// de producto, ni siquiera si llegara como principal.
+const TIPOS_FICHA = new Set<ImagenApi["tipo"]>(["galeria", "detalle"]);
+
+const planosDe = (producto: ProductoApi) =>
+  new Set((producto.imagenes ?? []).filter((imagen) => imagen.tipo === "plano").map((imagen) => imagen.url));
+
+// La foto principal, si la hay y no es un plano. Es también la imagen al compartir la ficha.
+function principalApi(producto: ProductoApi) {
+  const src = producto.imagen_principal;
+  return src && !planosDe(producto).has(src) ? src : null;
+}
+
+function fotosApi(producto: ProductoApi, ficha: boolean) {
+  const imagenes = producto.imagenes ?? [];
+  const planos = planosDe(producto);
+  const principal = principalApi(producto);
+  const galeria = ficha
+    ? imagenes
+        .filter((imagen) => TIPOS_FICHA.has(imagen.tipo) && !planos.has(imagen.url))
+        .sort((a, b) => a.orden - b.orden)
+        .map((imagen) => imagen.url)
+    : [];
+  return [...new Set([principal, ...galeria].filter((src): src is string => Boolean(src)))];
+}
+
 type Contexto = {
   slug: string;
   // El producto de WordPress equivalente: aporta lo que la API no trae (SEO de Yoast,
@@ -128,9 +157,7 @@ export function aProducto(producto: ProductoApi | ProductoDetalleApi, { slug, wp
   const categoria = categoriaSitio(producto.categoria, producto.tipo, (s) => madres.get(s) ?? null);
   const nombreCategoria = categorias.find((c) => c.slug === categoria)?.name ?? null;
 
-  // En el listado solo llega la foto principal; el detalle suma la galería.
-  const galeria = "galeria" in producto ? (producto.galeria ?? []) : [];
-  const fotos = [...new Set([producto.imagen_principal, ...galeria].filter((src): src is string => Boolean(src)))];
+  const fotos = fotosApi(producto, "galeria" in producto);
   const documentos = "documentos" in producto ? (producto.documentos ?? []) : null;
   const downloads: Download[] | null = documentos
     ? documentos.map((d) => ({ tipo: "otro", label: d.nombre, url: d.url, extension: extension(d.url) }))
@@ -171,6 +198,11 @@ export function aProducto(producto: ProductoApi | ProductoDetalleApi, { slug, wp
       image: a.imagen_url,
     })),
     origen: "sedie-api",
-    seo: wp?.seo ?? seoNuevo(producto, generica, nombreCategoria),
+    // Al compartir, la foto principal en JPEG (la sirve app/og/producto/); sin ella, la del
+    // equivalente de WordPress (copia local) y, si no hay, la de respaldo que pone lib/seo.ts.
+    seo: {
+      ...(wp?.seo ?? seoNuevo(producto, generica, nombreCategoria)),
+      ogImage: principalApi(producto) ? ogProducto(slug) : (wp?.seo.ogImage ?? null),
+    },
   };
 }

@@ -4,44 +4,41 @@ Fuente: https://sedie-wiki.vercel.app/api/external/v1
 Productos de la API por categoría
 ---------------------------------
   bancas.................................... 25
-  escritorios............................... 18
+  escritorios............................... 54
   mesabancos................................ 14
   mesas..................................... 10
   recepciones............................... 8
   sillas.................................... 207
-  sofas..................................... 83
+  sofas..................................... 76
   soft-seating.............................. 24
   taburetes................................. 16
-  Total..................................... 405
+  Total..................................... 434
 
 Contenido
 ---------
-  Con foto principal........................ 307 de 405
-  Con galería............................... 297 de 405
-  Con PDF................................... 240 de 405
-  Con algún documento (PDF u otro).......... 240 de 405
-  Con especificaciones...................... 55 de 405
-  Con descripción........................... 405 de 405
-  Con descripción propia (no repetida)...... 381 de 405
+  Con foto principal........................ 317 de 434
+  Con galería............................... 297 de 434
+  Con PDF................................... 212 de 434
+  Con algún documento (PDF u otro).......... 212 de 434
+  Con especificaciones...................... 334 de 434
+  Con descripción........................... 434 de 434
+  Con descripción propia (no repetida)...... 410 de 434
 
 Cruce con WordPress (157 productos), por nombre normalizado
 -----------------------------------------------------------
-  Con equivalente inequívoco................ 113
-    por nombre exacto....................... 73
-    desempatados por categoría.............. 26
+  Con equivalente inequívoco................ 133
+    por nombre exacto....................... 85
+    desempatados por categoría.............. 25
     desempatados por subcategoría........... 5
     por prefijo de categoría................ 7
-    por resolución manual................... 2
+    por resolución manual................... 11
   Dudosos................................... 0
-  Sin equivalente........................... 44
+  Sin equivalente........................... 24
 
 Productos de WordPress sin equivalente en la API (a resolver a mano)
 --------------------------------------------------------------------
   - 03-BE15 (03-be15)
   - 14-10800 (14-10800)
-  - Air Duo 1 (air-duo-1)
-  - Air Duo 2 (air-duo-2)
-  - Air Duo 3 (air-duo-3)
   - Basic 1 (basic-1)
   - Basic 2 (basic-2)
   - Blitz Visita (blitz-visita)
@@ -62,28 +59,14 @@ Productos de WordPress sin equivalente en la API (a resolver a mano)
   - Lithos 4 (lithos-4)
   - Nova Iso (nova-iso)
   - Orlando Visita (orlando-visita)
-  - Quadri Q11 (quadri-q11)
-  - Quadri Q16 (quadri-q16)
-  - Quadri Q18 (quadri-q18)
-  - Quadri Q20 (quadri-q20)
-  - Quadri Q22 (quadri-q22)
-  - Quadri Q23 (quadri-q23)
-  - Quadri Q3 (quadri-q3)
-  - Quadri Q4 (quadri-q4)
-  - Quadri Q6 (quadri-q6)
   - Seneca Visita (seneca-visita)
   - Space Plegable (space-plegable)
-  - TEMX One (temx-one)
-  - TEMX Two (temx-two)
-  - Versátil V1 (versatil-v1)
-  - Versátil V3-HYB (versatil-v3-hyb)
-  - Versátil V3-HYB+LSP (versatil-v3-hyblsp)
-  - Versátil V4-MET (versatil-v4-met)
-  - Versátil V7-MET (versatil-v7-met)
-  - Versátil V8-MESA (versatil-v8-mesa)
 
 Emparejados por una regla o a mano (revisar)
 --------------------------------------------
+  - Air Duo 1 (air-duo-1) → escritorios/air-duo-ad1: Resolución manual.
+  - Air Duo 2 (air-duo-2) → escritorios/air-duo-ad2: Resolución manual.
+  - Air Duo 3 (air-duo-3) → escritorios/air-duo-ad3: Resolución manual.
   - Airport (airport) → bancas/banca-airport: Nombre de la API con prefijo de categoría.
   - Alejandría (alejandria) → soft-seating/alejandria: Desempate por categoría.
   - Bali (bali) → soft-seating/bali: Desempate por categoría.
@@ -121,8 +104,13 @@ Emparejados por una regla o a mano (revisar)
   - Suiza (suiza-2) → sillas/suiza: Desempate por categoría (nombre repetido en WordPress).
   - Tapas (tapas) → mesas/mesa-tapas: Nombre de la API con prefijo de categoría.
   - Thai (thai) → soft-seating/thai: Desempate por categoría.
-  - Uno (uno) → escritorios/uno: Desempate por categoría.
+  - Uno (uno) → escritorios/uno-italiano: Resolución manual.
   - Valle Sport (valle-sport) → bancas/banca-valle-sport: Nombre de la API con prefijo de categoría.
+  - Versátil V3-HYB (versatil-v3-hyb) → escritorios/versatil-v3-hibrido: Resolución manual.
+  - Versátil V3-HYB+LSP (versatil-v3-hyblsp) → escritorios/versatil-v3-hibrido-con-librero: Resolución manual.
+  - Versátil V4-MET (versatil-v4-met) → escritorios/versatil-v4: Resolución manual.
+  - Versátil V7-MET (versatil-v7-met) → escritorios/versatil-v7: Resolución manual.
+  - Versátil V8-MESA (versatil-v8-mesa) → escritorios/versatil-v8: Resolución manual.
   - Yeka (yeka) → taburetes/yeka: Desempate por categoría.
 
 Productos de WordPress dudosos por nombre repetido en la API (a resolver a mano)
@@ -135,12 +123,12 @@ Productos de WordPress dudosos por nombre repetido en WordPress (a resolver a ma
 
 Nombres repetidos en la API (no se elige ninguno)
 -------------------------------------------------
-  - Uno: escritorios/uno [Mobiliario nacional], sofas/uno [Mobiliario italiano]
-  - Dublin: recepciones/dublin [Recepción], sofas/dublin [Sofá Comunitario]
+  - Uno: escritorios/uno [Escritorio], escritorios/uno-italiano [Mobiliario italiano]
+  - Dublín: recepciones/dublin [Recepción], sofas/dublin [Sofá comunitario]
   - Madrid: recepciones/madrid [Recepción], sillas/madrid [Silla ejecutiva]
-  - Alejandria: sillas/alejandria [Silla de visita], soft-seating/alejandria [Soft seating]
-  - Barcelona: sillas/barcelona [Silla escolar], sofas/barcelona [Sofá Capacitacion]
-  - Centurión: sillas/centurion [Silla directiva], sofas/centurion [Sofá Recepcion]
+  - Alejandría: sillas/alejandria [Silla de visita], soft-seating/alejandria [Soft seating]
+  - Barcelona: sillas/barcelona [Silla escolar], sofas/barcelona [Sofá de capacitación]
+  - Centurión: sillas/centurion [Silla directiva], sofas/centurion [Sofá de recepción]
   - College: sillas/college [Silla de visita], sillas/college-sillas-escolar [Silla escolar]
   - Com Sette: sillas/com-sette [Silla ejecutiva], soft-seating/com-sette [Soft seating]
   - Elisa: sillas/elisa [Silla directiva], sillas/elisa-sillas-ejecutivas [Silla ejecutiva]
@@ -162,21 +150,21 @@ Nombres repetidos en la API (no se elige ninguno)
   - Smile: sillas/smile [Silla de visita], taburetes/smile [Taburete]
   - Solar: sillas/solar [Silla directiva], sillas/solar-sillas-ejecutivas [Silla ejecutiva]
   - Specchio Nero: sillas/specchio-nero [Silla directiva], sillas/specchio-nero-sillas-ejecutivas [Silla ejecutiva]
-  - Suiza: sillas/suiza [Silla operativa], sofas/suiza [Sofá Recepcion]
+  - Suiza: sillas/suiza [Silla operativa], sofas/suiza [Sofá de recepción]
   - Volare: sillas/volare [Silla directiva], sillas/volare-sillas-ejecutivas [Silla ejecutiva]
   - Yeka: sillas/yeka [Silla de visita], taburetes/yeka [Taburete]
-  - Bali: sofas/bali [Sofá Comunitario], soft-seating/bali [Soft seating]
-  - Bubble: sofas/bubble [Sofá Hogar], soft-seating/bubble [Soft seating]
-  - Dakota: sofas/dakota [Sofá Generales], soft-seating/dakota [Soft seating]
-  - Gales: sofas/gales [Sofá Recepcion], sofas/gales-sofas-capacitacion [Sofá Capacitacion]
-  - Italia: sofas/italia [Sofá Hogar], soft-seating/italia [Soft seating]
-  - Kube: sofas/kube [Sofá Generales], soft-seating/kube [Soft seating]
-  - Londres: sofas/londres [Sofá Comunitario], sofas/londres-sofas-capacitacion [Sofá Capacitacion]
-  - Malaga: sofas/malaga [Sofá Recepcion], sofas/malaga-sofas-generales [Sofá Generales]
-  - Niza: sofas/niza [Sofá Generales], soft-seating/niza [Soft seating]
-  - Patmos: sofas/patmos [Sofá Generales], soft-seating/patmos [Soft seating]
-  - Polonia: sofas/polonia [Sofá Comunitario], soft-seating/polonia [Soft seating]
-  - Thai: sofas/thai [Sofá Comunitario], soft-seating/thai [Soft seating]
+  - Bali: sofas/bali [Sofá comunitario], soft-seating/bali [Soft seating]
+  - Bubble: sofas/bubble [Sofá para hogar], soft-seating/bubble [Soft seating]
+  - Dakota: sofas/dakota [Sofá general], soft-seating/dakota [Soft seating]
+  - Gales: sofas/gales [Sofá de recepción], sofas/gales-sofas-capacitacion [Sofá de capacitación]
+  - Italia: sofas/italia [Sofá para hogar], soft-seating/italia [Soft seating]
+  - Kube: sofas/kube [Sofá general], soft-seating/kube [Soft seating]
+  - Londres: sofas/londres [Sofá comunitario], sofas/londres-sofas-capacitacion [Sofá de capacitación]
+  - Málaga: sofas/malaga [Sofá de recepción], sofas/malaga-sofas-generales [Sofá general]
+  - Niza: sofas/niza [Sofá general], soft-seating/niza [Soft seating]
+  - Patmos: sofas/patmos [Sofá general], soft-seating/patmos [Soft seating]
+  - Polonia: sofas/polonia [Sofá comunitario], soft-seating/polonia [Soft seating]
+  - Thai: sofas/thai [Sofá comunitario], soft-seating/thai [Soft seating]
   - Leo: soft-seating/leo [Soft seating], taburetes/leo [Taburete]
 
 Nombres repetidos en WordPress
@@ -185,7 +173,7 @@ Nombres repetidos en WordPress
   - Leo: leo, leo-2
   - Com Sette: com-sette, com-sette-2
 
-Productos de la API que no existen hoy en el sitio: 292
+Productos de la API que no existen hoy en el sitio: 301
 -------------------------------------------------------
   - Banca Aero (bancas/banca-aero)
   - Banca BE15 (bancas/banca-be15)
@@ -205,7 +193,10 @@ Productos de la API que no existen hoy en el sitio: 292
   - Banca Romy (bancas/banca-romy)
   - Banca Slim (bancas/banca-slim)
   - Banca Solution (bancas/banca-solution)
+  - Andrea (escritorios/andrea)
   - Archiveros (escritorios/archiveros)
+  - Basic BA1 (escritorios/basic-ba1)
+  - Basic BA6 (escritorios/basic-ba6)
   - Cajoneras (escritorios/cajoneras)
   - Credenzas (escritorios/credenzas)
   - Ekompi (escritorios/ekompi)
@@ -213,15 +204,27 @@ Productos de la API que no existen hoy en el sitio: 292
   - Escritorio Credenza (escritorios/escritorio-credenza)
   - Escritorio Librero (escritorios/escritorio-librero)
   - Estación de Trabajo (escritorios/estacion-de-trabajo)
+  - Karim (escritorios/karim)
+  - Larus (escritorios/larus)
   - Libreros (escritorios/libreros)
   - Línea Air Duo (escritorios/linea-air-duo)
   - Línea Basic (escritorios/linea-basic)
   - Línea Dinamo (escritorios/linea-dinamo)
   - Línea Quadri (escritorios/linea-quadri)
   - Línea TEMX (escritorios/linea-temx)
-  - Línea Versatil (escritorios/linea-versatil)
+  - Línea Versátil (escritorios/linea-versatil)
+  - Lithos (escritorios/lithos)
+  - Paolo (escritorios/paolo)
+  - Quadri Q1 (escritorios/quadri-q1)
+  - Quadri Q19 (escritorios/quadri-q19)
+  - Quadri Q2 (escritorios/quadri-q2)
+  - Quadri Q5 (escritorios/quadri-q5)
+  - Quadri QA1 (escritorios/quadri-qa1)
+  - Quadri QA17 (escritorios/quadri-qa17)
   - Segno (escritorios/segno)
   - Tricepta (escritorios/tricepta)
+  - Uno (escritorios/uno)
+  - Versátil V6 (escritorios/versatil-v6)
   - Mesa Escolar (mesabancos/mesa-escolar)
   - Mesabanco Básico (mesabancos/mesabanco-basico)
   - Mesabanco Custom (mesabancos/mesabanco-custom)
@@ -243,8 +246,8 @@ Productos de la API que no existen hoy en el sitio: 292
   - Madrid (recepciones/madrid)
   - Repisa y Panel-AMST (recepciones/repisa-y-panel-amst)
   - Absolute (sillas/absolute)
-  - Agata (sillas/agata)
-  - Alejandria (sillas/alejandria)
+  - Ágata (sillas/agata)
+  - Alejandría (sillas/alejandria)
   - Andromeda (sillas/andromeda)
   - Atlanta (sillas/atlanta)
   - Atlantis (sillas/atlantis)
@@ -255,7 +258,7 @@ Productos de la API que no existen hoy en el sitio: 292
   - Boucle (sillas/boucle)
   - Braun Chair (sillas/braun-chair)
   - Brooklyn (sillas/brooklyn)
-  - Cajun (sillas/cajun)
+  - Cajún (sillas/cajun)
   - Casio (sillas/casio)
   - Catullo (sillas/catullo)
   - Centurión (sillas/centurion)
@@ -268,7 +271,7 @@ Productos de la API que no existen hoy en el sitio: 292
   - Dortmund (sillas/dortmund)
   - Duilio (sillas/duilio)
   - Eco Express (sillas/eco-express)
-  - Efeso (sillas/efeso)
+  - Éfeso (sillas/efeso)
   - Elisa (sillas/elisa-sillas-ejecutivas)
   - Equity (sillas/equity)
   - Escocia (sillas/escocia)
@@ -342,7 +345,7 @@ Productos de la API que no existen hoy en el sitio: 292
   - Olympus (sillas/olympus)
   - Orion (sillas/orion)
   - Orus (sillas/orus)
-  - Paris (sillas/paris)
+  - París (sillas/paris)
   - Paula (sillas/paula)
   - Piero (sillas/piero)
   - Pinko (sillas/pinko)
@@ -396,19 +399,18 @@ Productos de la API que no existen hoy en el sitio: 292
   - X3 (sillas/x3)
   - Ximena (sillas/ximena)
   - Yeka (sillas/yeka)
-  - Andrea (sofas/andrea)
   - Angel (sofas/angel)
   - Asis (sofas/asis)
   - Bali (sofas/bali)
   - Barcelona (sofas/barcelona)
   - Bubble (sofas/bubble)
   - Catania (sofas/catania)
-  - Centurion (sofas/centurion)
+  - Centurión (sofas/centurion)
   - Cloud (sofas/cloud)
   - Dakota (sofas/dakota)
   - Denali (sofas/denali)
   - Dubai (sofas/dubai)
-  - Dublin (sofas/dublin)
+  - Dublín (sofas/dublin)
   - Dunas (sofas/dunas)
   - Ébano (sofas/ebano)
   - Egipto (sofas/egipto)
@@ -427,14 +429,11 @@ Productos de la API que no existen hoy en el sitio: 292
   - HK Soft (sofas/hk-soft)
   - Italia (sofas/italia)
   - Kansas (sofas/kansas)
-  - Karim (sofas/karim)
   - Korolev (sofas/korolev)
   - Kube (sofas/kube)
-  - Larus (sofas/larus)
-  - Lithos (sofas/lithos)
   - Londres (sofas/londres)
   - Londres (sofas/londres-sofas-capacitacion)
-  - Malaga (sofas/malaga-sofas-generales)
+  - Málaga (sofas/malaga-sofas-generales)
   - Malta (sofas/malta)
   - Manhatan (sofas/manhatan)
   - Miami (sofas/miami)
@@ -445,7 +444,6 @@ Productos de la API que no existen hoy en el sitio: 292
   - Niza (sofas/niza)
   - Nube (sofas/nube)
   - Oxford (sofas/oxford)
-  - Paolo (sofas/paolo)
   - Pasha (sofas/pasha)
   - Patmos (sofas/patmos)
   - Polonia (sofas/polonia)
@@ -461,9 +459,8 @@ Productos de la API que no existen hoy en el sitio: 292
   - Tarento (sofas/tarento)
   - Thai (sofas/thai)
   - Tokio (sofas/tokio)
-  - Turquia (sofas/turquia)
+  - Turquía (sofas/turquia)
   - Twister (sofas/twister)
-  - Uno (sofas/uno)
   - Venecia (sofas/venecia)
   - Viena (sofas/viena)
   - Air (soft-seating/air)
